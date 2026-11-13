@@ -89,7 +89,7 @@
       "date": "2026-11-14",
       "city": "Pune",
       "place": "Feast - Sheraton Grand | Sheraton Grand, Bund Garden Road",
-      "price": "INR 2772",
+      "price": "INR 2771.82",
       "source": "District",
       "links": [
         {
@@ -409,7 +409,7 @@
       "date": "2026-11-27",
       "city": "Pune",
       "place": "The Box Studio",
-      "price": "INR Free",
+      "price": "Free",
       "source": "District",
       "links": [
         {
@@ -740,5 +740,9 @@
       "source": "Reddit",
       "reason": "Current robots restrictions; parser retained offline only"
     }
-  ]
+  ],
+  "audit": {
+    "checkedAt": "2026-11-13",
+    "method": "Each of the 43 original listing URLs was opened and its title, date and Pune venue checked. Recurring dates match the published recurrence. Platform-listed, not organiser-confirmed. Original snapshot expiry unchanged."
+  }
 }
