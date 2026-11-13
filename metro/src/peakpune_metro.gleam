@@ -109,7 +109,7 @@ fn availability_suffix(availability: Availability) -> String {
   case availability {
     Available -> ""
     NotOpenYet -> " (not open yet)"
-    ReportedOpen -> " (open per media reports)"
+    ReportedOpen -> ""
   }
 }
 
