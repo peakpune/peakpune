@@ -4,8 +4,13 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "node scripts/build.mjs",
+    "build": "node scripts/validate-metro.mjs && node scripts/build.mjs",
     "test": "node --test",
-    "dev": "node scripts/build.mjs && python3 -m http.server 4173 --directory public"
+    "dev": "node scripts/build.mjs && python3 -m http.server 4173 --directory public",
+    "metro:check": "node scripts/validate-metro.mjs",
+    "metro:data": "node scripts/metro-gleam-data.mjs",
+    "metro:build": "node scripts/metro-build.mjs",
+    "metro:test": "cd metro && gleam test",
+    "metro:offline": "node scripts/metro-offline-check.mjs"
   }
 }
