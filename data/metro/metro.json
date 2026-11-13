@@ -1,0 +1,684 @@
+{
+ "verified_on": "2026-11-13",
+ "timezone": "Asia/Kolkata",
+ "provenance": {
+  "mahametro_homepage": "https://punemetrorail.org/",
+  "mahametro_fare_chart_page": "https://www.punemetrorail.org/fare_chart.aspx",
+  "mahametro_fare_matrix_image": "https://www.punemetrorail.org/assets/images/Fare-Chart-E-Web.avif",
+  "mahametro_timetable_page": "https://www.punemetrorail.org/time-table",
+  "mahametro_timetable_images": [
+   "https://www.punemetrorail.org/assets/images/Time-Table-new-1-15Aug.jpg",
+   "https://www.punemetrorail.org/assets/images/Time-Table-new-2-15Aug.jpg"
+  ],
+  "mahametro_one_pune_card": "https://www.punemetrorail.org/one-pune-card",
+  "mahametro_project_profile": "https://www.punemetrorail.org/project-profile",
+  "line3_homepage": "https://punerimetro.in/",
+  "line3_station_list": "https://punerimetro.in/route/station-list",
+  "line3_fare_table_page": "https://punerimetro.in/passenger-info/fare-table",
+  "line3_fare_chart_image": "https://punerimetro.in/fare-table/pune-metro-fare-chart.png",
+  "line3_timetable_page": "https://punerimetro.in/passenger-info/time-table",
+  "line3_timetable_image": "https://punerimetro.in/time-table/pink-line-time-table.png",
+  "line3_route_map": "https://punerimetro.in/project-profile/route-map",
+  "line3_highlights": "https://punerimetro.in/project-profile/highlights",
+  "line3_contact": "https://punerimetro.in/contact",
+  "mahametro_vidyarthi_pass": "https://www.punemetrorail.org/vidyarthiPass.aspx",
+  "mahametro_one_pune_card_non_kyc": "https://www.punemetrorail.org/one-pune-card-non-kyc.aspx",
+  "line3_overview": "https://punerimetro.in/about/overview",
+  "line3_amenities": "https://punerimetro.in/passenger-info/passenger-amenities"
+ },
+ "operators": {
+  "maha_metro": {
+   "name": "Maharashtra Metro Rail Corporation Ltd (Maha Metro)",
+   "lines": [
+    "purple",
+    "aqua"
+   ],
+   "helpline": "18002705501",
+   "email": "customercare.pmrp@mahametro.org",
+   "whatsapp_eticket": "https://wa.me/9420101990",
+   "homepage_stats": {
+    "lines": 2,
+    "total_stations": 30,
+    "operational_stations": 29,
+    "underground_stations": 5,
+    "network_km": 33.1
+   }
+  },
+  "pitcmrl": {
+   "name": "Pune IT City Metro Rail Limited (PITCMRL) - Tata Group + Siemens JV, DBFOT concession from PMRDA, O&M partner Keolis",
+   "lines": [
+    "pink_line3"
+   ],
+   "helpline": "020-65520100",
+   "email": "support@punerimetro.in",
+   "whatsapp_eticket": null
+  }
+ },
+ "lines": [
+  {
+   "id": "purple",
+   "name": "Line 1 (Purple)",
+   "operator": "maha_metro",
+   "termini": [
+    "PCMC",
+    "Swargate"
+   ],
+   "length_km": 17.5,
+   "end_to_end_min": 34,
+   "station_order": [
+    "PCMC",
+    "Sant Tukaram Nagar",
+    "Nashik Phata (Bhosari)",
+    "Kasarwadi",
+    "Phugewadi",
+    "Dapodi",
+    "Bopodi",
+    "Khadki",
+    "Shivaji Nagar",
+    "District Court",
+    "Kasba Peth",
+    "Mahatma Phule Mandai",
+    "Swargate"
+   ],
+   "station_codes": {
+    "PCMC": "PIM",
+    "Sant Tukaram Nagar": "STG",
+    "Nashik Phata (Bhosari)": "BHO",
+    "Kasarwadi": "KWA",
+    "Phugewadi": "PGD",
+    "Dapodi": "DDI",
+    "Bopodi": "BPI",
+    "Khadki": "KHK",
+    "Shivaji Nagar": "SJO",
+    "District Court": "CVC",
+    "Kasba Peth": "BPD",
+    "Mahatma Phule Mandai": "MNA",
+    "Swargate": "SGT"
+   },
+   "listed_but_not_open": [
+    {
+     "name": "Range Hill",
+     "after": "Khadki",
+     "before": "Shivaji Nagar",
+     "status_source": "operator",
+     "verified": true,
+     "source": "https://www.punemetrorail.org/project-profile",
+     "note": "Listed on the operator project profile without an Open tag and absent from the fare chart; the Know Your Stations page lists it too. Never selectable."
+    }
+   ],
+   "length_km_project_profile": 17.4,
+   "length_km_source": "timetable image (17.5 km); project profile page says 17.4 km",
+   "station_status": {
+    "status_source": "operator",
+    "verified": true,
+    "as_of": "2026-11-13",
+    "source": "https://www.punemetrorail.org/project-profile",
+    "note": "Every station in station_order is tagged (Open) on the operator project profile page."
+   }
+  },
+  {
+   "id": "aqua",
+   "name": "Line 2 (Aqua)",
+   "operator": "maha_metro",
+   "termini": [
+    "Vanaz",
+    "Ramwadi"
+   ],
+   "length_km": 14.5,
+   "end_to_end_min": 37,
+   "station_order": [
+    "Vanaz",
+    "Anand Nagar",
+    "Paud Phata",
+    "S.N.D.T. College",
+    "Garware College",
+    "Deccan Gymkhana",
+    "Chhatrapati Sambhaji Udyan",
+    "PMC",
+    "District Court",
+    "R.T.O., Pune",
+    "Pune Railway Station",
+    "Ruby Hall Clinic",
+    "Bund Garden",
+    "Yerwada",
+    "Kalyani Nagar",
+    "Ramwadi"
+   ],
+   "station_codes": {
+    "Vanaz": "VNZ",
+    "Anand Nagar": "AND",
+    "Paud Phata": "ICY",
+    "S.N.D.T. College": "NST",
+    "Garware College": "GWC",
+    "Deccan Gymkhana": "DGK",
+    "Chhatrapati Sambhaji Udyan": "SAN",
+    "PMC": "PMC",
+    "District Court": "CVC",
+    "R.T.O., Pune": "MGA",
+    "Pune Railway Station": "PRS",
+    "Ruby Hall Clinic": "RUC",
+    "Bund Garden": "BUN",
+    "Yerwada": "YER",
+    "Kalyani Nagar": "KNA",
+    "Ramwadi": "RAW"
+   },
+   "name_aliases_on_other_operator_pages": {
+    "Paud Phata": "Ideal Colony",
+    "S.N.D.T. College": "Nal Stop",
+    "R.T.O., Pune": "Mangalwar Peth"
+   },
+   "length_km_project_profile": 15.7,
+   "length_km_source": "timetable image (14.5 km); project profile page says 15.7 km",
+   "station_status": {
+    "status_source": "operator",
+    "verified": true,
+    "as_of": "2026-11-13",
+    "source": "https://www.punemetrorail.org/project-profile",
+    "note": "Every station in station_order is tagged (Open) on the operator project profile page."
+   }
+  },
+  {
+   "id": "pink_line3",
+   "name": "Line 3 (Pink)",
+   "operator": "pitcmrl",
+   "corridor": "Maan (Hinjawadi) to District Court (Shivajinagar), fully elevated",
+   "length_km": 23.3,
+   "end_to_end_min": 45,
+   "passenger_service_started": {
+    "date": "2026-11-04",
+    "status_source": "media",
+    "verified": false,
+    "note": "Launch date consistent across multiple media reports; not confirmed on operator pages checked."
+   },
+   "station_order": [
+    "Maan",
+    "Maan - MIDC Circle, Phase II",
+    "Maan Bus Depot",
+    "Hinjawadi Phase II - Circle II",
+    "Hinjawadi Phase II - Circle I",
+    "Padmabhushan Chowk",
+    "Shree Shiv Chhatrapati Shivaji Maharaj Chowk, Hinjawadi",
+    "Hinjawadi Phase I",
+    "Wakad Chowk",
+    "Shree Shiv Chhatrapati Sports Complex, Mahalunge",
+    "Mitcon Balewadi",
+    "R. K. Laxman Museum Balewadi",
+    "Balewadi High Street",
+    "Balewadi Phata",
+    "Baner Gaon",
+    "Baner Pashan Link Road",
+    "Aundh",
+    "Sakal Nagar",
+    "Savitribai Phule Pune University",
+    "Bhosalenagar - RBI",
+    "Agriculture College",
+    "Shivaji Nagar",
+    "District Court, Pune"
+   ],
+   "station_status": {
+    "status_source": "media",
+    "verified": false,
+    "as_of": "2026-11-13",
+    "note": "17 of 23 stations reported open since launch 2026-11-04; the six listed closed reported to open in phases (Balewadi pair ~end Nov 2026, rest ~Jan 2027, media). The operator publishes no clean open/closed list on the pages checked; the operator fare chart covers all 23 stations including closed ones. Re-verify every status against punerimetro.in before publishing and update verified/status_source per station.",
+    "open": [
+     "Maan",
+     "Maan - MIDC Circle, Phase II",
+     "Maan Bus Depot",
+     "Hinjawadi Phase II - Circle II",
+     "Hinjawadi Phase II - Circle I",
+     "Padmabhushan Chowk",
+     "Shree Shiv Chhatrapati Shivaji Maharaj Chowk, Hinjawadi",
+     "Hinjawadi Phase I",
+     "Wakad Chowk",
+     "Shree Shiv Chhatrapati Sports Complex, Mahalunge",
+     "Mitcon Balewadi",
+     "R. K. Laxman Museum Balewadi",
+     "Aundh",
+     "Sakal Nagar",
+     "Savitribai Phule Pune University",
+     "Agriculture College",
+     "District Court, Pune"
+    ],
+    "closed": [
+     "Balewadi High Street",
+     "Balewadi Phata",
+     "Baner Gaon",
+     "Baner Pashan Link Road",
+     "Bhosalenagar - RBI",
+     "Shivaji Nagar"
+    ]
+   },
+   "boarding_rule": "A station is selectable for boarding or alighting only when its open status is operator-verified (verified: true). All Line 3 statuses ship verified: false (media-reported), so Line 3 stations must NOT be silently routable as operator-confirmed: show them as 'status not yet confirmed by the operator - check punerimetro.in' until the flags are updated. Stations listed closed stay blocked ('not open yet') even then unless the operator confirms them open.",
+   "termini": [
+    "Maan",
+    "District Court"
+   ],
+   "termini_source": "https://punerimetro.in/passenger-info/time-table ('Maan to District Court')"
+  }
+ ],
+ "interchange": {
+  "station": "District Court",
+  "lines": [
+   "purple",
+   "aqua",
+   "pink_line3"
+  ],
+  "within_mahametro": "Purple and Aqua share the District Court station and one fare system; one ticket covers the change.",
+  "line3_connection": "Line 3 terminates at District Court, Pune and connects with Lines 1 & 2 there (operator route map and inauguration coverage agree). Line 3 is separately ticketed - see unverified_items for cross-system ticketing details.",
+  "operator_statements": [
+   "Line 3 overview page: 'Pune Metro Line 3 has interchanges with Pune Metro Line 1 & 2' (https://punerimetro.in/about/overview).",
+   "Line 3 route map page: '02 Interchange Connections', stations not named (https://punerimetro.in/project-profile/route-map)."
+  ]
+ },
+ "station_aliases": {
+  "note": "Normalize names and codes through these mappings before matching stations in the router and the fare lookup; never merge lookalike names that are not mapped here.",
+  "district_court_interchange": {
+   "names": [
+    "District Court",
+    "District Court, Pune"
+   ],
+   "codes": [
+    "CVC",
+    "CVC_AQ"
+   ],
+   "lines": [
+    "purple",
+    "aqua",
+    "pink_line3"
+   ],
+   "detail": "One physical interchange station. 'District Court' is the name in the Maha Metro line lists; 'District Court, Pune' is the name in the Line 3 list. In the Maha fare matrix it appears once per line: index CVC in the purple section, CVC_AQ in the aqua section - CVC and CVC_AQ are the same station."
+  },
+  "same_name_not_confirmed_same_station": [
+   {
+    "name": "Shivaji Nagar",
+    "appears_in": [
+     "purple (open, code SJO)",
+     "pink_line3 (reported closed)"
+    ],
+    "detail": "Not confirmed as the same physical station in the sources checked. Treat as two distinct stations until verified against the operators; do not derive an interchange between them."
+   }
+  ],
+  "line3_name_variants": {
+   "Bhosalenagar - RBI": [
+    "Bhosale Nagar (operator station list)",
+    "Bhoslenagar - RBI (operator fare chart)"
+   ],
+   "R. K. Laxman Museum Balewadi": [
+    "R K Laxman Museum Balewadi (operator station list)"
+   ]
+  }
+ },
+ "fares": {
+  "maha_metro": {
+   "currency": "INR",
+   "min": 10,
+   "max": 35,
+   "note": "Full station-to-station matrix below, transcribed from the operator fare chart image and verified cell-by-cell. Station order matches lines.station_order for purple then aqua (District Court appears once per line; it is the same physical station - see station_aliases: CVC and CVC_AQ are the same station). Matrix indexes use station codes. Direction-asymmetric printed values are preserved as printed and listed under disputed_fare_pairs: they are disputed, not usable fares, and must fall back to 'check the official fare chart' until each direction is confirmed.",
+   "station_order": [
+    "PIM",
+    "STG",
+    "BHO",
+    "KWA",
+    "PGD",
+    "DDI",
+    "BPI",
+    "KHK",
+    "SJO",
+    "CVC",
+    "BPD",
+    "MNA",
+    "SGT",
+    "VNZ",
+    "AND",
+    "ICY",
+    "NST",
+    "GWC",
+    "DGK",
+    "SAN",
+    "PMC",
+    "CVC_AQ",
+    "MGA",
+    "PRS",
+    "RUC",
+    "BUN",
+    "YER",
+    "KNA",
+    "RAW"
+   ],
+   "matrix": [
+    [0, 15, 15, 20, 20, 25, 25, 25, 30, 30, 30, 30, 30, 35, 35, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 35, 35],
+    [15, 0, 10, 15, 15, 15, 20, 25, 25, 25, 30, 30, 30, 30, 30, 30, 30, 25, 25, 30, 25, 25, 30, 30, 30, 30, 30, 30, 35],
+    [15, 10, 0, 10, 15, 15, 20, 20, 25, 25, 25, 30, 30, 30, 30, 30, 30, 30, 30, 25, 25, 25, 25, 30, 30, 30, 30, 30, 35],
+    [20, 15, 10, 0, 10, 10, 15, 20, 25, 25, 25, 25, 30, 30, 30, 30, 30, 25, 25, 25, 25, 25, 25, 25, 25, 30, 30, 30, 30],
+    [20, 15, 15, 10, 0, 10, 15, 15, 25, 25, 25, 25, 30, 30, 30, 30, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 30, 30, 30],
+    [25, 15, 15, 10, 10, 0, 10, 15, 25, 25, 25, 25, 30, 30, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 30, 30],
+    [25, 20, 20, 15, 15, 10, 0, 10, 20, 20, 25, 25, 25, 30, 25, 25, 25, 25, 20, 25, 25, 25, 25, 25, 25, 25, 25, 25, 30],
+    [25, 25, 20, 20, 15, 15, 10, 0, 15, 20, 20, 25, 25, 25, 25, 25, 25, 25, 25, 20, 20, 20, 20, 25, 25, 25, 25, 25, 30],
+    [30, 25, 25, 25, 25, 25, 20, 15, 0, 10, 15, 15, 20, 25, 25, 20, 20, 15, 15, 15, 10, 10, 15, 15, 15, 20, 20, 25, 25],
+    [30, 25, 25, 25, 25, 25, 20, 20, 10, 0, 10, 15, 15, 25, 20, 20, 15, 15, 10, 10, 10, 0, 10, 10, 15, 15, 20, 25, 25],
+    [30, 30, 25, 25, 25, 25, 25, 20, 15, 10, 0, 10, 15, 25, 25, 20, 20, 15, 15, 15, 10, 10, 15, 15, 15, 20, 20, 25, 25],
+    [30, 30, 30, 25, 25, 25, 25, 25, 15, 15, 10, 0, 10, 25, 25, 25, 20, 20, 15, 15, 15, 15, 15, 15, 20, 20, 25, 25, 25],
+    [30, 30, 30, 30, 25, 25, 25, 25, 20, 15, 15, 10, 0, 25, 25, 25, 25, 25, 20, 20, 20, 15, 20, 20, 25, 25, 25, 25, 25],
+    [35, 30, 30, 30, 30, 30, 30, 25, 25, 25, 25, 25, 25, 0, 10, 10, 15, 15, 20, 20, 20, 25, 25, 25, 25, 25, 25, 30, 30],
+    [35, 30, 30, 30, 30, 30, 25, 25, 25, 20, 25, 25, 25, 10, 0, 10, 10, 15, 15, 20, 20, 20, 25, 25, 25, 25, 25, 30, 30],
+    [30, 30, 30, 30, 30, 25, 25, 25, 20, 20, 20, 25, 25, 10, 10, 0, 10, 10, 15, 15, 20, 20, 20, 25, 25, 25, 25, 25, 30],
+    [30, 30, 30, 30, 25, 25, 25, 25, 20, 15, 20, 20, 25, 15, 10, 10, 0, 10, 10, 15, 15, 15, 20, 20, 25, 25, 25, 25, 25],
+    [30, 30, 30, 25, 25, 25, 25, 25, 15, 15, 15, 20, 25, 15, 15, 10, 10, 0, 10, 10, 15, 15, 15, 20, 20, 25, 25, 25, 25],
+    [30, 30, 30, 25, 25, 25, 25, 25, 15, 10, 15, 15, 20, 20, 15, 15, 10, 10, 0, 10, 10, 10, 15, 15, 25, 25, 20, 25, 25],
+    [30, 30, 25, 25, 25, 25, 25, 20, 15, 10, 15, 15, 20, 20, 20, 15, 15, 10, 10, 0, 10, 10, 15, 15, 15, 25, 20, 25, 25],
+    [30, 25, 25, 25, 25, 25, 25, 20, 10, 10, 10, 15, 20, 20, 20, 20, 15, 15, 10, 10, 0, 10, 10, 15, 15, 20, 20, 25, 25],
+    [30, 25, 25, 25, 25, 25, 20, 20, 10, 0, 10, 15, 15, 25, 20, 20, 15, 15, 10, 10, 10, 0, 10, 10, 15, 15, 20, 25, 25],
+    [30, 30, 25, 25, 25, 25, 25, 20, 15, 10, 15, 15, 20, 25, 25, 20, 20, 15, 15, 15, 10, 10, 0, 10, 10, 15, 15, 20, 25],
+    [30, 30, 30, 25, 25, 25, 25, 25, 15, 10, 15, 15, 20, 25, 25, 25, 20, 20, 15, 15, 15, 10, 10, 0, 10, 10, 15, 20, 25],
+    [30, 30, 30, 25, 25, 25, 25, 25, 15, 15, 15, 20, 25, 25, 25, 25, 25, 20, 20, 15, 15, 15, 10, 10, 0, 10, 10, 20, 20],
+    [30, 30, 30, 30, 25, 25, 25, 25, 20, 15, 20, 20, 25, 25, 25, 25, 25, 25, 20, 20, 20, 15, 15, 10, 10, 0, 10, 15, 20],
+    [30, 30, 30, 30, 30, 25, 25, 25, 20, 20, 20, 25, 25, 25, 25, 25, 25, 25, 20, 20, 20, 20, 15, 15, 10, 10, 0, 15, 15],
+    [35, 30, 30, 30, 30, 30, 25, 25, 25, 25, 25, 25, 25, 30, 30, 25, 25, 25, 25, 25, 25, 25, 20, 20, 15, 15, 15, 0, 10],
+    [35, 35, 35, 30, 30, 30, 30, 30, 25, 25, 25, 25, 25, 30, 30, 30, 25, 25, 25, 25, 25, 25, 25, 25, 20, 20, 15, 10, 0]
+   ],
+   "disputed_fare_pairs": {
+    "status": "disputed_unconfirmed",
+    "note": "The operator chart prints these direction-asymmetric fares (likely typos in the official chart). printed_from_to and printed_to_from are exactly as printed; the raw matrix above preserves both directions unchanged. Treat each listed pair as disputed in BOTH directions: do NOT show either printed value as the exact commuter fare until that direction is confirmed against the operator's own fare calculator or a second official source. Use the standard 'check the official fare chart' fallback for these pairs. Never average and never silently symmetrize.",
+    "pairs": [
+     {
+      "from": "STG",
+      "to": "GWC",
+      "printed_from_to": 25,
+      "printed_to_from": 30
+     },
+     {
+      "from": "STG",
+      "to": "DGK",
+      "printed_from_to": 25,
+      "printed_to_from": 30
+     },
+     {
+      "from": "PGD",
+      "to": "SGT",
+      "printed_from_to": 30,
+      "printed_to_from": 25
+     },
+     {
+      "from": "DDI",
+      "to": "SGT",
+      "printed_from_to": 30,
+      "printed_to_from": 25
+     },
+     {
+      "from": "DDI",
+      "to": "AND",
+      "printed_from_to": 25,
+      "printed_to_from": 30
+     },
+     {
+      "from": "BPI",
+      "to": "DGK",
+      "printed_from_to": 20,
+      "printed_to_from": 25
+     },
+     {
+      "from": "BPI",
+      "to": "CVC_AQ",
+      "printed_from_to": 25,
+      "printed_to_from": 20
+     },
+     {
+      "from": "DGK",
+      "to": "RUC",
+      "printed_from_to": 25,
+      "printed_to_from": 20
+     },
+     {
+      "from": "DGK",
+      "to": "BUN",
+      "printed_from_to": 25,
+      "printed_to_from": 20
+     },
+     {
+      "from": "SAN",
+      "to": "BUN",
+      "printed_from_to": 25,
+      "printed_to_from": 20
+     },
+     {
+      "from": "RUC",
+      "to": "KNA",
+      "printed_from_to": 20,
+      "printed_to_from": 15
+     }
+    ]
+   },
+   "spot_checks_passed": [
+    "Ramwadi->Swargate 25",
+    "Ramwadi->Deccan Gymkhana 25",
+    "Ramwadi->District Court 25",
+    "Kalyani Nagar->District Court 25",
+    "Kalyani Nagar->Swargate 25",
+    "Pune Railway Station->Swargate 20",
+    "Vanaz->Ramwadi 30",
+    "PCMC->Swargate 30",
+    "PCMC->Ramwadi 35"
+   ],
+   "corrections": [
+    {
+     "cell": "KWA -> BUN",
+     "was": 25,
+     "now": 30,
+     "found_on": "2026-11-13",
+     "detail": "The brief listed Kasarwadi->Bund Garden as 25 (printed) and Bund Garden->Kasarwadi as 30, making the pair direction-asymmetric. Re-reading the operator's fare chart image (enlarged crop and an independent per-cell classification) shows 30 in both directions, so the pair is symmetric and is no longer disputed.",
+     "source": "https://www.punemetrorail.org/assets/images/Fare-Chart-E-Web.avif"
+    }
+   ]
+  },
+  "line3": {
+   "currency": "INR",
+   "min": 12,
+   "max": 62,
+   "note": "Full station-to-station matrix from the operator fare chart image, extracted cell-by-cell from the chart grid and verified symmetric. Index order = pink_line3 station_order. Chart includes all 23 stations including currently closed ones. Same-station cells print 12 (minimum/entry fare as printed), not 0.",
+   "matrix": [
+    [12, 12, 25, 25, 25, 37, 37, 37, 43, 43, 43, 43, 43, 49, 49, 49, 49, 49, 62, 62, 62, 62, 62],
+    [12, 12, 12, 12, 25, 37, 37, 37, 37, 43, 43, 43, 43, 43, 49, 49, 49, 49, 49, 62, 62, 62, 62],
+    [25, 12, 12, 12, 12, 25, 37, 37, 37, 37, 43, 43, 43, 43, 49, 49, 49, 49, 49, 49, 62, 62, 62],
+    [25, 12, 12, 12, 12, 25, 25, 37, 37, 37, 37, 43, 43, 43, 43, 49, 49, 49, 49, 49, 49, 62, 62],
+    [25, 25, 12, 12, 12, 12, 25, 25, 37, 37, 37, 37, 37, 43, 43, 43, 49, 49, 49, 49, 49, 49, 62],
+    [37, 37, 25, 25, 12, 12, 12, 25, 25, 37, 37, 37, 37, 37, 43, 43, 43, 49, 49, 49, 49, 49, 49],
+    [37, 37, 37, 25, 25, 12, 12, 12, 25, 25, 37, 37, 37, 37, 37, 43, 43, 43, 49, 49, 49, 49, 49],
+    [37, 37, 37, 37, 25, 25, 12, 12, 12, 25, 25, 37, 37, 37, 37, 37, 43, 43, 43, 49, 49, 49, 49],
+    [43, 37, 37, 37, 37, 25, 25, 12, 12, 12, 25, 25, 25, 37, 37, 37, 37, 43, 43, 43, 43, 49, 49],
+    [43, 43, 37, 37, 37, 37, 25, 25, 12, 12, 12, 12, 25, 25, 37, 37, 37, 37, 43, 43, 43, 43, 49],
+    [43, 43, 43, 37, 37, 37, 37, 25, 25, 12, 12, 12, 12, 25, 25, 37, 37, 37, 43, 43, 43, 43, 43],
+    [43, 43, 43, 43, 37, 37, 37, 37, 25, 12, 12, 12, 12, 12, 25, 25, 37, 37, 37, 43, 43, 43, 43],
+    [43, 43, 43, 43, 37, 37, 37, 37, 25, 25, 12, 12, 12, 12, 25, 25, 37, 37, 37, 37, 43, 43, 43],
+    [49, 43, 43, 43, 43, 37, 37, 37, 37, 25, 25, 12, 12, 12, 12, 25, 25, 37, 37, 37, 37, 43, 43],
+    [49, 49, 49, 43, 43, 43, 37, 37, 37, 37, 25, 25, 25, 12, 12, 12, 25, 25, 37, 37, 37, 37, 37],
+    [49, 49, 49, 49, 43, 43, 43, 37, 37, 37, 37, 25, 25, 25, 12, 12, 12, 25, 25, 37, 37, 37, 37],
+    [49, 49, 49, 49, 49, 43, 43, 43, 37, 37, 37, 37, 37, 25, 25, 12, 12, 12, 25, 25, 37, 37, 37],
+    [49, 49, 49, 49, 49, 49, 43, 43, 43, 37, 37, 37, 37, 37, 25, 25, 12, 12, 12, 25, 25, 25, 37],
+    [62, 49, 49, 49, 49, 49, 49, 43, 43, 43, 43, 37, 37, 37, 37, 25, 25, 12, 12, 12, 12, 25, 25],
+    [62, 62, 49, 49, 49, 49, 49, 49, 43, 43, 43, 43, 37, 37, 37, 37, 25, 25, 12, 12, 12, 12, 25],
+    [62, 62, 62, 49, 49, 49, 49, 49, 43, 43, 43, 43, 43, 37, 37, 37, 37, 25, 12, 12, 12, 12, 12],
+    [62, 62, 62, 62, 49, 49, 49, 49, 49, 43, 43, 43, 43, 43, 37, 37, 37, 25, 25, 12, 12, 12, 12],
+    [62, 62, 62, 62, 62, 49, 49, 49, 49, 49, 43, 43, 43, 43, 37, 37, 37, 37, 25, 25, 12, 12, 12]
+   ]
+  }
+ },
+ "timetables": {
+  "maha_metro": {
+   "effective_from": "2025-08-15",
+   "service_hours": "06:00-23:00 daily (both lines)",
+   "peak": {
+    "windows": [
+     "08:00-11:00",
+     "16:00-20:00"
+    ],
+    "headway_min": 6
+   },
+   "off_peak": {
+    "windows": [
+     "06:00-08:00",
+     "11:00-16:00",
+     "20:00-23:00"
+    ],
+    "headway_min": 10
+   },
+   "warning": "The two 'View larger image' timetable PDFs linked on the operator homepage (download/zoom/Time-Tebal-new-1.pdf and -2.pdf) are STALE 2022 partial-service timetables (10:00-20:00, Vanaz-Garware / PCMC-Phugewadi). Do not use them; the values above are from the current timetable page images."
+  },
+  "line3": {
+   "first_train": "06:00 from Maan, District Court and other stations",
+   "last_train": "22:30 from Maan towards District Court; 23:40 from District Court towards Maan",
+   "peak": {
+    "windows": [
+     "07:30-09:30",
+     "17:00-20:00"
+    ],
+    "headway": "every 5 min 30 sec"
+   },
+   "off_peak": {
+    "windows": [
+     "06:00-07:30",
+     "09:30-17:00",
+     "20:00-23:40"
+    ],
+    "headway_min": 10
+   },
+   "note": "Operator timetable image carries 'subject to change based on passenger flow'."
+  }
+ },
+ "ticketing": {
+  "maha_metro": {
+   "whatsapp": {
+    "url": "https://wa.me/9420101990",
+    "label": "Send 'Hi' to book your E-Ticket",
+    "verified": true
+   },
+   "app": "Pune Metro official app (store badges on operator homepage)",
+   "station": "counters and ticket vending machines at stations",
+   "one_pune_card": {
+    "type": "NCMC RuPay prepaid contactless card (tap in / tap out)",
+    "issuance_fee_inr": 100,
+    "annual_maintenance_inr": 75,
+    "replacement_fee_inr": 100,
+    "min_topup_inr": 50,
+    "max_chip_balance_inr": 2000,
+    "online_topup_fee": "1.8% of recharge value, capped at Rs 12",
+    "validity_years": 3,
+    "call_center": "022-45000800",
+    "notes": "Buy/top up at station counters or customer portal; portal top-ups need an Add Value Machine tap to update chip balance. Limited-KYC cards capped at Rs 10,000/month loading.",
+    "daily_contactless_limit": "20 contactless transactions per day (operator One Pune Card page)",
+    "source": "https://www.punemetrorail.org/one-pune-card"
+   },
+   "one_pune_card_non_kyc": {
+    "issuance_fee": "Rs. 50 + taxes",
+    "annual_fee": "Rs. 75 + taxes",
+    "min_topup_inr": 50,
+    "max_total_balance_inr": 3000,
+    "max_chip_balance_inr": 2000,
+    "online_topup_fee": "1.8% of recharge value, capped at Rs 12",
+    "source": "https://www.punemetrorail.org/one-pune-card-non-kyc.aspx",
+    "verified": true
+   }
+  },
+  "line3": {
+   "channels_on_operator_site": [
+    "NCMC card",
+    "WhatsApp QR",
+    "Ticket Vending Machine",
+    "manual counter at every station"
+   ],
+   "whatsapp_number": null,
+   "whatsapp_note": "Operator's fare-table page confirms WhatsApp QR ticketing but publishes no number on the pages checked. Media reports Line 3 tickets are bookable through the same wa.me/9420101990 number with a separate 'Line 3' option (status_source: media, verified: false) - confirm only from official published evidence before publishing; do not probe the bot with test messages.",
+   "operator_stated": {
+    "source": [
+     "https://punerimetro.in/passenger-info/fare-table",
+     "https://punerimetro.in/passenger-info/passenger-amenities"
+    ],
+    "verified": true,
+    "text": "Fare table page: tickets can be purchased using NCMC card, WhatsApp QR, Ticket Vending Machine or manual counter at every station. Amenities page lists QR-based tickets via the Pune Metro Line 3 app and WhatsApp, the National Common Mobility Card (One Pune Card), contactless ticket vending machines and AFC gates."
+   }
+  },
+  "validity_rules": "Ticket validity rules were not published on the operator pages checked; do not state any."
+ },
+ "discounts": {
+  "verified_on": "2026-11-13",
+  "items": [
+   {
+    "id": "banner",
+    "text": "Get a 10% discount on all Metro rides",
+    "where": "Operator homepage banner and the One Pune Card (KYC) page",
+    "source": "https://www.punemetrorail.org/one-pune-card",
+    "verified": true,
+    "note": "The banner links to the One Pune Card page. The pages checked do not say which ticket types qualify."
+   },
+   {
+    "id": "mts_card",
+    "text": "For every ride 10% discount on weekdays (Mon-Fri) and 30% on weekends (Sat-Sun)",
+    "where": "One Pune NCMC RuPay Card (MTS), Non-KYC",
+    "source": "https://www.punemetrorail.org/one-pune-card-non-kyc.aspx",
+    "verified": true
+   },
+   {
+    "id": "vidyarthi",
+    "text": "30% discount on all days (Monday-Sunday) for every Metro ride",
+    "where": "One Pune Vidyarthi Pass",
+    "source": "https://www.punemetrorail.org/vidyarthiPass.aspx",
+    "verified": true
+   }
+  ],
+  "unverified": "Whether any discount applies to Line 3 is not published on the punerimetro.in pages checked. The operator commuter guide PDF is image-only and was not used."
+ },
+ "approved_extensions_not_open": {
+  "note": "Never present as usable or routable.",
+  "from_operator_project_profile": [
+   "Line 1A: PCMC - Nigdi (Chinchwad, Akurdi, Nigdi, Bhakti Shakti), 4.4 km",
+   "Line 1B: Swargate - Katraj (Market Yard, Padmavati, Katraj), 5.5 km, 3 underground stations"
+  ],
+  "from_operator_social_media_only": [
+   "Vanaz - Chandni Chowk and Ramwadi - Wagholi Aqua extensions (operator social post on homepage, June 2025, Phase 2 central approval; NOT on the project-profile page) - Ramwadi-Wagholi is the corridor that would eventually serve Kharadi"
+  ]
+ },
+ "area_leads_unverified": {
+  "note": "Candidate area-to-station leads only; ground each in geography at build time before publishing.",
+  "leads": {
+   "Kharadi": "no station today; candidates Ramwadi / Kalyani Nagar",
+   "Hinjawadi": "Line 3 corridor stations",
+   "Viman Nagar": "Kalyani Nagar",
+   "Koregaon Park": "Bund Garden / Pune Railway Station",
+   "Camp / MG Road": "Pune Railway Station / R.T.O., Pune",
+   "Deccan / FC Road": "Deccan Gymkhana",
+   "Kothrud": "Vanaz side",
+   "Shivajinagar": "Shivaji Nagar (Purple)",
+   "Baner": "nearest OPEN Line 3 station (Baner/Balewadi Line 3 stations currently closed)",
+   "Pune Airport": "no metro at airport; Ramwadi + onward road transport",
+   "PCMC / Pimpri": "PCMC"
+  }
+ },
+ "station_id_overrides": {
+  "District Court": "district-court",
+  "District Court, Pune": "district-court",
+  "Shivaji Nagar": "shivaji-nagar"
+ },
+ "station_id_overrides_pink": {
+  "Shivaji Nagar": "shivaji-nagar-pink"
+ },
+ "verification": {
+  "verified_on": "2026-11-13",
+  "timezone": "Asia/Kolkata",
+  "method": "Operator pages opened in a browser on the date above; fare and timetable images downloaded and read.",
+  "confirmed": [
+   "Maha Metro homepage statistics: 2 lines, 30 stations, 29 operational, 5 underground, 33.1 km (punemetrorail.org).",
+   "Maha Metro project profile: every Line 1 and Line 2 station tagged Open except Range Hill (no tag).",
+   "Maha Metro timetable images (effective 15 Aug 2025): 06:00-23:00, every 6 min peak (08:00-11:00, 16:00-20:00), every 10 min off-peak, 34 min / 17.5 km and 37 min / 14.5 km.",
+   "Maha Metro WhatsApp link wa.me/9420101990 on the operator homepage; helpline 18002705501.",
+   "Maha Metro fare chart image: 812 off-diagonal cells read independently of the brief; 811 matched, 1 corrected (see fares.maha_metro.corrections). The 11 remaining direction-asymmetric pairs are printed as listed.",
+   "Line 3 fare chart image: all 529 cells agree with the chart's fare-band colours; the matrix is symmetric.",
+   "Line 3 timetable image: first train 06:00, last Maan->District Court 22:30, last District Court->Maan 23:40, 5 min 30 s peak, 10 min off-peak, 45 min approx, 23.3 km, subject to change.",
+   "Line 3 station list: 23 stations. Contact: 020-65520100, support@punerimetro.in.",
+   "Discounts: see discounts.items."
+  ],
+  "not_available": [
+   "The Maha Metro fare calculator is protected by Google reCAPTCHA and was not automated.",
+   "Neither operator publishes a Line 3 open/closed station list, so every Line 3 status remains media-reported and unverified.",
+   "Ticket validity rules and per-station first/last train times are not published on the pages checked."
+  ]
+ }
+}
