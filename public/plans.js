@@ -1,11 +1,12 @@
 import {isWeekend} from './filters.js';
+import {sharePlan} from './share.js';
 const status=document.querySelector('#plans-status');const health=document.querySelector('#plans-health');const grid=document.querySelector('#plans');const wk=document.querySelector('#weekend-plans');const bar=document.querySelector('#plan-filters');const fstatus=document.querySelector('#filter-status');const active=new Set();let allRows=[],todayIso='';
 const text=(tag,value,cls)=>{const e=document.createElement(tag);e.textContent=value;if(cls)e.className=cls;return e;};
 const safeLink=l=>{try{const u=new URL(l.url);return u.protocol==='https:'&&u.hostname==='www.district.in'&&!u.username&&!u.password;}catch{return false;}};
 const dateOK=x=>typeof x==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(x)&&new Date(x+'T00:00:00Z').toISOString().slice(0,10)===x;
 let timer;
-const share=async(btn,e)=>{const url=e.links.find(safeLink).url;try{if(navigator.share){await navigator.share({title:e.title+' - Peak Pune',text:'Pune plan: '+e.title,url});return;}await navigator.clipboard.writeText(url);btn.textContent='Link copied';setTimeout(()=>{btn.textContent='Share';},1600);}catch{/* cancelled or clipboard blocked: do nothing */}};
-const card=(e,pricey)=>{const c=text('article','','card plan-card'),inner=text('div','','inner');inner.append(text('span',e.date,'eyebrow'),text('h3',e.title),text('p',e.place||'Venue: check source'));const a=text('a','View current details','chip');a.href=e.links.find(safeLink).url;a.target='_blank';a.rel='noopener noreferrer';const sh=text('button','Share','chip');sh.type='button';sh.setAttribute('aria-label','Share '+e.title);sh.addEventListener('click',()=>share(sh,e));inner.append(a,sh,text('p','District-listed · Not organiser-confirmed','note'));c.append(inner);return c;};
+const share=async(btn,e)=>{const r=await sharePlan({title:e.title,url:e.links.find(safeLink).url});const msg={copied:'Link copied',failed:'Could not copy',unavailable:'Sharing not available'}[r];if(msg){btn.textContent=msg;setTimeout(()=>{btn.textContent='Share';},1800);}};
+const card=(e,pricey)=>{const c=text('article','','card plan-card'),inner=text('div','','inner');inner.append(text('span',e.date,'eyebrow'),text('h3',e.title),text('p',e.place||'Venue: check source'));const a=text('a','View current details','chip');a.href=e.links.find(safeLink).url;a.target='_blank';a.rel='noopener noreferrer';const sh=text('button','Share','chip');sh.type='button';sh.setAttribute('aria-label','Share '+e.title);sh.addEventListener('click',()=>share(sh,e));const act=text('div','','plan-actions');act.append(a,sh);inner.append(act,text('p','District-listed · Not organiser-confirmed','note'));c.append(inner);return c;};
 function render(){
  const tests={wknd:e=>isWeekend(e,todayIso)};
  const shown=allRows.filter(e=>[...active].every(k=>tests[k](e)));
