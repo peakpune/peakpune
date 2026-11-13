@@ -75,8 +75,7 @@ ${jsonLd({ '@context': 'https://schema.org', '@graph': graph })}
 <body>
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-header"><div class="wrap bar"><a class="wordmark" href="/" aria-label="Peak Pune home">${mark}Peak <span>Pune</span></a><nav aria-label="Main navigation">${nav}</nav></div></header>
-<div class="wrap"><aside class="review">Source-listed plans, not organiser-confirmed. Uploads and submissions are not enabled.</aside>
-<section class="community-links" aria-label="Community"><strong>Find your Pune people.</strong><div><a class="chip" href="https://chat.whatsapp.com/BVTlwmhkqGU4WKzCsZFG95?s=cl&amp;p=i&amp;iam=2" target="_blank" rel="noopener noreferrer">Join WhatsApp</a><a class="chip" href="https://www.reddit.com/r/punetonight/" target="_blank" rel="noopener noreferrer">r/punetonight</a></div></section></div>
+<div class="wrap"><section class="community-links" aria-label="Community"><strong>Find your Pune people.</strong><div><a class="chip" href="https://chat.whatsapp.com/BVTlwmhkqGU4WKzCsZFG95?s=cl&amp;p=i&amp;iam=2" target="_blank" rel="noopener noreferrer">Join WhatsApp</a><a class="chip" href="https://www.reddit.com/r/punetonight/" target="_blank" rel="noopener noreferrer">r/punetonight</a></div></section></div>
 <main id="main" class="wrap">
 ${trail}${main}
 ${cta}
