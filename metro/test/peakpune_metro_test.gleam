@@ -10,7 +10,7 @@ import peakpune_metro/ids.{
 }
 import peakpune_metro/planner.{
   Available, CheckChart, Disputed, Exact, Missing, NotOpenYet,
-  NotSelectable, SameStation, UnconfirmedByOperator,
+  NotSelectable, SameStation, ReportedOpen,
 }
 import peakpune_metro/types.{
   type Network, FareTable, Line, MahaFares, Network, PinkFares, Status, Stop,
@@ -109,16 +109,24 @@ pub fn line3_trips_show_each_fare_separately_and_never_a_total_test() {
 
 // ---------- availability: closed, unconfirmed and unlisted stations ----------
 
-pub fn shipped_data_keeps_every_line3_station_unselectable_test() {
+pub fn line3_open_stations_are_selectable_but_marked_as_media_reported_test() {
   let net = data.network()
-  // Reported open by media only: not confirmed by the operator.
-  assert planner.availability(net, HinjawadiPhaseI) == UnconfirmedByOperator
-  assert planner.availability(net, Maan) == UnconfirmedByOperator
-  // Reported not open yet.
+  // Reported open by media only: selectable, never shown as operator-confirmed.
+  assert planner.availability(net, HinjawadiPhaseI) == ReportedOpen
+  assert planner.availability(net, Maan) == ReportedOpen
+  assert planner.selectable(net, HinjawadiPhaseI) == True
+  // Reported not open yet: blocked.
   assert planner.availability(net, BanerGaon) == NotOpenYet
-  assert planner.selectable(net, HinjawadiPhaseI) == False
-  assert planner.plan(net, HinjawadiPhaseI, Swargate)
-    == Error(NotSelectable(HinjawadiPhaseI, UnconfirmedByOperator))
+  assert planner.selectable(net, BanerGaon) == False
+  assert planner.plan(net, BanerGaon, Swargate)
+    == Error(NotSelectable(BanerGaon, NotOpenYet))
+}
+
+pub fn hinjawadi_to_swargate_changes_at_district_court_with_two_tickets_test() {
+  let net = data.network()
+  let assert Ok(route) = planner.plan(net, HinjawadiPhaseI, Swargate)
+  assert route.changes == [DistrictCourt]
+  assert list.length(route.tickets) == 2
 }
 
 pub fn range_hill_is_listed_but_never_selectable_test() {
