@@ -1,0 +1,11 @@
+import test from 'node:test';import assert from 'node:assert/strict';
+import {safeSourceUrl,isDate,istDate,normalizePuneEvents} from '../src/events.js';
+const e={title:'A plan',date:'2026-11-14',city:'Pune',source:'Test',links:[{url:'https://example.org/event'}]};
+const run=(rows)=>normalizePuneEvents(rows,{today:'2026-11-13'});
+test('only secure source links, no embedded credentials',()=>{assert.equal(safeSourceUrl('javascript:alert(1)'),null);assert.equal(safeSourceUrl('http://example.org'),null);assert.equal(safeSourceUrl('https://user:pass@example.org'),null);assert.equal(safeSourceUrl('https://example.org/'),'https://example.org/');});
+test('real calendar dates, not rollover dates',()=>{assert.equal(isDate('2026-02-30'),false);assert.equal(isDate('2028-02-29'),true);assert.equal(isDate('2026-11-14'),true);});
+test('IST date crosses UTC midnight correctly',()=>{assert.equal(istDate(new Date('2026-11-12T19:00:00Z')),'2026-11-13');});
+test('Pune only, no expired or undated records',()=>{assert.equal(run([e,{...e,city:'Mumbai'},{...e,date:'2026-11-12'},{...e,date:null}]).length,1);});
+test('deduplicate full normalized title and date',()=>{assert.equal(run([e,{...e,title:' A  plan '},{...e,title:'A different plan'}]).length,2);});
+test('reject unsafe source link and ignore private source fields',()=>{assert.equal(run([{...e,links:[{url:'javascript:alert(1)'}]}]).length,0);const [r]=run([{...e,phone:'PRIVATE',token:'PRIVATE'}]);assert.ok(!('phone' in r));assert.ok(!('token' in r));});
+test('reject invalid reference date',()=>assert.throws(()=>normalizePuneEvents([],{today:'bad'}),TypeError));
