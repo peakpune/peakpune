@@ -1,0 +1,275 @@
+{
+ "verified_on": "2026-11-13",
+ "source": "OpenStreetMap contributors (ODbL), read via the OSM map API on 2026-11-13",
+ "stations": {
+  "pcmc": {
+   "name": "PCMC",
+   "lat": 18.62932,
+   "lon": 73.80329,
+   "osm_nodes": [
+    10214268972
+   ]
+  },
+  "sant-tukaram-nagar": {
+   "name": "Sant Tukaram Nagar",
+   "lat": 18.61452,
+   "lon": 73.81575,
+   "osm_nodes": [
+    7944597690
+   ]
+  },
+  "nashik-phata-bhosari": {
+   "name": "Nashik Phata (Bhosari)",
+   "lat": 18.6093,
+   "lon": 73.8201,
+   "osm_nodes": [
+    7944597706
+   ]
+  },
+  "kasarwadi": {
+   "name": "Kasarwadi",
+   "lat": 18.59962,
+   "lon": 73.82726,
+   "osm_nodes": [
+    7944597699
+   ]
+  },
+  "phugewadi": {
+   "name": "Phugewadi",
+   "lat": 18.59111,
+   "lon": 73.83115,
+   "osm_nodes": [
+    7944584963
+   ]
+  },
+  "dapodi": {
+   "name": "Dapodi",
+   "lat": 18.58376,
+   "lon": 73.83377,
+   "osm_nodes": [
+    7944584975
+   ]
+  },
+  "bopodi": {
+   "name": "Bopodi",
+   "lat": 18.56966,
+   "lon": 73.8381,
+   "osm_nodes": [
+    7944597711
+   ]
+  },
+  "khadki": {
+   "name": "Khadki",
+   "lat": 18.56226,
+   "lon": 73.84208,
+   "osm_nodes": [
+    13644302877
+   ]
+  },
+  "shivaji-nagar": {
+   "name": "Shivaji Nagar",
+   "lat": 18.53217,
+   "lon": 73.84966,
+   "osm_nodes": [
+    11097510271
+   ]
+  },
+  "district-court": {
+   "name": "District Court",
+   "lat": 18.52675,
+   "lon": 73.85732,
+   "osm_nodes": [
+    11097510274,
+    7944597685
+   ]
+  },
+  "kasba-peth": {
+   "name": "Kasba Peth",
+   "lat": 18.52137,
+   "lon": 73.85962,
+   "osm_nodes": [
+    12211880200
+   ]
+  },
+  "swargate": {
+   "name": "Swargate",
+   "lat": 18.49975,
+   "lon": 73.85746,
+   "osm_nodes": [
+    7944597710
+   ]
+  },
+  "vanaz": {
+   "name": "Vanaz",
+   "lat": 18.50719,
+   "lon": 73.80519,
+   "osm_nodes": [
+    9599243853
+   ]
+  },
+  "anand-nagar": {
+   "name": "Anand Nagar",
+   "lat": 18.50957,
+   "lon": 73.81407,
+   "osm_nodes": [
+    9599243854
+   ]
+  },
+  "paud-phata": {
+   "name": "Paud Phata",
+   "lat": 18.50888,
+   "lon": 73.82214,
+   "osm_nodes": [
+    9599243855
+   ]
+  },
+  "sndt-college": {
+   "name": "S.N.D.T. College",
+   "lat": 18.50736,
+   "lon": 73.82878,
+   "osm_nodes": [
+    9599243856
+   ]
+  },
+  "garware-college": {
+   "name": "Garware College",
+   "lat": 18.51199,
+   "lon": 73.83805,
+   "osm_nodes": [
+    9599243857
+   ]
+  },
+  "deccan-gymkhana": {
+   "name": "Deccan Gymkhana",
+   "lat": 18.51645,
+   "lon": 73.84445,
+   "osm_nodes": [
+    11097527725
+   ]
+  },
+  "chhatrapati-sambhaji-udyan": {
+   "name": "Chhatrapati Sambhaji Udyan",
+   "lat": 18.52008,
+   "lon": 73.84738,
+   "osm_nodes": [
+    11097527718
+   ]
+  },
+  "pmc": {
+   "name": "PMC",
+   "lat": 18.52274,
+   "lon": 73.85335,
+   "osm_nodes": [
+    7944584980
+   ]
+  },
+  "rto-pune": {
+   "name": "R.T.O., Pune",
+   "lat": 18.53008,
+   "lon": 73.86506,
+   "osm_nodes": [
+    11097527715,
+    11097527716
+   ]
+  },
+  "pune-railway-station": {
+   "name": "Pune Railway Station",
+   "lat": 18.52975,
+   "lon": 73.8726,
+   "osm_nodes": [
+    11097527713,
+    11097527714
+   ]
+  },
+  "ruby-hall-clinic": {
+   "name": "Ruby Hall Clinic",
+   "lat": 18.53272,
+   "lon": 73.87775,
+   "osm_nodes": [
+    7944584984
+   ]
+  },
+  "bund-garden": {
+   "name": "Bund Garden",
+   "lat": 18.54059,
+   "lon": 73.88344,
+   "osm_nodes": [
+    11699340649
+   ]
+  },
+  "yerwada": {
+   "name": "Yerwada",
+   "lat": 18.5453,
+   "lon": 73.88662,
+   "osm_nodes": [
+    11699340652
+   ]
+  },
+  "kalyani-nagar": {
+   "name": "Kalyani Nagar",
+   "lat": 18.54448,
+   "lon": 73.9057,
+   "osm_nodes": [
+    11699340655
+   ]
+  },
+  "ramwadi": {
+   "name": "Ramwadi",
+   "lat": 18.55703,
+   "lon": 73.90856,
+   "osm_nodes": [
+    11699340657
+   ]
+  },
+  "hinjawadi-phase-i": {
+   "name": "Hinjawadi Phase I",
+   "lat": 18.59097,
+   "lon": 73.7463
+  },
+  "hinjawadi-phase-ii-circle-i": {
+   "name": "Hinjawadi Phase II - Circle I",
+   "lat": 18.59659,
+   "lon": 73.71716
+  },
+  "hinjawadi-phase-ii-circle-ii": {
+   "name": "Hinjawadi Phase II - Circle II",
+   "lat": 18.5942,
+   "lon": 73.70922
+  },
+  "padmabhushan-chowk": {
+   "name": "Padmabhushan Chowk",
+   "lat": 18.59449,
+   "lon": 73.72783
+  },
+  "shree-shiv-chhatrapati-shivaji-maharaj-chowk-hinjawadi": {
+   "name": "Shree Shiv Chhatrapati Shivaji Maharaj Chowk, Hinjawadi",
+   "lat": 18.59239,
+   "lon": 73.73736
+  },
+  "baner-gaon": {
+   "name": "Baner Gaon",
+   "lat": 18.5592,
+   "lon": 73.7906
+  },
+  "balewadi-phata": {
+   "name": "Balewadi Phata",
+   "lat": 18.56419,
+   "lon": 73.77977
+  },
+  "baner-pashan-link-road": {
+   "name": "Baner Pashan Link Road",
+   "lat": 18.55496,
+   "lon": 73.79767
+  },
+  "aundh": {
+   "name": "Aundh",
+   "lat": 18.55031,
+   "lon": 73.80826
+  },
+  "wakad-chowk": {
+   "name": "Wakad Chowk",
+   "lat": 18.5903,
+   "lon": 73.75756
+  }
+ }
+}
