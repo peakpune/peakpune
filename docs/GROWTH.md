@@ -82,7 +82,8 @@ Next, in order of likely return:
   listings need a re-check on the day, which is why the plans snapshot expires after 24 hours.
 - Two of the three ticketing sites tried blocked or redirected automated reads, and Meetup's
   terms restrict it. Organiser-submitted events are the durable source.
-- The live site is `noindex`. This branch turns indexing on; that is the owner's call.
+- The live site is `noindex`. Generated pages keep that default; `INDEXING=on npm run build`
+  switches it when the owner is ready.
 
 ## Sources
 
