@@ -18,3 +18,6 @@ test('month ranges wrap the year and reject unclear text',()=>{assert.deepEqual(
 test('area hubs need at least two places',()=>{const a=areasOf([{neighbourhood:'Baner'},{neighbourhood:'Baner'},{neighbourhood:'Kothrud'},{neighbourhood:'UNKNOWN'}]);assert.deepEqual(a.map(([n])=>n),['Baner']);});
 import {INDEXING} from '../scripts/build.mjs';
 test('pages stay out of search engines unless indexing is switched on',()=>{assert.equal(INDEXING,false);const d=mkdtempSync(join(tmpdir(),'pp-'));build({outDir:d});assert.ok(readFileSync(join(d,'index.html'),'utf8').includes('<meta name="robots" content="noindex,nofollow">'));assert.ok(!readFileSync(join(d,'robots.txt'),'utf8').includes('Sitemap'));});
+
+import {assetUrl} from '../scripts/build.mjs';
+test('generated HTML versions changed browser assets by their content',()=>{const d=mkdtempSync(join(tmpdir(),'pp-'));build({outDir:d});for(const path of ['index.html','events/index.html']){const html=readFileSync(join(d,path),'utf8');for(const asset of ['/tokens.css','/app.js','/plans.js']){assert.match(assetUrl(asset),/\?v=[a-f0-9]{12}$/);assert.ok(html.includes(assetUrl(asset)),`${path}: ${asset}`);}}});
