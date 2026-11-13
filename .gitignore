@@ -9,3 +9,7 @@ dist/
 
 .astro/
 .generated/
+
+# The Gleam planner bundle is committed on purpose (no compiler needed in CI)
+!metro/dist/
+!metro/dist/planner.js
