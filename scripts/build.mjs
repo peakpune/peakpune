@@ -2,6 +2,7 @@
 // No dependencies. Run: npm run build. Set SITE_URL to the production origin.
 import { readFileSync, writeFileSync, mkdirSync, rmSync, existsSync } from 'node:fs';
 import { dirname, join } from 'node:path';
+import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -14,6 +15,8 @@ export const withBase = (html) => (BASE ? html.replace(/(href|src)="\/(?!\/)/g, 
 export const INDEXING = process.env.INDEXING === 'on';
 const ROBOTS = INDEXING ? 'index,follow,max-image-preview:large' : 'noindex,nofollow';
 const read = (p) => readFileSync(join(root, p), 'utf8');
+// New HTML must not reuse an older browser-cached stylesheet or script.
+export const assetUrl = (path) => `${path}?v=${createHash('sha256').update(readFileSync(join(root, 'public', path))).digest('hex').slice(0, 12)}`;
 
 export const esc = (v) => String(v ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 // JSON-LD sits inside a script tag: never let data close it.
@@ -64,7 +67,7 @@ export function page({ path, title, description, main, ld = [], current = path, 
 <link rel="icon" href="/icon.svg" type="image/svg+xml">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="preload" href="/fonts/fraunces.ttf" as="font" type="font/ttf" crossorigin>
-<link rel="stylesheet" href="/tokens.css">
+<link rel="stylesheet" href="${assetUrl('/tokens.css')}">
 ${jsonLd({ '@context': 'https://schema.org', '@graph': graph })}
 </head>
 <body>
@@ -82,7 +85,7 @@ ${cta}
 <nav aria-label="Powered by"><h2>Powered by</h2><a href="https://punerunners.com/" target="_blank" rel="noopener">PuneRunners.com</a><a href="https://punetrekkers.org/" target="_blank" rel="noopener">PuneTrekkers.org</a><a href="https://karawaan.in/" target="_blank" rel="noopener">karawaan.in</a><a href="/powered-by/">About these links</a></nav>
 <p class="fine">Place and route details are sourced and dated. Event plans are platform listings, not organiser-confirmed. Map data © OpenStreetMap contributors.</p>
 </div></footer>
-<script type="module" src="/app.js"></script>${plans ? '<script type="module" src="/plans.js"></script>' : ''}
+<script type="module" src="${assetUrl('/app.js')}"></script>${plans ? `<script type="module" src="${assetUrl('/plans.js')}"></script>` : ''}
 </body>
 </html>
 `;
