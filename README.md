@@ -13,7 +13,7 @@
 <p align="center">
   <img alt="Licence: MIT" src="https://img.shields.io/badge/licence-MIT-1C1410?labelColor=F6EFE2">
   <img alt="Node.js 22+" src="https://img.shields.io/badge/node-22%2B-B8381F?labelColor=F6EFE2">
-  <img alt="Status: preview" src="https://img.shields.io/badge/status-preview-E8A317?labelColor=F6EFE2">
+  <img alt="Status: live" src="https://img.shields.io/badge/status-live-E8A317?labelColor=F6EFE2">
   <img alt="No backend" src="https://img.shields.io/badge/backend-none-C9D6B5?labelColor=F6EFE2">
 </p>
 
@@ -23,24 +23,26 @@ An open-source website for local events, meetups and moments in Pune, with the P
 attitude. It is a small static site: plain HTML, CSS and JavaScript, no framework, no build
 on deploy and no tracking.
 
-> **Status: preview.** The site is live but unfinished. It is marked as a layout and data
-> preview, it is not indexed by search engines, and it collects no personal data.
+> **Status: live.** Listings are source-checked, not a promise of current availability.
+> Search indexing and reader submissions remain disabled. No personal data is collected.
 
 ## What works today
 
 | Area | State |
 | --- | --- |
 | **Explore** | A "This weekend in Pune" section built from real listings, featured places, runs and treks. |
-| **Places** | 28 Pune places with addresses, timings and prices read from each venue's own page, one page each, plus pages by area. |
-| **Outdoors** | 8 mapped running loops and 20 treks and day trips with distance and drive time from Pune, credited to PuneRunners Club and Pune Trekkers. |
+| **Places** | 28 source-backed Pune places, with one page each and pages by area. Unconfirmed hours and prices are omitted. |
+| **Outdoors** | 8 mapped running loops and 20 treks and day trips with sourced distance and drive-time details where available, credited to PuneRunners Club and Pune Trekkers. |
 | **Events** | A reviewed snapshot of Pune plans listed on District, each linking to its original listing. A **This weekend** filter uses only the listed date. A **Share** button on each plan shares or copies the original link. |
-| **Meetups** | 13 communities with a public joining page, marked active, unconfirmed or dormant. |
-| **Moments** | Short captions tied to checked places and routes. No reader submissions. |
+| **Meetups** | 7 communities with current source evidence and public joining pages. Unconfirmed activity listings are withheld. |
+| **Moments** | No genuine submitted moments published yet. Generated captions removed; reader submissions remain closed. |
 | **Submissions, uploads, accounts** | Not enabled. There is no backend. |
 
 Plans are source-listed, not confirmed by organisers. Always check the original listing for
 current dates, prices and availability. Nothing here promises live availability, and unknown
 prices are never shown as "Free".
+
+The publication decisions and corrections are recorded in [`docs/LISTING-AUDIT.md`](docs/LISTING-AUDIT.md). Original source rows are retained for review, but only IDs explicitly approved in `data/publication-audit.json` reach the public pages.
 
 ## A look
 
@@ -58,8 +60,7 @@ prices are never shown as "Free".
   <img src="docs/assets/events-mobile.png" alt="Events page on a phone with the This weekend filter" width="32%">
 </p>
 
-<sub>Screenshots taken on 13 November 2026 from the live preview. Plans shown were listed on
-District at that time.</sub>
+<sub>Earlier screenshots taken on 13 November 2026 before the listing audit. They are historical, not evidence of current published content.</sub>
 
 ## Run it locally
 
@@ -91,7 +92,7 @@ src/
 scripts/update-plans.mjs   manual, one-off plans export (no schedule)
 scripts/build.mjs       page generator, no dependencies
 site/                   page fragments the generator reads
-data/                   sourced dataset, one folder per batch, evidence per field
+data/                   source datasets plus a default-deny publication audit
 tests/                  node:test suites
 docs/                   scope and brand, plans data, third-party notices
 ```
@@ -99,7 +100,7 @@ docs/                   scope and brand, plans data, third-party notices
 **How pages are made.** `public/` is served as plain files. Its HTML is written by
 `npm run build` from `site/` and `data/` and then committed, so there is nothing to build on
 deploy. Edit `site/` or `data/`, run the build, commit the result. Pages are generated with
-`noindex` to match the preview status; `INDEXING=on npm run build` turns indexing and the
+`noindex` by default; `INDEXING=on npm run build` turns indexing and the
 sitemap reference on when the owner decides. Set `SITE_URL` if the origin is not
 `https://peakpune.com`.
 
