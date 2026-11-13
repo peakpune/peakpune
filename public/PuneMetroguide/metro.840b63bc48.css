@@ -1,0 +1,100 @@
+/* Pune Metro guide. Uses the site's tokens (colours, fonts, spacing) from /tokens.css; nothing here redefines them. */
+.metro{--line-purple:#8A3A8E;--line-aqua:#1FA5D8;--line-pink:#D9548F}
+.metro .verified{display:inline-flex;flex-wrap:wrap;gap:var(--s2);align-items:center;font-weight:700;background:var(--sage);border-radius:var(--r-pill);padding:var(--s1) var(--s4)}
+.metro .toc{display:flex;flex-wrap:wrap;gap:var(--s2);padding:0;margin:var(--s6) 0 0;list-style:none}
+.metro .toc a{display:inline-flex;align-items:center;min-height:44px;padding:0 var(--s4);border-radius:var(--r-pill);border:2px solid var(--rim);font-weight:700;text-decoration:none;color:var(--ink);background:var(--paper)}
+.metro .toc a:hover{background:var(--haldi)}
+.metro .status-bar{display:grid;gap:var(--s2);margin:var(--s6) 0 0}
+.metro .banner{border-radius:var(--r-card);outline:4px solid var(--rim);outline-offset:-4px;background:var(--haldi);padding:var(--s4) var(--s6);display:flex;flex-wrap:wrap;gap:var(--s3) var(--s4);align-items:center;justify-content:space-between}
+.metro .banner p{margin:0;font-weight:700}
+.metro .banner[hidden]{display:none}
+.metro .offline-note{font-size:14px;line-height:20px;color:var(--ink-soft)}
+.metro .ext::after{content:" \2197";font-size:.85em}
+.metro .net{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:var(--clay);border-radius:var(--r-pill);padding:0 var(--s2);margin-left:var(--s1);white-space:nowrap}
+.metro .section{padding-top:var(--s16)}
+.metro h3{margin:var(--s6) 0 var(--s2)}
+.metro .grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:var(--s6)}
+.metro .line-card{border-radius:var(--r-card);background:var(--white);outline:4px solid var(--rim);outline-offset:-4px;padding:var(--s6);display:grid;gap:var(--s3);align-content:start}
+.metro .line-card h3{margin:0}
+.metro .line-chip{display:inline-flex;align-items:center;gap:var(--s2);font-weight:700}
+.metro .line-chip::before{content:"";width:14px;height:14px;border-radius:50%;border:2px solid var(--rim);background:var(--c,var(--clay))}
+.metro .lc-purple{--c:var(--line-purple)}.metro .lc-aqua{--c:var(--line-aqua)}.metro .lc-pink_line3{--c:var(--line-pink)}
+.metro .facts-list{display:grid;gap:var(--s1);margin:0;padding:0;list-style:none;font-size:16px;line-height:24px}
+.metro .stations{margin:var(--s2) 0 0;padding:0;list-style:none;display:grid;gap:0;font-size:15px;line-height:22px;counter-reset:st}
+.metro .stations li{display:flex;flex-wrap:wrap;gap:var(--s1) var(--s2);align-items:baseline;justify-content:space-between;padding:var(--s1) 0;border-bottom:1px solid var(--rule)}
+.metro .stations .nm{font-weight:600}
+.metro .tag{font-size:12px;line-height:16px;font-weight:700;border-radius:var(--r-pill);padding:2px var(--s2);border:2px solid var(--rim);white-space:nowrap}
+.metro .tag-open{background:var(--sage)}.metro .tag-not{background:var(--brick);color:var(--white);border-color:var(--brick)}.metro .tag-media{background:var(--clay)}.metro .tag-media-closed{background:var(--paper);border-style:dashed}
+.metro .legend{display:flex;flex-wrap:wrap;gap:var(--s2) var(--s4);font-size:14px;line-height:20px;margin:var(--s3) 0 0;padding:0;list-style:none}
+.metro .notice{border-radius:var(--r-card);background:var(--clay);padding:var(--s4) var(--s6);font-size:15px;line-height:23px;max-width:none}
+.metro .steps-list{display:grid;gap:var(--s4);padding:0;margin:var(--s4) 0 0;list-style:none;counter-reset:step}
+.metro .steps-list>li{counter-increment:step;display:grid;grid-template-columns:40px 1fr;gap:var(--s3);align-items:start}
+.metro .steps-list>li::before{content:counter(step);font:800 20px/36px var(--display);width:36px;height:36px;text-align:center;border-radius:50%;background:var(--haldi);border:2px solid var(--rim)}
+.metro .steps-list p{margin:0;max-width:none}
+.metro table{border-collapse:collapse;font-size:14px;line-height:20px;width:100%}
+.metro .tt th,.metro .tt td{text-align:left;padding:var(--s2) var(--s3);border-bottom:1px solid var(--rule);vertical-align:top}
+.metro .tt th{font-weight:700;background:#1c141008}
+.metro .tt-wrap{overflow-x:auto}
+.metro details{border-radius:var(--r-card);outline:2px solid var(--rim);outline-offset:-2px;background:var(--white);padding:var(--s3) var(--s6);margin-top:var(--s4)}
+.metro details>summary{cursor:pointer;font-weight:800;min-height:44px;display:flex;align-items:center}
+.metro .fare-scroll{overflow:auto;max-height:70vh;margin-top:var(--s3);border:2px solid var(--rim);border-radius:var(--r-input)}
+.metro .fare{width:auto;min-width:100%;font-variant-numeric:tabular-nums}
+.metro .fare th,.metro .fare td{padding:var(--s1) var(--s2);text-align:center;border:1px solid var(--rule);white-space:nowrap}
+.metro .fare thead th{position:sticky;top:0;background:var(--paper);z-index:2;font-size:12px}
+.metro .fare tbody th{position:sticky;left:0;background:var(--paper);text-align:left;z-index:1;font-weight:600;min-width:170px}
+.metro .fare thead th:first-child{left:0;z-index:3}
+.metro .fare td.zero{color:var(--ink-soft);background:#1c141010}
+.metro .fare td.chk{background:var(--clay);font-weight:800}
+.metro .fare-codes{columns:2 220px;font-size:14px;line-height:22px;margin:var(--s3) 0 0;padding:0;list-style:none}
+.metro .fare-line3 thead th{height:200px;vertical-align:bottom}
+.metro .fare-line3 thead th span{display:block;writing-mode:vertical-rl;transform:rotate(180deg);white-space:nowrap;max-height:190px;overflow:hidden;font-size:12px}
+.metro .disc{display:grid;gap:var(--s3);padding:0;margin:var(--s4) 0 0;list-style:none}
+.metro .disc li{border-radius:var(--r-card);background:var(--white);outline:2px solid var(--rim);outline-offset:-2px;padding:var(--s4) var(--s6)}
+.metro .disc strong{display:block}
+.metro .search{display:flex;gap:var(--s3);margin:var(--s4) 0 var(--s6)}
+.metro .search input{flex:1;min-width:0;min-height:48px;padding:0 var(--s4);border:2px solid var(--rim);border-radius:var(--r-input);background:var(--white);font:inherit}
+.metro .area{border-radius:var(--r-card);background:var(--white);outline:4px solid var(--rim);outline-offset:-4px;padding:var(--s6);display:grid;gap:var(--s2);align-content:start}
+.metro .area h3{margin:0}
+.metro .area[hidden]{display:none}
+.metro .area-stations{display:flex;flex-wrap:wrap;gap:var(--s2);margin:var(--s2) 0 0;padding:0;list-style:none}
+.metro .area-stations li{display:inline-flex;align-items:center;gap:var(--s2);border:2px solid var(--rim);border-radius:var(--r-pill);padding:var(--s1) var(--s3);font-weight:600;font-size:15px;background:var(--paper)}
+.metro .src-list{display:grid;gap:var(--s2);margin:var(--s3) 0 0;padding-left:var(--s5)}
+.metro .src-list a{overflow-wrap:anywhere}
+.metro .fallback{border-radius:var(--r-card);outline:4px solid var(--rim);outline-offset:-4px;background:var(--white);padding:var(--s6);display:grid;gap:var(--s3)}
+.metro .fallback[hidden]{display:none}
+.metro .fallback p{max-width:none}
+.metro .planner{min-height:12px}
+/* planner (Lustre) */
+.metro .pl{display:grid;gap:var(--s4);border-radius:var(--r-card);outline:4px solid var(--rim);outline-offset:-4px;background:var(--white);padding:var(--s6)}
+.metro .pl-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:var(--s4)}
+.metro .pl label{display:grid;gap:var(--s1);font-weight:700}
+.metro .pl select{min-height:48px;padding:0 var(--s3);border:2px solid var(--rim);border-radius:var(--r-input);background:var(--paper);font:inherit;font-weight:500}
+.metro .pl .res{display:grid;gap:var(--s3);border-top:2px solid var(--rim);padding-top:var(--s4)}
+.metro .pl .res p{margin:0;max-width:none}
+.metro .pl .leg{border-radius:var(--r-input);background:var(--paper);border:2px solid var(--rim);padding:var(--s3) var(--s4);display:grid;gap:var(--s1)}
+.metro .pl .btns{display:flex;flex-wrap:wrap;gap:var(--s3)}
+.metro .pl .warn{background:var(--clay);border-radius:var(--r-input);padding:var(--s3) var(--s4)}
+@media(max-width:860px){.metro .section{padding-top:var(--s12)}.metro .steps-list>li{grid-template-columns:36px 1fr}}
+@media print{.metro .toc,.metro .search,.metro .banner{display:none}.metro .fare-scroll{max-height:none}}
+
+/* Simple layout: plan first, everything else folded into plain sections */
+.metro .guide{margin-top:var(--s12);border-bottom:2px solid var(--rim)}
+.metro .guide>details{border:0;border-top:2px solid var(--rim);outline:0;border-radius:0;background:none;padding:0;margin:0}
+.metro .guide>details>summary{font:800 clamp(20px,2.4vw,26px)/1.2 var(--display);min-height:64px;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:var(--s4)}
+.metro .guide>details>summary::-webkit-details-marker{display:none}
+.metro .guide>details>summary::after{content:"+";font:700 28px/1 var(--body)}
+.metro .guide>details[open]>summary::after{content:"\2212"}
+.metro .guide .body{padding:0 0 var(--s8);display:grid;gap:var(--s4)}
+.metro .guide .body>*{margin:0}
+.metro .guide .intro{color:var(--ink-soft)}
+.metro .guide details details{margin-top:var(--s2)}
+.metro .section{padding-top:var(--s10)}
+.metro .hero{padding-bottom:0}
+/* Planner must never be wider than its card: selects size to the box, not to their longest option text. */
+.metro .planner,.metro .pl{min-width:0;max-width:100%}
+.metro .pl>*,.metro .pl-row>*{min-width:0}
+.metro .pl select{width:100%;max-width:100%;min-width:0;text-overflow:ellipsis}
+.metro .pl .verified{max-width:100%;border-radius:var(--r-card);justify-self:start}
+.metro .pl .area-stations li{flex-wrap:wrap}
+.metro .pl .net{white-space:normal}
+.metro .pl .chip{white-space:normal;text-align:center;height:auto;padding-block:var(--s2);max-width:100%}

@@ -4,13 +4,18 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "npm run build:types && node scripts/prepare-astro.mjs && ASTRO_TELEMETRY_DISABLED=1 astro build && node scripts/publish-static.mjs",
+    "build": "npm run metro:check && npm run build:types && node scripts/prepare-astro.mjs && ASTRO_TELEMETRY_DISABLED=1 astro build && node scripts/publish-static.mjs",
     "test": "node --test",
     "dev": "npm run build && python3 -m http.server 4173 --directory public",
     "build:types": "tsc -p tsconfig.client.json",
     "pretest": "node scripts/prepare-checks.mjs",
     "check": "ASTRO_TELEMETRY_DISABLED=1 astro check && svelte-check --tsconfig ./tsconfig.json",
-    "posttest": "node scripts/verify-ci.mjs"
+    "posttest": "node scripts/verify-ci.mjs",
+    "metro:check": "node scripts/validate-metro.mjs",
+    "metro:data": "node scripts/metro-gleam-data.mjs",
+    "metro:build": "node scripts/metro-build.mjs",
+    "metro:test": "cd metro && gleam test",
+    "metro:offline": "node scripts/metro-offline-check.mjs"
   },
   "devDependencies": {
     "@astrojs/check": "0.9.12",

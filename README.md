@@ -62,6 +62,16 @@ The publication decisions and corrections are recorded in [`docs/LISTING-AUDIT.m
 
 <sub>Earlier screenshots taken on 13 November 2026 before the listing audit. They are historical, not evidence of current published content.</sub>
 
+## Pune Metro guide
+
+`/PuneMetroguide/` is a plain-language guide to the Pune Metro (Purple, Aqua and Line 3) with a journey planner that works
+offline after one visit: which line, where to change and what the ticket costs, for any two stations the operators have
+confirmed open. Data lives in [`data/metro/`](data/metro/README.md) (checked against both operators, with a dated
+verification log). The planner is a small [Gleam](https://gleam.run) program using Lustre, in [`metro/`](metro/README.md),
+compiled to a committed bundle. The page is an Astro route; its script is strict TypeScript. A service worker scoped to
+`/PuneMetroguide/` only caches the guide. Timetable information only: there are no live trains. `npm run metro:check`
+validates the data, `npm run metro:offline` runs the browser checks (needs Playwright with Chromium).
+
 ## Stack and deployment
 
 - **TypeScript:** strict typed publication gate, District URL/snapshot boundary, IST dates, weekend filtering and sharing. Runtime checks still reject untrusted JSON. Types do not prove listing truth.
@@ -112,6 +122,8 @@ scripts/update-plans.mjs   manual, one-off plans export (no schedule)
 scripts/build.mjs       reviewed content renderer used by Astro
 site/                   page fragments the generator reads
 data/                   source datasets plus a default-deny publication audit
+data/metro/             Pune Metro dataset, area directory and verification log
+metro/                  Gleam/Lustre journey planner (dist/planner.js is the committed bundle)
 tests/                  node:test suites
 docs/                   scope and brand, plans data, third-party notices
 ```

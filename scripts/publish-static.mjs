@@ -2,7 +2,7 @@ import { createHash } from 'node:crypto';
 import { join } from 'node:path';
 import { cpSync, readdirSync, rmSync, readFileSync, writeFileSync, statSync } from 'node:fs';
 // Only replace generated HTML and Astro bundles. Source assets/data are preserved.
-for (const name of ['places', 'outdoors', 'events', 'meetups', 'moments', 'powered-by', '_astro']) rmSync(`public/${name}`, {recursive: true, force: true});
+for (const name of ['places', 'outdoors', 'events', 'meetups', 'moments', 'powered-by', 'PuneMetroguide', '_astro']) rmSync(`public/${name}`, {recursive: true, force: true});
 for (const entry of readdirSync('dist')) cpSync(`dist/${entry}`, `public/${entry}`, {recursive: true});
 
 // Astro's island uid includes its absolute component path, so checkout locations

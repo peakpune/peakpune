@@ -5,6 +5,7 @@ import { dirname, join } from 'node:path';
 import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { publishAuditedRows } from '../public/lib/publication.js';
+import { buildMetroGuide, writeMetroAssets, GUIDE_PATH } from './metro-guide.mjs';
 
 // Astro bundles this module; cwd remains the project root in both build paths.
 const root = process.cwd();
@@ -334,6 +335,12 @@ export function build({ outDir = join(root, 'public'), log = () => {}, dryRun = 
     out(path, page({ path, current: '/outdoors/', title: c.title, description: clip(`${rs.length} ${c.h1.toLowerCase()}: ${rs.map((r) => r.name).join(', ')}. ${c.blurb}`, 158), crumbs: [['Outdoors', '/outdoors/'], [c.h1, path]], main: `<div class="hero hero-single"><div><div class="eyebrow">Outdoors · ${rs.length} listed</div><h1>${esc(c.h1)}</h1><p class="lede">${esc(c.blurb)}</p></div></div><section class="section"><div class="grid">${rs.map(outdoorCard).join('')}</div></section><section class="section"><div class="section-head"><h2>More ways to get out</h2></div><nav class="chips" aria-label="Collections">${COLLECTIONS.filter((x) => x !== c && outdoors.filter(x.test).length >= 2).map((x) => `<a class="chip" href="/outdoors/${x.slug}/">${esc(x.h1)}</a>`).join('')}</nav></section>`, ld: [{ '@type': 'ItemList', name: c.h1, numberOfItems: rs.length, itemListElement: rs.map((r, i) => ({ '@type': 'ListItem', position: i + 1, name: r.name, url: `${SITE_URL}/outdoors/${slugOut(r)}/` })) }] }));
     urls.push([path, rs[0].checked_at]);
   }
+  // Pune Metro guide: an Astro route like the rest. Its hashed assets and service worker are written beside it
+  // (and reach dist through Astro's publicDir); they are skipped in dryRun, which only enumerates routes.
+  const metro = buildMetroGuide({ ctx: { esc, page, assetUrl, BASE, SITE_URL } });
+  if (!dryRun) writeMetroAssets(join(outDir, 'PuneMetroguide'), metro.files);
+  out(GUIDE_PATH, metro.html);
+  urls.push([GUIDE_PATH, metro.verifiedOn]);
   out('/404.html', page({ path: '/404.html', title: 'Page not found | Peak Pune', description: 'This page is closed 1 to 4, or possibly forever.', main: '<div class="hero hero-single"><div><div class="eyebrow">404</div><h1>Closed. Not just 1 to 4.</h1><p>This page does not exist. The rest of Pune does.</p><p class="actions"><a class="primary" href="/">Back to Explore</a> <a class="chip" href="/places/">Browse places</a></p></div></div>' }).replace(`content="${ROBOTS}"`, 'content="noindex"'));
   if (!dryRun) {
   writeFileSync(join(outDir, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map(([p, d]) => `<url><loc>${esc(SITE_URL + p)}</loc>${d ? `<lastmod>${d}</lastmod>` : ''}</url>`).join('\n')}\n</urlset>\n`);
