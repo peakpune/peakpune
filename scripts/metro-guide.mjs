@@ -63,10 +63,11 @@ export function renderGuideMain({ data, model, areas, esc }) {
     const dl = data.lines.find((x) => x.id === l.id);
     const rows = l.order.map((id, k) => {
       const m = model.membership[`${l.id}:${id}`]; const [t, c] = tag(m);
-      return `<li><span class="nm">${esc(l.orderNames[k])}</span><span class="tag ${c}">${esc(t)}</span></li>`;
+      const plain = m.state === 'open' && (m.verified || m.statusSource === 'media');
+      return `<li><span class="nm">${esc(l.orderNames[k])}</span>${plain ? '' : `<span class="tag ${c}">${esc(t)}</span>`}</li>`;
     }).join('');
     const facts = l.id === 'pink_line3'
-      ? `<li><strong>Operator:</strong> ${esc(OPERATOR_LABEL.pitcmrl)}, a joint venture of the Tata Group and Siemens, under a concession from PMRDA</li><li><strong>Route:</strong> ${esc(l.termini[0])} (Hinjawadi) to ${esc(l.termini[1])}, fully elevated</li><li><strong>Length and time:</strong> ${esc(dl.length_km)} km, about ${esc(dl.end_to_end_min)} minutes end to end (operator timetable)</li><li><strong>Passenger service:</strong> reported to have started on ${esc(longDate(dl.passenger_service_started.date))} (media report, not confirmed on the operator's pages)</li><li><strong>Stations:</strong> ${l.order.length} on the operator list; ${open(l.id).length} reported open and ${l.order.length - open(l.id).length} reported not open yet, from media reports as of ${esc(longDate(dl.station_status.as_of))}. The operator publishes no open list.</li>`
+      ? `<li><strong>Operator:</strong> ${esc(OPERATOR_LABEL.pitcmrl)}, a joint venture of the Tata Group and Siemens, under a concession from PMRDA</li><li><strong>Route:</strong> ${esc(l.termini[0])} (Hinjawadi) to ${esc(l.termini[1])}, fully elevated</li><li><strong>Length and time:</strong> ${esc(dl.length_km)} km, about ${esc(dl.end_to_end_min)} minutes end to end (operator timetable)</li><li><strong>Stations:</strong> ${l.order.length} on the operator list. Which are open comes from media reports only (${open(l.id).length} reported open); the operator publishes no list, so none can be chosen in the planner yet. Service reportedly started ${esc(longDate(dl.passenger_service_started.date))}.</li>`
       : `<li><strong>Operator:</strong> ${esc(OPERATOR_LABEL.maha_metro)}</li><li><strong>Route:</strong> ${esc(l.termini[0])} to ${esc(l.termini[1])}</li><li><strong>Length and time:</strong> ${esc(dl.length_km)} km and ${esc(dl.end_to_end_min)} minutes end to end (timetable image). The project profile page gives ${esc(dl.length_km_project_profile)} km.</li><li><strong>Stations:</strong> ${open(l.id).length} open${l.id === 'purple' ? ', plus Range Hill, which the operator lists without an Open tag' : ''}. Status read from the operator's project profile.</li>`;
     return `<article class="line-card" id="line-${esc(l.id)}"><h3><span class="line-chip lc-${esc(l.id)}">${esc(l.name)}</span></h3><ul class="facts-list">${facts}</ul><ol class="stations" aria-label="Stations on ${esc(l.name)}">${rows}</ol></article>`;
   };
@@ -91,36 +92,37 @@ export function renderGuideMain({ data, model, areas, esc }) {
   const fallbackLinks = `${ext(P.mahametro_fare_chart_page, 'Maha Metro fare chart (Lines 1 and 2)')} · ${ext(P.line3_fare_table_page, 'Line 3 fare table')}`;
 
   return `<div class="metro">
-<div class="hero hero-single"><div><div class="eyebrow">Pune Metro guide</div><h1>Pune Metro, line by line.</h1>
-<p class="lede">Stations, tickets, fares and timings for the lines that run today, plus a journey planner that keeps working offline. Timetable information only: there are no live train positions or arrival predictions anywhere on this page.</p>
-<p class="verified"><span>Fares and stations last verified on</span> <time datetime="${esc(verified)}">${esc(longDate(verified))}</time></p>
-<ul class="toc" aria-label="On this page"><li><a href="#planner">Planner</a></li><li><a href="#network">Network</a></li><li><a href="#tickets">Tickets</a></li><li><a href="#fares">Fares</a></li><li><a href="#timings">Timings</a></li><li><a href="#interchange">Interchange</a></li><li><a href="#practical">Practical</a></li><li><a href="#areas">Areas</a></li><li><a href="#sources">Sources</a></li></ul>
+<div class="hero hero-single"><div><div class="eyebrow">Pune Metro guide</div><h1>Pune Metro, simply.</h1>
+<p class="lede">Which line, where to change and what it costs. Works offline after one visit.</p>
+<p class="verified"><span>Checked on</span> <time datetime="${esc(verified)}">${esc(longDate(verified))}</time></p>
 <div class="status-bar"><div class="banner" id="metro-update" hidden role="status"><p>A new version of this guide is ready.</p><button class="chip" type="button">Tap to refresh</button></div>
-<p class="offline-note" id="metro-offline-ready" hidden>Saved for offline use. After one visit the guide and planner work without a connection. Links marked <span class="net">needs internet</span> do not.</p>
-<p class="notice" id="metro-net" hidden role="status">You are offline. You are reading the saved copy, verified on ${esc(longDate(verified))}. Nothing here is live status.</p></div>
+<p class="offline-note" id="metro-offline-ready" hidden>Saved for offline use. Links marked <span class="net">needs internet</span> need a connection.</p>
+<p class="notice" id="metro-net" hidden role="status">You are offline. This is the saved copy checked on ${esc(longDate(verified))}.</p></div>
 </div></div>
 
-<section class="section" id="planner"><div class="section-head"><h2>Journey planner</h2><p>Pick where you board and where you get off. The route, any change, and the fare all come from the saved station and fare data, so it works offline.</p></div>
+<section class="section" id="planner"><div class="section-head"><h2>Plan a journey</h2></div>
 <div id="metro-planner" class="planner" data-verified-on="${esc(verified)}"></div>
 <div id="metro-planner-fallback" class="fallback"><h3>Use the official fare chart</h3><p>The planner needs JavaScript and has not started. The fare tables below work without it, or use the operators' own charts: ${fallbackLinks}.</p></div></section>
 
-<section class="section" id="network"><div class="section-head"><h2>The network today</h2><p>Three lines, two operators. Only stations marked open are usable. Everything under construction or approved is listed further down and is not routable.</p></div>
+<div class="guide"><h2 class="sr-only">Guide</h2>
+
+<details id="network"><summary>Lines and stations</summary><div class="body"><p class="intro">Three lines, two operators. Only stations marked open are usable. Everything under construction or approved is listed further down and is not routable.</p>
 <p class="notice">Maha Metro's homepage counts ${esc(homeStats.lines)} lines and ${esc(homeStats.total_stations)} stations (${esc(homeStats.operational_stations)} operational, ${esc(homeStats.underground_stations)} underground) over ${esc(homeStats.network_km)} km, counting District Court on both lines. Line 3 is run separately by PITCMRL.</p>
 <div class="grid3">${model.lines.map(lineCard).join('')}</div>
 <ul class="legend"><li><span class="tag tag-open">Open</span> confirmed open on the operator's own page</li><li><span class="tag tag-media">Reported open (media)</span> news reports only; the operator publishes no list</li><li><span class="tag tag-media-closed">Reported not open yet (media)</span> same, and not usable</li><li><span class="tag tag-not">Listed, not open</span> listed by the operator without an Open tag</li></ul>
 <h3>Not open: approved or planned extensions</h3>
 <ul class="facts-list"><li><strong>Line 1A, PCMC to Nigdi</strong> (Chinchwad, Akurdi, Nigdi, Bhakti Shakti), about 4.4 km. Approved, not built or open.</li><li><strong>Line 1B, Swargate to Katraj</strong> (Market Yard, Padmavati, Katraj), about 5.5 km, 3 underground stations. Approved, not built or open.</li><li><strong>Vanaz to Chandni Chowk and Ramwadi to Wagholi</strong> (Aqua extensions), announced in an operator social media post from June 2025 and absent from the project profile page. Not open. Ramwadi to Wagholi is the corridor that would eventually serve Kharadi.</li></ul>
-<p class="note">${ext(P.mahametro_project_profile, 'Operator project profile')}. None of these is in the planner or the fare tables.</p></section>
+<p class="note">${ext(P.mahametro_project_profile, 'Operator project profile')}. None of these is in the planner or the fare tables.</p></div></details>
 
-<section class="section" id="tickets"><div class="section-head"><h2>How to buy a ticket</h2><p>Simplest first. Maha Metro and Line 3 sell tickets separately.</p></div>
+<details id="tickets"><summary>Buying a ticket</summary><div class="body"><p class="intro">Simplest first. Maha Metro and Line 3 sell tickets separately.</p>
 <ol class="steps-list">
 <li><div><p><strong>WhatsApp e-ticket (Lines 1 and 2).</strong> The operator's homepage says to send "Hi" to book your e-ticket. ${ext(tk.maha_metro.whatsapp.url, 'Open WhatsApp')}</p><p class="note">Line 3: its operator lists QR tickets through WhatsApp and its own app, but publishes no WhatsApp number on the pages we checked, so we do not list one. Some media reports say the same number offers a Line 3 option; that is unconfirmed.</p></div></li>
 <li><div><p><strong>The Pune Metro app (Lines 1 and 2).</strong> Listed on the operator's homepage with store badges. Line 3 lists its own Line 3 app on its passenger amenities page.</p></div></li>
 <li><div><p><strong>Station counters and ticket vending machines.</strong> Line 3's operator says tickets are sold by manual counter at every station and by ticket vending machine. Lines 1 and 2: ${esc(tk.maha_metro.station)}.</p></div></li>
 <li><div><p><strong>One Pune Card (NCMC RuPay, tap in and tap out).</strong> Tap at the entry gate and again at the exit; the fare for the stations you travelled is deducted from the chip balance. KYC card: issue fee Rs ${esc(tk.maha_metro.one_pune_card.issuance_fee_inr)}, yearly Rs ${esc(tk.maha_metro.one_pune_card.annual_maintenance_inr)}, minimum top-up Rs ${esc(tk.maha_metro.one_pune_card.min_topup_inr)}, chip balance up to Rs ${esc(tk.maha_metro.one_pune_card.max_chip_balance_inr)}, online top-up fee ${esc(tk.maha_metro.one_pune_card.online_topup_fee)}. ${esc(tk.maha_metro.one_pune_card.daily_contactless_limit)}. ${ext(tk.maha_metro.one_pune_card.source, 'One Pune Card page')}</p><p class="note">Non-KYC card: ${esc(tk.maha_metro.one_pune_card_non_kyc.issuance_fee)}, yearly ${esc(tk.maha_metro.one_pune_card_non_kyc.annual_fee)}, total balance up to Rs ${esc(tk.maha_metro.one_pune_card_non_kyc.max_total_balance_inr)}. ${ext(tk.maha_metro.one_pune_card_non_kyc.source, 'Non-KYC card page')} Line 3's operator lists NCMC cards, including the One Pune Card, among its ticket options.</p></div></li>
-</ol></section>
+</ol></div></details>
 
-<section class="section" id="fares"><div class="section-head"><h2>What it costs</h2><p>Lines 1 and 2 are one fare system: Rs ${esc(mm.min)} to Rs ${esc(mm.max)}. Line 3 is a separate fare system: Rs ${esc(l3.min)} to Rs ${esc(l3.max)}. There is no published combined fare for a trip across both, so the planner shows them separately and never adds them up.</p></div>
+<details id="fares"><summary>Fares and discounts</summary><div class="body"><p class="intro">Lines 1 and 2 are one fare system: Rs ${esc(mm.min)} to Rs ${esc(mm.max)}. Line 3 is a separate fare system: Rs ${esc(l3.min)} to Rs ${esc(l3.max)}. There is no published combined fare for a trip across both, so the planner shows them separately and never adds them up.</p>
 <h3>Discounts the operator publishes</h3><ul class="disc">${disc}</ul>
 <p class="note">${esc(data.discounts.unverified)}</p>
 <details id="fare-maha"><summary>Full fare table: Lines 1 and 2 (Maha Metro), Rs</summary>
@@ -128,37 +130,38 @@ export function renderGuideMain({ data, model, areas, esc }) {
 <div class="fare-scroll" tabindex="0" role="region" aria-label="Maha Metro fare table"><table class="fare"><caption class="sr-only">Maha Metro fares in rupees between every pair of stations</caption><thead><tr><th scope="col">From \\ To</th>${mahaHead}</tr></thead><tbody>${mahaRows}</tbody></table></div></details>
 <details id="fare-line3"><summary>Full fare table: Line 3 (Pink), Rs</summary>
 <p class="note">Read from the operator's fare chart image. The chart covers all ${pinkNames.length} stations, including ones reported not open yet. ${ext(P.line3_fare_table_page, 'Operator fare table')}</p>
-<div class="fare-scroll" tabindex="0" role="region" aria-label="Line 3 fare table"><table class="fare fare-line3"><caption class="sr-only">Line 3 fares in rupees between every pair of stations</caption><thead><tr><th scope="col">From \\ To</th>${pinkHead}</tr></thead><tbody>${pinkRows}</tbody></table></div></details></section>
+<div class="fare-scroll" tabindex="0" role="region" aria-label="Line 3 fare table"><table class="fare fare-line3"><caption class="sr-only">Line 3 fares in rupees between every pair of stations</caption><thead><tr><th scope="col">From \\ To</th>${pinkHead}</tr></thead><tbody>${pinkRows}</tbody></table></div></details></div></details>
 
-<section class="section" id="timings"><div class="section-head"><h2>Timings and frequency</h2><p>Timetable level only, from the operators' timetable images. Per-station first and last train times are not published.</p></div>
+<details id="timings"><summary>Timings</summary><div class="body"><p class="intro">Timetable level only, from the operators' timetable images. Per-station first and last train times are not published.</p>
 <div class="tt-wrap"><table class="tt"><caption class="sr-only">Service hours and frequency by line</caption><thead><tr><th scope="col"></th><th scope="col">Lines 1 and 2 (Maha Metro)</th><th scope="col">Line 3 (Pink)</th></tr></thead><tbody>
 <tr><th scope="row">Service</th><td>${esc(tm.maha_metro.service_hours)}. Effective from ${esc(longDate(tm.maha_metro.effective_from))}.</td><td>First train ${esc(tm.line3.first_train)}. Last train ${esc(tm.line3.last_train)}.</td></tr>
 <tr><th scope="row">Peak</th><td>${esc(tm.maha_metro.peak.windows.join(' and '))}: every ${esc(tm.maha_metro.peak.headway_min)} minutes</td><td>${esc(tm.line3.peak.windows.join(' and '))}: ${esc(tm.line3.peak.headway)}</td></tr>
 <tr><th scope="row">Off-peak</th><td>${esc(tm.maha_metro.off_peak.windows.join(', '))}: every ${esc(tm.maha_metro.off_peak.headway_min)} minutes</td><td>${esc(tm.line3.off_peak.windows.join(', '))}: every ${esc(tm.line3.off_peak.headway_min)} minutes</td></tr>
 <tr><th scope="row">End to end</th><td>Purple ${esc(data.lines[0].end_to_end_min)} minutes; Aqua ${esc(data.lines[1].end_to_end_min)} minutes</td><td>About ${esc(ps.end_to_end_min)} minutes</td></tr></tbody></table></div>
-<p class="note">${esc(tm.line3.note)} ${ext(P.mahametro_timetable_page, 'Maha Metro timetable')} ${ext(P.line3_timetable_page, 'Line 3 timetable')}</p></section>
+<p class="note">${esc(tm.line3.note)} ${ext(P.mahametro_timetable_page, 'Maha Metro timetable')} ${ext(P.line3_timetable_page, 'Line 3 timetable')}</p></div></details>
 
-<section class="section" id="interchange"><div class="section-head"><h2>The interchange: District Court</h2><p>One station where Purple, Aqua and Line 3 meet.</p></div>
+<details id="interchange"><summary>Changing at District Court</summary><div class="body"><p class="intro">One station where Purple, Aqua and Line 3 meet.</p>
 <ul class="facts-list"><li><strong>Purple and Aqua:</strong> ${esc(data.interchange.within_mahametro)} The planner prices the whole trip from the Maha Metro fare table.</li><li><strong>Line 3:</strong> Line 3 ends at District Court, Pune. The Line 3 operator says it has interchanges with Lines 1 and 2. It is a different operator with a separate fare system.</li></ul>
 <p class="notice"><strong>Not confirmed by either operator:</strong> media reports say a trip across the two systems currently needs two QR codes, that one NCMC card works on both, and that a single integrated ticket has been announced. How a single trip across both systems is charged is not published, so the planner shows each system's leg separately and no combined fare. Verify the current state with the operators before you travel.</p>
-<p class="note">Line 3's "Shivaji Nagar" station is not confirmed to be the same physical station as Line 1's "Shivaji Nagar", so the planner treats them as two stations and does not derive a change between them.</p></section>
+<p class="note">Line 3's "Shivaji Nagar" station is not confirmed to be the same physical station as Line 1's "Shivaji Nagar", so the planner treats them as two stations and does not derive a change between them.</p></div></details>
 
-<section class="section" id="practical"><div class="section-head"><h2>Practical details</h2></div>
-<ul class="facts-list"><li><strong>Maha Metro customer care:</strong> <a href="tel:${esc(ops.maha_metro.helpline)}">${esc(ops.maha_metro.helpline)}</a> (toll free), ${esc(ops.maha_metro.email)}</li><li><strong>Line 3 (PITCMRL):</strong> <a href="tel:${esc(ops.pitcmrl.helpline.replace(/-/g, ''))}">${esc(ops.pitcmrl.helpline)}</a>, ${esc(ops.pitcmrl.email)}</li><li><strong>One Pune Card call centre:</strong> ${esc(tk.maha_metro.one_pune_card.call_center)}</li><li><strong>Gates:</strong> both operators run automatic fare gates. The pages we checked do not describe QR scanning steps, and neither operator publishes ticket validity rules there, so we state none.</li><li><strong>Bicycles</strong> are not permitted on Line 3, per its homepage.</li><li><strong>Not covered:</strong> live train positions, arrival predictions, PMPML buses and per-station first or last trains.</li></ul></section>
+<details id="practical"><summary>Help and contacts</summary><div class="body">
+<ul class="facts-list"><li><strong>Maha Metro customer care:</strong> <a href="tel:${esc(ops.maha_metro.helpline)}">${esc(ops.maha_metro.helpline)}</a> (toll free), ${esc(ops.maha_metro.email)}</li><li><strong>Line 3 (PITCMRL):</strong> <a href="tel:${esc(ops.pitcmrl.helpline.replace(/-/g, ''))}">${esc(ops.pitcmrl.helpline)}</a>, ${esc(ops.pitcmrl.email)}</li><li><strong>One Pune Card call centre:</strong> ${esc(tk.maha_metro.one_pune_card.call_center)}</li><li><strong>Gates:</strong> both operators run automatic fare gates. The pages we checked do not describe QR scanning steps, and neither operator publishes ticket validity rules there, so we state none.</li><li><strong>Bicycles</strong> are not permitted on Line 3, per its homepage.</li><li><strong>Not covered:</strong> live train positions, arrival predictions, PMPML buses and per-station first or last trains.</li></ul></div></details>
 
-<section class="section" id="areas"><div class="section-head"><h2>Which station for my area?</h2><p>Common areas matched to the closest stations from OpenStreetMap coordinates. No walking times: check the last stretch on a map.</p></div>
+<details id="areas"><summary>Which station for my area?</summary><div class="body"><p class="intro">Common areas matched to the closest stations from OpenStreetMap coordinates. No walking times: check the last stretch on a map.</p>
 <div class="search"><label class="sr-only" for="area-q">Search areas</label><input id="area-q" type="search" placeholder="Search an area, for example Kharadi" autocomplete="off"></div>
 <p class="note" id="area-count" role="status"></p>
 <div class="grid3">${areas.areas.map(areaCard).join('')}</div>
-<p class="note">Method: ${esc(areas.method)}</p></section>
+<p class="note">Method: ${esc(areas.method)}</p></div></details>
 
-<section class="section" id="sources"><div class="section-head"><h2>Sources and what we checked</h2><p>Checked on ${esc(longDate(verified))} (${esc(data.timezone)}). Operator pages first; nothing here is invented.</p></div>
+<details id="sources"><summary>Sources and checks</summary><div class="body"><p class="intro">Checked on ${esc(longDate(verified))} (${esc(data.timezone)}). Operator pages first; nothing here is invented.</p>
 <h3>Confirmed on the date above</h3><ul class="facts-list">${data.verification.confirmed.map((t) => `<li>${esc(t)}</li>`).join('')}</ul>
 <h3>Corrections made when re-checking</h3><ul class="facts-list">${mm.corrections.map((c) => `<li><strong>${esc(c.cell)}:</strong> ${esc(c.detail)}</li>`).join('')}</ul>
 <h3>Not available or not confirmed</h3><ul class="facts-list">${data.verification.not_available.map((t) => `<li>${esc(t)}</li>`).join('')}</ul>
 ${srcs}
 <h3>Area reference points (OpenStreetMap)</h3><ul class="src-list">${areas.areas.flatMap((a) => a.references.map((r) => `<li>${ext(r.source, `${a.name}: ${r.label}`)}</li>`)).join('')}</ul>
-<p class="note">Map data in the area directory is © OpenStreetMap contributors. Peak Pune is not affiliated with either operator.</p></section>
+<p class="note">Map data in the area directory is © OpenStreetMap contributors. Peak Pune is not affiliated with either operator.</p></div></details>
+</</div>
 </div>`;
 }
 

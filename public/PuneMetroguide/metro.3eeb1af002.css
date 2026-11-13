@@ -76,3 +76,17 @@
 .metro .pl .warn{background:var(--clay);border-radius:var(--r-input);padding:var(--s3) var(--s4)}
 @media(max-width:860px){.metro .section{padding-top:var(--s12)}.metro .steps-list>li{grid-template-columns:36px 1fr}}
 @media print{.metro .toc,.metro .search,.metro .banner{display:none}.metro .fare-scroll{max-height:none}}
+
+/* Simple layout: plan first, everything else folded into plain sections */
+.metro .guide{margin-top:var(--s12);border-bottom:2px solid var(--rim)}
+.metro .guide>details{border:0;border-top:2px solid var(--rim);outline:0;border-radius:0;background:none;padding:0;margin:0}
+.metro .guide>details>summary{font:800 clamp(20px,2.4vw,26px)/1.2 var(--display);min-height:64px;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:var(--s4)}
+.metro .guide>details>summary::-webkit-details-marker{display:none}
+.metro .guide>details>summary::after{content:"+";font:700 28px/1 var(--body)}
+.metro .guide>details[open]>summary::after{content:"\2212"}
+.metro .guide .body{padding:0 0 var(--s8);display:grid;gap:var(--s4)}
+.metro .guide .body>*{margin:0}
+.metro .guide .intro{color:var(--ink-soft)}
+.metro .guide details details{margin-top:var(--s2)}
+.metro .section{padding-top:var(--s10)}
+.metro .hero{padding-bottom:0}
