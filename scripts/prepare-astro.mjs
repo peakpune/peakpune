@@ -8,6 +8,8 @@ mkdirSync(assets, {recursive: true});
 build({outDir: assets});
 for (const entry of readdirSync(assets, {withFileTypes: true})) {
   // The Pune Metro guide's hashed assets and worker ride through publicDir; Astro generates its HTML.
+  // Calendar files (.ics) are plain assets that ride through publicDir.
+  if (entry.name === 'calendar') continue;
   if (entry.name === 'PuneMetroguide') { rmSync(join(assets, entry.name, 'index.html'), {force: true}); continue; }
   if (entry.isDirectory() || entry.name.endsWith('.html')) rmSync(join(assets, entry.name), {recursive: true, force: true});
 }
