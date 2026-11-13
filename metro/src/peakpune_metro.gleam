@@ -35,7 +35,6 @@ pub type Msg {
   AreaChanged(String)
   UseFrom(StationId)
   UseTo(StationId)
-  Swap
 }
 
 pub fn main() -> Nil {
@@ -64,7 +63,6 @@ fn update(model: Model, msg: Msg) -> Model {
       })
     UseFrom(id) -> Model(..model, from: Some(id))
     UseTo(id) -> Model(..model, to: Some(id))
-    Swap -> Model(..model, from: model.to, to: model.from)
   }
 }
 
@@ -161,19 +159,9 @@ fn view(model: Model) -> Element(Msg) {
       ),
     ]),
     selectors(model),
-    html.div([attribute.class("btns")], [
-      html.button(
-        [
-          attribute.class("chip"),
-          attribute.type_("button"),
-          event.on_click(Swap),
-        ],
-        [text("Swap stations")],
-      ),
-    ]),
     html.p([attribute.class("note")], [
       text(
-        "Greyed-out stations cannot be chosen. \"Not open yet\" means closed or listed without an Open tag. \"Opening not confirmed by the operator\" means only media report it open, so it stays unavailable until the operator confirms: check punerimetro.in. Timetable information only, no live trains.",
+        "Greyed-out stations cannot be chosen yet: they are not open, or the operator has not confirmed they are (check punerimetro.in). Timetable information only.",
       ),
     ]),
     results(model),
