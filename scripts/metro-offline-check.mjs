@@ -82,7 +82,7 @@ try {
   check('planner is running offline (selects rendered by the Gleam app)', plannerThere);
   if (plannerThere) {
     const text = async () => (await page.innerText('#metro-planner .res')).replace(/\s+/g, ' ');
-    const trip = async (a, b) => { await page.selectOption('#pl-from', a); await page.selectOption('#pl-to', b); await page.waitForTimeout(80); return text(); };
+    var trip = async (a, b) => { await page.selectOption('#pl-from', a); await page.selectOption('#pl-to', b); await page.waitForTimeout(80); return text(); };
     let t = await trip('ramwadi', 'swargate');
     check('offline: Ramwadi to Swargate is Aqua, change at District Court, Purple, Rs 25', /Line 2 \(Aqua\).*towards Vanaz.*Line 1 \(Purple\).*towards Swargate.*Change at District Court.*Rs 25/.test(t));
     t = await trip('pune-railway-station', 'yerwada');
@@ -96,6 +96,13 @@ try {
     await page.selectOption('#pl-area', 'kharadi'); await page.waitForTimeout(80);
     check('offline: area helper says Kharadi has no station and offers Ramwadi', /No station in the area/.test(await page.innerText('#metro-planner')) && /Ramwadi/.test(await page.innerText('#metro-planner .area-stations')));
   }
+
+  // phone width: the planner and its results must fit the screen
+  await page.setViewportSize({ width: 390, height: 844 });
+  await trip('ramwadi', 'swargate'); await page.selectOption('#pl-area', 'hinjawadi'); await page.waitForTimeout(100);
+  const wide = await page.evaluate(() => ({ doc: document.documentElement.scrollWidth, win: innerWidth, planner: Math.round(document.querySelector('#metro-planner .pl').getBoundingClientRect().right) }));
+  check('no horizontal overflow at 390 px with the planner and a result showing', wide.doc <= wide.win && wide.planner <= wide.win, JSON.stringify(wide));
+  await page.setViewportSize({ width: 1280, height: 900 });
 
   // 4. back / forward offline
   await page.goto(`${guide}#fares`, { waitUntil: 'load' });
