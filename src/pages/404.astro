@@ -1,0 +1,7 @@
+---
+import { build } from '../../scripts/build.mjs';
+import SiteLayout from '../layouts/SiteLayout.astro';
+let html = '';
+build({dryRun: true, onPage: (route: string, content: string) => { if (route === '/404.html') html = content; }});
+---
+<SiteLayout html={html} route="/404.html" />

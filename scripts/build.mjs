@@ -1,12 +1,14 @@
 // Static site build: turns site/ fragments and data/ rows into crawlable pages in public/.
-// No dependencies. Run: npm run build. Set SITE_URL to the production origin.
+// Audited content renderer used by Astro. Run: npm run build. Set SITE_URL to the production origin.
 import { readFileSync, writeFileSync, mkdirSync, rmSync, existsSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
-import { buildMetroGuide } from './metro-guide.mjs';
+import { publishAuditedRows } from '../public/lib/publication.js';
+import { buildMetroGuide, writeMetroAssets, GUIDE_PATH } from './metro-guide.mjs';
 
-const root = join(dirname(fileURLToPath(import.meta.url)), '..');
+// Astro bundles this module; cwd remains the project root in both build paths.
+const root = process.cwd();
 export const SITE_URL = (process.env.SITE_URL || 'https://peakpune.com').replace(/\/+$/, '');
 // A project site (https://user.github.io/repo) is served under a sub-path: prefix root links with it.
 export const BASE = new URL(SITE_URL + '/').pathname.replace(/\/+$/, '');
@@ -17,7 +19,7 @@ export const INDEXING = process.env.INDEXING === 'on';
 const ROBOTS = INDEXING ? 'index,follow,max-image-preview:large' : 'noindex,nofollow';
 const read = (p) => readFileSync(join(root, p), 'utf8');
 export const publicationAudit = JSON.parse(read('data/publication-audit.json'));
-export const publishRows = (rows) => rows.filter((r) => publicationAudit.records[r.id]?.decision === 'publish').map((r) => ({ ...r, ...publicationAudit.records[r.id].overrides, checked_at: publicationAudit.checked_at }));
+export const publishRows = (rows) => publishAuditedRows(rows, publicationAudit);
 // New HTML must not reuse an older browser-cached stylesheet or script.
 export const assetUrl = (path) => `${path}?v=${createHash('sha256').update(readFileSync(join(root, 'public', path))).digest('hex').slice(0, 12)}`;
 
@@ -285,10 +287,10 @@ const STATIC = [
   { file: 'powered-by', path: '/powered-by/', title: 'Powered by PuneRunners, Pune Trekkers and Karawaan | Peak Pune', description: 'The three Pune groups behind Peak Pune runs, treks and trips: PuneRunners Club, Pune Trekkers and Karawaan. What each does and where to join.', crumbs: [['Powered by', '/powered-by/']] },
 ];
 
-export function build({ outDir = join(root, 'public'), log = () => {} } = {}) {
+export function build({ outDir = join(root, 'public'), log = () => {}, dryRun = false, onPage = /** @type {(path: string, html: string) => void} */ (() => {}) } = {}) {
   const rows = publishRows(JSON.parse(read('data/batch-1-places/places.json'))).filter((r) => r.scope === 'CORE');
   const outdoors = publishRows(JSON.parse(read('data/batch-2-outdoors/outdoors.json')));
-  const out = (path, html) => { const f = join(outDir, path.replace(/^\//, ''), path.endsWith('/') ? 'index.html' : ''); mkdirSync(dirname(f), { recursive: true }); writeFileSync(f, withBase(html)); };
+  const out = (path, html) => { onPage(path, withBase(html)); if (dryRun) return; const f = join(outDir, path.replace(/^\//, ''), path.endsWith('/') ? 'index.html' : ''); mkdirSync(dirname(f), { recursive: true }); writeFileSync(f, withBase(html)); };
   const urls = [];
   const website = { '@type': 'WebSite', '@id': `${SITE_URL}/#site`, url: `${SITE_URL}/`, name: 'Peak Pune', inLanguage: 'en-IN', publisher: { '@id': `${SITE_URL}/#org` } };
   out('/', page({ path: '/', title: 'Peak Pune | Things to do in Pune: places, runs, treks, events and meetups', description: 'Everything Pune, in one scroll. Sourced places to visit, running loops, treks near Pune, events, meetups and the moments only Pune could produce.', main: homeMain(rows, outdoors), ld: [website], plans: true }));
@@ -301,7 +303,7 @@ export function build({ outDir = join(root, 'public'), log = () => {} } = {}) {
     urls.push([p.path, null]);
   }
   const placesDir = join(outDir, 'places');
-  if (existsSync(placesDir)) rmSync(placesDir, { recursive: true });
+  if (!dryRun && existsSync(placesDir)) rmSync(placesDir, { recursive: true });
   out('/places/', page({ path: '/places/', title: 'Places to visit in Pune: museums, bookstores, cafes and heritage | Peak Pune', description: `${rows.length} places in Pune with addresses, timings and entry fees checked on the venue's own page: museums, bookstores, cafes, restaurants, temples and heritage sites.`, main: placesIndex(rows), crumbs: [['Places', '/places/']], ld: [{ '@type': 'ItemList', name: 'Places in Pune', numberOfItems: rows.length, itemListElement: rows.map((r, i) => ({ '@type': 'ListItem', position: i + 1, name: r.name, url: `${SITE_URL}/places/${slugOf(r)}/` })) }] }));
   urls.push(['/places/', rows[0]?.checked_at]);
   for (const r of rows) {
@@ -318,7 +320,7 @@ export function build({ outDir = join(root, 'public'), log = () => {} } = {}) {
     urls.push([path, rs[0].checked_at]);
   }
   const outDir2 = join(outDir, 'outdoors');
-  if (existsSync(outDir2)) rmSync(outDir2, { recursive: true });
+  if (!dryRun && existsSync(outDir2)) rmSync(outDir2, { recursive: true });
   out('/outdoors/', page({ path: '/outdoors/', title: 'Running routes in Pune and treks near Pune, with distances | Peak Pune', description: `${outdoors.filter((r) => !isTrek(r)).length} running loops inside Pune and ${outdoors.filter(isTrek).length} treks and day trips nearby, with distance from Pune, drive time and difficulty from PuneRunners and Pune Trekkers.`, main: outdoorsIndex(outdoors), crumbs: [['Outdoors', '/outdoors/']], ld: [{ '@type': 'ItemList', name: 'Runs and treks in and near Pune', numberOfItems: outdoors.length, itemListElement: outdoors.map((r, i) => ({ '@type': 'ListItem', position: i + 1, name: r.name, url: `${SITE_URL}/outdoors/${slugOut(r)}/` })) }] }));
   urls.push(['/outdoors/', outdoors[0]?.checked_at]);
   for (const r of outdoors) {
@@ -333,13 +335,19 @@ export function build({ outDir = join(root, 'public'), log = () => {} } = {}) {
     out(path, page({ path, current: '/outdoors/', title: c.title, description: clip(`${rs.length} ${c.h1.toLowerCase()}: ${rs.map((r) => r.name).join(', ')}. ${c.blurb}`, 158), crumbs: [['Outdoors', '/outdoors/'], [c.h1, path]], main: `<div class="hero hero-single"><div><div class="eyebrow">Outdoors · ${rs.length} listed</div><h1>${esc(c.h1)}</h1><p class="lede">${esc(c.blurb)}</p></div></div><section class="section"><div class="grid">${rs.map(outdoorCard).join('')}</div></section><section class="section"><div class="section-head"><h2>More ways to get out</h2></div><nav class="chips" aria-label="Collections">${COLLECTIONS.filter((x) => x !== c && outdoors.filter(x.test).length >= 2).map((x) => `<a class="chip" href="/outdoors/${x.slug}/">${esc(x.h1)}</a>`).join('')}</nav></section>`, ld: [{ '@type': 'ItemList', name: c.h1, numberOfItems: rs.length, itemListElement: rs.map((r, i) => ({ '@type': 'ListItem', position: i + 1, name: r.name, url: `${SITE_URL}/outdoors/${slugOut(r)}/` })) }] }));
     urls.push([path, rs[0].checked_at]);
   }
-  // Pune Metro guide at /PuneMetroguide/ (own folder, own service worker scope).
-  urls.push(...buildMetroGuide({ outDir, ctx: { esc, page, assetUrl, BASE, SITE_URL, withBase } }).pages);
+  // Pune Metro guide: an Astro route like the rest. Its hashed assets and service worker are written beside it
+  // (and reach dist through Astro's publicDir); they are skipped in dryRun, which only enumerates routes.
+  const metro = buildMetroGuide({ ctx: { esc, page, assetUrl, BASE, SITE_URL } });
+  if (!dryRun) writeMetroAssets(join(outDir, 'PuneMetroguide'), metro.files);
+  out(GUIDE_PATH, metro.html);
+  urls.push([GUIDE_PATH, metro.verifiedOn]);
   out('/404.html', page({ path: '/404.html', title: 'Page not found | Peak Pune', description: 'This page is closed 1 to 4, or possibly forever.', main: '<div class="hero hero-single"><div><div class="eyebrow">404</div><h1>Closed. Not just 1 to 4.</h1><p>This page does not exist. The rest of Pune does.</p><p class="actions"><a class="primary" href="/">Back to Explore</a> <a class="chip" href="/places/">Browse places</a></p></div></div>' }).replace(`content="${ROBOTS}"`, 'content="noindex"'));
+  if (!dryRun) {
   writeFileSync(join(outDir, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map(([p, d]) => `<url><loc>${esc(SITE_URL + p)}</loc>${d ? `<lastmod>${d}</lastmod>` : ''}</url>`).join('\n')}\n</urlset>\n`);
   writeFileSync(join(outDir, 'robots.txt'), `User-agent: *\nAllow: /\n${INDEXING ? `\nSitemap: ${SITE_URL}/sitemap.xml\n` : ''}`);
   writeFileSync(join(outDir, 'site.webmanifest'), JSON.stringify({ name: 'Peak Pune', short_name: 'Peak Pune', start_url: '.', display: 'standalone', background_color: '#F6EFE2', theme_color: '#F6EFE2', icons: [{ src: 'icon.svg', sizes: 'any', type: 'image/svg+xml' }] }));
   writeFileSync(join(outDir, 'icon.svg'), mark.replace('<svg class="mark"', '<svg xmlns="http://www.w3.org/2000/svg"').replace(' aria-hidden="true"', ''));
+  }
   log(`indexing ${INDEXING ? 'ON' : 'off (noindex)'}; ${urls.length} pages, ${rows.length} places, ${outdoors.length} outdoor rows, origin ${SITE_URL}`);
   return urls;
 }

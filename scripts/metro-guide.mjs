@@ -3,11 +3,11 @@
 // Every operational date and count is rendered from the dataset; nothing is hardcoded in markup.
 import { readFileSync, writeFileSync, mkdirSync, existsSync, rmSync } from 'node:fs';
 import { createHash } from 'node:crypto';
-import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 import { buildModel, loadMetro, OPERATOR_LABEL } from './metro-model.mjs';
 
-const root = join(dirname(fileURLToPath(import.meta.url)), '..');
+// Astro bundles this module; cwd is the project root in every build path (same as scripts/build.mjs).
+const root = process.cwd();
 const read = (p) => readFileSync(join(root, p), 'utf8');
 export const GUIDE_PATH = '/PuneMetroguide/';
 export const PLANNER_BUNDLE = 'metro/dist/planner.js'; // built by `npm run metro:build` (Gleam + esbuild) and committed
@@ -165,36 +165,37 @@ ${srcs}
 </div>`;
 }
 
-// Writes /PuneMetroguide/ into outDir and returns the pages for the sitemap.
-export function buildMetroGuide({ outDir, ctx }) {
-  const { esc, page, assetUrl, BASE, SITE_URL, withBase } = ctx;
+// Builds the guide page and its files in memory. The page is an Astro route (via scripts/build.mjs);
+// the hashed CSS/JS, the Gleam planner bundle and the service worker are returned as `files` and written beside it.
+// HTML links stay root-relative because build.mjs applies the site base path; the worker's URLs are prefixed here.
+export function buildMetroGuide({ ctx }) {
+  const { esc, page, assetUrl, BASE, SITE_URL } = ctx;
   const data = loadMetro(), model = buildModel(data);
   const areas = JSON.parse(read('data/metro/areas.json'));
-  const dir = join(outDir, 'PuneMetroguide');
-  if (existsSync(dir)) rmSync(dir, { recursive: true });
-  mkdirSync(dir, { recursive: true });
-  const emit = (name, text) => { writeFileSync(join(dir, name), text); return name; };
-  const css = emit(`metro.${hash(read('site/metro/metro.css'))}.css`, read('site/metro/metro.css'));
-  const js = emit(`guide.${hash(read('site/metro/guide.js'))}.js`, read('site/metro/guide.js'));
-  const plannerSrc = join(root, PLANNER_BUNDLE);
-  let planner = null;
-  if (existsSync(plannerSrc)) { const b = readFileSync(plannerSrc); planner = emit(`planner.${hash(b)}.js`, b); }
-  const url = (f) => `${BASE}${GUIDE_PATH}${f}`;
+  const files = {};
+  const css = read('site/metro/metro.css'), js = read('public/lib/metro-guide.js');
+  const cssName = `metro.${hash(css)}.css`, jsName = `guide.${hash(js)}.js`;
+  files[cssName] = css; files[jsName] = js;
+  let plannerName = null;
+  if (existsSync(join(root, PLANNER_BUNDLE))) { const b = readFileSync(join(root, PLANNER_BUNDLE)); plannerName = `planner.${hash(b)}.js`; files[plannerName] = b; }
   const main = renderGuideMain({ data, model, areas, esc });
   const title = 'Pune Metro guide and journey planner: lines, stations, fares, timings | Peak Pune';
   const description = `Pune Metro lines, stations, tickets, fares and timings with an offline journey planner, last verified ${longDate(data.verified_on)}. Timetable information only, no live trains.`;
   let html = page({ path: GUIDE_PATH, title, description, main, crumbs: [['Pune Metro guide', GUIDE_PATH]], ld: [{ '@type': 'WebPage', '@id': SITE_URL + GUIDE_PATH, url: SITE_URL + GUIDE_PATH, name: title, description, dateModified: data.verified_on, inLanguage: 'en-IN', isPartOf: { '@id': `${SITE_URL}/#site` } }] });
-  html = html.replace('</head>', `<link rel="stylesheet" href="${url(css)}">\n</head>`).replace('</body>', `<script type="module" src="${url(js)}"></script>${planner ? `\n<script type="module" src="${url(planner)}"></script>` : ''}\n</body>`);
-  html = withBase(html);
-  emit('index.html', html);
-  // Precache exactly what the page references, plus the files those reference.
-  const refs = [...html.matchAll(/(?:href|src)="([^"#]+)"/g)].map((m) => m[1]).filter((u) => u.startsWith('/') && !u.startsWith('//') && /\.(css|js|ttf|svg|webmanifest)(\?|$)/.test(u) && !u.includes('/PuneMetroguide/sw.js'));
-  const fontUrls = [...read('public/tokens.css').matchAll(/url\('(fonts\/[^']+)'\)/g)].map((m) => `${BASE}/${m[1]}`);
-  const precache = [...new Set([`${BASE}${GUIDE_PATH}`, ...refs, ...fontUrls])];
-  const fileFor = (u) => { const p = u.split('?')[0].replace(new RegExp('^' + BASE.replace(/\//g, '\\/')), ''); return join(p.startsWith(GUIDE_PATH) ? dir : join(root, 'public'), p.startsWith(GUIDE_PATH) ? p.slice(GUIDE_PATH.length) || 'index.html' : p); };
-  const material = precache.map((u) => { const f = fileFor(u); return existsSync(f) ? readFileSync(f) : u; });
-  const version = hash(Buffer.concat(material.map((m) => Buffer.from(m))));
-  const sw = read('site/metro/sw.template.js').replace('__CACHE__', `pp-metro-${version}`).replace('__PRECACHE__', JSON.stringify(precache, null, 1)).replace('__GUIDE__', `${BASE}${GUIDE_PATH}`);
-  emit('sw.js', sw);
-  return { pages: [[GUIDE_PATH, data.verified_on]], precache, files: { css, js, planner }, version };
+  html = html.replace('</head>', `<link rel="stylesheet" href="${GUIDE_PATH}${cssName}">\n</head>`).replace('</body>', `<script type="module" src="${GUIDE_PATH}${jsName}"></script>${plannerName ? `\n<script type="module" src="${GUIDE_PATH}${plannerName}"></script>` : ''}\n</body>`);
+  // Precache exactly what the page references, plus the fonts its stylesheet pulls in.
+  const refs = [...html.matchAll(/(?:href|src)="([^"#]+)"/g)].map((m) => m[1]).filter((u) => u.startsWith('/') && !u.startsWith('//') && /\.(css|js|ttf|svg|webmanifest)(\?|$)/.test(u));
+  const fontUrls = [...read('public/tokens.css').matchAll(/url\('(fonts\/[^']+)'\)/g)].map((m) => `/${m[1]}`);
+  const urls = [...new Set([GUIDE_PATH, ...refs, ...fontUrls])];
+  const bytes = (u) => { const path = u.split('?')[0]; if (path === GUIDE_PATH) return Buffer.from(html); if (path.startsWith(GUIDE_PATH)) return Buffer.from(files[path.slice(GUIDE_PATH.length)]); const f = join(root, 'public', path.slice(1)); return existsSync(f) ? readFileSync(f) : Buffer.from(u); };
+  const version = hash(Buffer.concat(urls.map(bytes)));
+  files['sw.js'] = read('site/metro/sw.template.js').replace('__CACHE__', `pp-metro-${version}`).replace('__PRECACHE__', JSON.stringify(urls.map((u) => BASE + u), null, 1)).replace('__GUIDE__', `${BASE}${GUIDE_PATH}`);
+  return { html, files, verifiedOn: data.verified_on, version, planner: plannerName };
+}
+
+// Replaces the guide's asset folder (stale hashed files must not linger).
+export function writeMetroAssets(dir, files) {
+  if (existsSync(dir)) rmSync(dir, { recursive: true });
+  mkdirSync(dir, { recursive: true });
+  for (const [name, content] of Object.entries(files)) writeFileSync(join(dir, name), content);
 }

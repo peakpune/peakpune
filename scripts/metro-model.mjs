@@ -2,10 +2,10 @@
 // Used by the guide page generator, the Gleam data generator and the tests.
 // No dependencies. Nothing here computes journeys: routing lives in the Gleam planner.
 import { readFileSync } from 'node:fs';
-import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 
-const root = join(dirname(fileURLToPath(import.meta.url)), '..');
+// Astro bundles this module; cwd is the project root in every build path (same as scripts/build.mjs).
+const root = process.cwd();
 export const METRO_DATA_PATH = join(root, 'data/metro/metro.json');
 export const loadMetro = (path = METRO_DATA_PATH) => JSON.parse(readFileSync(path, 'utf8'));
 
