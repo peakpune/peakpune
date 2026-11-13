@@ -65,8 +65,9 @@ The publication decisions and corrections are recorded in [`docs/LISTING-AUDIT.m
 ## Pune Metro guide
 
 `/PuneMetroguide/` is a plain-language guide to the Pune Metro (Purple, Aqua and Line 3) with a journey planner that works
-offline after one visit: which line, where to change and what the ticket costs, for any two stations the operators have
-confirmed open. Data lives in [`data/metro/`](data/metro/README.md) (checked against both operators, with a dated
+offline after one visit: which line, where to change and what the ticket costs, for any two stations that are open. Lines 1 and 2 are
+operator-confirmed; Line 3 stations are reported open by the media (the operator publishes no open/closed list) and are
+labelled that way. Data lives in [`data/metro/`](data/metro/README.md) (checked against both operators, with a dated
 verification log). The planner is a small [Gleam](https://gleam.run) program using Lustre, in [`metro/`](metro/README.md),
 compiled to a committed bundle. The page is an Astro route; its script is strict TypeScript. A service worker scoped to
 `/PuneMetroguide/` only caches the guide. Timetable information only: there are no live trains. `npm run metro:check`

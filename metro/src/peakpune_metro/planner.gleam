@@ -13,13 +13,13 @@ import peakpune_metro/types.{
 }
 
 /// Whether a station may be chosen for boarding or getting off.
-/// A station is `Available` only when some line lists it as open AND the operator has confirmed that.
+/// `Available`: some line lists the station as open and the operator confirmed that.
+/// `ReportedOpen`: listed as open, but only by media reports. It can be chosen, and is labelled as such.
+/// `NotOpenYet`: not open on any line (including stations the operator lists without an Open tag).
 pub type Availability {
   Available
-  /// Listed, but not open on any line (including stations the operator lists without an Open tag).
+  ReportedOpen
   NotOpenYet
-  /// Reported open, but not confirmed by the operator (media-sourced status).
-  UnconfirmedByOperator
 }
 
 pub type PlanError {
@@ -77,25 +77,26 @@ fn stops_of(network: Network, station: StationId) -> List(Stop) {
   })
 }
 
-/// A stop can be used for a journey only when it is open and the operator has confirmed that.
+/// A stop can be used for a journey only when the data says it is open.
 pub fn usable(stop: Stop) -> Bool {
+  stop.status.state == Open
+}
+
+fn confirmed(stop: Stop) -> Bool {
   stop.status.state == Open && stop.status.verified
 }
 
 pub fn availability(network: Network, station: StationId) -> Availability {
   let stops = stops_of(network, station)
-  case list.any(stops, usable) {
-    True -> Available
-    False ->
-      case list.any(stops, fn(stop) { stop.status.state == Open }) {
-        True -> UnconfirmedByOperator
-        False -> NotOpenYet
-      }
+  case list.any(stops, confirmed), list.any(stops, usable) {
+    True, _ -> Available
+    False, True -> ReportedOpen
+    False, False -> NotOpenYet
   }
 }
 
 pub fn selectable(network: Network, station: StationId) -> Bool {
-  availability(network, station) == Available
+  availability(network, station) != NotOpenYet
 }
 
 /// Stations that appear on more than one line, derived from the line data.
@@ -350,7 +351,9 @@ pub fn plan(
     True -> Error(SameStation)
     False ->
       case availability(network, from), availability(network, to) {
-        Available, Available ->
+        NotOpenYet, _ -> Error(NotSelectable(from, NotOpenYet))
+        _, NotOpenYet -> Error(NotSelectable(to, NotOpenYet))
+        _, _ ->
           case best(search(network, from, to, [], 2)) {
             Error(_) -> Error(NoRoute)
             Ok(legs) ->
@@ -360,8 +363,6 @@ pub fn plan(
                 tickets: tickets_for(network, legs),
               ))
           }
-        Available, why -> Error(NotSelectable(to, why))
-        why, _ -> Error(NotSelectable(from, why))
       }
   }
 }
