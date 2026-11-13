@@ -1,0 +1,138 @@
+[
+ {
+  "id": "hood-koregaon-park",
+  "type": "neighbourhood",
+  "name": "Koregaon Park",
+  "scope": "CORE",
+  "character": "Mainly residential and green, with a growing commercial side: restaurants, pubs, live music bars and art galleries.",
+  "lat": 18.535,
+  "lon": 73.895,
+  "status": "partial",
+  "sources": [
+   "https://en.wikipedia.org/wiki/Koregaon_Park"
+  ],
+  "source_type": "secondary",
+  "checked_at": "2026-11-13",
+  "freshness_days": 50,
+  "notes": null
+ },
+ {
+  "id": "hood-kalyani-nagar",
+  "type": "neighbourhood",
+  "name": "Kalyani Nagar",
+  "scope": "CORE",
+  "character": "Largely residential neighbourhood in eastern Pune, under the Nagar Road-Wadgaonsheri ward office.",
+  "lat": 18.5481,
+  "lon": 73.9033,
+  "status": "partial",
+  "sources": [
+   "https://en.wikipedia.org/wiki/Kalyani_Nagar"
+  ],
+  "source_type": "secondary",
+  "checked_at": "2026-11-13",
+  "freshness_days": 51,
+  "notes": null
+ },
+ {
+  "id": "hood-shivajinagar",
+  "type": "neighbourhood",
+  "name": "Shivajinagar",
+  "scope": "CORE",
+  "character": "Inner suburb of the city.",
+  "lat": 18.53138889,
+  "lon": 73.84444444,
+  "status": "partial",
+  "sources": [
+   "https://en.wikipedia.org/wiki/Shivajinagar%2C_Pune"
+  ],
+  "source_type": "secondary",
+  "checked_at": "2026-11-13",
+  "freshness_days": 20,
+  "notes": "The source extract gives no further character."
+ },
+ {
+  "id": "hood-kharadi",
+  "type": "neighbourhood",
+  "name": "Kharadi",
+  "scope": "CORE",
+  "character": "Eastern suburb on the Mula-Mutha river known for IT and business parks, with fast residential and office growth.",
+  "lat": 18.55222222,
+  "lon": 73.94361111,
+  "status": "partial",
+  "sources": [
+   "https://en.wikipedia.org/wiki/Kharadi"
+  ],
+  "source_type": "secondary",
+  "checked_at": "2026-11-13",
+  "freshness_days": 36,
+  "notes": null
+ },
+ {
+  "id": "hood-deccan-gymkhana",
+  "type": "neighbourhood",
+  "name": "Deccan Gymkhana",
+  "scope": "CORE",
+  "character": "Central area named after the Deccan Gymkhana sports club.",
+  "lat": 18.5184,
+  "lon": 73.8406,
+  "status": "partial",
+  "sources": [
+   "https://en.wikipedia.org/wiki/Deccan_Gymkhana"
+  ],
+  "source_type": "secondary",
+  "checked_at": "2026-11-13",
+  "freshness_days": 63,
+  "notes": null
+ },
+ {
+  "id": "hood-hinjawadi",
+  "type": "neighbourhood",
+  "name": "Hinjawadi",
+  "scope": "CORE",
+  "character": "Suburb that houses the Rajiv Gandhi Infotech Park, a large technology and business park.",
+  "lat": 18.594596,
+  "lon": 73.718519,
+  "status": "partial",
+  "sources": [
+   "https://en.wikipedia.org/wiki/Hinjawadi"
+  ],
+  "source_type": "secondary",
+  "checked_at": "2026-11-13",
+  "freshness_days": 10,
+  "notes": null
+ },
+ {
+  "id": "hood-aundh",
+  "type": "neighbourhood",
+  "name": "Aundh",
+  "scope": "CORE",
+  "character": "Residential neighbourhood developed since the mid-1990s, close to the university.",
+  "lat": null,
+  "lon": null,
+  "status": "partial",
+  "sources": [
+   "https://en.wikipedia.org/wiki/Aundh%2C_Pune"
+  ],
+  "source_type": "secondary",
+  "checked_at": "2026-11-13",
+  "freshness_days": 62,
+  "notes": "The coordinates in the source point to central Pune, not Aundh, so they are left null."
+ },
+ {
+  "id": "hood-pimpri-chinchwad",
+  "type": "neighbourhood",
+  "name": "Pimpri-Chinchwad (PCMC)",
+  "scope": "CORE",
+  "character": "Separate city about 15 km north-west of Pune's historic centre.",
+  "lat": 18.61805556,
+  "lon": 73.80111111,
+  "status": "partial",
+  "sources": [
+   "https://en.wikipedia.org/wiki/Pimpri-Chinchwad"
+  ],
+  "source_type": "secondary",
+  "checked_at": "2026-11-13",
+  "freshness_days": 40,
+  "notes": null
+ }
+]

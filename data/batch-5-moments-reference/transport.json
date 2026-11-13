@@ -1,0 +1,48 @@
+[
+ {
+  "id": "transport-pune-metro",
+  "name": "Pune Metro (Maha Metro corridors 1 and 2)",
+  "operator": "Maharashtra Metro Rail Corporation",
+  "operational": "yes",
+  "detail": "Official site shows 2 lines, 30 stations of which 29 operational, 33.1 km. Corridor 1 runs PCMC to Swargate; Corridor 2 runs Vanaz to Ramwadi.",
+  "stations_corridor_1": "PCMC|Sant Tukaram Nagar|Bhosari (Nashik Phata)|Kasarwadi|Phugewadi|Dapodi|Bopodi|Khadki|Range Hill|Shivaji Nagar|District Court|Kasba Peth|Mahatma Phule Mandai|Swargate",
+  "stations_corridor_2": "Vanaz|Anand Nagar|Paud Phata|S.N.D.T College|Garware College|Deccan Gymkhana|Chhatrapati Sambhaji Udyan|PMC|District Court|R.T.O Pune|Pune Rly. Station|Ruby Hall Clinic|Bund Garden|Yerawada|Kalyani Nagar|Ramwadi",
+  "sources": [
+   "https://www.punemetrorail.org/",
+   "https://www.punemetrorail.org/route-map"
+  ],
+  "source_type": "primary",
+  "checked_at": "2026-11-13",
+  "notes": "Conflict: Wikipedia (edited 12 Nov 2026) says three lines, 56.3 km and 44 stations as of November 2026. The official Maha Metro site lists only its own two corridors and may lag. Fares and timetable not captured; the one non-operational station is not named."
+ },
+ {
+  "id": "transport-pune-metro-wikipedia",
+  "name": "Pune Metro (network summary)",
+  "operator": "UNKNOWN",
+  "operational": "yes",
+  "detail": "Three lines, 56.3 km, 44 stations as of November 2026, per Wikipedia.",
+  "stations_corridor_1": null,
+  "stations_corridor_2": null,
+  "sources": [
+   "https://en.wikipedia.org/wiki/Pune_Metro"
+  ],
+  "source_type": "secondary",
+  "checked_at": "2026-11-13",
+  "notes": "Secondary source; not confirmed by an operator page."
+ },
+ {
+  "id": "transport-pmpml",
+  "name": "PMPML city buses",
+  "operator": "Pune Mahanagar Parivahan Mahamandal Limited",
+  "operational": "UNKNOWN",
+  "detail": "Official site could not be opened (502). The district tourism page mentions buses from Swargate, Pune station and Shivajinagar to Khadakwasla.",
+  "stations_corridor_1": null,
+  "stations_corridor_2": null,
+  "sources": [
+   "https://pune.gov.in/en/tourist-place/khadakwasala-dam/"
+  ],
+  "source_type": "secondary",
+  "checked_at": "2026-11-13",
+  "notes": "Routes, fares and current service status are unverified."
+ }
+]

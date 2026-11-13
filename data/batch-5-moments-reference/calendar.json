@@ -1,0 +1,134 @@
+[
+ {
+  "month": "January",
+  "item": "Republic Day closure",
+  "kind": "closure",
+  "detail": "Raja Dinkar Kelkar Museum is closed on 26 January.",
+  "sources": [
+   "https://rajakelkarmuseum.org/plan-a-visit-2"
+  ],
+  "source_type": "primary",
+  "checked_at": "2026-11-13"
+ },
+ {
+  "month": "UNKNOWN",
+  "item": "Pune International Film Festival",
+  "kind": "festival",
+  "detail": "Annual public film festival; the organiser lists PVR ICON Pavilion, the National Film Archive and E-Square as venues. The month was not stated on the pages opened.",
+  "sources": [
+   "https://www.piffindia.com/"
+  ],
+  "source_type": "primary",
+  "checked_at": "2026-11-13"
+ },
+ {
+  "month": "March or April",
+  "item": "Gudi Padwa",
+  "kind": "festival",
+  "detail": "Spring festival marking the Marathi new year, at the start of the month of Chaitra. Exact date varies by year and was not sourced.",
+  "sources": [
+   "https://en.wikipedia.org/wiki/Gudi_Padwa"
+  ],
+  "source_type": "secondary",
+  "checked_at": "2026-11-13"
+ },
+ {
+  "month": "June to September",
+  "item": "Monsoon trekking season",
+  "kind": "season",
+  "detail": "Several Pune Trekkers guides list best months starting June, July or August, and note crowds on monsoon Sunday mornings.",
+  "sources": [
+   "https://punetrekkers.org/treks-near-pune/lohagad-fort"
+  ],
+  "source_type": "primary",
+  "checked_at": "2026-11-13"
+ },
+ {
+  "month": "UNKNOWN",
+  "item": "Pandharpur Wari (palkhi)",
+  "kind": "festival",
+  "detail": "Annual pilgrimage on foot to Pandharpur carrying the palkhis of Dnyaneshwar and Tukaram. Month, dates and the Pune halt were not sourced.",
+  "sources": [
+   "https://en.wikipedia.org/wiki/Pandharpur_Vari"
+  ],
+  "source_type": "secondary",
+  "checked_at": "2026-11-13"
+ },
+ {
+  "month": "August",
+  "item": "Independence Day closure",
+  "kind": "closure",
+  "detail": "Raja Dinkar Kelkar Museum is closed on 15 August.",
+  "sources": [
+   "https://rajakelkarmuseum.org/plan-a-visit-2"
+  ],
+  "source_type": "primary",
+  "checked_at": "2026-11-13"
+ },
+ {
+  "month": "UNKNOWN",
+  "item": "Ganesh festival and Pune Festival",
+  "kind": "festival",
+  "detail": "The Pune Festival site describes its 38th edition and opens with a tribute to Ganesha. The Kelkar museum closes on Anant Chaturdashi and the next day. Month and dates were not sourced.",
+  "sources": [
+   "https://punefestival.in/"
+  ],
+  "source_type": "primary",
+  "checked_at": "2026-11-13"
+ },
+ {
+  "month": "October",
+  "item": "TEDxPune",
+  "kind": "event",
+  "detail": "Held 3 October 2026 per the organiser's site; next edition not announced.",
+  "sources": [
+   "https://www.tedxpune.com/"
+  ],
+  "source_type": "primary",
+  "checked_at": "2026-11-13"
+ },
+ {
+  "month": "September to February",
+  "item": "Post-monsoon and winter trekking",
+  "kind": "season",
+  "detail": "Torna lists best months as September to February; Chanderi and Kalavantin list October to February.",
+  "sources": [
+   "https://punetrekkers.org/treks-near-pune/torna-fort"
+  ],
+  "source_type": "primary",
+  "checked_at": "2026-11-13"
+ },
+ {
+  "month": "November",
+  "item": "CME Soldierathon Pune",
+  "kind": "race",
+  "detail": "15 November 2026.",
+  "sources": [
+   "https://www.soldierathon.com/events"
+  ],
+  "source_type": "primary",
+  "checked_at": "2026-11-13"
+ },
+ {
+  "month": "December",
+  "item": "Pune International Marathon and Bajaj Pune Marathon",
+  "kind": "race",
+  "detail": "6 December and 13 December 2026, per the PuneRunners race calendar.",
+  "sources": [
+   "https://punerunners.com/races/"
+  ],
+  "source_type": "secondary",
+  "checked_at": "2026-11-13"
+ },
+ {
+  "month": "December",
+  "item": "DevFest Pune",
+  "kind": "event",
+  "detail": "13 December 2026 on the GDG Pune chapter page.",
+  "sources": [
+   "https://gdg.community.dev/gdg-pune/"
+  ],
+  "source_type": "primary",
+  "checked_at": "2026-11-13"
+ }
+]

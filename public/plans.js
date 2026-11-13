@@ -1,6 +1,8 @@
 import {isWeekend} from './filters.js';
 import {sharePlan} from './share.js';
-const status=document.querySelector('#plans-status');const health=document.querySelector('#plans-health');const grid=document.querySelector('#plans');const wk=document.querySelector('#weekend-plans');const bar=document.querySelector('#plan-filters');const fstatus=document.querySelector('#filter-status');const active=new Set();let allRows=[],todayIso='';
+// Pages may hold only part of the plans UI: home has the weekend row, Events has the full list.
+const pick=(sel,tag)=>document.querySelector(sel)||document.createElement(tag);
+const status=pick('#plans-status','p');const health=pick('#plans-health','p');const grid=pick('#plans','div');const wk=document.querySelector('#weekend-plans');const bar=document.querySelector('#plan-filters');const fstatus=document.querySelector('#filter-status');const active=new Set();let allRows=[],todayIso='';
 const text=(tag,value,cls)=>{const e=document.createElement(tag);e.textContent=value;if(cls)e.className=cls;return e;};
 const safeLink=l=>{try{const u=new URL(l.url);return u.protocol==='https:'&&u.hostname==='www.district.in'&&!u.username&&!u.password;}catch{return false;}};
 const dateOK=x=>typeof x==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(x)&&new Date(x+'T00:00:00Z').toISOString().slice(0,10)===x;
@@ -16,7 +18,7 @@ function render(){
 }
 bar?.addEventListener('click',ev=>{const b=ev.target.closest('button[data-filter]');if(!b)return;const k=b.dataset.filter;active.has(k)?active.delete(k):active.add(k);b.setAttribute('aria-pressed',active.has(k));render();});
 async function load(){clearTimeout(timer);grid.replaceChildren();try{
- const r=await fetch('data/plans.json',{cache:'no-cache'});if(!r.ok)throw Error('Unavailable');const d=await r.json();const expiry=Date.parse(d.expiresAt),checked=Date.parse(d.fetchedAt);
+ const r=await fetch(new URL('data/plans.json',import.meta.url),{cache:'no-cache'});if(!r.ok)throw Error('Unavailable');const d=await r.json();const expiry=Date.parse(d.expiresAt),checked=Date.parse(d.fetchedAt);
  if(d.schemaVersion!==1||!Number.isFinite(expiry)||!Number.isFinite(checked)||expiry<=Date.now()||checked>Date.now()+60000||expiry-checked>24*3600000)throw Error('Refresh needed');
  const today=new Date(Date.now()+330*60000).toISOString().slice(0,10);
  const rows=(Array.isArray(d.events)?d.events:[]).filter(e=>e.city==='Pune'&&typeof e.title==='string'&&dateOK(e.date)&&e.date>=today&&Array.isArray(e.links)&&e.links.some(safeLink));
