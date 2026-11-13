@@ -8,7 +8,7 @@ The upgrade uses TypeScript first, Astro for static routes/layout, and Svelte fo
 2. `npm run build:types` compiles strict TypeScript in `src/client/` to `public/lib/`. Tests and the publication renderer use this same code.
 3. `scripts/prepare-astro.mjs` prepares only known static assets plus the existing sitemap/robots/manifest.
 4. Astro generates every route through `src/pages/` and `src/layouts/SiteLayout.astro`. Reviewed listing content remains in `scripts/build.mjs` during this incremental migration.
-5. `scripts/publish-static.mjs` copies the static build into committed `public/`. Cloudflare continues to serve it as plain files, without an adapter or server.
+5. `scripts/publish-static.mjs` copies the static build into committed `public/` and derives stable opaque island IDs from component URL/props, avoiding absolute-checkout-path drift. Cloudflare continues to serve it as plain files, without an adapter or server.
 
 Edit source, never hashed `_astro` bundles. Rebuild and commit generated output with each source change. CSS/fonts stay unchanged. Do not extend the manual plans snapshot's expiry to make a test pass. Test fixtures must never be published as listing data.
 
