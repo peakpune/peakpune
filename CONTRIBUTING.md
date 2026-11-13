@@ -6,10 +6,10 @@ Peak Pune welcomes focused pull requests. Code is licensed under MIT; see LICENS
 
 1. Fork the repo (or, if the owner gave you Write access, make a branch in it).
 2. Clone it and create a branch: `git switch -c short-description`.
-3. Run `npm test`, then `npm run dev` and open http://localhost:4173. You need Node.js 22+
-   and Python 3. There is no `npm install` step and no build step.
-4. Make one small change, run `npm test` again, and check the page at mobile (about 390 px)
-   and desktop (about 1280 px) widths.
+3. Install with `npm ci`, run `npm run check` and `npm test`, then `npm run dev` and open
+   http://localhost:4173. You need Node.js 22.23.4+ and Python 3.
+4. Make one small change, run `npm run check`, `npm test` and `npm run build` again, and
+   check the page at mobile (about 390 px) and desktop (about 1280 px) widths. Commit generated `public/` output.
 5. Open a pull request into `main`. Describe the user-facing change and attach mobile and
    desktop screenshots for anything visual. Fill in the checklist in the PR template.
 
@@ -21,8 +21,10 @@ the owner to review and merge.
 
 - `public/index.html` and `public/app.js`: the page and its views.
 - `public/tokens.css`: the single stylesheet (colours, type, layout).
-- `public/plans.js`, `public/filters.js`, `public/share.js`: plan cards, the This weekend
-  filter and the Share button.
+- `src/client/`: strict TypeScript validation, dates and sharing. `public/lib/` is generated.
+- `src/components/Plans.svelte` and `PlanCard.svelte`: existing plans UI, weekend filter and sharing.
+- `src/pages/` and `src/layouts/`: Astro static routes and shared layout.
+- `public/plans.js`: legacy renderer reference only; deployed Astro pages do not load it.
 - `public/data/plans.json`: a reviewed, time-limited snapshot. Do not hand-edit it. To
   refresh it, follow `docs/PLANS.md`, and only with the owner's go-ahead.
 - `src/abuse-guard.js`: helpers for a future submissions backend. They are not connected to

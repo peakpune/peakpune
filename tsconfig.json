@@ -1,0 +1,6 @@
+{
+  "extends": "astro/tsconfigs/strict",
+  "compilerOptions": {"strict": true, "noUncheckedIndexedAccess": true, "verbatimModuleSyntax": true, "isolatedModules": true, "allowJs": true, "checkJs": false},
+  "include": [".astro/types.d.ts", "src/**/*", "astro.config.mjs"],
+  "exclude": ["public", "node_modules", "dist"]
+}
