@@ -5,7 +5,7 @@ moments, with the Puneri attitude.
 
 ## Status
 
-Work in progress. Explore, Events, Meetups and Moments have responsive concept views.
+Work in progress. Explore, Events, Meetups, Moments and Powered by have responsive concept views.
 The Pune event-discovery adapter is adapted from PuneAfterhours. Live fetching and
 submissions are not enabled. Sample moments are labelled; there are no real member
 records or invented event listings in this repository.
@@ -28,6 +28,7 @@ Open http://localhost:4173. The preview collects no personal data or uploads.
 - `src/discovery.js`: adapted Pune source parsers, disabled network fetching by default.
 - `tests/`: local fixture and validation tests.
 - `docs/SCOPE.md`: product scope and brand rules.
+- `data/`: sourced starter dataset, one folder per batch, with evidence per field.
 
 ## Contribute
 
