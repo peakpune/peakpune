@@ -31,7 +31,7 @@ const known = (v) => v && v !== 'UNKNOWN';
 export const slugOf = (row) => row.id.replace(/^place-/, '');
 const clip = (s, n) => (s.length <= n ? s : s.slice(0, n - 1).replace(/\s+\S*$/, '') + '…');
 
-const NAV = [['/', 'Explore'], ['/places/', 'Places'], ['/outdoors/', 'Outdoors'], ['/events/', 'Events'], ['/meetups/', 'Meetups'], ['/moments/', 'Moments']];
+const NAV = [['/', 'Explore'], ['/places/', 'Places'], ['/outdoors/', 'Outdoors'], ['/events/', 'Events'], ['/meetups/', 'Meetups'], ['/moments/', 'Moments'], ['/PuneMetroguide/', 'Metro']];
 const TYPE_LABEL = { museum: 'Museums', heritage: 'Heritage and history', temple: 'Temples', bookstore: 'Bookstores', gallery: 'Galleries', 'cultural-centre': 'Cultural centres', archive: 'Archives', cafe: 'Cafes', restaurant: 'Restaurants', bar: 'Bars and brewpubs', sweets: 'Sweets and snacks', park: 'Parks and gardens', zoo: 'Zoo' };
 const TYPE_SINGULAR = { museum: 'Museum', heritage: 'Heritage site', temple: 'Temple', bookstore: 'Bookstore', gallery: 'Art gallery', 'cultural-centre': 'Cultural centre', archive: 'Archive', cafe: 'Cafe', restaurant: 'Restaurant', bar: 'Bar and brewpub', sweets: 'Sweet shop', park: 'Park', zoo: 'Zoo' };
 const SCHEMA_TYPE = { museum: 'Museum', heritage: 'LandmarksOrHistoricalBuildings', temple: 'HinduTemple', bookstore: 'BookStore', gallery: 'ArtGallery', 'cultural-centre': 'Place', archive: 'ArchiveOrganization', cafe: 'CafeOrCoffeeShop', restaurant: 'Restaurant', bar: 'BarOrPub', sweets: 'FoodEstablishment', park: 'Park', zoo: 'Zoo' };
@@ -85,7 +85,7 @@ ${cta}
 </main>
 <footer class="site-footer"><div class="wrap">
 <div class="foot-brand"><a class="wordmark" href="/">${mark}Peak <span>Pune</span></a><p>Everything Pune, in one scroll. Made in Pune, for Pune. Not affiliated with any other city's peak.</p><p class="hash">#PeakPune · #OnlyInPune</p></div>
-<nav aria-label="Sections"><h2>Explore</h2><a href="/places/">Places</a><a href="/outdoors/">Runs and treks</a><a href="/events/">Events</a><a href="/meetups/">Meetups</a><a href="/moments/">Moments</a></nav>
+<nav aria-label="Sections"><h2>Explore</h2><a href="/places/">Places</a><a href="/outdoors/">Runs and treks</a><a href="/events/">Events</a><a href="/meetups/">Meetups</a><a href="/moments/">Moments</a><a href="/PuneMetroguide/">Pune Metro guide</a></nav>
 <nav aria-label="Powered by"><h2>Powered by</h2><a href="https://punerunners.com/" target="_blank" rel="noopener">PuneRunners.com</a><a href="https://punetrekkers.org/" target="_blank" rel="noopener">PuneTrekkers.org</a><a href="https://karawaan.in/" target="_blank" rel="noopener">karawaan.in</a><a href="/powered-by/">About these links</a></nav>
 <p class="fine">Place and route details are sourced and dated. Event plans are platform listings, not organiser-confirmed. Map data © OpenStreetMap contributors.</p>
 </div></footer>
@@ -207,7 +207,7 @@ function homeMain(places, outdoors) {
   const card = (r) => `<a class="card place-card" href="/places/${slugOf(r)}/"><div class="inner"><span class="eyebrow">${esc(TYPE_SINGULAR[r.type] || r.type)} · ${esc(known(r.neighbourhood) ? r.neighbourhood : 'Pune')}</span><h3>${esc(r.name)}</h3><p>${esc(r.summary)}</p></div></a>`;
   const runs = outdoors.filter((r) => !isTrek(r)); const treks = outdoors.filter(isTrek);
   const near = [...treks].sort((a, b) => (a.distance_from_pune_km || 0) - (b.distance_from_pune_km || 0)).slice(0, 3);
-  const tiles = [['Places', '/places/', `${places.length} checked at the source`], ['Runs and trails', '/outdoors/#runs', `${runs.length} mapped city loops`], ['Treks and day trips', '/outdoors/#treks', `${treks.length} with drive times`], ['Events', '/events/', 'Plans, with sources'], ['Meetups', '/meetups/', 'Communities to join'], ['Moments', '/moments/', 'No submissions yet']];
+  const tiles = [['Places', '/places/', `${places.length} checked at the source`], ['Runs and trails', '/outdoors/#runs', `${runs.length} mapped city loops`], ['Treks and day trips', '/outdoors/#treks', `${treks.length} with drive times`], ['Events', '/events/', 'Plans, with sources'], ['Meetups', '/meetups/', 'Communities to join'], ['Moments', '/moments/', 'No submissions yet'], ['Pune Metro', '/PuneMetroguide/', 'Journey planner, works offline']];
   return `<div class="hero"><div><div class="eyebrow">Made in Pune, for Pune</div><h1>Everything Pune,<br>in one scroll.</h1>
 <p class="lede">Places to go, loops to run, forts to climb and source-listed plans across Pune. Details link back to their sources.</p>
 <p class="actions"><a class="primary" href="/places/">Browse places</a><a class="chip" href="/outdoors/">Runs and treks</a></p></div>
