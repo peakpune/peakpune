@@ -10,5 +10,3 @@ export function weekendRange(today){
  return {from:iso(fri)<today?today:iso(fri),to:iso(sun)};
 }
 export const isWeekend=(e,today)=>{const r=weekendRange(today);return typeof e.date==='string'&&e.date>=r.from&&e.date<=r.to;};
-// Free only when the listing price says so exactly. Missing or unclear price is not free.
-export const isFree=e=>typeof e.price==='string'&&/^(INR|Rs\.?|₹)?\s*(free|0)$/i.test(e.price.trim());

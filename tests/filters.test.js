@@ -1,5 +1,5 @@
 import test from 'node:test';import assert from 'node:assert/strict';
-import {weekendRange,isWeekend,isFree} from '../public/filters.js';
+import {weekendRange,isWeekend} from '../public/filters.js';
 test('weekend range from each weekday (2026-11-13 is Friday)',()=>{
  assert.deepEqual(weekendRange('2026-11-09'),{from:'2026-11-13',to:'2026-11-15'});
  assert.deepEqual(weekendRange('2026-11-12'),{from:'2026-11-13',to:'2026-11-15'});
@@ -13,9 +13,4 @@ test('weekend filter uses the single listed date only',()=>{
  assert.equal(isWeekend({date:'2026-11-16'},'2026-11-13'),false);
  assert.equal(isWeekend({},'2026-11-13'),false);
  assert.throws(()=>weekendRange('2026-02-30'),TypeError);
-});
-test('free only when price says free or zero',()=>{
- assert.equal(isFree({price:'INR Free'}),true);assert.equal(isFree({price:'INR 0'}),true);
- assert.equal(isFree({price:'INR 1000'}),false);assert.equal(isFree({price:'INR 100'}),false);
- assert.equal(isFree({}),false);assert.equal(isFree({price:''}),false);
 });
