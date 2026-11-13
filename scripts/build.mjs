@@ -5,6 +5,7 @@ import { dirname, join } from 'node:path';
 import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { publishAuditedRows } from '../public/lib/publication.js';
+import { googleUrl, ics, icsPath, when, ALL_ICS_PATH } from './calendar.mjs';
 import { buildMetroGuide, writeMetroAssets, GUIDE_PATH } from './metro-guide.mjs';
 
 // Astro bundles this module; cwd remains the project root in both build paths.
@@ -40,7 +41,7 @@ const mark = read('site/mark.svg.html');
 const cta = read('site/cta.html');
 const org = { '@type': 'Organization', '@id': `${SITE_URL}/#org`, name: 'Peak Pune', url: `${SITE_URL}/`, logo: `${SITE_URL}/icon.svg`, description: 'A Pune discovery site for places, events, meetups and Puneri moments.' };
 
-export function page({ path, title, description, main, ld = [], current = path, crumbs = [], ogType = 'website', plans = false }) {
+export function page({ path, title, description, main, ld = [], current = path, crumbs = [], ogType = 'website', plans = false, nowStrip = false }) {
   const url = SITE_URL + path;
   const graph = [org, ...ld];
   if (crumbs.length) graph.push({ '@type': 'BreadcrumbList', itemListElement: [['Peak Pune', '/'], ...crumbs].map(([name, p], i) => ({ '@type': 'ListItem', position: i + 1, name, item: SITE_URL + p })) });
@@ -89,7 +90,7 @@ ${cta}
 <nav aria-label="Powered by"><h2>Powered by</h2><a href="https://punerunners.com/" target="_blank" rel="noopener">PuneRunners.com</a><a href="https://punetrekkers.org/" target="_blank" rel="noopener">PuneTrekkers.org</a><a href="https://karawaan.in/" target="_blank" rel="noopener">karawaan.in</a><a href="/powered-by/">About these links</a></nav>
 <p class="fine">Place and route details are sourced and dated. Event plans are platform listings, not organiser-confirmed. Map data © OpenStreetMap contributors.</p>
 </div></footer>
-<script type="module" src="${assetUrl('/app.js')}"></script>${plans ? `<script type="module" src="${assetUrl('/plans.js')}"></script>` : ''}
+<script type="module" src="${assetUrl('/app.js')}"></script>${plans ? `<script type="module" src="${assetUrl('/plans.js')}"></script>` : ''}${nowStrip ? `<script type="module" src="${assetUrl('/lib/pune-now.js')}"></script>` : ''}
 </body>
 </html>
 `;
@@ -213,6 +214,7 @@ function homeMain(places, outdoors) {
 <p class="actions"><a class="primary" href="/places/">Browse places</a><a class="chip" href="/outdoors/">Runs and treks</a></p></div>
 <div class="sign" lang="mr">दुपारी १ ते ४<br>दुकान बंद<small lang="en">PEAK PUNE · THE CITY HAS ITS TIMINGS.</small></div></div>
 <nav class="tiles" aria-label="Browse Pune">${tiles.map(([t, h, d]) => `<a class="category" href="${h}"><h3>${t}</h3><span>${d}</span></a>`).join('')}</nav>
+<section class="section now" id="pune-now" aria-label="Pune right now" hidden><div class="section-head"><h2>Pune right now</h2><p>Air quality, the next hour's temperature, and sun and moon times.</p></div><div class="now-grid" aria-live="polite"></div><p class="note">Weather and air quality from <a href="https://open-meteo.com/" rel="noopener">Open-Meteo.com</a> (CC BY 4.0), loaded in your browser. AQI is the US scale. Moon times are worked out on your device and can be off by about 15 minutes.</p></section>
 <section class="section"><div class="section-head"><h2>This weekend in Pune</h2><p>Source-listed plans from the current snapshot. Check dates and prices on the listing before you book.</p><a class="more" href="/events/">All events</a></div><div class="grid" id="weekend-plans"><p class="note">Loading source-listed plans...</p></div></section>
 <section class="section"><div class="section-head"><h2>Places, checked at the source</h2><p>Source-backed places. Hours and prices are shown only where checked; confirm details before visiting.</p><a class="more" href="/places/">All ${places.length} places</a></div><div class="grid">${feat.map(card).join('')}</div></section>
 <section class="section band"><div class="section-head"><h2>Start early. The city is cooler.</h2><p>City loops from PuneRunners Club and trek guides from Pune Trekkers, sorted by how far you have to drive.</p><a class="more" href="/outdoors/">All runs and treks</a></div>
@@ -255,8 +257,8 @@ function eventsBlock(events) {
   const dated = events.filter((e) => e.start_date).sort((a, b) => a.start_date.localeCompare(b.start_date));
   const recurring = events.filter((e) => e.recurrence);
   const day = (d) => new Date(d + 'T00:00:00+05:30').toLocaleDateString('en-IN', { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric', timeZone: 'Asia/Kolkata' });
-  const card = (e) => `<article class="card event-card" data-expires="${esc(e.expires_at || '')}"><div class="inner"><span class="eyebrow">${e.start_date ? esc(day(e.start_date)) : 'Recurring'}</span><h3>${esc(e.name)}</h3><p>${esc(e.summary)}</p><p class="meta"><span>${esc([known(e.organiser) ? e.organiser : null, known(e.neighbourhood) ? e.neighbourhood : null, e.price_note].filter(Boolean).join(' · '))}</span></p>${e.recurrence ? `<p class="note">${esc(e.recurrence)}</p>` : ''}<p class="plan-actions"><a class="chip" href="${esc(safeUrl(e.url_deep))}" rel="noopener">${e.status === 'verified' ? 'Organiser page' : 'Source page'}</a>${e.linked_id ? `<a class="chip" href="/places/${e.linked_id.replace(/^place-/, '')}/">About the venue</a>` : ''}</p></div></article>`;
-  return `<section class="section" id="organisers"><div class="section-head"><h2>More source-listed plans</h2><p>Races, treks and camps read from the linked source pages on ${esc(events[0].checked_at)}. Dated cards disappear once the day has passed.</p></div><div class="grid">${dated.map(card).join('')}</div></section>
+  const card = (e) => `<article class="card event-card" data-expires="${esc(e.expires_at || '')}"><div class="inner"><span class="eyebrow">${e.start_date ? esc(day(e.start_date)) : 'Recurring'}</span><h3>${esc(e.name)}</h3><p>${esc(e.summary)}</p><p class="meta"><span>${esc([known(e.organiser) ? e.organiser : null, known(e.neighbourhood) ? e.neighbourhood : null, e.price_note].filter(Boolean).join(' · '))}</span></p>${e.recurrence ? `<p class="note">${esc(e.recurrence)}</p>` : ''}<p class="plan-actions"><a class="chip" href="${esc(safeUrl(e.url_deep))}" rel="noopener">${e.status === 'verified' ? 'Organiser page' : 'Source page'}</a>${e.linked_id ? `<a class="chip" href="/places/${e.linked_id.replace(/^place-/, '')}/">About the venue</a>` : ''}</p>${when(e) ? `<p class="plan-actions cal" aria-label="Add ${esc(e.name)} to your calendar"><a class="chip" href="${esc(googleUrl(e, safeUrl))}" target="_blank" rel="noopener">Add to Google Calendar</a><a class="chip" href="${icsPath(e)}" download>Download .ics</a></p>` : ''}</div></article>`;
+  return `<section class="section" id="organisers"><div class="section-head"><h2>More source-listed plans</h2><p>Races, treks and camps read from the linked source pages on ${esc(events[0].checked_at)}. Dated cards disappear once the day has passed. <a href="${ALL_ICS_PATH}" download>Add every dated listing to your calendar (.ics)</a>.</p></div><div class="grid">${dated.map(card).join('')}</div></section>
 <section class="section" id="every-day"><div class="section-head"><h2>Recurring venue listings</h2><p>Schedules published by the venue. Confirm current timings before going.</p></div><div class="grid">${recurring.map(card).join('')}</div></section>`;
 }
 export function eventLd(e) {
@@ -293,7 +295,7 @@ export function build({ outDir = join(root, 'public'), log = () => {}, dryRun = 
   const out = (path, html) => { onPage(path, withBase(html)); if (dryRun) return; const f = join(outDir, path.replace(/^\//, ''), path.endsWith('/') ? 'index.html' : ''); mkdirSync(dirname(f), { recursive: true }); writeFileSync(f, withBase(html)); };
   const urls = [];
   const website = { '@type': 'WebSite', '@id': `${SITE_URL}/#site`, url: `${SITE_URL}/`, name: 'Peak Pune', inLanguage: 'en-IN', publisher: { '@id': `${SITE_URL}/#org` } };
-  out('/', page({ path: '/', title: 'Peak Pune | Things to do in Pune: places, runs, treks, events and meetups', description: 'Everything Pune, in one scroll. Sourced places to visit, running loops, treks near Pune, events, meetups and the moments only Pune could produce.', main: homeMain(rows, outdoors), ld: [website], plans: true }));
+  out('/', page({ path: '/', title: 'Peak Pune | Things to do in Pune: places, runs, treks, events and meetups', description: 'Everything Pune, in one scroll. Sourced places to visit, running loops, treks near Pune, events, meetups and the moments only Pune could produce.', main: homeMain(rows, outdoors), ld: [website], nowStrip: true, plans: true }));
   urls.push(['/', null]);
   for (const p of STATIC) {
     let main = read(`site/pages/${p.file}.html`);
@@ -314,6 +316,14 @@ export function build({ outDir = join(root, 'public'), log = () => {}, dryRun = 
   const events = publishRows(JSON.parse(read('data/batch-3-events/events.json')));
   out('/events/', page({ path: '/events/', plans: true, title: 'Events in Pune this week: gigs, parties, races and treks | Peak Pune', description: 'What is on in Pune: source-listed gigs, club nights and comedy, plus races, treks and camps read from the organisers. Every plan links to its original listing.', crumbs: [['Events', '/events/']], main: read('site/pages/events.html').replace('<!--ORGANISER-EVENTS-->', eventsBlock(events)), ld: [{ '@type': 'CollectionPage', '@id': `${SITE_URL}/events/`, url: `${SITE_URL}/events/`, name: 'Events in Pune', isPartOf: { '@id': `${SITE_URL}/#site` } }, ...events.map(eventLd).filter(Boolean)] }));
   urls.push(['/events/', events[0]?.checked_at]);
+  if (!dryRun) {
+    const calDir = join(outDir, 'calendar');
+    rmSync(calDir, { recursive: true, force: true });
+    mkdirSync(calDir, { recursive: true });
+    const dated = events.filter((e) => when(e));
+    for (const e of dated) writeFileSync(join(outDir, icsPath(e)), ics([e], safeUrl, e.name));
+    writeFileSync(join(outDir, ALL_ICS_PATH), ics(dated, safeUrl));
+  }
   for (const [area, rs] of areasOf(rows)) {
     const path = `/places/in/${AREA_SLUG(area)}/`;
     out(path, page({ path, current: '/places/', title: `Places to visit in ${area}, Pune: ${rs.length} checked spots | Peak Pune`, description: clip(`${rs.length} places in ${area}, Pune with addresses and timings from their own pages: ${rs.map((r) => r.name).join(', ')}.`, 158), crumbs: [['Places', '/places/'], [area, path]], main: `<div class="hero hero-single"><div><div class="eyebrow">Places by area</div><h1>${esc(area)}</h1><p class="lede">${rs.length} places in ${esc(area)}, Pune, each with details copied from its own page and the date we checked.</p></div></div><section class="section"><div class="grid">${rs.map(placeCard).join('')}</div></section><section class="section"><div class="section-head"><h2>Other areas</h2></div><nav class="chips" aria-label="Areas">${areasOf(rows).filter(([a]) => a !== area).map(([a, x]) => `<a class="chip" href="/places/in/${AREA_SLUG(a)}/">${esc(a)} (${x.length})</a>`).join('')}</nav></section>`, ld: [{ '@type': 'ItemList', name: `Places in ${area}, Pune`, numberOfItems: rs.length, itemListElement: rs.map((r, i) => ({ '@type': 'ListItem', position: i + 1, name: r.name, url: `${SITE_URL}/places/${slugOf(r)}/` })) }] }));

@@ -229,3 +229,16 @@ a.category:nth-child(4n+1){color:#fff}a.category:hover{outline:4px solid var(--r
   html{scroll-padding-top:168px}
 }
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+/* Pune right now (home) */
+.now-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:var(--s4)}
+.now-cell{background:var(--white);border-radius:var(--r-card);outline:4px solid var(--rim);outline-offset:-4px;padding:var(--s5) var(--s5) var(--s4);min-width:0}
+.now-cell h3{font:800 12px/16px var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--brick);margin:0 0 var(--s2)}
+.now-value{font:800 24px/30px var(--display);margin:0;overflow-wrap:anywhere}
+.now-cell .note{margin:var(--s2) 0 0}
+.now-cell.tone-good{background:var(--sage)}
+.now-cell.tone-moderate{background:var(--haldi)}
+.now-cell.tone-sensitive{background:var(--clay)}
+.now-cell.tone-unhealthy{background:var(--brick);color:#fff}
+.now-cell.tone-unhealthy h3,.now-cell.tone-unhealthy .note{color:#fff}
+.now .note a{color:var(--brick)}

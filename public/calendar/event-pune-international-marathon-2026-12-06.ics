@@ -1,0 +1,22 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Peak Pune//Events//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Pune International Marathon
+BEGIN:VEVENT
+UID:event-pune-international-marathon-2026-12-06@peakpune.com
+DTSTAMP:20261113T000000Z
+SUMMARY:Pune International Marathon
+DTSTART;VALUE=DATE:20261206
+DTEND;VALUE=DATE:20261207
+LOCATION:Pune
+DESCRIPTION:Marathon\, half marathon\, 10K\, 5K and 3K wheelchair run liste
+ d by the organiser for 6 December 2026. Start times on the organiser page 
+ are tentative.\n\nDetails: https://www.marathonpune.com/raceinfo.html\n\nR
+ ead from the organiser's page on 2026-11-13. Dates and times can change: c
+ onfirm on the page before you go.
+URL:https://www.marathonpune.com/raceinfo.html
+STATUS:TENTATIVE
+END:VEVENT
+END:VCALENDAR

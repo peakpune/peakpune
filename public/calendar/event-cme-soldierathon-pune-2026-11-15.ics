@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Peak Pune//Events//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Union Bank of India CME Soldierathon Pune\, 4th edition
+BEGIN:VEVENT
+UID:event-cme-soldierathon-pune-2026-11-15@peakpune.com
+DTSTAMP:20261113T000000Z
+SUMMARY:Union Bank of India CME Soldierathon Pune\, 4th edition
+DTSTART;VALUE=DATE:20261115
+DTEND;VALUE=DATE:20261116
+LOCATION:CME Dapodi\, Pune
+DESCRIPTION:Fourth edition of the Soldierathon road race in Pune\, on a Sun
+ day at the College of Military Engineering.\n\nDetails: https://www.soldie
+ rathon.com/events\n\nRead from the organiser's page on 2026-11-13. Dates a
+ nd times can change: confirm on the page before you go.
+URL:https://www.soldierathon.com/events
+STATUS:CONFIRMED
+END:VEVENT
+END:VCALENDAR
