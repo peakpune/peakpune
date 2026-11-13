@@ -19,6 +19,7 @@
   "line3_timetable_page": "https://punerimetro.in/passenger-info/time-table",
   "line3_timetable_image": "https://punerimetro.in/time-table/pink-line-time-table.png",
   "line3_route_map": "https://punerimetro.in/project-profile/route-map",
+  "line3_system_map_image": "https://punerimetro.in/landing/route-section/all-line-system-map.jpg",
   "line3_highlights": "https://punerimetro.in/project-profile/highlights",
   "line3_contact": "https://punerimetro.in/contact",
   "mahametro_vidyarthi_pass": "https://www.punemetrorail.org/vidyarthiPass.aspx",
@@ -665,6 +666,7 @@
   "timezone": "Asia/Kolkata",
   "method": "Operator pages opened in a browser on the date above; fare and timetable images downloaded and read.",
   "confirmed": [
+   "Line 3 official system map image (all three lines): shows all 23 Line 3 stations alike with no open or closed marking, so it does not confirm which are open.",
    "Maha Metro homepage statistics: 2 lines, 30 stations, 29 operational, 5 underground, 33.1 km (punemetrorail.org).",
    "Maha Metro project profile: every Line 1 and Line 2 station tagged Open except Range Hill (no tag).",
    "Maha Metro timetable images (effective 15 Aug 2025): 06:00-23:00, every 6 min peak (08:00-11:00, 16:00-20:00), every 10 min off-peak, 34 min / 17.5 km and 37 min / 14.5 km.",
