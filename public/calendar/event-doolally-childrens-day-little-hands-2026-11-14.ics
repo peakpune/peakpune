@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Peak Pune//Events//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Children's Day Special: Little Hands\, Big Creations!
+BEGIN:VEVENT
+UID:event-doolally-childrens-day-little-hands-2026-11-14@peakpune.com
+DTSTAMP:20261113T000000Z
+SUMMARY:Children's Day Special: Little Hands\, Big Creations!
+DTSTART:20261114T053000Z
+LOCATION:2nd Floor\, KOPA Mall\, Village\, Mundhwa Rd\, Koregaon Park Annex
+ e\, Ghorpadi\, Pune\, Maharashtra 411001
+DESCRIPTION:Ticketed Children's Day workshop at the Koregaon Park taproom o
+ n Saturday morning.\n\nDetails: https://doolally.in/web/\n\nRead from the 
+ organiser's page on 2026-11-13. Dates and times can change: confirm on the
+  page before you go.
+URL:https://doolally.in/web/
+STATUS:CONFIRMED
+END:VEVENT
+END:VCALENDAR
