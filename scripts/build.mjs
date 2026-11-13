@@ -4,6 +4,7 @@ import { readFileSync, writeFileSync, mkdirSync, rmSync, existsSync } from 'node
 import { dirname, join } from 'node:path';
 import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
+import { publishAuditedRows } from '../public/lib/publication.js';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 export const SITE_URL = (process.env.SITE_URL || 'https://peakpune.com').replace(/\/+$/, '');
@@ -16,7 +17,7 @@ export const INDEXING = process.env.INDEXING === 'on';
 const ROBOTS = INDEXING ? 'index,follow,max-image-preview:large' : 'noindex,nofollow';
 const read = (p) => readFileSync(join(root, p), 'utf8');
 export const publicationAudit = JSON.parse(read('data/publication-audit.json'));
-export const publishRows = (rows) => rows.filter((r) => publicationAudit.records[r.id]?.decision === 'publish').map((r) => ({ ...r, ...publicationAudit.records[r.id].overrides, checked_at: publicationAudit.checked_at }));
+export const publishRows = (rows) => publishAuditedRows(rows, publicationAudit);
 // New HTML must not reuse an older browser-cached stylesheet or script.
 export const assetUrl = (path) => `${path}?v=${createHash('sha256').update(readFileSync(join(root, 'public', path))).digest('hex').slice(0, 12)}`;
 
