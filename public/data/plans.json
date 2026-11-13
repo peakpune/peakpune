@@ -1,0 +1,744 @@
+{
+  "schemaVersion": 1,
+  "fetchedAt": "2026-11-13T12:49:52.611Z",
+  "expiresAt": "2026-11-14T12:49:52.611Z",
+  "timezone": "Asia/Kolkata",
+  "events": [
+    {
+      "title": "Bolly House Night",
+      "date": "2026-11-13",
+      "city": "Pune",
+      "place": "2BHK Diner & Key Club | The Mills, Bund Garden Road",
+      "price": "INR 1000",
+      "source": "District",
+      "links": [
+        {
+          "url": "https://www.district.in/events/bolly-house-night-nov13-2026-buy-tickets",
+          "label": "District"
+        }
+      ],
+      "checkedAt": "2026-11-13T12:49:52.611Z",
+      "verification": "platform-listed; organiser details not independently confirmed"
+    },
+    {
+      "title": "Bollywood Boiler Room 6.0",
+      "date": "2026-11-13",
+      "city": "Pune",
+      "place": "Epitome | The Mills, Bund Garden Road",
+      "price": "INR 149",
+      "source": "District",
+      "links": [
+        {
+          "url": "https://www.district.in/events/bollywood-boiler-room-60-nov13-2026-buy-tickets",
+          "label": "District"
+        }
+      ],
+      "checkedAt": "2026-11-13T12:49:52.611Z",
+      "verification": "platform-listed; organiser details not independently confirmed"
+    },
+    {
+      "title": "Live Friday Music at Bros Brewery",
+      "date": "2026-11-13",
+      "city": "Pune",
+      "place": "Bro's Brewery",
+      "price": "INR 199",
+      "source": "District",
+      "links": [
+        {
+          "url": "https://www.district.in/events/live-friday-music-at-bros-brewery-nov13-2026-buy-tickets",
+          "label": "District"
+        }
+      ],
+      "checkedAt": "2026-11-13T12:49:52.611Z",
+      "verification": "platform-listed; organiser details not independently confirmed"
+    },
+    {
+      "title": "Not Your Average Bollytech Night",
+      "date": "2026-11-13",
+      "city": "Pune",
+      "place": "Di Mora | The Mills, Bund Garden Road",
+      "price": "INR 1000",
+      "source": "District",
+      "links": [
+        {
+          "url": "https://www.district.in/events/not-your-average-bollytech-night-nov13-2026-buy-tickets",
+          "label": "District"
+        }
+      ],
+      "checkedAt": "2026-11-13T12:49:52.611Z",
+      "verification": "platform-listed; organiser details not independently confirmed"
+    },
+    {
+      "title": "A - Yo Afterhours",
+      "date": "2026-11-14",
+      "city": "Pune",
+      "place": "2BHK Diner & Key Club | The Mills, Bund Garden Road",
+      "price": "INR 1000",
+      "source": "District",
+      "links": [
+        {
+          "url": "https://www.district.in/events/ayo-afterhours-nov14-2026-buy-tickets",
+          "label": "District"
+        }
+      ],
+      "checkedAt": "2026-11-13T12:49:52.611Z",
+      "verification": "platform-listed; organiser details not independently confirmed"
+    },
+    {
+      "title": "A Brunch Full of Little Wonders",
+      "date": "2026-11-14",
+      "city": "Pune",
+      "place": "Feast - Sheraton Grand | Sheraton Grand, Bund Garden Road",
+      "price": "INR 2772",
+      "source": "District",
+      "links": [
+        {
+          "url": "https://www.district.in/events/a-brunch-full-of-little-wonders-nov14-2026-buy-tickets",
+          "label": "District"
+        }
+      ],
+      "checkedAt": "2026-11-13T12:49:52.611Z",
+      "verification": "platform-listed; organiser details not independently confirmed"
+    },
+    {
+      "title": "Bass Tapri Vol.3 ft. Dreokt, Ankan, Ov3rdrive, Kernel Corn and Shani",
+      "date": "2026-11-14",
+      "city": "Pune",
+      "place": "Anti Social | Shivaji Nagar, Pune",
+      "price": "INR 399",
+      "source": "District",
+      "links": [
+        {
+          "url": "https://www.district.in/events/bass-tapri-vol3-ft-dreokt-ankan-ov3rdrive-kernel-corn-and-shaniemcee-nov14-2026-buy-tickets",
+          "label": "District"
+        }
+      ],
+      "checkedAt": "2026-11-13T12:49:52.611Z",
+      "verification": "platform-listed; organiser details not independently confirmed"
+    },
+    {
+      "title": "Big Bollywood Night at Epitome",
+      "date": "2026-11-14",
+      "city": "Pune",
+      "place": "Epitome | The Mills, Bund Garden Road",
+      "price": "INR 149",
+      "source": "District",
+      "links": [
+        {
+          "url": "https://www.district.in/events/big-bollywood-night-at-epitome-nov14-2026-buy-tickets",
+          "label": "District"
+        }
+      ],
+      "checkedAt": "2026-11-13T12:49:52.611Z",
+      "verification": "platform-listed; organiser details not independently confirmed"
+    },
+    {
+      "title": "Dastaan by Mahoul The Band",
+      "date": "2026-11-14",
+      "city": "Pune",
+      "place": "Trippy Tequila",
+      "price": "INR 1000",
+      "source": "District",
+      "links": [
+        {
+          "url": "https://www.district.in/events/dastaan-by-mahoul-the-band-nov14-2026-buy-tickets",
+          "label": "District"
+        }
+      ],
+      "checkedAt": "2026-11-13T12:49:52.611Z",
+      "verification": "platform-listed; organiser details not independently confirmed"
+    },
+    {
+      "title": "Lunch with Strangers - Pune",
+      "date": "2026-11-14",
+      "city": "Pune",
+      "place": "FC Road Social",
+      "price": "INR 199",
+      "source": "District",
+      "links": [
+        {
+          "url": "https://www.district.in/events/lunch-with-strangers-pune-mar14-2026-buy-tickets",
+          "label": "District"
+        }
+      ],
+      "checkedAt": "2026-11-13T12:49:52.611Z",
+      "verification": "platform-listed; organiser details not independently confirmed"
+    },
+    {
+      "title": "Prom Night at Kiki",
+      "date": "2026-11-14",
+      "city": "Pune",
+      "place": "Kiki | The Mills, Bund Garden Road",
+      "price": "INR 1001",
+      "source": "District",
+      "links": [
+        {
+          "url": "https://www.district.in/events/prom-night-at-kiki-nov14-2026-buy-tickets",
+          "label": "District"
+        }
+      ],
+      "checkedAt": "2026-11-13T12:49:52.611Z",
+      "verification": "platform-listed; organiser details not independently confirmed"
+    },
+    {
+      "title": "Retro Classics by The Wildcards",
+      "date": "2026-11-14",
+      "city": "Pune",
+      "place": "Shisha Jazz Cafe | The Mills, Bund Garden Road",
+      "price": "INR 375",
+      "source": "District",
+      "links": [
+        {
+          "url": "https://www.district.in/events/retro-classics-by-the-wildcards-nov14-2026-buy-tickets",
+          "label": "District"
+        }
+      ],
+      "checkedAt": "2026-11-13T12:49:52.611Z",
+      "verification": "platform-listed; organiser details not independently confirmed"
+    },
+    {
+      "title": "Scandalous Saturday at The Game Palacio | Pune",
+      "date": "2026-11-14",
+      "city": "Pune",
+      "place": "The Game Palacio",
+      "price": "INR 249",
+      "source": "District",
+      "links": [
+        {
+          "url": "https://www.district.in/events/scandalous-saturday-at-the-game-palacio-pune-nov7-2026-buy-tickets",
+          "label": "District"
+        }
+      ],
+      "checkedAt": "2026-11-13T12:49:52.611Z",
+      "verification": "platform-listed; organiser details not independently confirmed"
+    },
+    {
+      "title": "Unlimited Sushi Brunch",
+      "date": "2026-11-14",
+      "city": "Pune",
+      "place": "Flamingo Globally Inspired Food | Kothrud, Pune",
+      "price": "INR 1354",
+      "source": "District",
+      "links": [
+        {
+          "url": "https://www.district.in/events/unlimited-sushi-brunch-jul4-2026-buy-tickets",
+          "label": "District"
+        }
+      ],
+      "checkedAt": "2026-11-13T12:49:52.611Z",
+      "verification": "platform-listed; organiser details not independently confirmed"
+    },
+    {
+      "title": "Bollywood Rush",
+      "date": "2026-11-15",
+      "city": "Pune",
+      "place": "2BHK Diner & Key Club | The Mills, Bund Garden Road",
+      "price": "INR 1000",
+      "source": "District",
+      "links": [
+        {
+          "url": "https://www.district.in/events/bollywood-rush-nov15-2026-buy-tickets",
+          "label": "District"
+        }
+      ],
+      "checkedAt": "2026-11-13T12:49:52.611Z",
+      "verification": "platform-listed; organiser details not independently confirmed"
+    },
+    {
+      "title": "Brunch Till Ya Drop!",
+      "date": "2026-11-15",
+      "city": "Pune",
+      "place": "Kiki | The Mills, Bund Garden Road",
+      "price": "INR 683",
+      "source": "District",
+      "links": [
+        {
+          "url": "https://www.district.in/events/brunch-till-ya-drop-feb15-2026-buy-tickets",
+          "label": "District"
+        }
+      ],
+      "checkedAt": "2026-11-13T12:49:52.611Z",
+      "verification": "platform-listed; organiser details not independently confirmed"
+    },
+    {
+      "title": "Sunday Brunch with Live Music",
+      "date": "2026-11-15",
+      "city": "Pune",
+      "place": "Flow | Baner, Pune",
+      "price": "INR 200",
+      "source": "District",
+      "links": [
+        {
+          "url": "https://www.district.in/events/sunday-brunch-with-live-music-nov15-2026-buy-tickets",
+          "label": "District"
+        }
+      ],
+      "checkedAt": "2026-11-13T12:49:52.611Z",
+      "verification": "platform-listed; organiser details not independently confirmed"
+    },
+    {
+      "title": "Sunday Lunch Experience at The Game Superpark",
+      "date": "2026-11-15",
+      "city": "Pune",
+      "place": "The Game Palacio",
+      "price": "INR 353",
+      "source": "District",
+      "links": [
+        {
+          "url": "https://www.district.in/events/sunday-lunch-experience-at-the-game-superpark-nov8-2026-buy-tickets",
+          "label": "District"
+        }
+      ],
+      "checkedAt": "2026-11-13T12:49:52.611Z",
+      "verification": "platform-listed; organiser details not independently confirmed"
+    },
+    {
+      "title": "Unlimited Garden Brunches",
+      "date": "2026-11-15",
+      "city": "Pune",
+      "place": "Gulp - Beer Garden | FC Road, Pune",
+      "price": "INR 1364",
+      "source": "District",
+      "links": [
+        {
+          "url": "https://www.district.in/events/unlimited-garden-brunches-jul19-2026-buy-tickets",
+          "label": "District"
+        }
+      ],
+      "checkedAt": "2026-11-13T12:49:52.611Z",
+      "verification": "platform-listed; organiser details not independently confirmed"
+    },
+    {
+      "title": "Saffron & Silk - Spice Kitchen",
+      "date": "2026-11-16",
+      "city": "Pune",
+      "place": "Spice Kitchen - JW Marriott Pune | JW Marriott Pune, Senapati Bapat Road",
+      "price": "INR 4010",
+      "source": "District",
+      "links": [
+        {
+          "url": "https://www.district.in/events/saffron-silkspice-kitchen-nov16-2026-buy-tickets",
+          "label": "District"
+        }
+      ],
+      "checkedAt": "2026-11-13T12:49:52.611Z",
+      "verification": "platform-listed; organiser details not independently confirmed"
+    },
+    {
+      "title": "Off Duty | An Eco Baner Original",
+      "date": "2026-11-18",
+      "city": "Pune",
+      "place": "Elephant and Co. Baner",
+      "price": "INR 199",
+      "source": "District",
+      "links": [
+        {
+          "url": "https://www.district.in/events/off-duty-an-eco-baner-original-nov18-2026-buy-tickets",
+          "label": "District"
+        }
+      ],
+      "checkedAt": "2026-11-13T12:49:52.611Z",
+      "verification": "platform-listed; organiser details not independently confirmed"
+    },
+    {
+      "title": "The Boozy Brain Battle",
+      "date": "2026-11-19",
+      "city": "Pune",
+      "place": "Knock Out Sports Bar and Kitchen",
+      "price": "INR 499",
+      "source": "District",
+      "links": [
+        {
+          "url": "https://www.district.in/events/the-boozy-brain-battle-with-unlimited-beer-1499-nov12-2026-buy-tickets",
+          "label": "District"
+        }
+      ],
+      "checkedAt": "2026-11-13T12:49:52.611Z",
+      "verification": "platform-listed; organiser details not independently confirmed"
+    },
+    {
+      "title": "Tribute to Dire Straits by Unkle Whisky Collective",
+      "date": "2026-11-20",
+      "city": "Pune",
+      "place": "Shisha Jazz Cafe | The Mills, Bund Garden Road",
+      "price": "INR 375",
+      "source": "District",
+      "links": [
+        {
+          "url": "https://www.district.in/events/dire-straits-tribute-by-unkle-whisky-collective-nov20-2026-buy-tickets",
+          "label": "District"
+        }
+      ],
+      "checkedAt": "2026-11-13T12:49:52.611Z",
+      "verification": "platform-listed; organiser details not independently confirmed"
+    },
+    {
+      "title": "Gourmet Coffee Festival Pune",
+      "date": "2026-11-21",
+      "city": "Pune",
+      "place": "KOPA Mall",
+      "price": "INR 299",
+      "source": "District",
+      "links": [
+        {
+          "url": "https://www.district.in/events/gourmet-coffee-festival-pune-nov21-2026-buy-tickets",
+          "label": "District"
+        }
+      ],
+      "checkedAt": "2026-11-13T12:49:52.611Z",
+      "verification": "platform-listed; organiser details not independently confirmed"
+    },
+    {
+      "title": "Plant Lady by Minyoung Kang and Shanna Tan",
+      "date": "2026-11-22",
+      "city": "Pune",
+      "place": "Malaka Spice | Koregaon Park, Pune",
+      "price": "INR 499",
+      "source": "District",
+      "links": [
+        {
+          "url": "https://www.district.in/events/plant-lady-by-minyoung-kang-and-shanna-tan-nov22-2026-buy-tickets",
+          "label": "District"
+        }
+      ],
+      "checkedAt": "2026-11-13T12:49:52.611Z",
+      "verification": "platform-listed; organiser details not independently confirmed"
+    },
+    {
+      "title": "Kala Unboxed | Vidushi Vishakha Hari & Anupam Joshi | Carnatic Vocal Recital and Jugalbandi",
+      "date": "2026-11-27",
+      "city": "Pune",
+      "place": "The Box Studio",
+      "price": "INR Free",
+      "source": "District",
+      "links": [
+        {
+          "url": "https://www.district.in/events/kala-unboxed-carnatic-vocal-recital-and-jugalbandi-vidushi-vishakha-hari-anupam-joshi-nov27-2026-buy-tickets",
+          "label": "District"
+        }
+      ],
+      "checkedAt": "2026-11-13T12:49:52.611Z",
+      "verification": "platform-listed; organiser details not independently confirmed"
+    },
+    {
+      "title": "Hello Korea | Pune",
+      "date": "2026-11-28",
+      "city": "Pune",
+      "place": "KOPA Mall",
+      "price": "INR 799",
+      "source": "District",
+      "links": [
+        {
+          "url": "https://www.district.in/events/hello-korea-pune-nov28-2026-buy-tickets",
+          "label": "District"
+        }
+      ],
+      "checkedAt": "2026-11-13T12:49:52.611Z",
+      "verification": "platform-listed; organiser details not independently confirmed"
+    },
+    {
+      "title": "MLTR by Abji and the Grooves",
+      "date": "2026-11-28",
+      "city": "Pune",
+      "place": "Shisha Jazz Cafe | The Mills, Bund Garden Road",
+      "price": "INR 375",
+      "source": "District",
+      "links": [
+        {
+          "url": "https://www.district.in/events/mltr-by-abji-and-the-grooves-nov28-2026-buy-tickets",
+          "label": "District"
+        }
+      ],
+      "checkedAt": "2026-11-13T12:49:52.611Z",
+      "verification": "platform-listed; organiser details not independently confirmed"
+    },
+    {
+      "title": "Mubarak Ho, Beti Huyi Hai | A Storytelling Show by Jidnya Sujata",
+      "date": "2026-11-28",
+      "city": "Pune",
+      "place": "IYAGI Studio",
+      "price": "INR 249",
+      "source": "District",
+      "links": [
+        {
+          "url": "https://www.district.in/events/mubarak-ho-beti-huyi-hai-a-storytelling-show-by-jidnya-sujata-nov28-2026-buy-tickets",
+          "label": "District"
+        }
+      ],
+      "checkedAt": "2026-11-13T12:49:52.611Z",
+      "verification": "platform-listed; organiser details not independently confirmed"
+    },
+    {
+      "title": "The Bhajan Collective",
+      "date": "2026-11-28",
+      "city": "Pune",
+      "place": "Rajiv Gandhi Academy of E-Learning school & Science Junior college",
+      "price": "INR 200",
+      "source": "District",
+      "links": [
+        {
+          "url": "https://www.district.in/events/the-bhajan-collective-nov28-2026-buy-tickets",
+          "label": "District"
+        }
+      ],
+      "checkedAt": "2026-11-13T12:49:52.611Z",
+      "verification": "platform-listed; organiser details not independently confirmed"
+    },
+    {
+      "title": "Ghar - An Open Mic for Words by Tape A Tale | Pune",
+      "date": "2026-11-29",
+      "city": "Pune",
+      "place": "The Mic Loft Studio",
+      "price": "INR 300",
+      "source": "District",
+      "links": [
+        {
+          "url": "https://www.district.in/events/ghar-an-open-mic-for-words-by-tape-a-tale-pune-aug9-2026-buy-tickets",
+          "label": "District"
+        }
+      ],
+      "checkedAt": "2026-11-13T12:49:52.611Z",
+      "verification": "platform-listed; organiser details not independently confirmed"
+    },
+    {
+      "title": "Main Ab Bhi Wahin Hun By Pankaj Jeena | Pune",
+      "date": "2026-11-29",
+      "city": "Pune",
+      "place": "24K Kraft Brewzz",
+      "price": "INR 299",
+      "source": "District",
+      "links": [
+        {
+          "url": "https://www.district.in/events/main-ab-bhi-wahin-hun-by-pankaj-jeena-pune-nov29-2026-buy-tickets",
+          "label": "District"
+        }
+      ],
+      "checkedAt": "2026-11-13T12:49:52.611Z",
+      "verification": "platform-listed; organiser details not independently confirmed"
+    },
+    {
+      "title": "MOSIQI",
+      "date": "2026-11-29",
+      "city": "Pune",
+      "place": "Di Mora | The Mills, Bund Garden Road",
+      "price": "INR 1000",
+      "source": "District",
+      "links": [
+        {
+          "url": "https://www.district.in/events/mosiqi-nov29-2026-buy-tickets",
+          "label": "District"
+        }
+      ],
+      "checkedAt": "2026-11-13T12:49:52.611Z",
+      "verification": "platform-listed; organiser details not independently confirmed"
+    },
+    {
+      "title": "Toscano Thanks Giving Brunch",
+      "date": "2026-11-29",
+      "city": "Pune",
+      "place": "Toscano | Koregaon Park, Pune",
+      "price": "INR 1664",
+      "source": "District",
+      "links": [
+        {
+          "url": "https://www.district.in/events/toscano-thanks-giving-brunch-nov29-2026-buy-tickets",
+          "label": "District"
+        }
+      ],
+      "checkedAt": "2026-11-13T12:49:52.611Z",
+      "verification": "platform-listed; organiser details not independently confirmed"
+    },
+    {
+      "title": "Raghav Chaitanya Live in Concert",
+      "date": "2026-12-05",
+      "city": "Pune",
+      "place": "Pandit Farms",
+      "price": "INR 499",
+      "source": "District",
+      "links": [
+        {
+          "url": "https://www.district.in/events/raghav-chaitanya-live-in-concert-buy-tickets",
+          "label": "District"
+        }
+      ],
+      "checkedAt": "2026-11-13T12:49:52.611Z",
+      "verification": "platform-listed; organiser details not independently confirmed"
+    },
+    {
+      "title": "Sanju Rathod Live in Concert",
+      "date": "2026-12-06",
+      "city": "Pune",
+      "place": "Pandit Farms",
+      "price": "INR 499",
+      "source": "District",
+      "links": [
+        {
+          "url": "https://www.district.in/events/sanju-rathod-live-in-concert-2026-buy-tickets",
+          "label": "District"
+        }
+      ],
+      "checkedAt": "2026-11-13T12:49:52.611Z",
+      "verification": "platform-listed; organiser details not independently confirmed"
+    },
+    {
+      "title": "Shaam-E-Mehfil By Papon | Pune",
+      "date": "2026-12-13",
+      "city": "Pune",
+      "place": "Messe Global Convention Center",
+      "price": "INR 1499",
+      "source": "District",
+      "links": [
+        {
+          "url": "https://www.district.in/events/shaam-e-mehfill-by-papon-pune-buy-tickets",
+          "label": "District"
+        }
+      ],
+      "checkedAt": "2026-11-13T12:49:52.611Z",
+      "verification": "platform-listed; organiser details not independently confirmed"
+    },
+    {
+      "title": "Creator Cove Fest",
+      "date": "2026-12-19",
+      "city": "Pune",
+      "place": "Messe Global Arena",
+      "price": "INR 555",
+      "source": "District",
+      "links": [
+        {
+          "url": "https://www.district.in/events/creator-cove-fest-dec19-2026-buy-tickets",
+          "label": "District"
+        }
+      ],
+      "checkedAt": "2026-11-13T12:49:52.611Z",
+      "verification": "platform-listed; organiser details not independently confirmed"
+    },
+    {
+      "title": "Gurdas Maan Live in Concert | Pune",
+      "date": "2027-01-16",
+      "city": "Pune",
+      "place": "Oasis",
+      "price": "INR 999",
+      "source": "District",
+      "links": [
+        {
+          "url": "https://www.district.in/events/gurdas-maan-live-in-concert-pune-buy-tickets",
+          "label": "District"
+        }
+      ],
+      "checkedAt": "2026-11-13T12:49:52.611Z",
+      "verification": "platform-listed; organiser details not independently confirmed"
+    },
+    {
+      "title": "Kahaniyan Sunaata Hun By Neelesh Misra | Pune",
+      "date": "2027-02-06",
+      "city": "Pune",
+      "place": "Jawaharlal Nehru Memorial Hall",
+      "price": "INR 499",
+      "source": "District",
+      "links": [
+        {
+          "url": "https://www.district.in/events/kahaniyan-sunaata-hun-by-neelesh-misra-pune-feb6-2027-buy-tickets",
+          "label": "District"
+        }
+      ],
+      "checkedAt": "2026-11-13T12:49:52.611Z",
+      "verification": "platform-listed; organiser details not independently confirmed"
+    },
+    {
+      "title": "Pune Comic Con 2027",
+      "date": "2027-02-06",
+      "city": "Pune",
+      "place": "Messe Global Convention Center",
+      "price": "INR 2999",
+      "source": "District",
+      "links": [
+        {
+          "url": "https://www.district.in/events/pune-comic-con-2027-buy-tickets",
+          "label": "District"
+        }
+      ],
+      "checkedAt": "2026-11-13T12:49:52.611Z",
+      "verification": "platform-listed; organiser details not independently confirmed"
+    },
+    {
+      "title": "Shreya Ghoshal - The Unstoppable India Tour | Pune",
+      "date": "2027-03-13",
+      "city": "Pune",
+      "place": "Mayfield Yash Garden",
+      "price": "INR 1500",
+      "source": "District",
+      "links": [
+        {
+          "url": "https://www.district.in/events/shreya-ghoshal-the-unstoppable-india-tour-pune-buy-tickets",
+          "label": "District"
+        }
+      ],
+      "checkedAt": "2026-11-13T12:49:52.611Z",
+      "verification": "platform-listed; organiser details not independently confirmed"
+    },
+    {
+      "title": "Alan Walker - Legend Of Atlantis | Pune",
+      "date": "2027-03-27",
+      "city": "Pune",
+      "place": "Mahalakshmi Lawns",
+      "price": "INR 999",
+      "source": "District",
+      "links": [
+        {
+          "url": "https://www.district.in/events/alan-walker-legend-of-atlantis-pune-2027-buy-tickets",
+          "label": "District"
+        }
+      ],
+      "checkedAt": "2026-11-13T12:49:52.611Z",
+      "verification": "platform-listed; organiser details not independently confirmed"
+    }
+  ],
+  "status": [
+    {
+      "source": "District Pune nightlife",
+      "url": "https://www.district.in/events/nightlife-in-pune-book-tickets",
+      "state": "ok",
+      "count": 12,
+      "checkedAt": "2026-11-13T12:49:52.611Z"
+    },
+    {
+      "source": "District Pune music",
+      "url": "https://www.district.in/events/music-in-pune-book-tickets",
+      "state": "ok",
+      "count": 11,
+      "checkedAt": "2026-11-13T12:49:52.611Z"
+    },
+    {
+      "source": "District Pune fests-fairs",
+      "url": "https://www.district.in/events/fests-fairs-in-pune-book-tickets",
+      "state": "ok",
+      "count": 4,
+      "checkedAt": "2026-11-13T12:49:52.611Z"
+    },
+    {
+      "source": "District Pune performances",
+      "url": "https://www.district.in/events/performances-in-pune-book-tickets",
+      "state": "ok",
+      "count": 8,
+      "checkedAt": "2026-11-13T12:49:52.611Z"
+    },
+    {
+      "source": "District Pune food-drinks",
+      "url": "https://www.district.in/events/food-drinks-in-pune-book-tickets",
+      "state": "ok",
+      "count": 12,
+      "checkedAt": "2026-11-13T12:49:52.611Z"
+    }
+  ],
+  "partial": false,
+  "disabledSources": [
+    {
+      "source": "Meetup",
+      "reason": "Current discovery-query robots restrictions; parser retained offline only"
+    },
+    {
+      "source": "Reddit",
+      "reason": "Current robots restrictions; parser retained offline only"
+    }
+  ]
+}
