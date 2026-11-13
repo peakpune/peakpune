@@ -70,6 +70,7 @@ Next, in order of likely return:
 ## Measures worth tracking
 
 - Share of listings re-checked in the last 90 days (today: 26 of 28 places, 28 of 28 routes).
+- Communities marked active (today: 7 of 13).
 - Verified rows added per week.
 - Organiser sites linking to Peak Pune.
 - Moments submitted, and the share approved.
