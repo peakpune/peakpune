@@ -5,4 +5,4 @@ A private reporting route must be configured by the owner before public launch.
 Until then, do not collect personal data or accept uploads in this starter.
 
 ## Before submissions open
-A hidden honeypot field plus per-IP rate limits and entry caps (as in the Afterhours signup API) should be added with the first form backend. No backend or form exists yet, so nothing is implemented.
+`src/abuse-guard.js` holds dormant helpers adapted from the Afterhours signup API: a hidden honeypot field (bots that fill it get a fake success and nothing is stored), a per-IP hourly limit and a total entry cap. It is not used by any page or script. No backend or form exists yet, so nothing is protected today. Wire it into the first form backend and add storage, moderation and privacy review before opening submissions.
