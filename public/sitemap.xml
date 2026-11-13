@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url><loc>https://peakpune.com/</loc></url>
-<url><loc>https://peakpune.com/events/</loc></url>
 <url><loc>https://peakpune.com/meetups/</loc></url>
 <url><loc>https://peakpune.com/moments/</loc></url>
 <url><loc>https://peakpune.com/powered-by/</loc></url>
@@ -34,6 +33,13 @@
 <url><loc>https://peakpune.com/places/shaniwar-wada/</loc><lastmod>2026-11-13</lastmod></url>
 <url><loc>https://peakpune.com/places/sarasbaug-peshwe-park/</loc><lastmod>2026-11-13</lastmod></url>
 <url><loc>https://peakpune.com/places/rajiv-gandhi-zoological-park/</loc><lastmod>2026-11-13</lastmod></url>
+<url><loc>https://peakpune.com/events/</loc><lastmod>2026-11-13</lastmod></url>
+<url><loc>https://peakpune.com/places/in/baner/</loc><lastmod>2026-11-13</lastmod></url>
+<url><loc>https://peakpune.com/places/in/koregaon-park/</loc><lastmod>2026-11-13</lastmod></url>
+<url><loc>https://peakpune.com/places/in/kasba-peth/</loc><lastmod>2026-11-13</lastmod></url>
+<url><loc>https://peakpune.com/places/in/shukrawar-peth/</loc><lastmod>2026-11-13</lastmod></url>
+<url><loc>https://peakpune.com/places/in/kalyani-nagar/</loc><lastmod>2026-11-13</lastmod></url>
+<url><loc>https://peakpune.com/places/in/deccan-gymkhana/</loc><lastmod>2026-11-13</lastmod></url>
 <url><loc>https://peakpune.com/outdoors/</loc><lastmod>2026-11-13</lastmod></url>
 <url><loc>https://peakpune.com/outdoors/koregaon-park-kalyani-nagar-loop/</loc><lastmod>2026-11-13</lastmod></url>
 <url><loc>https://peakpune.com/outdoors/viman-nagar-loop/</loc><lastmod>2026-11-13</lastmod></url>
@@ -63,4 +69,9 @@
 <url><loc>https://peakpune.com/outdoors/tung-fort/</loc><lastmod>2026-11-13</lastmod></url>
 <url><loc>https://peakpune.com/outdoors/visapur-fort/</loc><lastmod>2026-11-13</lastmod></url>
 <url><loc>https://peakpune.com/outdoors/khadakwasla-dam/</loc><lastmod>2026-11-13</lastmod></url>
+<url><loc>https://peakpune.com/outdoors/running-routes-in-pune/</loc><lastmod>2026-11-13</lastmod></url>
+<url><loc>https://peakpune.com/outdoors/easy-treks-near-pune/</loc><lastmod>2026-11-13</lastmod></url>
+<url><loc>https://peakpune.com/outdoors/treks-within-70-km-of-pune/</loc><lastmod>2026-11-13</lastmod></url>
+<url><loc>https://peakpune.com/outdoors/forts-near-pune/</loc><lastmod>2026-11-13</lastmod></url>
+<url><loc>https://peakpune.com/outdoors/monsoon-treks-near-pune/</loc><lastmod>2026-11-13</lastmod></url>
 </urlset>

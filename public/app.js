@@ -11,3 +11,6 @@ if (dialog) {
   document.querySelectorAll('[data-action="submission"]').forEach((b) => b.addEventListener('click', () => { dialog.hidden = false; dialog.scrollIntoView({ behavior: 'smooth', block: 'center' }); dialog.querySelector('button').focus({ preventScroll: true }); }));
   $('#close-dialog').addEventListener('click', () => { dialog.hidden = true; });
 }
+
+// Organiser event cards are static HTML: hide the ones whose day has passed.
+document.querySelectorAll('.event-card[data-expires]').forEach((c) => { const t = Date.parse(c.dataset.expires); if (Number.isFinite(t) && t < Date.now()) c.hidden = true; });
