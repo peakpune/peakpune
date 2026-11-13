@@ -5,8 +5,8 @@ moments, with the Puneri attitude.
 
 ## Status
 
-Work in progress. Explore, Places, Events, Meetups, Moments and Powered by are static pages
-with their own URLs. Place pages are generated from the sourced rows in `data/`.
+Work in progress. Explore, Places, Outdoors, Events, Meetups, Moments and Powered by are static
+pages with their own URLs. Place, run and trek pages are generated from the sourced rows in `data/`.
 The Pune event-discovery adapter is adapted from PuneAfterhours. Live fetching and
 submissions are not enabled. Sample moments are labelled; there are no real member
 records or invented event listings in this repository.
@@ -27,6 +27,13 @@ canonical and share tags, JSON-LD, `sitemap.xml` and `robots.txt`. Set `SITE_URL
 production origin (default `https://peakpune.com`). Generated HTML is committed so any static
 host can serve `public/` as is.
 
+## Deploy
+
+`.github/workflows/deploy.yml` tests, builds and publishes `public/` to GitHub Pages on every push
+to `main`. Enable it once under Settings, Pages, Source: GitHub Actions. The build reads the
+Pages URL, so it works on a custom domain or under `/<repo>/`. Set the repository variable
+`SITE_URL` to override.
+
 ## Structure
 
 - `public/`: generated pages, brand styles and local fonts.
@@ -35,6 +42,7 @@ host can serve `public/` as is.
 - `src/discovery.js`: adapted Pune source parsers, disabled network fetching by default.
 - `tests/`: local fixture and validation tests.
 - `docs/SCOPE.md`: product scope and brand rules.
+- `.agents/skills/`: design-principle references installed with `npx skills`.
 - `data/`: sourced starter dataset, one folder per batch, with evidence per field.
 
 ## Contribute

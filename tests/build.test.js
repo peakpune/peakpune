@@ -9,3 +9,6 @@ test('structured data omits unknown address and unsafe url',()=>{const ld=placeL
 test('build writes one canonical page per sitemap url',()=>{const d=mkdtempSync(join(tmpdir(),'pp-'));const urls=build({outDir:d});assert.ok(urls.length>30);
   for(const [p] of urls){const f=join(d,p,'index.html');assert.ok(existsSync(f),p);const h=readFileSync(f,'utf8');assert.ok(h.includes(`<link rel="canonical" href="${SITE_URL}${p}">`),p);assert.equal((h.match(/<h1/g)||[]).length,1,p);JSON.parse(h.match(/ld\+json">(.*?)<\/script>/s)[1]);}
   const sm=readFileSync(join(d,'sitemap.xml'),'utf8');assert.equal((sm.match(/<loc>/g)||[]).length,urls.length);assert.ok(!sm.includes('404'));});
+import {outdoorTitle,withBase,BASE} from '../scripts/build.mjs';
+test('outdoor titles carry distance and difficulty only when sourced',()=>{assert.equal(outdoorTitle({type:'trek',name:'Torna Fort',distance_from_pune_km:65,travel_time_text:'2 hours by road',difficulty:'Challenging'}),'Torna Fort trek near Pune: 65 km from Pune, 2 hours by road, Challenging | Peak Pune');assert.equal(outdoorTitle({type:'run-route',name:'Kharadi loop',distance_km:5.73}),'Kharadi loop: 5.73 km running route in Pune | Peak Pune');});
+test('root links are left alone on a root domain',()=>{assert.equal(BASE,'');assert.equal(withBase('<a href="/x/">'),'<a href="/x/">');});
