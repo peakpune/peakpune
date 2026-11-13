@@ -5,7 +5,8 @@ moments, with the Puneri attitude.
 
 ## Status
 
-Work in progress. Explore, Events, Meetups, Moments and Powered by have responsive concept views.
+Work in progress. Explore, Places, Events, Meetups, Moments and Powered by are static pages
+with their own URLs. Place pages are generated from the sourced rows in `data/`.
 The Pune event-discovery adapter is adapted from PuneAfterhours. Live fetching and
 submissions are not enabled. Sample moments are labelled; there are no real member
 records or invented event listings in this repository.
@@ -21,9 +22,15 @@ npm run dev
 
 Open http://localhost:4173. The preview collects no personal data or uploads.
 
+`npm run build` regenerates `public/` from `site/` fragments and `data/`: one page per place,
+canonical and share tags, JSON-LD, `sitemap.xml` and `robots.txt`. Set `SITE_URL` to the
+production origin (default `https://peakpune.com`). Generated HTML is committed so any static
+host can serve `public/` as is.
+
 ## Structure
 
-- `public/`: interface, brand styles and local fonts.
+- `public/`: generated pages, brand styles and local fonts.
+- `site/`: page fragments. `scripts/build.mjs`: the static build.
 - `src/events.js`: Pune/date/URL validation.
 - `src/discovery.js`: adapted Pune source parsers, disabled network fetching by default.
 - `tests/`: local fixture and validation tests.
