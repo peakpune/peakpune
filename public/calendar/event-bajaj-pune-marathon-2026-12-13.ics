@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Peak Pune//Events//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Bajaj Pune Marathon
+BEGIN:VEVENT
+UID:event-bajaj-pune-marathon-2026-12-13@peakpune.com
+DTSTAMP:20261113T000000Z
+SUMMARY:Bajaj Pune Marathon
+DTSTART;VALUE=DATE:20261213
+DTEND;VALUE=DATE:20261214
+LOCATION:Pune
+DESCRIPTION:Road race with 5K\, 10K\, half and full distances\; the PuneRun
+ ners guide marks it beginner friendly.\n\nDetails: https://punerunners.com
+ /races/bajaj-pune-marathon/\n\nRead from the organiser's page on 2026-11-1
+ 3. Dates and times can change: confirm on the page before you go.
+URL:https://punerunners.com/races/bajaj-pune-marathon/
+STATUS:TENTATIVE
+END:VEVENT
+END:VCALENDAR

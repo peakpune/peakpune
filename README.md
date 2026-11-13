@@ -73,6 +73,11 @@ compiled to a committed bundle. The page is an Astro route; its script is strict
 `/PuneMetroguide/` only caches the guide. Timetable information only: there are no live trains. `npm run metro:check`
 validates the data, `npm run metro:offline` runs the browser checks (needs Playwright with Chromium).
 
+## Pune right now and add to calendar
+
+- **Home page strip** ("Pune right now"): AQI (US scale) and PM2.5, next-hour temperature and rain chance, sunrise and sunset, moonrise, moonset and phase. Weather and air quality are fetched in the visitor's browser from [Open-Meteo](https://open-meteo.com/) (no key, nothing stored, attribution shown). Moon times are computed on the device (`src/client/astro.ts`) and labelled approximate; they were checked against an independent library over 31 days, within about 12 minutes. The strip stays hidden if both services fail.
+- **Events**: every dated organiser card has "Add to Google Calendar" and a downloadable `.ics`, plus one `.ics` for all dated listings. Entries are timed only where the source gave an exact start, otherwise all-day; no end time is invented; partial listings are marked tentative. Files are built into `public/calendar/` by `scripts/calendar.mjs`.
+
 ## Stack and deployment
 
 - **TypeScript:** strict typed publication gate, District URL/snapshot boundary, IST dates, weekend filtering and sharing. Runtime checks still reject untrusted JSON. Types do not prove listing truth.

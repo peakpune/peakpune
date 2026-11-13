@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Peak Pune//Events//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Kamshet Paragliding
+BEGIN:VEVENT
+UID:event-karawaan-kamshet-paragliding-2026-11-21@peakpune.com
+DTSTAMP:20261113T000000Z
+SUMMARY:Kamshet Paragliding
+DTSTART;VALUE=DATE:20261121
+DTEND;VALUE=DATE:20261122
+LOCATION:Kamshet\, Pune
+DESCRIPTION:One-day paid paragliding outing to Kamshet run by a Pune travel
+  company\; rated easy by the organiser.\n\nDetails: https://karawaan.in/ev
+ ents\n\nRead from the organiser's page on 2026-11-13. Dates and times can 
+ change: confirm on the page before you go.
+URL:https://karawaan.in/events
+STATUS:TENTATIVE
+END:VEVENT
+END:VCALENDAR
