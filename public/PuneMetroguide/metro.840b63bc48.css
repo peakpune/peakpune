@@ -90,3 +90,11 @@
 .metro .guide details details{margin-top:var(--s2)}
 .metro .section{padding-top:var(--s10)}
 .metro .hero{padding-bottom:0}
+/* Planner must never be wider than its card: selects size to the box, not to their longest option text. */
+.metro .planner,.metro .pl{min-width:0;max-width:100%}
+.metro .pl>*,.metro .pl-row>*{min-width:0}
+.metro .pl select{width:100%;max-width:100%;min-width:0;text-overflow:ellipsis}
+.metro .pl .verified{max-width:100%;border-radius:var(--r-card);justify-self:start}
+.metro .pl .area-stations li{flex-wrap:wrap}
+.metro .pl .net{white-space:normal}
+.metro .pl .chip{white-space:normal;text-align:center;height:auto;padding-block:var(--s2);max-width:100%}
