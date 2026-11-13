@@ -9,7 +9,7 @@ import peakpune_metro/ids.{
   Swargate, Vanaz, Yerwada, Pcmc, Aundh,
 }
 import peakpune_metro/planner.{
-  Available, CheckChart, Disputed, Exact, Missing, NoRoute, NotOpenYet,
+  Available, CheckChart, Disputed, Exact, Missing, NotOpenYet,
   NotSelectable, SameStation, UnconfirmedByOperator,
 }
 import peakpune_metro/types.{
@@ -79,7 +79,6 @@ pub fn the_interchange_is_derived_from_line_membership_test() {
   // District Court is on all three lines; Shivaji Nagar (Purple) and Shivaji Nagar (Line 3)
   // are separate stations, so no interchange is derived between them.
   assert planner.interchanges(data.network()) == [DistrictCourt]
-  assert ShivajiNagar != ShivajiNagarPink
 }
 
 pub fn every_pair_of_lines_routes_once_line3_is_confirmed_test() {
@@ -147,7 +146,6 @@ pub fn closed_stations_stay_blocked_and_are_not_counted_as_stops_test() {
 
 pub fn same_station_is_not_a_trip_test() {
   assert planner.plan(data.network(), Ramwadi, Ramwadi) == Error(SameStation)
-  assert NoRoute != SameStation
 }
 
 // ---------- fares ----------
