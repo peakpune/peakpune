@@ -21,7 +21,7 @@
 
 An open-source website for local events, meetups and moments in Pune, with the Puneri
 attitude. It is a small static site: plain HTML, CSS and JavaScript, no framework, no build
-step and no tracking.
+on deploy and no tracking.
 
 > **Status: preview.** The site is live but unfinished. It is marked as a layout and data
 > preview, it is not indexed by search engines, and it collects no personal data.
@@ -30,10 +30,12 @@ step and no tracking.
 
 | Area | State |
 | --- | --- |
-| **Explore** | Category and area browsing (layout preview), a "This weekend in Pune" section built from real listings. |
+| **Explore** | A "This weekend in Pune" section built from real listings, featured places, runs and treks. |
+| **Places** | 28 Pune places with addresses, timings and prices read from each venue's own page, one page each, plus pages by area. |
+| **Outdoors** | 8 mapped running loops and 20 treks and day trips with distance and drive time from Pune, credited to PuneRunners Club and Pune Trekkers. |
 | **Events** | A reviewed snapshot of Pune plans listed on District, each linking to its original listing. A **This weekend** filter uses only the listed date. A **Share** button on each plan shares or copies the original link. |
-| **Meetups** | Layout preview with category cards. No communities are listed or endorsed yet. |
-| **Moments** | Layout preview with clearly labelled sample cards. No real submissions. |
+| **Meetups** | 13 communities with a public joining page, marked active, unconfirmed or dormant. |
+| **Moments** | Short captions tied to checked places and routes. No reader submissions. |
 | **Submissions, uploads, accounts** | Not enabled. There is no backend. |
 
 Plans are source-listed, not confirmed by organisers. Always check the original listing for
@@ -61,7 +63,8 @@ District at that time.</sub>
 
 ## Run it locally
 
-You need Node.js 22+ and Python 3. There is no `npm install` and no build.
+You need Node.js 22+ and Python 3. There is no `npm install`. `npm run dev` regenerates the
+pages first, which takes under a second.
 
 ```sh
 git clone https://github.com/peakpune/peakpune.git
@@ -74,7 +77,8 @@ npm run dev       # serves public/ at http://localhost:4173
 
 ```text
 public/                 the site (this folder is what gets deployed)
-  index.html, app.js    page and views
+  index.html, app.js    home page and shared script
+  places/, outdoors/, events/, meetups/, moments/, powered-by/   generated pages
   plans.js              plan cards, weekend filter, expiry handling
   filters.js, share.js  This weekend logic and the Share button
   tokens.css            the single stylesheet, brand colours and type
@@ -85,9 +89,19 @@ src/
   discovery.js          source parsers, offline by default
   abuse-guard.js        dormant helpers for a future form backend
 scripts/update-plans.mjs   manual, one-off plans export (no schedule)
+scripts/build.mjs       page generator, no dependencies
+site/                   page fragments the generator reads
+data/                   sourced dataset, one folder per batch, evidence per field
 tests/                  node:test suites
 docs/                   scope and brand, plans data, third-party notices
 ```
+
+**How pages are made.** `public/` is served as plain files. Its HTML is written by
+`npm run build` from `site/` and `data/` and then committed, so there is nothing to build on
+deploy. Edit `site/` or `data/`, run the build, commit the result. Pages are generated with
+`noindex` to match the preview status; `INDEXING=on npm run build` turns indexing and the
+sitemap reference on when the owner decides. Set `SITE_URL` if the origin is not
+`https://peakpune.com`.
 
 **How plans get on the page.** A person runs the export by hand (see
 [`docs/PLANS.md`](docs/PLANS.md)), reviews it, and commits `public/data/plans.json`. The
@@ -112,7 +126,8 @@ Planned, not built. Anything involving people's content needs moderation and pri
 review first.
 
 - [ ] Events: Pune areas, categories and a free-entry filter, once the data can prove it
-- [ ] Meetups: real communities with verified joining links
+- [x] Meetups: real communities with verified joining links (first 13)
+- [ ] Places and outdoors: lift coverage beyond the first sourced batches in `data/`
 - [ ] Moments: Patya, Traffic, Food, Language, Weather, Timings
 - [ ] Submissions with consent, credit, reporting, spam and upload controls, and a human
       moderation queue before anything is public

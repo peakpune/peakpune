@@ -1,0 +1,1229 @@
+[
+ {
+  "id": "place-kayani-bakery",
+  "name": "Kayani Bakery",
+  "type": "bakery",
+  "tags": [
+   "bakery"
+  ],
+  "scope": "CORE",
+  "neighbourhood": "East Street (Pune Cantonment)",
+  "address": "UNKNOWN",
+  "lat": 18.514857,
+  "lon": 73.880007,
+  "url_official": "UNKNOWN",
+  "url_deep": "https://www.openstreetmap.org/node/789695547",
+  "summary": "Listed on OpenStreetMap as a bakery; only its name and map position are sourced so far.",
+  "status": "unverified",
+  "sources": [
+   "https://www.openstreetmap.org/node/789695547"
+  ],
+  "evidence": [
+   {
+    "field": "url_deep",
+    "value": "https://www.openstreetmap.org/node/789695547",
+    "source_url": "https://www.openstreetmap.org/node/789695547",
+    "source_type": "secondary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "lat",
+    "value": 18.514857,
+    "source_url": "https://www.openstreetmap.org/node/789695547",
+    "source_type": "secondary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "lon",
+    "value": 73.880007,
+    "source_url": "https://www.openstreetmap.org/node/789695547",
+    "source_type": "secondary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "name",
+    "value": "Kayani Bakery",
+    "source_url": "https://www.openstreetmap.org/node/789695547",
+    "source_type": "secondary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   }
+  ],
+  "checked_at": "2026-11-13",
+  "freshness_days": 248,
+  "stale_over_90_days": true,
+  "hours": null,
+  "price_note": null,
+  "good_for": [],
+  "notes": "OpenStreetMap is the only source opened. No official page was reachable, so nothing here is confirmed by the venue."
+ },
+ {
+  "id": "place-german-bakery",
+  "name": "German Bakery",
+  "type": "cafe",
+  "tags": [
+   "cafe",
+   "bakery"
+  ],
+  "scope": "CORE",
+  "neighbourhood": "North Main Road (Koregaon Park)",
+  "address": "Koregaon Park, Pune",
+  "lat": 18.539623,
+  "lon": 73.887371,
+  "url_official": "UNKNOWN",
+  "url_deep": "https://www.openstreetmap.org/node/313785040",
+  "summary": "Listed on OpenStreetMap as a cafe; only its name and map position are sourced so far.",
+  "status": "unverified",
+  "sources": [
+   "https://www.openstreetmap.org/node/313785040"
+  ],
+  "evidence": [
+   {
+    "field": "url_deep",
+    "value": "https://www.openstreetmap.org/node/313785040",
+    "source_url": "https://www.openstreetmap.org/node/313785040",
+    "source_type": "secondary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "address",
+    "value": "Koregaon Park, Pune",
+    "source_url": "https://www.openstreetmap.org/node/313785040",
+    "source_type": "secondary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "lat",
+    "value": 18.539623,
+    "source_url": "https://www.openstreetmap.org/node/313785040",
+    "source_type": "secondary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "lon",
+    "value": 73.887371,
+    "source_url": "https://www.openstreetmap.org/node/313785040",
+    "source_type": "secondary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "name",
+    "value": "German Bakery",
+    "source_url": "https://www.openstreetmap.org/node/313785040",
+    "source_type": "secondary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   }
+  ],
+  "checked_at": "2026-11-13",
+  "freshness_days": 247,
+  "stale_over_90_days": true,
+  "hours": null,
+  "price_note": null,
+  "good_for": [],
+  "notes": "OpenStreetMap is the only source opened. No official page was reachable, so nothing here is confirmed by the venue."
+ },
+ {
+  "id": "place-vohuman-cafe",
+  "name": "Vohuman Cafe",
+  "type": "cafe",
+  "tags": [
+   "cafe"
+  ],
+  "scope": "CORE",
+  "neighbourhood": "UNKNOWN",
+  "address": "Rajarshi Shahu Maharaj Path, Pune",
+  "lat": 18.532438,
+  "lon": 73.87685,
+  "url_official": "https://www.facebook.com/vohumancafe/",
+  "url_deep": "https://www.openstreetmap.org/node/9967066414",
+  "summary": "Listed on OpenStreetMap as a cafe; only its name and map position are sourced so far.",
+  "status": "unverified",
+  "sources": [
+   "https://www.openstreetmap.org/node/9967066414"
+  ],
+  "evidence": [
+   {
+    "field": "url_deep",
+    "value": "https://www.openstreetmap.org/node/9967066414",
+    "source_url": "https://www.openstreetmap.org/node/9967066414",
+    "source_type": "secondary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "address",
+    "value": "Rajarshi Shahu Maharaj Path, Pune",
+    "source_url": "https://www.openstreetmap.org/node/9967066414",
+    "source_type": "secondary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "lat",
+    "value": 18.532438,
+    "source_url": "https://www.openstreetmap.org/node/9967066414",
+    "source_type": "secondary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "lon",
+    "value": 73.87685,
+    "source_url": "https://www.openstreetmap.org/node/9967066414",
+    "source_type": "secondary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "name",
+    "value": "Vohuman Cafe",
+    "source_url": "https://www.openstreetmap.org/node/9967066414",
+    "source_type": "secondary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "hours",
+    "value": "Mo-Su 06:00-18:30",
+    "source_url": "https://www.openstreetmap.org/node/9967066414",
+    "source_type": "secondary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   }
+  ],
+  "checked_at": "2026-11-13",
+  "freshness_days": 246,
+  "stale_over_90_days": true,
+  "hours": "Mo-Su 06:00-18:30 (OpenStreetMap, not confirmed by the venue)",
+  "price_note": null,
+  "good_for": [],
+  "notes": "OpenStreetMap is the only source opened. No official page was reachable, so nothing here is confirmed by the venue."
+ },
+ {
+  "id": "place-vaishali",
+  "name": "Vaishali",
+  "type": "restaurant",
+  "tags": [
+   "restaurant"
+  ],
+  "scope": "CORE",
+  "neighbourhood": "Deccan Gymkhana",
+  "address": "UNKNOWN",
+  "lat": 18.520848,
+  "lon": 73.841218,
+  "url_official": "UNKNOWN",
+  "url_deep": "https://www.openstreetmap.org/node/2273735910",
+  "summary": "Listed on OpenStreetMap as a restaurant; only its name and map position are sourced so far.",
+  "status": "unverified",
+  "sources": [
+   "https://www.openstreetmap.org/node/2273735910"
+  ],
+  "evidence": [
+   {
+    "field": "url_deep",
+    "value": "https://www.openstreetmap.org/node/2273735910",
+    "source_url": "https://www.openstreetmap.org/node/2273735910",
+    "source_type": "secondary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "lat",
+    "value": 18.520848,
+    "source_url": "https://www.openstreetmap.org/node/2273735910",
+    "source_type": "secondary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "lon",
+    "value": 73.841218,
+    "source_url": "https://www.openstreetmap.org/node/2273735910",
+    "source_type": "secondary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "name",
+    "value": "Vaishali",
+    "source_url": "https://www.openstreetmap.org/node/2273735910",
+    "source_type": "secondary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   }
+  ],
+  "checked_at": "2026-11-13",
+  "freshness_days": 4,
+  "stale_over_90_days": false,
+  "hours": null,
+  "price_note": null,
+  "good_for": [],
+  "notes": "OpenStreetMap is the only source opened. No official page was reachable, so nothing here is confirmed by the venue."
+ },
+ {
+  "id": "place-sujata-mastani",
+  "name": "Sujata Mastani",
+  "type": "sweets",
+  "tags": [
+   "sweets",
+   "ice-cream"
+  ],
+  "scope": "CORE",
+  "neighbourhood": "UNKNOWN",
+  "address": "UNKNOWN",
+  "lat": 18.511653,
+  "lon": 73.852237,
+  "url_official": "UNKNOWN",
+  "url_deep": "https://www.openstreetmap.org/node/6241949022",
+  "summary": "Listed on OpenStreetMap as a sweets; only its name and map position are sourced so far.",
+  "status": "unverified",
+  "sources": [
+   "https://www.openstreetmap.org/node/6241949022"
+  ],
+  "evidence": [
+   {
+    "field": "url_deep",
+    "value": "https://www.openstreetmap.org/node/6241949022",
+    "source_url": "https://www.openstreetmap.org/node/6241949022",
+    "source_type": "secondary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "lat",
+    "value": 18.511653,
+    "source_url": "https://www.openstreetmap.org/node/6241949022",
+    "source_type": "secondary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "lon",
+    "value": 73.852237,
+    "source_url": "https://www.openstreetmap.org/node/6241949022",
+    "source_type": "secondary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "name",
+    "value": "Sujata Mastani",
+    "source_url": "https://www.openstreetmap.org/node/6241949022",
+    "source_type": "secondary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   }
+  ],
+  "checked_at": "2026-11-13",
+  "freshness_days": 2846,
+  "stale_over_90_days": true,
+  "hours": null,
+  "price_note": null,
+  "good_for": [],
+  "notes": "OpenStreetMap is the only source opened. No official page was reachable, so nothing here is confirmed by the venue."
+ },
+ {
+  "id": "place-blue-nile",
+  "name": "Blue Nile",
+  "type": "restaurant",
+  "tags": [
+   "restaurant"
+  ],
+  "scope": "CORE",
+  "neighbourhood": "UNKNOWN",
+  "address": "UNKNOWN",
+  "lat": 18.521753,
+  "lon": 73.877467,
+  "url_official": "UNKNOWN",
+  "url_deep": "https://www.openstreetmap.org/node/789623167",
+  "summary": "Listed on OpenStreetMap as a restaurant; only its name and map position are sourced so far.",
+  "status": "unverified",
+  "sources": [
+   "https://www.openstreetmap.org/node/789623167"
+  ],
+  "evidence": [
+   {
+    "field": "url_deep",
+    "value": "https://www.openstreetmap.org/node/789623167",
+    "source_url": "https://www.openstreetmap.org/node/789623167",
+    "source_type": "secondary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "lat",
+    "value": 18.521753,
+    "source_url": "https://www.openstreetmap.org/node/789623167",
+    "source_type": "secondary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "lon",
+    "value": 73.877467,
+    "source_url": "https://www.openstreetmap.org/node/789623167",
+    "source_type": "secondary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "name",
+    "value": "Blue Nile",
+    "source_url": "https://www.openstreetmap.org/node/789623167",
+    "source_type": "secondary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   }
+  ],
+  "checked_at": "2026-11-13",
+  "freshness_days": 246,
+  "stale_over_90_days": true,
+  "hours": null,
+  "price_note": null,
+  "good_for": [],
+  "notes": "OpenStreetMap is the only source opened. No official page was reachable, so nothing here is confirmed by the venue."
+ },
+ {
+  "id": "place-hard-rock-cafe-pune",
+  "name": "Hard Rock Cafe",
+  "type": "bar",
+  "tags": [
+   "bar",
+   "restaurant",
+   "live-music"
+  ],
+  "scope": "CORE",
+  "neighbourhood": "UNKNOWN",
+  "address": "UNKNOWN",
+  "lat": 18.538795,
+  "lon": 73.912781,
+  "url_official": "UNKNOWN",
+  "url_deep": "https://www.openstreetmap.org/node/511975995",
+  "summary": "Listed on OpenStreetMap as a bar; only its name and map position are sourced so far.",
+  "status": "unverified",
+  "sources": [
+   "https://www.openstreetmap.org/node/511975995"
+  ],
+  "evidence": [
+   {
+    "field": "url_deep",
+    "value": "https://www.openstreetmap.org/node/511975995",
+    "source_url": "https://www.openstreetmap.org/node/511975995",
+    "source_type": "secondary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "lat",
+    "value": 18.538795,
+    "source_url": "https://www.openstreetmap.org/node/511975995",
+    "source_type": "secondary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "lon",
+    "value": 73.912781,
+    "source_url": "https://www.openstreetmap.org/node/511975995",
+    "source_type": "secondary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "name",
+    "value": "Hard Rock Cafe",
+    "source_url": "https://www.openstreetmap.org/node/511975995",
+    "source_type": "secondary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   }
+  ],
+  "checked_at": "2026-11-13",
+  "freshness_days": 248,
+  "stale_over_90_days": true,
+  "hours": null,
+  "price_note": null,
+  "good_for": [],
+  "notes": "OpenStreetMap is the only source opened. No official page was reachable, so nothing here is confirmed by the venue."
+ },
+ {
+  "id": "place-effingut-koregaon-park",
+  "name": "Effingut Koregaon Park",
+  "type": "bar",
+  "tags": [
+   "bar",
+   "brewery",
+   "restaurant"
+  ],
+  "scope": "CORE",
+  "neighbourhood": "Koregaon Park",
+  "address": "UNKNOWN",
+  "lat": 18.534032,
+  "lon": 73.898504,
+  "url_official": "UNKNOWN",
+  "url_deep": "https://www.openstreetmap.org/node/11744761288",
+  "summary": "Listed on OpenStreetMap as a bar; only its name and map position are sourced so far.",
+  "status": "unverified",
+  "sources": [
+   "https://www.openstreetmap.org/node/11744761288"
+  ],
+  "evidence": [
+   {
+    "field": "url_deep",
+    "value": "https://www.openstreetmap.org/node/11744761288",
+    "source_url": "https://www.openstreetmap.org/node/11744761288",
+    "source_type": "secondary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "lat",
+    "value": 18.534032,
+    "source_url": "https://www.openstreetmap.org/node/11744761288",
+    "source_type": "secondary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "lon",
+    "value": 73.898504,
+    "source_url": "https://www.openstreetmap.org/node/11744761288",
+    "source_type": "secondary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "name",
+    "value": "Effingut Koregaon Park",
+    "source_url": "https://www.openstreetmap.org/node/11744761288",
+    "source_type": "secondary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   }
+  ],
+  "checked_at": "2026-11-13",
+  "freshness_days": 248,
+  "stale_over_90_days": true,
+  "hours": null,
+  "price_note": null,
+  "good_for": [],
+  "notes": "OpenStreetMap is the only source opened. No official page was reachable, so nothing here is confirmed by the venue."
+ },
+ {
+  "id": "place-pataleshwar",
+  "name": "Pataleshwar",
+  "type": "heritage",
+  "tags": [
+   "heritage",
+   "temple"
+  ],
+  "scope": "CORE",
+  "neighbourhood": "Shivajinagar",
+  "address": "UNKNOWN",
+  "lat": 18.527022,
+  "lon": 73.850049,
+  "url_official": "UNKNOWN",
+  "url_deep": "https://www.openstreetmap.org/way/218078556",
+  "summary": "Listed on OpenStreetMap as a heritage; only its name and map position are sourced so far.",
+  "status": "unverified",
+  "sources": [
+   "https://www.openstreetmap.org/way/218078556"
+  ],
+  "evidence": [
+   {
+    "field": "url_deep",
+    "value": "https://www.openstreetmap.org/way/218078556",
+    "source_url": "https://www.openstreetmap.org/way/218078556",
+    "source_type": "secondary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "lat",
+    "value": 18.527022,
+    "source_url": "https://www.openstreetmap.org/way/218078556",
+    "source_type": "secondary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "lon",
+    "value": 73.850049,
+    "source_url": "https://www.openstreetmap.org/way/218078556",
+    "source_type": "secondary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "name",
+    "value": "Pataleshwar",
+    "source_url": "https://www.openstreetmap.org/way/218078556",
+    "source_type": "secondary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   }
+  ],
+  "checked_at": "2026-11-13",
+  "freshness_days": 1089,
+  "stale_over_90_days": true,
+  "hours": null,
+  "price_note": null,
+  "good_for": [],
+  "notes": "OpenStreetMap is the only source opened. No official page was reachable, so nothing here is confirmed by the venue."
+ },
+ {
+  "id": "place-mahatma-phule-mandai",
+  "name": "Mahatma Phule Mandai",
+  "type": "market",
+  "tags": [
+   "market",
+   "heritage"
+  ],
+  "scope": "CORE",
+  "neighbourhood": "UNKNOWN",
+  "address": "UNKNOWN",
+  "lat": 18.512918,
+  "lon": 73.856295,
+  "url_official": "UNKNOWN",
+  "url_deep": "https://www.openstreetmap.org/way/65486228",
+  "summary": "Listed on OpenStreetMap as a market; only its name and map position are sourced so far.",
+  "status": "unverified",
+  "sources": [
+   "https://www.openstreetmap.org/way/65486228"
+  ],
+  "evidence": [
+   {
+    "field": "url_deep",
+    "value": "https://www.openstreetmap.org/way/65486228",
+    "source_url": "https://www.openstreetmap.org/way/65486228",
+    "source_type": "secondary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "lat",
+    "value": 18.512918,
+    "source_url": "https://www.openstreetmap.org/way/65486228",
+    "source_type": "secondary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "lon",
+    "value": 73.856295,
+    "source_url": "https://www.openstreetmap.org/way/65486228",
+    "source_type": "secondary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "name",
+    "value": "Mahatma Phule Mandai",
+    "source_url": "https://www.openstreetmap.org/way/65486228",
+    "source_type": "secondary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   }
+  ],
+  "checked_at": "2026-11-13",
+  "freshness_days": 241,
+  "stale_over_90_days": true,
+  "hours": null,
+  "price_note": null,
+  "good_for": [],
+  "notes": "OpenStreetMap is the only source opened. No official page was reachable, so nothing here is confirmed by the venue."
+ },
+ {
+  "id": "place-vishrambaug-wada",
+  "name": "Vishrambaug Wada",
+  "type": "heritage",
+  "tags": [
+   "heritage"
+  ],
+  "scope": "CORE",
+  "neighbourhood": "UNKNOWN",
+  "address": "UNKNOWN",
+  "lat": 18.513849,
+  "lon": 73.853427,
+  "url_official": "UNKNOWN",
+  "url_deep": "https://www.openstreetmap.org/relation/15577751",
+  "summary": "Listed on OpenStreetMap as a heritage; only its name and map position are sourced so far.",
+  "status": "unverified",
+  "sources": [
+   "https://www.openstreetmap.org/relation/15577751"
+  ],
+  "evidence": [
+   {
+    "field": "url_deep",
+    "value": "https://www.openstreetmap.org/relation/15577751",
+    "source_url": "https://www.openstreetmap.org/relation/15577751",
+    "source_type": "secondary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "lat",
+    "value": 18.513849,
+    "source_url": "https://www.openstreetmap.org/relation/15577751",
+    "source_type": "secondary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "lon",
+    "value": 73.853427,
+    "source_url": "https://www.openstreetmap.org/relation/15577751",
+    "source_type": "secondary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "name",
+    "value": "Vishrambaug Wada",
+    "source_url": "https://www.openstreetmap.org/relation/15577751",
+    "source_type": "secondary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   }
+  ],
+  "checked_at": "2026-11-13",
+  "freshness_days": 1346,
+  "stale_over_90_days": true,
+  "hours": null,
+  "price_note": null,
+  "good_for": [],
+  "notes": "OpenStreetMap is the only source opened. No official page was reachable, so nothing here is confirmed by the venue."
+ },
+ {
+  "id": "place-empress-botanical-garden",
+  "name": "Empress Botanical Garden",
+  "type": "garden",
+  "tags": [
+   "garden",
+   "park"
+  ],
+  "scope": "CORE",
+  "neighbourhood": "UNKNOWN",
+  "address": "UNKNOWN",
+  "lat": 18.513057,
+  "lon": 73.89809,
+  "url_official": "UNKNOWN",
+  "url_deep": "https://www.openstreetmap.org/way/53154871",
+  "summary": "Listed on OpenStreetMap as a garden; only its name and map position are sourced so far.",
+  "status": "unverified",
+  "sources": [
+   "https://www.openstreetmap.org/way/53154871"
+  ],
+  "evidence": [
+   {
+    "field": "url_deep",
+    "value": "https://www.openstreetmap.org/way/53154871",
+    "source_url": "https://www.openstreetmap.org/way/53154871",
+    "source_type": "secondary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "lat",
+    "value": 18.513057,
+    "source_url": "https://www.openstreetmap.org/way/53154871",
+    "source_type": "secondary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "lon",
+    "value": 73.89809,
+    "source_url": "https://www.openstreetmap.org/way/53154871",
+    "source_type": "secondary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "name",
+    "value": "Empress Botanical Garden",
+    "source_url": "https://www.openstreetmap.org/way/53154871",
+    "source_type": "secondary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   }
+  ],
+  "checked_at": "2026-11-13",
+  "freshness_days": 1089,
+  "stale_over_90_days": true,
+  "hours": null,
+  "price_note": null,
+  "good_for": [],
+  "notes": "OpenStreetMap is the only source opened. No official page was reachable, so nothing here is confirmed by the venue."
+ },
+ {
+  "id": "place-kamala-nehru-park",
+  "name": "Kamala Nehru Park",
+  "type": "park",
+  "tags": [
+   "park"
+  ],
+  "scope": "CORE",
+  "neighbourhood": "Deccan Gymkhana",
+  "address": "Dr. Ketkar Path, Pune, 411004",
+  "lat": 18.517196,
+  "lon": 73.834846,
+  "url_official": "UNKNOWN",
+  "url_deep": "https://www.openstreetmap.org/way/1030015753",
+  "summary": "Listed on OpenStreetMap as a park; only its name and map position are sourced so far.",
+  "status": "unverified",
+  "sources": [
+   "https://www.openstreetmap.org/way/1030015753"
+  ],
+  "evidence": [
+   {
+    "field": "url_deep",
+    "value": "https://www.openstreetmap.org/way/1030015753",
+    "source_url": "https://www.openstreetmap.org/way/1030015753",
+    "source_type": "secondary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "address",
+    "value": "Dr. Ketkar Path, Pune, 411004",
+    "source_url": "https://www.openstreetmap.org/way/1030015753",
+    "source_type": "secondary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "lat",
+    "value": 18.517196,
+    "source_url": "https://www.openstreetmap.org/way/1030015753",
+    "source_type": "secondary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "lon",
+    "value": 73.834846,
+    "source_url": "https://www.openstreetmap.org/way/1030015753",
+    "source_type": "secondary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "name",
+    "value": "Kamala Nehru Park",
+    "source_url": "https://www.openstreetmap.org/way/1030015753",
+    "source_type": "secondary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "hours",
+    "value": "Mo-Su 07:00-10:00, 16:00-20:30",
+    "source_url": "https://www.openstreetmap.org/way/1030015753",
+    "source_type": "secondary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   }
+  ],
+  "checked_at": "2026-11-13",
+  "freshness_days": 915,
+  "stale_over_90_days": true,
+  "hours": "Mo-Su 07:00-10:00, 16:00-20:30 (OpenStreetMap, not confirmed by the venue)",
+  "price_note": null,
+  "good_for": [],
+  "notes": "OpenStreetMap is the only source opened. No official page was reachable, so nothing here is confirmed by the venue."
+ },
+ {
+  "id": "place-okayama-friendship-garden",
+  "name": "Okayama Friendship Garden",
+  "type": "garden",
+  "tags": [
+   "garden",
+   "park"
+  ],
+  "scope": "CORE",
+  "neighbourhood": "UNKNOWN",
+  "address": "UNKNOWN",
+  "lat": 18.491084,
+  "lon": 73.83815,
+  "url_official": "UNKNOWN",
+  "url_deep": "https://www.openstreetmap.org/node/12039064769",
+  "summary": "Listed on OpenStreetMap as a garden; only its name and map position are sourced so far.",
+  "status": "unverified",
+  "sources": [
+   "https://www.openstreetmap.org/node/12039064769"
+  ],
+  "evidence": [
+   {
+    "field": "url_deep",
+    "value": "https://www.openstreetmap.org/node/12039064769",
+    "source_url": "https://www.openstreetmap.org/node/12039064769",
+    "source_type": "secondary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "lat",
+    "value": 18.491084,
+    "source_url": "https://www.openstreetmap.org/node/12039064769",
+    "source_type": "secondary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "lon",
+    "value": 73.83815,
+    "source_url": "https://www.openstreetmap.org/node/12039064769",
+    "source_type": "secondary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "name",
+    "value": "Okayama Friendship Garden",
+    "source_url": "https://www.openstreetmap.org/node/12039064769",
+    "source_type": "secondary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "hours",
+    "value": "Mo-Su 06:00-16:00, 20:00-22:30",
+    "source_url": "https://www.openstreetmap.org/node/12039064769",
+    "source_type": "secondary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   }
+  ],
+  "checked_at": "2026-11-13",
+  "freshness_days": 859,
+  "stale_over_90_days": true,
+  "hours": "Mo-Su 06:00-16:00, 20:00-22:30 (OpenStreetMap, not confirmed by the venue)",
+  "price_note": null,
+  "good_for": [],
+  "notes": "OpenStreetMap is the only source opened. No official page was reachable, so nothing here is confirmed by the venue."
+ },
+ {
+  "id": "place-osho-teerth-park",
+  "name": "Osho Teerth Park",
+  "type": "park",
+  "tags": [
+   "park",
+   "garden"
+  ],
+  "scope": "CORE",
+  "neighbourhood": "Koregaon Park",
+  "address": "UNKNOWN",
+  "lat": 18.536341,
+  "lon": 73.890775,
+  "url_official": "UNKNOWN",
+  "url_deep": "https://www.openstreetmap.org/way/28217451",
+  "summary": "Listed on OpenStreetMap as a park; only its name and map position are sourced so far.",
+  "status": "unverified",
+  "sources": [
+   "https://www.openstreetmap.org/way/28217451"
+  ],
+  "evidence": [
+   {
+    "field": "url_deep",
+    "value": "https://www.openstreetmap.org/way/28217451",
+    "source_url": "https://www.openstreetmap.org/way/28217451",
+    "source_type": "secondary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "lat",
+    "value": 18.536341,
+    "source_url": "https://www.openstreetmap.org/way/28217451",
+    "source_type": "secondary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "lon",
+    "value": 73.890775,
+    "source_url": "https://www.openstreetmap.org/way/28217451",
+    "source_type": "secondary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "name",
+    "value": "Osho Teerth Park",
+    "source_url": "https://www.openstreetmap.org/way/28217451",
+    "source_type": "secondary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "hours",
+    "value": "Mo-Su 06:00-09:00, 15:00-18:00",
+    "source_url": "https://www.openstreetmap.org/way/28217451",
+    "source_type": "secondary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   }
+  ],
+  "checked_at": "2026-11-13",
+  "freshness_days": 2540,
+  "stale_over_90_days": true,
+  "hours": "Mo-Su 06:00-09:00, 15:00-18:00 (OpenStreetMap, not confirmed by the venue)",
+  "price_note": null,
+  "good_for": [],
+  "notes": "OpenStreetMap is the only source opened. No official page was reachable, so nothing here is confirmed by the venue."
+ },
+ {
+  "id": "place-mahatma-phule-vastu-sangrahalaya",
+  "name": "Mahatma Phule Vastu Sangrahalaya",
+  "type": "museum",
+  "tags": [
+   "museum"
+  ],
+  "scope": "CORE",
+  "neighbourhood": "Shivajinagar",
+  "address": "UNKNOWN",
+  "lat": 18.523629,
+  "lon": 73.845213,
+  "url_official": "UNKNOWN",
+  "url_deep": "https://www.openstreetmap.org/way/218078554",
+  "summary": "Listed on OpenStreetMap as a museum; only its name and map position are sourced so far.",
+  "status": "unverified",
+  "sources": [
+   "https://www.openstreetmap.org/way/218078554"
+  ],
+  "evidence": [
+   {
+    "field": "url_deep",
+    "value": "https://www.openstreetmap.org/way/218078554",
+    "source_url": "https://www.openstreetmap.org/way/218078554",
+    "source_type": "secondary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "lat",
+    "value": 18.523629,
+    "source_url": "https://www.openstreetmap.org/way/218078554",
+    "source_type": "secondary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "lon",
+    "value": 73.845213,
+    "source_url": "https://www.openstreetmap.org/way/218078554",
+    "source_type": "secondary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "name",
+    "value": "Mahatma Phule Vastu Sangrahalaya",
+    "source_url": "https://www.openstreetmap.org/way/218078554",
+    "source_type": "secondary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   }
+  ],
+  "checked_at": "2026-11-13",
+  "freshness_days": 1570,
+  "stale_over_90_days": true,
+  "hours": null,
+  "price_note": null,
+  "good_for": [],
+  "notes": "OpenStreetMap is the only source opened. No official page was reachable, so nothing here is confirmed by the venue."
+ },
+ {
+  "id": "place-national-war-memorial-southern-command",
+  "name": "National War Memorial Southern Command",
+  "type": "heritage",
+  "tags": [
+   "heritage",
+   "memorial"
+  ],
+  "scope": "CORE",
+  "neighbourhood": "Pune Cantonment",
+  "address": "UNKNOWN",
+  "lat": 18.523074,
+  "lon": 73.889657,
+  "url_official": "UNKNOWN",
+  "url_deep": "https://www.openstreetmap.org/node/675628669",
+  "summary": "Listed on OpenStreetMap as a heritage; only its name and map position are sourced so far.",
+  "status": "unverified",
+  "sources": [
+   "https://www.openstreetmap.org/node/675628669"
+  ],
+  "evidence": [
+   {
+    "field": "url_deep",
+    "value": "https://www.openstreetmap.org/node/675628669",
+    "source_url": "https://www.openstreetmap.org/node/675628669",
+    "source_type": "secondary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "lat",
+    "value": 18.523074,
+    "source_url": "https://www.openstreetmap.org/node/675628669",
+    "source_type": "secondary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "lon",
+    "value": 73.889657,
+    "source_url": "https://www.openstreetmap.org/node/675628669",
+    "source_type": "secondary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "name",
+    "value": "National War Memorial Southern Command",
+    "source_url": "https://www.openstreetmap.org/node/675628669",
+    "source_type": "secondary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   }
+  ],
+  "checked_at": "2026-11-13",
+  "freshness_days": 1089,
+  "stale_over_90_days": true,
+  "hours": null,
+  "price_note": null,
+  "good_for": [],
+  "notes": "OpenStreetMap is the only source opened. No official page was reachable, so nothing here is confirmed by the venue."
+ },
+ {
+  "id": "place-shinde-chhatri",
+  "name": "Shinde Chhatri",
+  "type": "heritage",
+  "tags": [
+   "heritage"
+  ],
+  "scope": "CORE",
+  "neighbourhood": "Wanawadi",
+  "address": "UNKNOWN",
+  "lat": 18.491631,
+  "lon": 73.89727,
+  "url_official": "UNKNOWN",
+  "url_deep": "https://www.openstreetmap.org/way/53350109",
+  "summary": "Listed on OpenStreetMap as a heritage; only its name and map position are sourced so far.",
+  "status": "unverified",
+  "sources": [
+   "https://www.openstreetmap.org/way/53350109"
+  ],
+  "evidence": [
+   {
+    "field": "url_deep",
+    "value": "https://www.openstreetmap.org/way/53350109",
+    "source_url": "https://www.openstreetmap.org/way/53350109",
+    "source_type": "secondary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "lat",
+    "value": 18.491631,
+    "source_url": "https://www.openstreetmap.org/way/53350109",
+    "source_type": "secondary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "lon",
+    "value": 73.89727,
+    "source_url": "https://www.openstreetmap.org/way/53350109",
+    "source_type": "secondary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "name",
+    "value": "Shinde Chhatri",
+    "source_url": "https://www.openstreetmap.org/way/53350109",
+    "source_type": "secondary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   }
+  ],
+  "checked_at": "2026-11-13",
+  "freshness_days": 1089,
+  "stale_over_90_days": true,
+  "hours": null,
+  "price_note": null,
+  "good_for": [],
+  "notes": "OpenStreetMap is the only source opened. No official page was reachable, so nothing here is confirmed by the venue."
+ },
+ {
+  "id": "place-sambhaji-park",
+  "name": "Sambhaji Park",
+  "type": "park",
+  "tags": [
+   "park"
+  ],
+  "scope": "CORE",
+  "neighbourhood": "UNKNOWN",
+  "address": "UNKNOWN",
+  "lat": 18.520666,
+  "lon": 73.847215,
+  "url_official": "UNKNOWN",
+  "url_deep": "https://www.openstreetmap.org/node/7944584962",
+  "summary": "Listed on OpenStreetMap as a park; only its name and map position are sourced so far.",
+  "status": "unverified",
+  "sources": [
+   "https://www.openstreetmap.org/node/7944584962"
+  ],
+  "evidence": [
+   {
+    "field": "url_deep",
+    "value": "https://www.openstreetmap.org/node/7944584962",
+    "source_url": "https://www.openstreetmap.org/node/7944584962",
+    "source_type": "secondary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "lat",
+    "value": 18.520666,
+    "source_url": "https://www.openstreetmap.org/node/7944584962",
+    "source_type": "secondary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "lon",
+    "value": 73.847215,
+    "source_url": "https://www.openstreetmap.org/node/7944584962",
+    "source_type": "secondary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "name",
+    "value": "Sambhaji Park",
+    "source_url": "https://www.openstreetmap.org/node/7944584962",
+    "source_type": "secondary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   }
+  ],
+  "checked_at": "2026-11-13",
+  "freshness_days": 1350,
+  "stale_over_90_days": true,
+  "hours": null,
+  "price_note": null,
+  "good_for": [],
+  "notes": "OpenStreetMap is the only source opened. No official page was reachable, so nothing here is confirmed by the venue."
+ }
+]
