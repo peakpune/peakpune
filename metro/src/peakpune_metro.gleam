@@ -16,7 +16,7 @@ import peakpune_metro/ids.{type StationId}
 import peakpune_metro/planner.{
   type Availability, type Leg, type PlanError, type Route, type Ticket,
   Available, CheckChart, Disputed, Exact, NoRoute, NotOpenYet, NotSelectable,
-  SameStation, UnconfirmedByOperator,
+  ReportedOpen, SameStation,
 }
 import peakpune_metro/types.{type FareSystem, type Network, MahaFares, PinkFares}
 
@@ -109,7 +109,7 @@ fn availability_suffix(availability: Availability) -> String {
   case availability {
     Available -> ""
     NotOpenYet -> " (not open yet)"
-    UnconfirmedByOperator -> " (opening not confirmed by the operator)"
+    ReportedOpen -> " (open per media reports)"
   }
 }
 
@@ -117,8 +117,7 @@ fn availability_message(availability: Availability) -> String {
   case availability {
     Available -> ""
     NotOpenYet -> "not open yet."
-    UnconfirmedByOperator ->
-      "opening status not yet confirmed by the operator - check punerimetro.in."
+    ReportedOpen -> ""
   }
 }
 
@@ -230,7 +229,7 @@ fn station_option(
   html.option(
     [
       attribute.value(ids.station_to_string(id)),
-      attribute.disabled(availability != Available),
+      attribute.disabled(availability == NotOpenYet),
       attribute.selected(selected == Some(id)),
     ],
     ids.station_name(id) <> availability_suffix(availability),
@@ -373,6 +372,11 @@ fn fare_notes(route: Route) -> List(Element(Msg)) {
         paragraph(
           "Line 3 tickets: buy at the station counter or a ticket vending machine, or use the Line 3 app. A Line 3 WhatsApp number is not confirmed, so none is shown.",
         ),
+        html.p([attribute.class("warn")], [
+          text(
+            "Line 3 is reported open by the media. The operator's website does not say which stations are open, so check at the station or on punerimetro.in before you travel.",
+          ),
+        ]),
       ]
       False -> []
     },
@@ -451,9 +455,11 @@ fn area_result(model: Model) -> Element(Msg) {
 
 fn area_station(network: Network, id: StationId) -> Element(Msg) {
   case planner.availability(network, id) {
-    Available ->
+    NotOpenYet ->
+      html.li([], [text(ids.station_name(id) <> availability_suffix(NotOpenYet))])
+    available ->
       html.li([], [
-        text(ids.station_name(id) <> " "),
+        text(ids.station_name(id) <> availability_suffix(available) <> " "),
         html.button(
           [
             attribute.class("chip"),
@@ -471,6 +477,5 @@ fn area_station(network: Network, id: StationId) -> Element(Msg) {
           [text("Get off here")],
         ),
       ])
-    other -> html.li([], [text(ids.station_name(id) <> availability_suffix(other))])
   }
 }
