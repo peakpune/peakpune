@@ -10,11 +10,13 @@ export const SITE_URL = (process.env.SITE_URL || 'https://peakpune.com').replace
 // A project site (https://user.github.io/repo) is served under a sub-path: prefix root links with it.
 export const BASE = new URL(SITE_URL + '/').pathname.replace(/\/+$/, '');
 export const withBase = (html) => (BASE ? html.replace(/(href|src)="\/(?!\/)/g, `$1="${BASE}/`) : html);
-// The live site is a preview and stays out of search engines until the owner turns this on:
+// Search indexing stays off until the owner explicitly turns it on:
 //   INDEXING=on npm run build
 export const INDEXING = process.env.INDEXING === 'on';
 const ROBOTS = INDEXING ? 'index,follow,max-image-preview:large' : 'noindex,nofollow';
 const read = (p) => readFileSync(join(root, p), 'utf8');
+export const publicationAudit = JSON.parse(read('data/publication-audit.json'));
+export const publishRows = (rows) => rows.filter((r) => publicationAudit.records[r.id]?.decision === 'publish').map((r) => ({ ...r, ...publicationAudit.records[r.id].overrides, checked_at: publicationAudit.checked_at }));
 // New HTML must not reuse an older browser-cached stylesheet or script.
 export const assetUrl = (path) => `${path}?v=${createHash('sha256').update(readFileSync(join(root, 'public', path))).digest('hex').slice(0, 12)}`;
 
@@ -73,7 +75,7 @@ ${jsonLd({ '@context': 'https://schema.org', '@graph': graph })}
 <body>
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-header"><div class="wrap bar"><a class="wordmark" href="/" aria-label="Peak Pune home">${mark}Peak <span>Pune</span></a><nav aria-label="Main navigation">${nav}</nav></div></header>
-<div class="wrap"><aside class="review">Preview: source-listed plans, not organiser-confirmed. Uploads and submissions are not enabled.</aside>
+<div class="wrap"><aside class="review">Source-listed plans, not organiser-confirmed. Uploads and submissions are not enabled.</aside>
 <section class="community-links" aria-label="Community"><strong>Find your Pune people.</strong><div><a class="chip" href="https://chat.whatsapp.com/BVTlwmhkqGU4WKzCsZFG95?s=cl&amp;p=i&amp;iam=2" target="_blank" rel="noopener noreferrer">Join WhatsApp</a><a class="chip" href="https://www.reddit.com/r/punetonight/" target="_blank" rel="noopener noreferrer">r/punetonight</a></div></section></div>
 <main id="main" class="wrap">
 ${trail}${main}
@@ -132,7 +134,7 @@ ${row('Good to know', r.notes ? esc(r.notes) : '')}
 </dl>
 <p class="actions">${links.map(([u, l], i) => `<a class="${i ? 'chip' : 'primary'}" href="${esc(u)}" rel="noopener">${l}</a>`).join(' ')}</p>
 <div class="provenance"><h2>Where this comes from</h2>
-<p>Every detail above was read from the pages below on ${esc(r.checked_at)}. ${r.status === 'verified' ? 'Name, address and link are confirmed on the venue or organiser page.' : 'Some details are missing because the source page does not state them.'} Nothing is guessed. Timings and prices change, so confirm with the venue.</p>
+<p>Listing reviewed against the linked sources on ${esc(r.checked_at)}. ${r.status === 'verified' ? 'Name, address and link are confirmed on the venue or organiser page.' : 'Some details are missing because the source page does not state them.'} Map coordinates, where shown, come from OpenStreetMap. Timings and prices change, so confirm with the venue.</p>
 <ul class="sources">${sources}</ul></div>
 </article>${related.length ? `<section class="section"><div class="section-head"><h2>${near.length ? `More in ${esc(r.neighbourhood)} and nearby picks` : `More ${esc((TYPE_LABEL[r.type] || 'places').toLowerCase())} in Pune`}</h2></div><div class="grid">${related.map(placeCard).join('')}</div></section>` : ''}`;
 }
@@ -203,14 +205,14 @@ function homeMain(places, outdoors) {
   const card = (r) => `<a class="card place-card" href="/places/${slugOf(r)}/"><div class="inner"><span class="eyebrow">${esc(TYPE_SINGULAR[r.type] || r.type)} · ${esc(known(r.neighbourhood) ? r.neighbourhood : 'Pune')}</span><h3>${esc(r.name)}</h3><p>${esc(r.summary)}</p></div></a>`;
   const runs = outdoors.filter((r) => !isTrek(r)); const treks = outdoors.filter(isTrek);
   const near = [...treks].sort((a, b) => (a.distance_from_pune_km || 0) - (b.distance_from_pune_km || 0)).slice(0, 3);
-  const tiles = [['Places', '/places/', `${places.length} checked at the source`], ['Runs and trails', '/outdoors/#runs', `${runs.length} mapped city loops`], ['Treks and day trips', '/outdoors/#treks', `${treks.length} with drive times`], ['Events', '/events/', 'Plans, with sources'], ['Meetups', '/meetups/', 'Communities to join'], ['Moments', '/moments/', 'Only in Pune']];
+  const tiles = [['Places', '/places/', `${places.length} checked at the source`], ['Runs and trails', '/outdoors/#runs', `${runs.length} mapped city loops`], ['Treks and day trips', '/outdoors/#treks', `${treks.length} with drive times`], ['Events', '/events/', 'Plans, with sources'], ['Meetups', '/meetups/', 'Communities to join'], ['Moments', '/moments/', 'No submissions yet']];
   return `<div class="hero"><div><div class="eyebrow">Made in Pune, for Pune</div><h1>Everything Pune,<br>in one scroll.</h1>
-<p class="lede">Places to go, loops to run, forts to climb and the moments only Pune could produce. Every detail links back to where it came from.</p>
+<p class="lede">Places to go, loops to run, forts to climb and source-listed plans across Pune. Details link back to their sources.</p>
 <p class="actions"><a class="primary" href="/places/">Browse places</a><a class="chip" href="/outdoors/">Runs and treks</a></p></div>
 <div class="sign" lang="mr">दुपारी १ ते ४<br>दुकान बंद<small lang="en">PEAK PUNE · THE CITY HAS ITS TIMINGS.</small></div></div>
 <nav class="tiles" aria-label="Browse Pune">${tiles.map(([t, h, d]) => `<a class="category" href="${h}"><h3>${t}</h3><span>${d}</span></a>`).join('')}</nav>
 <section class="section"><div class="section-head"><h2>This weekend in Pune</h2><p>Source-listed plans from the current snapshot. Check dates and prices on the listing before you book.</p><a class="more" href="/events/">All events</a></div><div class="grid" id="weekend-plans"><p class="note">Loading source-listed plans...</p></div></section>
-<section class="section"><div class="section-head"><h2>Places, checked at the source</h2><p>Addresses, timings and prices copied from each venue's own page, with the date we looked.</p><a class="more" href="/places/">All ${places.length} places</a></div><div class="grid">${feat.map(card).join('')}</div></section>
+<section class="section"><div class="section-head"><h2>Places, checked at the source</h2><p>Source-backed places. Hours and prices are shown only where checked; confirm details before visiting.</p><a class="more" href="/places/">All ${places.length} places</a></div><div class="grid">${feat.map(card).join('')}</div></section>
 <section class="section band"><div class="section-head"><h2>Start early. The city is cooler.</h2><p>City loops from PuneRunners Club and trek guides from Pune Trekkers, sorted by how far you have to drive.</p><a class="more" href="/outdoors/">All runs and treks</a></div>
 <div class="stats"><div><strong>${runs.length}</strong><span>running loops, 1.3 to 9.5 km</span></div><div><strong>${treks.length}</strong><span>treks and day trips</span></div><div><strong>${Math.min(...treks.map((t) => t.distance_from_pune_km).filter(Boolean))} km</strong><span>to the nearest trailhead</span></div></div>
 <div class="grid">${near.map(outdoorCard).join('')}</div></section>
@@ -220,8 +222,7 @@ function homeMain(places, outdoors) {
 <a class="card link-card pc-trekkers" href="https://punetrekkers.org/" rel="noopener"><div class="inner"><span class="eyebrow">Treks</span><h3>Pune Trekkers</h3><p>Free, volunteer-run trekking group. Costs are split with no markup.</p><span class="go">PuneTrekkers.org</span></div></a>
 <a class="card link-card pc-karawaan" href="https://karawaan.in/" rel="noopener"><div class="inner"><span class="eyebrow">Trips</span><h3>Karawaan</h3><p>Small-group treks, camping and trips built for people who come alone.</p><span class="go">karawaan.in</span></div></a>
 </div></section>
-<section class="section split"><div><div class="eyebrow">Peak Pune moments</div><h2>Closed 1 to 4.<br>The queue starts at 3:55.</h2><p>Signboards with opinions, rickshaws with confidence and a misal debate in its four-thousandth round. An archive of the things only Pune does.</p><p class="actions"><a class="chip" href="/moments/">See the archive</a></p></div>
-<div class="sign sign-alt">"No parking.<br>Yes, you.<br>Also you."<small>FILED UNDER: PATYA</small></div></section>`;
+<section class="section"><div class="section-head"><h2>Peak Pune moments</h2><p>No moments are published yet. Reader submissions remain closed.</p><a class="more" href="/moments/">About Moments</a></div></section>`;
 }
 
 
@@ -242,18 +243,19 @@ export function monthsIn(range) {
 export const COLLECTIONS = [
   { slug: 'running-routes-in-pune', h1: 'Running routes in Pune', title: 'Running routes in Pune: mapped loops from 1.3 to 9.5 km | Peak Pune', blurb: 'Road and trail loops inside the city, plotted by PuneRunners Club on OpenStreetMap data. Mapped, not run-tested: check footpaths, traffic and lighting yourself.', test: (r) => r.type === 'run-route', sort: (a, b) => a.distance_km - b.distance_km },
   { slug: 'easy-treks-near-pune', h1: 'Easy treks near Pune', title: 'Easy treks near Pune for beginners, with distance and drive time | Peak Pune', blurb: 'Treks the Pune Trekkers guides rate Easy, nearest first. A good place to start if this is your first fort.', test: (r) => r.type === 'trek' && r.difficulty === 'Easy' },
-  { slug: 'treks-within-70-km-of-pune', h1: 'Treks within 70 km of Pune', title: 'Treks within 70 km of Pune: short drives, real hills | Peak Pune', blurb: 'Trailheads the guides put at 70 km or less from Pune, so you can be back for a late lunch.', test: (r) => r.type === 'trek' && r.distance_from_pune_km && r.distance_from_pune_km <= 70 },
+  { slug: 'treks-within-70-km-of-pune', h1: 'Treks within 70 km of Pune', title: 'Treks within 70 km of Pune: short drives, real hills | Peak Pune', blurb: 'Trailheads the guides put at 70 km or less from Pune. Travel and walking times vary; plan your return before you leave.', test: (r) => r.type === 'trek' && r.distance_from_pune_km && r.distance_from_pune_km <= 70 },
   { slug: 'forts-near-pune', h1: 'Fort treks near Pune', title: 'Fort treks near Pune: distance, difficulty and start points | Peak Pune', blurb: 'Sahyadri forts with a guide from Pune Trekkers, sorted by how far you have to drive.', test: (r) => r.type === 'trek' && r.tags.includes('fort') },
   { slug: 'monsoon-treks-near-pune', h1: 'Monsoon treks near Pune', title: 'Monsoon treks near Pune: guides that list June to September | Peak Pune', blurb: 'Treks whose best months, per the Pune Trekkers guide, include June to September. Trails are slippery in rain: read the guide and go with company.', test: (r) => r.type === 'trek' && monthsIn(r.best_months).some((m) => MONSOON.includes(m)) },
 ];
 const byDrive = (a, b) => (a.distance_from_pune_km || 0) - (b.distance_from_pune_km || 0);
 function eventsBlock(events) {
+  if (!events.length) return '<section class="section"><h2>No current organiser listings</h2><p>Only source-checked plans will appear here.</p></section>';
   const dated = events.filter((e) => e.start_date).sort((a, b) => a.start_date.localeCompare(b.start_date));
   const recurring = events.filter((e) => e.recurrence);
   const day = (d) => new Date(d + 'T00:00:00+05:30').toLocaleDateString('en-IN', { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric', timeZone: 'Asia/Kolkata' });
   const card = (e) => `<article class="card event-card" data-expires="${esc(e.expires_at || '')}"><div class="inner"><span class="eyebrow">${e.start_date ? esc(day(e.start_date)) : 'Recurring'}</span><h3>${esc(e.name)}</h3><p>${esc(e.summary)}</p><p class="meta"><span>${esc([known(e.organiser) ? e.organiser : null, known(e.neighbourhood) ? e.neighbourhood : null, e.price_note].filter(Boolean).join(' · '))}</span></p>${e.recurrence ? `<p class="note">${esc(e.recurrence)}</p>` : ''}<p class="plan-actions"><a class="chip" href="${esc(safeUrl(e.url_deep))}" rel="noopener">${e.status === 'verified' ? 'Organiser page' : 'Source page'}</a>${e.linked_id ? `<a class="chip" href="/places/${e.linked_id.replace(/^place-/, '')}/">About the venue</a>` : ''}</p></div></article>`;
-  return `<section class="section" id="organisers"><div class="section-head"><h2>Straight from the organisers</h2><p>Races, treks and camps read on the organiser's own page on ${esc(events[0].checked_at)}. Dated cards disappear once the day has passed.</p></div><div class="grid">${dated.map(card).join('')}</div></section>
-<section class="section" id="every-day"><div class="section-head"><h2>On every day</h2><p>Shows and schedules that repeat. Timings are as published by the venue.</p></div><div class="grid">${recurring.map(card).join('')}</div></section>`;
+  return `<section class="section" id="organisers"><div class="section-head"><h2>More source-listed plans</h2><p>Races, treks and camps read from the linked source pages on ${esc(events[0].checked_at)}. Dated cards disappear once the day has passed.</p></div><div class="grid">${dated.map(card).join('')}</div></section>
+<section class="section" id="every-day"><div class="section-head"><h2>Recurring venue listings</h2><p>Schedules published by the venue. Confirm current timings before going.</p></div><div class="grid">${recurring.map(card).join('')}</div></section>`;
 }
 export function eventLd(e) {
   if (!e.start_date || e.status !== 'verified') return null;
@@ -266,24 +268,26 @@ export function eventLd(e) {
 
 const STATE = { active: ['Active', 'lv-easy'], DORMANT: ['Dormant', 'lv-hard'], UNKNOWN: ['Activity not confirmed', ''] };
 function meetupsBlock(rows) {
+  if (!rows.length) return '<section class="section"><h2>No current communities listed</h2><p>Joining links and activity need checking before publication.</p></section>';
   const card = (m) => `<article class="card"><div class="inner"><span class="eyebrow">${esc(m.tags.slice(0, 2).join(' · '))}${known(m.neighbourhood) ? ' · ' + esc(m.neighbourhood) : ''}</span><h3>${esc(m.name)}</h3><p>${esc(m.summary)}</p><p class="note">${esc(m.schedule_text)}</p><p class="meta"><span class="level ${STATE[m.activity_state][1]}">${STATE[m.activity_state][0]}</span>${m.cost_note ? `<span>${esc(m.cost_note)}</span>` : ''}</p><p class="plan-actions"><a class="chip" href="${esc(safeUrl(m.join_url))}" rel="noopener">How to join</a>${m.linked_id ? `<a class="chip" href="/places/${m.linked_id.replace(/^place-/, '')}/">About the venue</a>` : ''}</p></div></article>`;
   const live = rows.filter((m) => m.activity_state === 'active'); const rest = rows.filter((m) => m.activity_state !== 'active');
-  return `<section class="section"><div class="section-head"><h2>Communities you can join today</h2><p>${live.length} Pune groups with a public joining page and dated activity, read on ${esc(rows[0].checked_at)}. Rules, costs and group links live on their own sites.</p></div><div class="grid">${live.map(card).join('')}</div></section>
-<section class="section"><div class="section-head"><h2>Listed, activity not confirmed</h2><p>These groups have a public page but showed no dated activity when we looked. Ask before you turn up.</p></div><div class="grid">${rest.map(card).join('')}</div></section>`;
+  return `<section class="section"><div class="section-head"><h2>Communities with current source evidence</h2><p>${live.length} Pune groups with a public joining page and dated activity, read on ${esc(rows[0].checked_at)}. Rules, costs and group links live on their own sites.</p></div><div class="grid">${live.map(card).join('')}</div></section>
+${rest.length ? `<section class="section"><h2>Other source-checked communities</h2><div class="grid">${rest.map(card).join('')}</div></section>` : ''}`;
 }
 function momentsBlock(rows) {
+  if (!rows.length) return '<p class="note">No moments are published yet. Reader submissions remain closed.</p>';
   return rows.map((m) => `<a class="card place-card" href="/${m.linked_id.startsWith('place-') ? 'places/' + m.linked_id.replace(/^place-/, '') : 'outdoors/' + m.linked_id.replace(/^run-(trek-)?/, '')}/"><div class="inner"><span class="eyebrow">${esc(m.best_time)}</span><h3>${esc(m.caption)}</h3><p class="note">${esc(m.name)} · ${esc(m.season)}</p></div></a>`).join('');
 }
 
 const STATIC = [
   { file: 'meetups', path: '/meetups/', fill: 'meetups', title: 'Meetups in Pune: run clubs, book clubs, tech and board games | Peak Pune', description: 'Find your people in Pune: runners, readers, coders, board gamers and trekkers, with verified joining links.', crumbs: [['Meetups', '/meetups/']] },
-  { file: 'moments', path: '/moments/', fill: 'moments', title: 'Peak Pune Moments: an archive of only-in-Pune moments', description: 'Shops shut 1 to 4, signboards with opinions and a misal debate that never ends. An archive of Puneri moments, filed under Peak Pune.', crumbs: [['Moments', '/moments/']] },
+  { file: 'moments', path: '/moments/', fill: 'moments', title: 'Peak Pune Moments | Peak Pune', description: 'Genuine Pune moments will appear here after review. Reader submissions are not open yet.', crumbs: [['Moments', '/moments/']] },
   { file: 'powered-by', path: '/powered-by/', title: 'Powered by PuneRunners, Pune Trekkers and Karawaan | Peak Pune', description: 'The three Pune groups behind Peak Pune runs, treks and trips: PuneRunners Club, Pune Trekkers and Karawaan. What each does and where to join.', crumbs: [['Powered by', '/powered-by/']] },
 ];
 
 export function build({ outDir = join(root, 'public'), log = () => {} } = {}) {
-  const rows = JSON.parse(read('data/batch-1-places/places.json')).filter((r) => r.scope === 'CORE' && r.status !== 'unverified');
-  const outdoors = JSON.parse(read('data/batch-2-outdoors/outdoors.json')).filter((r) => r.status !== 'unverified');
+  const rows = publishRows(JSON.parse(read('data/batch-1-places/places.json'))).filter((r) => r.scope === 'CORE');
+  const outdoors = publishRows(JSON.parse(read('data/batch-2-outdoors/outdoors.json')));
   const out = (path, html) => { const f = join(outDir, path.replace(/^\//, ''), path.endsWith('/') ? 'index.html' : ''); mkdirSync(dirname(f), { recursive: true }); writeFileSync(f, withBase(html)); };
   const urls = [];
   const website = { '@type': 'WebSite', '@id': `${SITE_URL}/#site`, url: `${SITE_URL}/`, name: 'Peak Pune', inLanguage: 'en-IN', publisher: { '@id': `${SITE_URL}/#org` } };
@@ -291,8 +295,8 @@ export function build({ outDir = join(root, 'public'), log = () => {} } = {}) {
   urls.push(['/', null]);
   for (const p of STATIC) {
     let main = read(`site/pages/${p.file}.html`);
-    if (p.fill === 'meetups') main = main.replace('<!--MEETUPS-->', meetupsBlock(JSON.parse(read('data/batch-4-meetups/meetups.json'))));
-    if (p.fill === 'moments') main = main.replace('<!--MOMENTS-->', momentsBlock(JSON.parse(read('data/batch-5-moments-reference/moments.json'))));
+    if (p.fill === 'meetups') main = main.replace('<!--MEETUPS-->', meetupsBlock(publishRows(JSON.parse(read('data/batch-4-meetups/meetups.json')))));
+    if (p.fill === 'moments') main = main.replace('<!--MOMENTS-->', momentsBlock(publishRows(JSON.parse(read('data/batch-5-moments-reference/moments.json')))));
     out(p.path, page({ ...p, main, ld: [{ '@type': 'WebPage', '@id': SITE_URL + p.path, url: SITE_URL + p.path, name: p.title, description: p.description, isPartOf: { '@id': `${SITE_URL}/#site` } }] }));
     urls.push([p.path, null]);
   }
@@ -305,7 +309,7 @@ export function build({ outDir = join(root, 'public'), log = () => {} } = {}) {
     out(path, page({ path, current: '/places/', title: placeTitle(r), description: placeDescription(r), main: placeMain(r, rows), crumbs: [['Places', '/places/'], [r.name, path]], ld: [placeLd(r)], ogType: 'article' }));
     urls.push([path, r.checked_at]);
   }
-  const events = JSON.parse(read('data/batch-3-events/events.json')).filter((e) => e.status !== 'unverified');
+  const events = publishRows(JSON.parse(read('data/batch-3-events/events.json')));
   out('/events/', page({ path: '/events/', plans: true, title: 'Events in Pune this week: gigs, parties, races and treks | Peak Pune', description: 'What is on in Pune: source-listed gigs, club nights and comedy, plus races, treks and camps read from the organisers. Every plan links to its original listing.', crumbs: [['Events', '/events/']], main: read('site/pages/events.html').replace('<!--ORGANISER-EVENTS-->', eventsBlock(events)), ld: [{ '@type': 'CollectionPage', '@id': `${SITE_URL}/events/`, url: `${SITE_URL}/events/`, name: 'Events in Pune', isPartOf: { '@id': `${SITE_URL}/#site` } }, ...events.map(eventLd).filter(Boolean)] }));
   urls.push(['/events/', events[0]?.checked_at]);
   for (const [area, rs] of areasOf(rows)) {
