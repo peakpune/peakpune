@@ -20,8 +20,12 @@ Platform-listed is not independently organiser-verified. Link to the provider be
 any booking and recheck current prices, dates, cancellation and availability there.
 
 The command does not change the live frontend, commit output, schedule itself or deploy.
-A reviewed frontend integration remains a separate step. Keep generated exports out of
-Git. The starter's live fetching/submission notice remains accurate until that integration.
+The reviewed frontend reads `public/data/plans.json`, filters past dates at load and
+midnight IST, and hides a snapshot once its 24-hour expiry is reached. It never
+requests event providers from visitors' browsers. To publish a new manual snapshot,
+export to `public/data/plans.json`, inspect source health and the resulting cards,
+then commit the reviewed update. Git pushes to main trigger deployment, not data refresh.
+Meetup/Reddit network feeds, uploads and submissions remain disabled.
 
 ## Source checks, 13 November 2026
 
