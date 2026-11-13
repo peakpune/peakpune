@@ -1,65 +1,152 @@
+<p align="center">
+  <img src="docs/assets/banner.png" alt="Peak Pune: Everything Pune, in one scroll." width="100%">
+</p>
+
+<p align="center">
+  <a href="https://peakpune.com/"><b>peakpune.com</b></a> &nbsp;·&nbsp;
+  <a href="CONTRIBUTING.md">Contribute</a> &nbsp;·&nbsp;
+  <a href="docs/SCOPE.md">Scope and brand</a> &nbsp;·&nbsp;
+  <a href="docs/PLANS.md">Plans data</a> &nbsp;·&nbsp;
+  <a href="SECURITY.md">Security</a>
+</p>
+
+<p align="center">
+  <img alt="Licence: MIT" src="https://img.shields.io/badge/licence-MIT-1C1410?labelColor=F6EFE2">
+  <img alt="Node.js 22+" src="https://img.shields.io/badge/node-22%2B-B8381F?labelColor=F6EFE2">
+  <img alt="Status: preview" src="https://img.shields.io/badge/status-preview-E8A317?labelColor=F6EFE2">
+  <img alt="No backend" src="https://img.shields.io/badge/backend-none-C9D6B5?labelColor=F6EFE2">
+</p>
+
 # Peak Pune
 
-Everything Pune, in one scroll. An open-source starter for local events, meetups and
-moments, with the Puneri attitude.
+An open-source website for local events, meetups and moments in Pune, with the Puneri
+attitude. It is a small static site: plain HTML, CSS and JavaScript, no framework, no build
+on deploy and no tracking.
 
-## Status
+> **Status: preview.** The site is live but unfinished. It is marked as a layout and data
+> preview, it is not indexed by search engines, and it collects no personal data.
 
-Work in progress. Explore, Places, Outdoors, Events, Meetups, Moments and Powered by are static
-pages with their own URLs. Place, run and trek pages are generated from the sourced rows in `data/`.
-The Pune event-discovery adapter is adapted from PuneAfterhours. The Events view displays a manual District Pune snapshot with source links,
-check time and source health. Past dates are hidden daily and the snapshot expires
-after 24 hours. No automatic source refresh is enabled. Meetup and Reddit network
-feeds, uploads and submissions are not enabled. Sample moments are labelled; there are no real member
-records or invented event listings in this repository.
+## What works today
 
-## Run locally
+| Area | State |
+| --- | --- |
+| **Explore** | A "This weekend in Pune" section built from real listings, featured places, runs and treks. |
+| **Places** | 28 Pune places with addresses, timings and prices read from each venue's own page, one page each, plus pages by area. |
+| **Outdoors** | 8 mapped running loops and 20 treks and day trips with distance and drive time from Pune, credited to PuneRunners Club and Pune Trekkers. |
+| **Events** | A reviewed snapshot of Pune plans listed on District, each linking to its original listing. A **This weekend** filter uses only the listed date. A **Share** button on each plan shares or copies the original link. |
+| **Meetups** | 13 communities with a public joining page, marked active, unconfirmed or dormant. |
+| **Moments** | Short captions tied to checked places and routes. No reader submissions. |
+| **Submissions, uploads, accounts** | Not enabled. There is no backend. |
 
-Requirements: Node.js 22+ and Python 3. No npm install is needed.
+Plans are source-listed, not confirmed by organisers. Always check the original listing for
+current dates, prices and availability. Nothing here promises live availability, and unknown
+prices are never shown as "Free".
+
+## A look
+
+<p align="center">
+  <img src="docs/assets/home-desktop.png" alt="Peak Pune home page on desktop" width="100%">
+</p>
+
+<p align="center">
+  <img src="docs/assets/weekend-plans.png" alt="This weekend in Pune: plan cards with View current details and Share buttons" width="100%">
+</p>
+
+<p align="center">
+  <img src="docs/assets/home-mobile.png" alt="Peak Pune home page on a phone" width="32%">
+  &nbsp;&nbsp;
+  <img src="docs/assets/events-mobile.png" alt="Events page on a phone with the This weekend filter" width="32%">
+</p>
+
+<sub>Screenshots taken on 13 November 2026 from the live preview. Plans shown were listed on
+District at that time.</sub>
+
+## Run it locally
+
+You need Node.js 22+ and Python 3. There is no `npm install`. `npm run dev` regenerates the
+pages first, which takes under a second.
 
 ```sh
-npm test
-npm run dev
+git clone https://github.com/peakpune/peakpune.git
+cd peakpune
+npm test          # runs all tests
+npm run dev       # serves public/ at http://localhost:4173
 ```
 
-Open http://localhost:4173. The site collects no personal data or uploads.
+## How it is put together
 
-## Pages are generated, then committed
+```text
+public/                 the site (this folder is what gets deployed)
+  index.html, app.js    home page and shared script
+  places/, outdoors/, events/, meetups/, moments/, powered-by/   generated pages
+  plans.js              plan cards, weekend filter, expiry handling
+  filters.js, share.js  This weekend logic and the Share button
+  tokens.css            the single stylesheet, brand colours and type
+  data/plans.json       reviewed, time-limited snapshot of plans
+  fonts/                Fraunces and Inter, with licences
+src/
+  events.js             Pune, date and URL validation
+  discovery.js          source parsers, offline by default
+  abuse-guard.js        dormant helpers for a future form backend
+scripts/update-plans.mjs   manual, one-off plans export (no schedule)
+scripts/build.mjs       page generator, no dependencies
+site/                   page fragments the generator reads
+data/                   sourced dataset, one folder per batch, evidence per field
+tests/                  node:test suites
+docs/                   scope and brand, plans data, third-party notices
+```
 
-`public/` is still served as plain static files, with no build on deploy and no npm install.
-The HTML in it is written by `npm run build` (`scripts/build.mjs`, no dependencies) from the
-fragments in `site/` and the rows in `data/`: one page per place, route and trek, plus canonical
-and share tags, JSON-LD, `sitemap.xml` and `robots.txt`. Edit `site/` or `data/`, run the build,
-and commit the result. `npm run dev` runs the build first. Set `SITE_URL` if the origin is not
-`https://peakpune.com`. A push to `main` deploys, so changes go through a pull request.
+**How pages are made.** `public/` is served as plain files. Its HTML is written by
+`npm run build` from `site/` and `data/` and then committed, so there is nothing to build on
+deploy. Edit `site/` or `data/`, run the build, commit the result. Pages are generated with
+`noindex` to match the preview status; `INDEXING=on npm run build` turns indexing and the
+sitemap reference on when the owner decides. Set `SITE_URL` if the origin is not
+`https://peakpune.com`.
 
-## Structure
+**How plans get on the page.** A person runs the export by hand (see
+[`docs/PLANS.md`](docs/PLANS.md)), reviews it, and commits `public/data/plans.json`. The
+snapshot expires after 24 hours and the page hides it once it expires, and hides past dates
+each day. Visitors' browsers never call event providers. There is no automatic refresh.
 
-- `public/`: generated pages, scripts, brand styles and local fonts.
-- `site/`: page fragments. `scripts/build.mjs`: the static page generator.
-- `data/`: sourced starter dataset, one folder per batch, with evidence per field.
-- `docs/GROWTH.md`: research notes on search and community.
-- `.agents/skills/`: design-principle references installed with `npx skills`.
-- `src/events.js`: Pune/date/URL validation.
-- `src/discovery.js`: adapted Pune source parsers, offline by default.
-- `scripts/update-plans.mjs`: manual District Pune fetch/export command.
-- `public/data/plans.json`: reviewed, time-limited manual snapshot.
-- `public/plans.js`: source-linked cards, date filtering and expiry notice.
-- `tests/`: local fixture and validation tests.
-- `docs/SCOPE.md`: product scope and brand rules.
+**Safety by default.** Event text is untrusted and rendered with `textContent`. Source URLs
+are validated and original links are kept. `src/abuse-guard.js` (a honeypot field, an hourly
+per-IP limit and an entry cap, adapted from PuneAfterhours) is not connected to anything and
+protects nothing today. It is there for the first form backend.
+
+## Brand
+
+Peak Pune keeps its brand kit: Chai Ink `#1C1410`, Peth Paper `#F6EFE2`, Wada Brick
+`#B8381F`, Haldi `#E8A317`, Mutha Sage `#C9D6B5` and Misal Clay `#D9B99B`, set in Fraunces
+and Inter. Full rules and how the interface applies them are in
+[`docs/SCOPE.md`](docs/SCOPE.md).
+
+## Roadmap
+
+Planned, not built. Anything involving people's content needs moderation and privacy
+review first.
+
+- [ ] Events: Pune areas, categories and a free-entry filter, once the data can prove it
+- [x] Meetups: real communities with verified joining links (first 13)
+- [ ] Places and outdoors: lift coverage beyond the first sourced batches in `data/`
+- [ ] Moments: Patya, Traffic, Food, Language, Weather, Timings
+- [ ] Submissions with consent, credit, reporting, spam and upload controls, and a human
+      moderation queue before anything is public
+- [ ] Additional event sources, only where the provider's terms allow it
 
 ## Contribute
 
-Fork this repository and open a pull request. Keep changes small, run `npm test`, and
-include mobile/desktop screenshots for interface changes. See CONTRIBUTING.md.
+Fork this repository (or branch, if you have Write access) and open a pull request. Never
+push straight to `main`: it deploys the live site. Keep changes small, run `npm test`, and
+include mobile and desktop screenshots for interface changes. Steps and brand rules are in
+[`CONTRIBUTING.md`](CONTRIBUTING.md).
 
 Do not commit credentials, personal data or unlicensed work. Never auto-publish community
-submissions. Additional providers and recurring refresh need review before enabling. The
-frontend reads its local snapshot only and does not call event providers. See
-`docs/PLANS.md` for manual update and source restrictions.
+submissions. Additional providers and recurring refresh need review before enabling. Found a
+security problem? Read [`SECURITY.md`](SECURITY.md) and do not open a public issue.
 
-## Licence and attribution
+## Credits and licence
 
-Code: MIT, see LICENSE. Font licences are included in `public/fonts/`.
-The supplied Peak Pune brand concept informed the interface. Source attribution for
-the adapted PuneAfterhours fetcher is in `src/discovery.js` and docs/THIRD-PARTY.md.
+Code is MIT, see [`LICENSE`](LICENSE). Font licences are in `public/fonts/`. The Pune
+parsers were adapted from the owner's PuneAfterhours project; attribution is in
+`src/discovery.js` and [`docs/THIRD-PARTY.md`](docs/THIRD-PARTY.md). The Peak Pune brand
+concept came from owner-supplied designs.
