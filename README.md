@@ -36,8 +36,10 @@ Open http://localhost:4173. The site collects no personal data or uploads.
 
 ## Contribute
 
-Fork this repository and open a pull request. Keep changes small, run `npm test`, and
-include mobile/desktop screenshots for interface changes. See CONTRIBUTING.md.
+Fork this repository (or branch, if you have Write access) and open a pull request. Never
+push straight to `main`: it deploys the live site. Keep changes small, run `npm test`, and
+include mobile/desktop screenshots for interface changes. Steps and brand rules are in
+CONTRIBUTING.md.
 
 Do not commit credentials, personal data or unlicensed work. Never auto-publish community
 submissions. Additional providers and recurring refresh need review before enabling. The
