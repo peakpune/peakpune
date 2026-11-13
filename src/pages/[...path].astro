@@ -1,0 +1,14 @@
+---
+import { build } from '../../scripts/build.mjs';
+import SiteLayout from '../layouts/SiteLayout.astro';
+export function getStaticPaths() {
+  const pages: { params: { path: string | undefined }; props: { html: string; route: string } }[] = [];
+  build({dryRun: true, onPage: (route: string, html: string) => {
+    if (route === '/404.html') return;
+    pages.push({params: {path: route === '/' ? undefined : route.replace(/^\//, '').replace(/\/$/, '')}, props: {html, route}});
+  }});
+  return pages;
+}
+const { html, route } = Astro.props;
+---
+<SiteLayout html={html} route={route} />

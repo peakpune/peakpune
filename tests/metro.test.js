@@ -65,8 +65,8 @@ test('the verified date is rendered from the data, never typed into markup', () 
   assert.ok(guideHtml.includes(`<time datetime="${data.verified_on}">${longDate(data.verified_on)}</time>`));
   const moved = renderGuideMain({ data: { ...data, verified_on: '2030-01-02' }, model: buildModel({ ...data, verified_on: '2030-01-02' }), areas, esc });
   assert.ok(moved.includes('2 January 2030') && !moved.includes(longDate(data.verified_on) + '</time>'));
-  for (const f of readdirSync(join(root, 'site/metro'))) {
-    const src = readFileSync(join(root, 'site/metro', f), 'utf8');
+  for (const file of [...readdirSync(join(root, 'site/metro')).map((f) => join('site/metro', f)), 'src/client/metro-guide.ts']) {
+    const f = file; const src = readFileSync(join(root, file), 'utf8');
     assert.ok(!/\b20\d\d-\d\d-\d\d\b|(January|February|March|April|May|June|July|August|September|October|November|December) 20\d\d/.test(src), `${f} hardcodes a date`);
   }
 });

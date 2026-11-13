@@ -1,0 +1,22 @@
+---
+import Plans from '../components/Plans.svelte';
+interface Props { html: string; route: string }
+const { html, route } = Astro.props;
+// Keep the reviewed renderer's content and chrome while Astro owns the document and routes.
+const head = html.match(/<head>([\s\S]*?)<\/head>/)?.[1] ?? '';
+const body = (html.match(/<body>([\s\S]*?)<\/body>/)?.[1] ?? '').replace(/<script type="module" src="[^"]*\/plans\.js[^\"]*"><\/script>/, '');
+const pattern = route === '/' ? /<div class="grid" id="weekend-plans">[\s\S]*?<\/div>/ : /<section class="feed-status">[\s\S]*?<div class="grid" id="plans"><\/div>/;
+const match = (route === '/' || route === '/events/') ? pattern.exec(body) : null;
+const before = match ? body.slice(0, match.index) : body;
+const after = match ? body.slice(match.index + match[0].length) : '';
+const snapshotUrl = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/data/plans.json`;
+---
+<!doctype html>
+<html lang="en-IN">
+  <head><Fragment set:html={head} /></head>
+  <body>
+    <Fragment set:html={before} />
+    {match && <Plans mode={route === '/' ? 'weekend' : 'all'} snapshotUrl={snapshotUrl} client:load />}
+    <Fragment set:html={after} />
+  </body>
+</html>

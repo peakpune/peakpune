@@ -20,8 +20,8 @@
 # Peak Pune
 
 An open-source website for local events, meetups and moments in Pune, with the Puneri
-attitude. It is a small static site: plain HTML, CSS and JavaScript, no framework, no build
-on deploy and no tracking.
+attitude. It is a small static site: Astro-generated HTML and CSS, with TypeScript validation and a Svelte island for plans.
+It has no backend, no build on deploy and no tracking.
 
 > **Status: live.** Listings are source-checked, not a promise of current availability.
 > Search indexing and reader submissions remain disabled. No personal data is collected.
@@ -62,14 +62,28 @@ The publication decisions and corrections are recorded in [`docs/LISTING-AUDIT.m
 
 <sub>Earlier screenshots taken on 13 November 2026 before the listing audit. They are historical, not evidence of current published content.</sub>
 
+## Stack and deployment
+
+- **TypeScript:** strict typed publication gate, District URL/snapshot boundary, IST dates, weekend filtering and sharing. Runtime checks still reject untrusted JSON. Types do not prove listing truth.
+- **Astro:** static routes and shared document layout for all 74 canonical pages plus 404. The existing reviewed content renderer is retained behind that layout; this is an incremental migration, not rewritten listing facts.
+- **Svelte:** only the existing plans cards, weekend filter and share UI hydrate on home and Events. Other pages have no Svelte island. No new backend or unasked features.
+
+`npm run build` compiles TypeScript, generates Astro HTML and copies the complete static result into committed `public/`. Existing Cloudflare Pages can keep deploying that folder with no build command. Do not change the production build settings or add an SSR adapter/Functions. The stack upgrade does not fix a separate Cloudflare publishing incident.
+
+`npm run check` checks Astro/Svelte/TypeScript. `npm test` runs the regression suite. CI installs the lockfile, runs both, rebuilds and checks committed output has not drifted. Only IDs explicitly allowed by the publication audit publish; noindex and closed submissions remain in place. The manual snapshot expiry is unchanged.
+
+The tools are build-time dependencies, not a paid runtime. Static hosting still depends on the current free plan limits. Paid APIs, databases and server rendering are not enabled. See [`docs/STACK.md`](docs/STACK.md) for maintenance notes.
+
 ## Run it locally
 
-You need Node.js 22+ and Python 3. There is no `npm install`. `npm run dev` regenerates the
-pages first, which takes under a second.
+You need Node.js 22.23.4+ and Python 3. Run `npm ci` once to install the pinned build tools.
+`npm run dev` builds the static output, then serves it locally.
 
 ```sh
 git clone https://github.com/peakpune/peakpune.git
 cd peakpune
+npm ci            # installs pinned build tools
+npm run check     # checks TypeScript, Astro and Svelte
 npm test          # runs all tests
 npm run dev       # serves public/ at http://localhost:4173
 ```
@@ -80,17 +94,22 @@ npm run dev       # serves public/ at http://localhost:4173
 public/                 the site (this folder is what gets deployed)
   index.html, app.js    home page and shared script
   places/, outdoors/, events/, meetups/, moments/, powered-by/   generated pages
-  plans.js              plan cards, weekend filter, expiry handling
-  filters.js, share.js  This weekend logic and the Share button
+  _astro/               generated Svelte client bundles (home and Events only)
+  plans.js              legacy renderer reference; not loaded by Astro pages
+  lib/                  generated TypeScript validation, dates and sharing
+  filters.js, share.js   compatibility exports for tests/legacy code
   tokens.css            the single stylesheet, brand colours and type
   data/plans.json       reviewed, time-limited snapshot of plans
   fonts/                Fraunces and Inter, with licences
 src/
-  events.js             Pune, date and URL validation
+  client/               strict TypeScript publication, snapshot, date and URL boundaries
+  components/           Svelte plans/filter/share UI
+  pages/, layouts/      Astro static routes and document layout
+  events.js             legacy ingestion validation
   discovery.js          source parsers, offline by default
   abuse-guard.js        dormant helpers for a future form backend
 scripts/update-plans.mjs   manual, one-off plans export (no schedule)
-scripts/build.mjs       page generator, no dependencies
+scripts/build.mjs       reviewed content renderer used by Astro
 site/                   page fragments the generator reads
 data/                   source datasets plus a default-deny publication audit
 tests/                  node:test suites
@@ -109,7 +128,7 @@ sitemap reference on when the owner decides. Set `SITE_URL` if the origin is not
 snapshot expires after 24 hours and the page hides it once it expires, and hides past dates
 each day. Visitors' browsers never call event providers. There is no automatic refresh.
 
-**Safety by default.** Event text is untrusted and rendered with `textContent`. Source URLs
+**Safety by default.** Event text is untrusted and escaped by Svelte (never rendered as raw HTML). Source URLs
 are validated and original links are kept. `src/abuse-guard.js` (a honeypot field, an hourly
 per-IP limit and an entry cap, adapted from PuneAfterhours) is not connected to anything and
 protects nothing today. It is there for the first form backend.
