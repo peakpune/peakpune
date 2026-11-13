@@ -4,11 +4,13 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "node scripts/build.mjs",
+    "build": "npm run build:types && node scripts/prepare-astro.mjs && ASTRO_TELEMETRY_DISABLED=1 astro build && node scripts/publish-static.mjs",
     "test": "node --test",
-    "dev": "node scripts/build.mjs && python3 -m http.server 4173 --directory public",
+    "dev": "npm run build && python3 -m http.server 4173 --directory public",
     "build:types": "tsc -p tsconfig.client.json",
-    "pretest": "npm run build:types"
+    "pretest": "node scripts/test-setup.mjs",
+    "check": "ASTRO_TELEMETRY_DISABLED=1 astro check && svelte-check --tsconfig ./tsconfig.json",
+    "posttest": "node scripts/verify-ci.mjs"
   },
   "devDependencies": {
     "@astrojs/check": "0.9.12",
