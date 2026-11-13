@@ -7,3 +7,4 @@
 .feed-status{border-top:1px solid var(--ink);padding:16px 0 28px}.feed-status h2{margin-top:0}.plan-card a{display:inline-block;text-decoration:none;color:var(--ink);margin:8px 0}.plan-card .note{font-size:13px}.plan-card h3{font-size:26px}.plan-card p{font-size:16px}
 
 .community-links{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:20px 0;border-bottom:1px solid #1c141033}.community-links>div{display:flex;gap:10px;flex-wrap:wrap}.community-links a{display:inline-block;text-decoration:none;color:var(--ink)}@media(max-width:700px){.community-links{align-items:flex-start;flex-direction:column}}
+.plan-actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:8px 0}.plan-card .plan-actions a{margin:0}
