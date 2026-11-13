@@ -256,9 +256,21 @@ export function eventLd(e) {
   return ld;
 }
 
+
+const STATE = { active: ['Active', 'lv-easy'], DORMANT: ['Dormant', 'lv-hard'], UNKNOWN: ['Activity not confirmed', ''] };
+function meetupsBlock(rows) {
+  const card = (m) => `<article class="card"><div class="inner"><span class="eyebrow">${esc(m.tags.slice(0, 2).join(' · '))}${known(m.neighbourhood) ? ' · ' + esc(m.neighbourhood) : ''}</span><h3>${esc(m.name)}</h3><p>${esc(m.summary)}</p><p class="note">${esc(m.schedule_text)}</p><p class="meta"><span class="level ${STATE[m.activity_state][1]}">${STATE[m.activity_state][0]}</span>${m.cost_note ? `<span>${esc(m.cost_note)}</span>` : ''}</p><p class="plan-actions"><a class="chip" href="${esc(safeUrl(m.join_url))}" rel="noopener">How to join</a>${m.linked_id ? `<a class="chip" href="/places/${m.linked_id.replace(/^place-/, '')}/">About the venue</a>` : ''}</p></div></article>`;
+  const live = rows.filter((m) => m.activity_state === 'active'); const rest = rows.filter((m) => m.activity_state !== 'active');
+  return `<section class="section"><div class="section-head"><h2>Communities you can join today</h2><p>${live.length} Pune groups with a public joining page and dated activity, read on ${esc(rows[0].checked_at)}. Rules, costs and group links live on their own sites.</p></div><div class="grid">${live.map(card).join('')}</div></section>
+<section class="section"><div class="section-head"><h2>Listed, activity not confirmed</h2><p>These groups have a public page but showed no dated activity when we looked. Ask before you turn up.</p></div><div class="grid">${rest.map(card).join('')}</div></section>`;
+}
+function momentsBlock(rows) {
+  return rows.map((m) => `<a class="card place-card" href="/${m.linked_id.startsWith('place-') ? 'places/' + m.linked_id.replace(/^place-/, '') : 'outdoors/' + m.linked_id.replace(/^run-(trek-)?/, '')}/"><div class="inner"><span class="eyebrow">${esc(m.best_time)}</span><h3>${esc(m.caption)}</h3><p class="note">${esc(m.name)} · ${esc(m.season)}</p></div></a>`).join('');
+}
+
 const STATIC = [
-  { file: 'meetups', path: '/meetups/', title: 'Meetups in Pune: run clubs, book clubs, tech and board games | Peak Pune', description: 'Find your people in Pune: runners, readers, coders, board gamers and trekkers, with verified joining links.', crumbs: [['Meetups', '/meetups/']] },
-  { file: 'moments', path: '/moments/', title: 'Peak Pune Moments: an archive of only-in-Pune moments', description: 'Shops shut 1 to 4, signboards with opinions and a misal debate that never ends. An archive of Puneri moments, filed under Peak Pune.', crumbs: [['Moments', '/moments/']] },
+  { file: 'meetups', path: '/meetups/', fill: 'meetups', title: 'Meetups in Pune: run clubs, book clubs, tech and board games | Peak Pune', description: 'Find your people in Pune: runners, readers, coders, board gamers and trekkers, with verified joining links.', crumbs: [['Meetups', '/meetups/']] },
+  { file: 'moments', path: '/moments/', fill: 'moments', title: 'Peak Pune Moments: an archive of only-in-Pune moments', description: 'Shops shut 1 to 4, signboards with opinions and a misal debate that never ends. An archive of Puneri moments, filed under Peak Pune.', crumbs: [['Moments', '/moments/']] },
   { file: 'powered-by', path: '/powered-by/', title: 'Powered by PuneRunners, Pune Trekkers and Karawaan | Peak Pune', description: 'The three Pune groups behind Peak Pune runs, treks and trips: PuneRunners Club, Pune Trekkers and Karawaan. What each does and where to join.', crumbs: [['Powered by', '/powered-by/']] },
 ];
 
@@ -271,7 +283,9 @@ export function build({ outDir = join(root, 'public'), log = () => {} } = {}) {
   out('/', page({ path: '/', title: 'Peak Pune | Things to do in Pune: places, runs, treks, events and meetups', description: 'Everything Pune, in one scroll. Sourced places to visit, running loops, treks near Pune, events, meetups and the moments only Pune could produce.', main: homeMain(rows, outdoors), ld: [website], plans: true }));
   urls.push(['/', null]);
   for (const p of STATIC) {
-    const main = read(`site/pages/${p.file}.html`);
+    let main = read(`site/pages/${p.file}.html`);
+    if (p.fill === 'meetups') main = main.replace('<!--MEETUPS-->', meetupsBlock(JSON.parse(read('data/batch-4-meetups/meetups.json'))));
+    if (p.fill === 'moments') main = main.replace('<!--MOMENTS-->', momentsBlock(JSON.parse(read('data/batch-5-moments-reference/moments.json'))));
     out(p.path, page({ ...p, main, ld: [{ '@type': 'WebPage', '@id': SITE_URL + p.path, url: SITE_URL + p.path, name: p.title, description: p.description, isPartOf: { '@id': `${SITE_URL}/#site` } }] }));
     urls.push([p.path, null]);
   }

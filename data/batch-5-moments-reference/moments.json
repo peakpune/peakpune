@@ -1,0 +1,170 @@
+[
+ {
+  "id": "moment-marz-o-rin-opens",
+  "type": "moment",
+  "linked_id": "place-marz-o-rin",
+  "name": "Marz-O-Rin",
+  "best_time": "8:30 AM, when it opens",
+  "season": "All year",
+  "caption": "The shutters go up at 8:30. MG Road has opinions about who was in the queue first.",
+  "status": "verified",
+  "sources": [
+   "https://marzorin.com/"
+  ],
+  "checked_at": "2026-11-13"
+ },
+ {
+  "id": "moment-akshardhara-till-eight-thirty",
+  "type": "moment",
+  "linked_id": "place-akshardhara-book-gallery",
+  "name": "Akshardhara Book Gallery",
+  "best_time": "10:00 AM to 8:30 PM",
+  "season": "All year",
+  "caption": "Marathi books until 8:30 PM. Long enough to walk in for one and leave with a bag.",
+  "status": "verified",
+  "sources": [
+   "https://akshardhara.com/pages/contact"
+  ],
+  "checked_at": "2026-11-13"
+ },
+ {
+  "id": "moment-kelkar-museum-closures",
+  "type": "moment",
+  "linked_id": "place-raja-dinkar-kelkar-museum",
+  "name": "Raja Dinkar Kelkar Museum",
+  "best_time": "Before the 5:30 PM closing",
+  "season": "All year; closed 26 January, 15 August and Anant Chaturdashi",
+  "caption": "Open all year, except the three days everyone in Pune already has other plans.",
+  "status": "verified",
+  "sources": [
+   "https://rajakelkarmuseum.org/plan-a-visit-2"
+  ],
+  "checked_at": "2026-11-13"
+ },
+ {
+  "id": "moment-joshis-show-quorum",
+  "type": "moment",
+  "linked_id": "place-joshis-museum-of-miniature-railways",
+  "name": "Joshi's Museum of Miniature Railways",
+  "best_time": "On the half hour",
+  "season": "All year",
+  "caption": "The trains run every half hour. Provided four of you turn up. Pune has always believed in quorum.",
+  "status": "verified",
+  "sources": [
+   "https://minirailways.com/pune-museum/"
+  ],
+  "checked_at": "2026-11-13"
+ },
+ {
+  "id": "moment-dagdusheth-five-am",
+  "type": "moment",
+  "linked_id": "place-dagdusheth-halwai-ganpati-temple",
+  "name": "Shreemant Dagdusheth Halwai Ganpati Temple",
+  "best_time": "5:00 AM, at opening",
+  "season": "All year",
+  "caption": "Doors open at 5 AM. On Tuesdays they stay open half an hour longer. Even the schedule has a favourite day.",
+  "status": "verified",
+  "sources": [
+   "https://www.dagdushethganpati.com/"
+  ],
+  "checked_at": "2026-11-13"
+ },
+ {
+  "id": "moment-iskcon-mangala-aarti",
+  "type": "moment",
+  "linked_id": "place-iskcon-nvcc",
+  "name": "ISKCON NVCC Pune",
+  "best_time": "4:30 AM",
+  "season": "All year",
+  "caption": "Mangala aarti at 4:30 AM. The rest of Kondhwa is still negotiating with its alarm.",
+  "status": "verified",
+  "sources": [
+   "https://www.iskconpune.com/"
+  ],
+  "checked_at": "2026-11-13"
+ },
+ {
+  "id": "moment-gyaan-adab-closed-sundays",
+  "type": "moment",
+  "linked_id": "place-gyaan-adab",
+  "name": "Gyaan Adab",
+  "best_time": "11 AM to 8 PM",
+  "season": "All year",
+  "caption": "Closed Mondays. Also the first and third Sundays. Carry a calendar and a backup plan.",
+  "status": "verified",
+  "sources": [
+   "https://www.gyaanadab.org/"
+  ],
+  "checked_at": "2026-11-13"
+ },
+ {
+  "id": "moment-vetal-tekdi-daylight",
+  "type": "moment",
+  "linked_id": "run-vetal-tekdi-arai-hill-loop",
+  "name": "Vetal Tekdi and ARAI hill loop",
+  "best_time": "Early morning, daylight only",
+  "season": "All year; unlit paths",
+  "caption": "9.47 km of dirt path and no street lights. The tekdi keeps its own timings too.",
+  "status": "verified",
+  "sources": [
+   "https://punerunners.com/routes/"
+  ],
+  "checked_at": "2026-11-13"
+ },
+ {
+  "id": "moment-kp-kalyani-nagar-bridge",
+  "type": "moment",
+  "linked_id": "run-koregaon-park-kalyani-nagar-loop",
+  "name": "Koregaon Park and Kalyani Nagar loop",
+  "best_time": "Early morning",
+  "season": "All year",
+  "caption": "One loop, two neighbourhoods, one bridge crossed twice. 8.62 km to settle which side has better coffee.",
+  "status": "verified",
+  "sources": [
+   "https://punerunners.com/routes/"
+  ],
+  "checked_at": "2026-11-13"
+ },
+ {
+  "id": "moment-lohagad-first-fort",
+  "type": "moment",
+  "linked_id": "run-trek-lohagad-fort",
+  "name": "Lohagad Fort",
+  "best_time": "Early start; Saturdays are quieter in monsoon",
+  "season": "July to February",
+  "caption": "Half of Pune did its first fort here. The other half is on the steps right now.",
+  "status": "verified",
+  "sources": [
+   "https://punetrekkers.org/treks-near-pune/lohagad-fort"
+  ],
+  "checked_at": "2026-11-13"
+ },
+ {
+  "id": "moment-torna-not-first",
+  "type": "moment",
+  "linked_id": "run-trek-torna-fort",
+  "name": "Torna Fort",
+  "best_time": "Start by 7 AM",
+  "season": "September to February",
+  "caption": "The guide says do not make this your first trek. Pune will, of course, consider it a suggestion.",
+  "status": "verified",
+  "sources": [
+   "https://punetrekkers.org/treks-near-pune/torna-fort"
+  ],
+  "checked_at": "2026-11-13"
+ },
+ {
+  "id": "moment-rohida-quiet",
+  "type": "moment",
+  "linked_id": "run-trek-rohida-fort",
+  "name": "Rohida Fort",
+  "best_time": "Early in summer; little shade",
+  "season": "July to February",
+  "caption": "A fort with two names and very few visitors. Both facts suit it.",
+  "status": "verified",
+  "sources": [
+   "https://punetrekkers.org/treks-near-pune/rohida-fort"
+  ],
+  "checked_at": "2026-11-13"
+ }
+]
