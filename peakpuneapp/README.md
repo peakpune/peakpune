@@ -12,7 +12,7 @@ The phone companion to [peakpune.com](https://peakpune.com): the same brand, the
 Requirements: Flutter stable (3.44 or newer), Android SDK 36, Java 17.
 
 ```bash
-cd app
+cd peakpuneapp
 flutter pub get
 flutter analyze
 flutter test
@@ -23,16 +23,9 @@ flutter build appbundle --release   # for Google Play, after setting up signing
 
 Signing keys never go in this repository. To sign release builds, add `android/key.properties` (already git-ignored) and a `release` signing config in `android/app/build.gradle.kts`, following Flutter's "Build and release an Android app" guide.
 
-### Package name: decide before the first upload
+### Package name
 
-`applicationId` is set in **one place**: `android/app/build.gradle.kts` (`defaultConfig`). Nothing else needs to change.
-
-| Choice | Value | When |
-|---|---|---|
-| Separate app (current) | `com.overtimelabs.peakpune` | A new Play listing |
-| Replace PunePedia | `com.overtimelabs.punepedia` | Only if this app takes over the PunePedia listing; keeps its testers and signing history, and must be signed with PunePedia's upload key |
-
-The Kotlin namespace (`com.overtimelabs.peakpune`) is independent of the applicationId and can stay as it is either way.
+`com.overtimelabs.peakpuneapp`: a separate Play listing from PunePedia. It is set in **one place**, `android/app/build.gradle.kts` (`defaultConfig`). The Kotlin namespace (`com.overtimelabs.peakpune`) is independent of it and needs no change if the applicationId ever does.
 
 ## Data
 

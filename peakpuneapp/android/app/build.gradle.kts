@@ -15,11 +15,10 @@ android {
     }
 
     defaultConfig {
-        // THE ONE PLACE the Play package name is set. Not decided yet (see app/README.md):
-        //   com.overtimelabs.peakpune  - a separate Play listing (current value)
-        //   com.overtimelabs.punepedia - only if this app replaces the PunePedia listing
-        // Changing it needs no other edit: the Kotlin namespace above stays as it is.
-        applicationId = "com.overtimelabs.peakpune"
+        // THE ONE PLACE the Play package name is set. Peak Pune is a separate app
+        // from PunePedia. Changing it needs no other edit: the Kotlin namespace
+        // above is independent of the applicationId.
+        applicationId = "com.overtimelabs.peakpuneapp"
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
         minSdk = flutter.minSdkVersion

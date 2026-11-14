@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Copies the repository's data files into the app's bundled assets.
-# Run from app/ after editing anything under ../data, then run `flutter test`
+# Run from peakpuneapp/ after editing anything under ../data, then run `flutter test`
 # (test/data_sync_test.dart fails while the copies are stale).
 set -euo pipefail
 cd "$(dirname "$0")/.."
