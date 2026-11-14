@@ -1,0 +1,358 @@
+{
+  "_about": "Place entries. A place gets an 'Open in Google Maps' button only when 'location' is filled in. location.status: 'sourced' = coordinates copied from a cited source but not yet checked; 'verified' = checked by an editor or the publisher. Release builds require 'verified'.",
+  "entries": [
+    {
+      "id": "shaniwar-wada",
+      "freeSample": true,
+      "type": "place",
+      "categories": ["place"],
+      "status": "verified",
+      "era": "peshwa",
+      "timeline": false,
+      "date": { "start": "1730-01-10", "end": "1732-01-22", "precision": "day", "label": { "en": "Built 1730–1732" } },
+      "title": { "en": "Shaniwar Wada" },
+      "summary": { "en": "The fortified seat of the Peshwas, founded by Bajirao I in 1730. Its name joins the Marathi words for Saturday and a residence complex." },
+      "body": {
+        "en": [
+          { "kind": "evidence", "text": "Bajirao I laid the foundation on Saturday, 10 January 1730; the opening ceremony was held on 22 January 1732.", "cites": [{ "source": "src-wp-shaniwar-wada" }] },
+          { "kind": "evidence", "text": "The name comes from 'Shaniwar' (Saturday) and 'wada' (a residence complex).", "cites": [{ "source": "src-wp-shaniwar-wada" }] },
+          { "kind": "evidence", "text": "Peshwa Narayanrao was killed here in 1773. The East India Company took over the Wada on 17 November 1817, and a fire that began on 27 February 1828 is reported to have burned for seven days.", "cites": [{ "source": "src-wp-shaniwar-wada" }, { "source": "src-wp-battle-khadki" }] }
+        ]
+      },
+      "location": null,
+      "locationNote": { "en": "No coordinates have been taken from a citable source yet." },
+      "media": [],
+      "related": ["ev-1730-shaniwar-wada", "ev-1773-narayanrao", "ev-1828-fire", "ev-1817-khadki", "lal-mahal", "wada"],
+      "review": { "state": "reviewed", "draftedOn": "2026-10-31", "draftedWith": "AI-assisted summary of the listed sources", "lastReviewed": "2026-10-31", "reviewer": "OverTime Labs" }
+    },
+    {
+      "id": "lal-mahal",
+      "type": "place",
+      "categories": ["place"],
+      "status": "verified",
+      "era": "swarajya",
+      "timeline": true,
+      "date": { "start": "1630", "end": null, "precision": "year", "label": { "en": "Built 1630; rebuilt 1984–1988" } },
+      "title": { "en": "Lal Mahal" },
+      "summary": { "en": "A residence built near the later Shaniwar Wada around 1630. The original was lost long ago; today's building is a municipal reconstruction from the 1980s." },
+      "body": {
+        "en": [
+          { "kind": "evidence", "text": "Lal Mahal was built in 1630 by Dadoji Konddeo, with permission from Shahaji, as part of reviving the recently razed town.", "cites": [{ "source": "src-wp-lal-mahal" }] },
+          { "kind": "evidence", "text": "The original building was ruined towards the end of the 17th century and later razed. Its exact site is not known, though it stood very close to Shaniwar Wada.", "cites": [{ "source": "src-wp-lal-mahal" }, { "source": "src-wp-lal-mahal-news-2008" }] },
+          { "kind": "evidence", "text": "The present structure was built by the Pune Municipal Corporation between 1984 and 1988. It covers only part of the original land and does not follow the original design.", "cites": [{ "source": "src-wp-lal-mahal" }] },
+          { "kind": "evidence", "text": "Lal Mahal is where Shivaji attacked Shaista Khan, who lost four fingers escaping through a first-floor window; Aurangzeb later transferred Shaista Khan to Bengal.", "cites": [{ "source": "src-wp-lal-mahal" }] },
+          { "kind": "note", "text": "The page consulted gives no date for the attack and supports it only with a Pune district government web page. Add a scholarly account with the date before review.", "cites": [] }
+        ]
+      },
+      "location": null,
+      "locationNote": { "en": "The original site is not precisely known. Coordinates for the modern reconstruction have not yet been sourced." },
+      "media": [],
+      "related": ["ev-1630-razing", "shaniwar-wada", "kasba-ganapati"],
+      "review": { "state": "reviewed", "draftedOn": "2026-10-31", "draftedWith": "AI-assisted summary of the listed sources", "lastReviewed": "2026-10-31", "reviewer": "OverTime Labs" }
+    },
+    {
+      "id": "pataleshwar",
+      "type": "place",
+      "categories": ["place"],
+      "status": "verified",
+      "era": "early",
+      "timeline": false,
+      "date": null,
+      "title": { "en": "Pataleshwar cave temple" },
+      "summary": { "en": "A rock-cut Shiva temple with a circular Nandi pavilion, west of the Mula–Mutha confluence and now within Shivajinagar. Protected by the Archaeological Survey of India." },
+      "body": {
+        "en": [
+          { "kind": "evidence", "text": "A monolithic rock-cut temple dedicated to Shiva, with three sanctums, a pillared hall and a circular Nandi pavilion in the open court. It lies on a rocky rise just west of where the Mula and Mutha rivers meet.", "cites": [{ "source": "src-wp-pataleshwar" }, { "source": "src-fergusson-burgess-1880", "pages": "pp. 426–427" }, { "source": "src-sinclair-1877", "pages": "pp. 98–99" }] },
+          { "kind": "evidence", "text": "It is a protected monument in the care of the Archaeological Survey of India.", "cites": [{ "source": "src-wp-pataleshwar" }] },
+          { "kind": "note", "text": "The cave is commonly dated to the 8th century. That date is kept off the public timeline until its source is pinned down; see the research lead.", "cites": [] }
+        ]
+      },
+      "location": null,
+      "locationNote": { "en": "No coordinates have been taken from a citable source yet." },
+      "media": [],
+      "related": ["rl-pataleshwar-date"],
+      "review": { "state": "reviewed", "draftedOn": "2026-10-31", "draftedWith": "AI-assisted summary of the listed sources", "lastReviewed": "2026-10-31", "reviewer": "OverTime Labs" }
+    },
+    {
+      "id": "parvati-hill",
+      "type": "place",
+      "categories": ["place"],
+      "status": "verified",
+      "era": "peshwa",
+      "timeline": false,
+      "date": null,
+      "title": { "en": "Parvati hill temples" },
+      "summary": { "en": "A hill temple complex built by the Peshwas, centred on the Devdeveshwar temple completed in 1749." },
+      "body": {
+        "en": [
+          { "kind": "evidence", "text": "The Peshwas bought the hill from a Patil named Taware and built a temple complex on it. The main Devdeveshwar temple was completed under Balaji Bajirao in 1749; there are also temples to Vitthal and Rukmini, Vishnu and Kartikeya.", "cites": [{ "source": "src-wp-parvati" }, { "source": "src-kulkarni-2019-hill-temples" }] },
+          { "kind": "evidence", "text": "The samadhi of Balaji Bajirao is on the hill.", "cites": [{ "source": "src-wp-parvati" }] },
+          { "kind": "note", "text": "The number of steps is given as both 103 and 108 in the source consulted, so neither is stated here.", "cites": [] }
+        ]
+      },
+      "location": { "lat": 18.49722, "lng": 73.84667, "status": "verified", "source": "src-wp-parvati", "note": "From 18°29′50″N 73°50′48″E on the cited page; checked by the publisher on 2026-10-31." },
+      "media": [],
+      "related": ["ev-1749-parvati"],
+      "review": { "state": "reviewed", "draftedOn": "2026-10-31", "draftedWith": "AI-assisted summary of the listed sources", "lastReviewed": "2026-10-31", "reviewer": "OverTime Labs" }
+    },
+    {
+      "id": "aga-khan-palace",
+      "freeSample": true,
+      "type": "place",
+      "categories": ["place"],
+      "status": "verified",
+      "era": "colonial",
+      "timeline": false,
+      "date": null,
+      "title": { "en": "Aga Khan Palace" },
+      "summary": { "en": "Built by Aga Khan III, used as a place of detention for Gandhi from 1942 to 1944, and given to the people of India in 1969." },
+      "body": {
+        "en": [
+          { "kind": "evidence", "text": "Built by Sultan Muhammed Shah, Aga Khan III. The accounts cited say it was built as charity, to give work to people affected by famine.", "cites": [{ "source": "src-wp-aga-khan-palace" }] },
+          { "kind": "evidence", "text": "Gandhi was held here from August 1942 to May 1944. Mahadev Desai and Kasturba Gandhi died here during that time.", "cites": [{ "source": "src-ghp-aga-khan" }] },
+          { "kind": "evidence", "text": "In 1969 Prince Karim, Aga Khan IV, gave the palace to the people of India. The Gandhi National Memorial Society is based here.", "cites": [{ "source": "src-ghp-aga-khan" }, { "source": "src-wp-aga-khan-palace" }] },
+          { "kind": "note", "text": "The construction year (given as 1892) appears without a footnote in the source consulted and is not stated as fact here.", "cites": [] }
+        ]
+      },
+      "location": { "lat": 18.5523, "lng": 73.9015, "status": "verified", "source": "src-wp-aga-khan-palace", "note": "From the cited page's infobox; checked by the publisher on 2026-10-31." },
+      "media": [],
+      "related": ["ev-1942-aga-khan"],
+      "review": { "state": "reviewed", "draftedOn": "2026-10-31", "draftedWith": "AI-assisted summary of the listed sources", "lastReviewed": "2026-10-31", "reviewer": "OverTime Labs" }
+    },
+    {
+      "id": "vishrambaug-wada",
+      "type": "place",
+      "categories": ["place"],
+      "status": "verified",
+      "era": "peshwa",
+      "timeline": false,
+      "date": null,
+      "title": { "en": "Vishrambaug Wada" },
+      "summary": { "en": "Bajirao II's residence, completed in 1807, later used for education and municipal offices and now owned by the Pune Municipal Corporation." },
+      "body": {
+        "en": [
+          { "kind": "evidence", "text": "Completed in 1807 as the residence of Bajirao II.", "cites": [{ "source": "src-wp-vishrambaug" }] },
+          { "kind": "evidence", "text": "Its later uses included Sanskrit teaching from 1821, a high school, and the offices of the municipality and the Pune Municipal Corporation. Arson destroyed its eastern wing in 1871.", "cites": [{ "source": "src-wp-vishrambaug" }] },
+          { "kind": "evidence", "text": "It is owned by the Pune Municipal Corporation and houses a post office and a small museum.", "cites": [{ "source": "src-wp-vishrambaug" }] }
+        ]
+      },
+      "location": { "lat": 18.52028, "lng": 73.85667, "status": "verified", "source": "src-wp-vishrambaug", "note": "From the cited page; checked by the publisher on 2026-10-31." },
+      "media": [],
+      "related": ["ev-1807-vishrambaug", "ev-1821-deccan-college", "wada"],
+      "review": { "state": "reviewed", "draftedOn": "2026-10-31", "draftedWith": "AI-assisted summary of the listed sources", "lastReviewed": "2026-10-31", "reviewer": "OverTime Labs" }
+    },
+    {
+      "id": "kasba-ganapati",
+      "type": "place",
+      "categories": ["place", "festival"],
+      "status": "verified",
+      "era": "swarajya",
+      "timeline": false,
+      "date": null,
+      "title": { "en": "Kasba Ganapati" },
+      "summary": { "en": "The Ganapati temple regarded as Pune's presiding deity and the first of the 'manache' Ganapatis in the festival procession." },
+      "body": {
+        "en": [
+          { "kind": "evidence", "text": "The temple is regarded as the presiding deity (gramadevata) of Pune and as the first 'manache' Ganapati, which leads the festival immersion.", "cites": [{ "source": "src-wp-kasba-ganapati" }] },
+          { "kind": "tradition", "text": "Its origin is linked to Jijabai: after Dadoji Konddeo reported finding an image, she is said to have commissioned the temple around the time she came to Pune with the young Shivaji. Some details, such as the image once being tiny, are told without any cited source.", "cites": [{ "source": "src-wp-kasba-ganapati" }] },
+          { "kind": "note", "text": "No construction date has been found in a citable source.", "cites": [] }
+        ]
+      },
+      "location": { "lat": 18.51889, "lng": 73.85694, "status": "verified", "source": "src-wp-kasba-ganapati", "note": "From 18°31′08″N 73°51′25″E on the cited page; checked by the publisher on 2026-10-31." },
+      "media": [],
+      "related": ["ev-ganeshotsav-origins", "lal-mahal", "ev-1630-razing"],
+      "review": { "state": "reviewed", "draftedOn": "2026-10-31", "draftedWith": "AI-assisted summary of the listed sources", "lastReviewed": "2026-10-31", "reviewer": "OverTime Labs" }
+    },
+    {
+      "id": "shinde-chhatri",
+      "type": "place",
+      "categories": ["place"],
+      "status": "verified",
+      "era": "peshwa",
+      "timeline": false,
+      "date": null,
+      "title": { "en": "Shinde Chhatri" },
+      "summary": { "en": "The memorial at Wanwadi marking where Mahadji Shinde was cremated in 1794, with a samadhi added in 1910." },
+      "body": {
+        "en": [
+          { "kind": "evidence", "text": "Mahadji Shinde built a Shiva temple here and his last rites were performed on the grounds in 1794. The samadhi at the cremation spot was built in 1910 for Maharaja Madho Rao Scindia of Gwalior.", "cites": [{ "source": "src-wp-shinde-chhatri" }, { "source": "src-moledina-1953" }] }
+        ]
+      },
+      "location": null,
+      "locationNote": { "en": "No coordinates have been taken from a citable source yet." },
+      "media": [],
+      "related": ["ev-1794-mahadji"],
+      "review": { "state": "reviewed", "draftedOn": "2026-10-31", "draftedWith": "AI-assisted summary of the listed sources", "lastReviewed": "2026-10-31", "reviewer": "OverTime Labs" }
+    },
+    {
+      "id": "kelkar-museum",
+      "type": "place",
+      "categories": ["place", "institution"],
+      "status": "verified",
+      "era": "modern",
+      "timeline": false,
+      "date": null,
+      "title": { "en": "Raja Dinkar Kelkar Museum" },
+      "summary": { "en": "A museum of everyday and decorative objects built from the private collection of Dr Dinkar G. Kelkar, who gave it to the Government of Maharashtra in 1992." },
+      "body": {
+        "en": [
+          { "kind": "evidence", "text": "Dr Dinkar G. Kelkar (1896–1990) began collecting around 1920. The museum is given as established in 1962, and the collection was donated to the Government of Maharashtra in 1992.", "cites": [{ "source": "src-wp-kelkar-museum" }] },
+          { "kind": "evidence", "text": "It holds more than 20,000 objects, including musical instruments, sculpture, weapons, vessels and ornaments, of which about 2,500 are on display.", "cites": [{ "source": "src-wp-kelkar-museum" }] }
+        ]
+      },
+      "location": null,
+      "locationNote": { "en": "No coordinates have been taken from a citable source yet." },
+      "media": [],
+      "related": [],
+      "review": { "state": "reviewed", "draftedOn": "2026-10-31", "draftedWith": "AI-assisted summary of the listed sources", "lastReviewed": "2026-10-31", "reviewer": "OverTime Labs" }
+    },
+    {
+      "id": "fergusson-college",
+      "type": "place",
+      "categories": ["place", "institution"],
+      "status": "verified",
+      "era": "colonial",
+      "timeline": false,
+      "date": null,
+      "title": { "en": "Fergusson College" },
+      "summary": { "en": "Founded in 1885 by the Deccan Education Society and named after a Governor of Bombay." },
+      "body": {
+        "en": [
+          { "kind": "evidence", "text": "Established in 1885 by the Deccan Education Society, which had been formed the year before, and named after Sir James Fergusson, Governor of Bombay.", "cites": [{ "source": "src-wp-fergusson" }, { "source": "src-karve-1961", "pages": "pp. 205–212" }] }
+        ]
+      },
+      "location": { "lat": 18.523969, "lng": 73.839219, "status": "verified", "source": "src-wp-fergusson", "note": "From the cited page; checked by the publisher on 2026-10-31." },
+      "media": [],
+      "related": ["ev-1885-fergusson"],
+      "review": { "state": "reviewed", "draftedOn": "2026-10-31", "draftedWith": "AI-assisted summary of the listed sources", "lastReviewed": "2026-10-31", "reviewer": "OverTime Labs" }
+    },
+    {
+      "id": "bori",
+      "type": "place",
+      "categories": ["place", "institution"],
+      "status": "verified",
+      "era": "colonial",
+      "timeline": false,
+      "date": null,
+      "title": { "en": "Bhandarkar Oriental Research Institute" },
+      "summary": { "en": "A research institute founded in 1917, known for its manuscript collection and its critical edition of the Mahabharata." },
+      "body": {
+        "en": [
+          { "kind": "evidence", "text": "Founded on 6 July 1917 in honour of R. G. Bhandarkar. It received the Government of Bombay's manuscript collection in 1918 and completed its critical edition of the Mahabharata in 1966.", "cites": [{ "source": "src-bori-history" }] },
+          { "kind": "evidence", "text": "It stands at 812 Chiplunkar Road (Law College Road), Shivajinagar.", "cites": [{ "source": "src-wp-bori" }] }
+        ]
+      },
+      "location": { "lat": 18.51953, "lng": 73.82996, "status": "verified", "source": "src-wp-bori", "note": "From the cited page; checked by the publisher on 2026-10-31." },
+      "media": [],
+      "related": ["ev-1917-bori"],
+      "review": { "state": "reviewed", "draftedOn": "2026-10-31", "draftedWith": "AI-assisted summary of the listed sources", "lastReviewed": "2026-10-31", "reviewer": "OverTime Labs" }
+    },
+    {
+      "id": "bism",
+      "type": "place",
+      "categories": ["place", "institution"],
+      "status": "verified",
+      "era": "colonial",
+      "timeline": false,
+      "date": null,
+      "title": { "en": "Bharat Itihas Sanshodhak Mandal" },
+      "summary": { "en": "A historical research society in Sadashiv Peth, founded in 1910, holding large collections of documents in Marathi, Modi, Persian and other languages." },
+      "body": {
+        "en": [
+          { "kind": "evidence", "text": "Founded on 7 July 1910 by V. K. Rajwade and Sardar K. C. Mehendale. Its collections include historical papers in Marathi, Modi, Persian, Portuguese and English, together with coins, paintings and books.", "cites": [{ "source": "src-wp-bism" }, { "source": "src-ht-2021-bism" }] },
+          { "kind": "note", "text": "PunePedia treats the Mandal's archives as a research direction: documents there still have to be read and cited individually.", "cites": [] }
+        ]
+      },
+      "location": { "lat": 18.5109782, "lng": 73.8499803, "status": "verified", "source": "src-wp-bism", "note": "From the cited page; checked by the publisher on 2026-10-31." },
+      "media": [],
+      "related": ["ev-1910-bism"],
+      "review": { "state": "reviewed", "draftedOn": "2026-10-31", "draftedWith": "AI-assisted summary of the listed sources", "lastReviewed": "2026-10-31", "reviewer": "OverTime Labs" }
+    },
+    {
+      "id": "deccan-college",
+      "type": "place",
+      "categories": ["place", "institution"],
+      "status": "verified",
+      "era": "colonial",
+      "timeline": false,
+      "date": null,
+      "title": { "en": "Deccan College" },
+      "summary": { "en": "Founded in 1821 as the Hindoo College; now the Deccan College Post-Graduate and Research Institute, on a campus between Khadki and Yerwada." },
+      "body": {
+        "en": [
+          { "kind": "evidence", "text": "Established on 6 October 1821 as the Hindoo College, also called the Poona Sanskrit College, under Mountstuart Elphinstone and funded from the former Peshwa's Dakshina fund.", "cites": [{ "source": "src-wp-deccan-college" }, { "source": "src-deccan-college-site-2017" }] },
+          { "kind": "context", "text": "The college is described as moving from Vishrambaug Wada to its present Gothic-style building in 1868. That passage is not footnoted on the page consulted.", "cites": [{ "source": "src-wp-deccan-college" }, { "source": "src-frazer-1902" }] }
+        ]
+      },
+      "location": null,
+      "locationNote": { "en": "No coordinates have been taken from a citable source yet." },
+      "media": [],
+      "related": ["ev-1821-deccan-college", "vishrambaug-wada"],
+      "review": { "state": "reviewed", "draftedOn": "2026-10-31", "draftedWith": "AI-assisted summary of the listed sources", "lastReviewed": "2026-10-31", "reviewer": "OverTime Labs" }
+    },
+    {
+      "id": "bhide-wada",
+      "type": "place",
+      "categories": ["place"],
+      "status": "verified",
+      "era": "colonial",
+      "timeline": false,
+      "date": null,
+      "title": { "en": "Bhide Wada" },
+      "summary": { "en": "The Budhwar Peth building where the Phules opened a girls' school in 1848; the site was acquired in 2023 for a national memorial." },
+      "body": {
+        "en": [
+          { "kind": "evidence", "text": "Jyotirao and Savitribai Phule opened a girls' school here in 1848.", "cites": [{ "source": "src-leaflet-2023-bhidewada" }] },
+          { "kind": "evidence", "text": "After about twelve years of litigation, the courts allowed the Pune Municipal Corporation to acquire 327 square metres of land here for a national memorial in 2023.", "cites": [{ "source": "src-leaflet-2023-bhidewada" }] }
+        ]
+      },
+      "location": null,
+      "locationNote": { "en": "No coordinates have been taken from a citable source yet." },
+      "media": [],
+      "related": ["ev-1848-girls-school", "phules"],
+      "review": { "state": "reviewed", "draftedOn": "2026-10-31", "draftedWith": "AI-assisted summary of the listed sources", "lastReviewed": "2026-10-31", "reviewer": "OverTime Labs" }
+    },
+    {
+      "id": "yerwada-jail",
+      "type": "place",
+      "categories": ["place"],
+      "status": "verified",
+      "era": "colonial",
+      "timeline": false,
+      "date": null,
+      "title": { "en": "Yerwada Central Jail" },
+      "summary": { "en": "The prison where Gandhi fasted in September 1932 and where the Poona Pact was signed." },
+      "body": {
+        "en": [
+          { "kind": "evidence", "text": "Gandhi was jailed here from January 1932, began a fast here on 20 September 1932, and the Poona Pact was signed here on 24 September 1932.", "cites": [{ "source": "src-wp-yerwada-jail" }, { "source": "src-wp-poona-pact" }] },
+          { "kind": "note", "text": "The construction year commonly given (1871) rests only on a newspaper and a city website in the source consulted.", "cites": [] }
+        ]
+      },
+      "location": null,
+      "locationNote": { "en": "No coordinates have been taken from a citable source yet." },
+      "media": [],
+      "related": ["ev-1932-poona-pact"],
+      "review": { "state": "reviewed", "draftedOn": "2026-10-31", "draftedWith": "AI-assisted summary of the listed sources", "lastReviewed": "2026-10-31", "reviewer": "OverTime Labs" }
+    },
+    {
+      "id": "panshet-dam",
+      "type": "place",
+      "categories": ["place"],
+      "status": "verified",
+      "era": "modern",
+      "timeline": false,
+      "date": null,
+      "title": { "en": "Panshet dam" },
+      "summary": { "en": "The earthen dam upstream of Pune whose failure on 12 July 1961 flooded the city." },
+      "body": {
+        "en": [
+          { "kind": "evidence", "text": "The dam failed on 12 July 1961, in its first year of storing water, and the resulting flood caused heavy damage in Pune.", "cites": [{ "source": "src-wp-panshet" }] }
+        ]
+      },
+      "location": { "lat": 18.37972, "lng": 73.61111, "status": "verified", "source": "src-wp-panshet", "note": "From the cited page; checked by the publisher on 2026-10-31. Outside city limits." },
+      "media": [],
+      "related": ["ev-1961-panshet"],
+      "review": { "state": "reviewed", "draftedOn": "2026-10-31", "draftedWith": "AI-assisted summary of the listed sources", "lastReviewed": "2026-10-31", "reviewer": "OverTime Labs" }
+    }
+  ]
+}
