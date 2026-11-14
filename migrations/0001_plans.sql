@@ -10,3 +10,4 @@ CREATE INDEX IF NOT EXISTS plans_status_date ON plans (status, date);
 CREATE TABLE IF NOT EXISTS rate (ip_hash TEXT NOT NULL, hour INTEGER NOT NULL, n INTEGER NOT NULL, PRIMARY KEY (ip_hash, hour));
 CREATE TABLE IF NOT EXISTS reports (plan_id TEXT NOT NULL, ip_hash TEXT NOT NULL, created_at INTEGER NOT NULL, PRIMARY KEY (plan_id, ip_hash));
 CREATE TABLE IF NOT EXISTS going (plan_id TEXT NOT NULL, ip_hash TEXT NOT NULL, created_at INTEGER NOT NULL, PRIMARY KEY (plan_id, ip_hash));
+CREATE TABLE IF NOT EXISTS images (plan_id TEXT PRIMARY KEY, type TEXT NOT NULL, bytes BLOB NOT NULL);

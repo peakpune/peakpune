@@ -1,12 +1,12 @@
 // Plan posting API. Pure handlers: (request, env, now) -> Response. Cloudflare Pages Functions wrap them.
-// env.DB = D1, env.IMAGES = R2 (optional), env.HASH_SALT, env.ADMIN_EMAIL, env.ACCESS_TEAM_DOMAIN, env.ACCESS_AUD.
+// env.DB = D1 (plans, and sanitized images as blobs, so no R2 and no extra cost), env.HASH_SALT, env.ADMIN_EMAIL, env.ACCESS_TEAM_DOMAIN, env.ACCESS_AUD.
 // No personal contact is collected. IPs are stored only as salted hashes.
 import { validatePlan } from '../../src/plan-submission.js';
 import { checkLimits, RATE_LIMIT_PER_HOUR } from '../../src/abuse-guard.js';
-import { sanitizeImage, MAX_BYTES } from '../../src/image-sanitize.js';
+import { sanitizeImage } from '../../src/image-sanitize.js';
 
-const MAX_BODY = MAX_BYTES + 64 * 1024;
-const REPORTS_TO_HIDE = 3;
+export const IMAGE_MAX_BYTES = 1024 * 1024; // D1 rows are capped at 2 MB
+const MAX_BODY = IMAGE_MAX_BYTES + 64 * 1024;
 const json = (obj, status = 200, extra = {}) => new Response(JSON.stringify(obj), { status, headers: { 'content-type': 'application/json', 'cache-control': 'no-store', ...extra } });
 const todayIST = (now) => new Date(now.getTime() + 5.5 * 3600e3).toISOString().slice(0, 10);
 const hex = (buf) => [...new Uint8Array(buf)].map((x) => x.toString(16).padStart(2, '0')).join('');
@@ -62,24 +62,23 @@ export async function submitPlan(request, env, now = new Date()) {
     if (r.errors) return json({ error: r.errors.join(', ') }, r.status);
     return r.status === 200 ? json({ ok: true, pending: true }) : json({ error: r.error }, r.status); // honeypot / too fast: fake success, nothing stored
   }
-  let image_key = '';
+  const p = r.plan, id = newId();
+  let image = null;
   if (file) {
-    if (!env.IMAGES) return json({ error: 'images are not enabled yet' }, 400);
+    if (file.size > IMAGE_MAX_BYTES) return json({ error: 'image too large (max 1 MB)' }, 400);
     const clean = sanitizeImage(new Uint8Array(await file.arrayBuffer()));
     if (!clean.ok) return json({ error: 'image rejected: ' + clean.reason }, 400);
-    const id = newId();
-    image_key = `${id}.${clean.type === 'jpeg' ? 'jpg' : clean.type}`;
-    await env.IMAGES.put(image_key, clean.bytes, { httpMetadata: { contentType: 'image/' + clean.type } });
+    image = clean;
   }
-  const p = r.plan;
   await env.DB.prepare('INSERT INTO plans (id, title, date, time, area, venue, link, image_key, status, created_at, ip_hash) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)')
-    .bind(newId(), p.title, p.date, p.time, p.area, p.venue, p.link, image_key, 'pending', now.getTime(), hash).run();
+    .bind(id, p.title, p.date, p.time, p.area, p.venue, p.link, image ? image.type : '', 'pending', now.getTime(), hash).run();
+  if (image) await env.DB.prepare('INSERT INTO images (plan_id, type, bytes) VALUES (?, ?, ?)').bind(id, image.type, image.bytes).run();
   return json({ ok: true, pending: true });
 }
 
 export async function listPlans(request, env, now = new Date()) {
   if (!env.DB) return json({ plans: [] });
-  const rows = (await env.DB.prepare("SELECT p.id, p.title, p.date, p.time, p.area, p.venue, p.link, p.image_key, (SELECT COUNT(*) FROM going g WHERE g.plan_id = p.id) AS g FROM plans p WHERE p.status = 'approved' AND p.date >= ? AND (SELECT COUNT(*) FROM reports r WHERE r.plan_id = p.id) < ? ORDER BY p.date, p.time LIMIT 100").bind(todayIST(now), REPORTS_TO_HIDE).all()).results;
+  const rows = (await env.DB.prepare("SELECT p.id, p.title, p.date, p.time, p.area, p.venue, p.link, p.image_key, (SELECT COUNT(*) FROM going g WHERE g.plan_id = p.id) AS g FROM plans p WHERE p.status = 'approved' AND p.date >= ? ORDER BY p.date, p.time LIMIT 100").bind(todayIST(now)).all()).results;
   return json({ plans: rows.map((x) => ({ id: x.id, title: x.title, date: x.date, time: x.time, area: x.area, venue: x.venue, link: x.link, image: x.image_key ? `/api/image/${x.id}` : '', going: goingLabel(x.g), note: 'Community-posted, not organiser-confirmed' })) }, 200, { 'cache-control': 'public, max-age=60' });
 }
 
@@ -108,13 +107,14 @@ export async function reportPlan(request, env, now = new Date()) {
   return json({ ok: true });
 }
 
-export async function publicImage(request, env, id) {
-  if (!env.DB || !env.IMAGES) return new Response('not found', { status: 404 });
-  const row = await env.DB.prepare("SELECT image_key FROM plans WHERE id = ? AND status = 'approved' AND image_key != ''").bind(String(id)).first();
+async function imageResponse(env, sql, id, cache) {
+  const row = await env.DB.prepare(sql).bind(String(id)).first();
   if (!row) return new Response('not found', { status: 404 });
-  const obj = await env.IMAGES.get(row.image_key);
-  if (!obj) return new Response('not found', { status: 404 });
-  return new Response(obj.body ?? obj.bytes, { headers: { 'content-type': obj.httpMetadata?.contentType || 'application/octet-stream', 'x-content-type-options': 'nosniff', 'content-security-policy': "default-src 'none'", 'cache-control': 'public, max-age=3600' } });
+  return new Response(new Uint8Array(row.bytes), { headers: { 'content-type': 'image/' + row.type, 'x-content-type-options': 'nosniff', 'content-security-policy': "default-src 'none'", 'cache-control': cache } });
+}
+export async function publicImage(request, env, id) {
+  if (!env.DB) return new Response('not found', { status: 404 });
+  return imageResponse(env, "SELECT i.bytes, i.type FROM images i JOIN plans p ON p.id = i.plan_id WHERE p.id = ? AND p.status = 'approved'", id, 'public, max-age=3600');
 }
 
 // ---- Admin (behind Cloudflare Access). Fails closed unless a valid Access JWT for ADMIN_EMAIL is present. ----
@@ -154,9 +154,5 @@ export async function adminDecide(request, env, now, fetchKeys) {
 }
 export async function adminImage(request, env, now, fetchKeys) {
   if (!(await isAdmin(request, env, now, fetchKeys))) return new Response('forbidden', { status: 403 });
-  const id = new URL(request.url).searchParams.get('id');
-  const row = await env.DB.prepare("SELECT image_key FROM plans WHERE id = ? AND image_key != ''").bind(String(id)).first();
-  const obj = row && env.IMAGES ? await env.IMAGES.get(row.image_key) : null;
-  if (!obj) return new Response('not found', { status: 404 });
-  return new Response(obj.body ?? obj.bytes, { headers: { 'content-type': obj.httpMetadata?.contentType || 'application/octet-stream', 'x-content-type-options': 'nosniff', 'content-security-policy': "default-src 'none'", 'cache-control': 'no-store' } });
+  return imageResponse(env, 'SELECT bytes, type FROM images WHERE plan_id = ?', new URL(request.url).searchParams.get('id'), 'no-store');
 }

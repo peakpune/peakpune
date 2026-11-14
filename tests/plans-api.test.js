@@ -12,14 +12,12 @@ function makeDB() {
   db.exec(readFileSync(new URL('../migrations/0001_plans.sql', import.meta.url), 'utf8'));
   const stmt = (sql, args = []) => ({
     bind: (...a) => stmt(sql, a),
-    run: async () => { const r = db.prepare(sql).run(...args); return { meta: { changes: Number(r.changes) } }; },
+    run: async () => { const r = db.prepare(sql).run(...args.map(x => x instanceof ArrayBuffer ? new Uint8Array(x) : x)); return { meta: { changes: Number(r.changes) } }; },
     first: async () => db.prepare(sql).get(...args) ?? null,
     all: async () => ({ results: db.prepare(sql).all(...args) }),
   });
   return { prepare: (sql) => stmt(sql), raw: db };
 }
-const makeR2 = () => { const m = new Map(); return { m, put: async (k, v, o) => m.set(k, { bytes: v, httpMetadata: o.httpMetadata }), get: async (k) => m.get(k) ?? null }; };
-
 const NOW = new Date('2026-11-14T10:00:00Z');
 const key = await webcrypto.subtle.generateKey({ name: 'RSASSA-PKCS1-v1_5', modulusLength: 2048, publicExponent: new Uint8Array([1, 0, 1]), hash: 'SHA-256' }, true, ['sign', 'verify']);
 const jwk = { ...(await webcrypto.subtle.exportKey('jwk', key.publicKey)), kid: 'k1' };
@@ -117,14 +115,12 @@ test('admin decide rejects form posts and cross-origin', async () => {
   assert.equal((await api.adminDecide(form, env, NOW, fetchKeys)).status, 403);
   assert.equal((await decide(env, p.id, 'approve', undefined, { ...h, origin: 'https://evil.test' })).status, 403);
 });
-test('reports: 3 distinct reporters hide a plan and put it back in the owner queue; approving clears them', async () => {
+test('reports go to the private owner queue only; they never hide a plan automatically', async () => {
   const env = mkEnv(); await submit(env); const [p] = await pending(env); await decide(env, p.id, 'approve');
-  for (const ip of ['3.3.3.3', '4.4.4.4', '4.4.4.4']) await api.reportPlan(post('/api/report', { plan_id: p.id }, { ip }), env, NOW);
+  for (const ip of ['3.3.3.3', '4.4.4.4', '4.4.4.4', '5.5.5.5', '6.6.6.6']) await api.reportPlan(post('/api/report', { plan_id: p.id }, { ip }), env, NOW);
   assert.equal((await list(env)).length, 1);
-  await api.reportPlan(post('/api/report', { plan_id: p.id }, { ip: '5.5.5.5' }), env, NOW);
-  assert.equal((await list(env)).length, 0);
-  assert.equal((await pending(env))[0].reports, 3);
-  await decide(env, p.id, 'approve'); assert.equal((await list(env)).length, 1);
+  const q = await pending(env); assert.equal(q[0].reports, 4);
+  await decide(env, p.id, 'reject'); assert.equal((await list(env)).length, 0);
 });
 test('report of unapproved/unknown plan is 404', async () => {
   const env = mkEnv(); await submit(env); const [p] = await pending(env);
@@ -150,9 +146,9 @@ function multipart(fields, file, ip = '1.1.1.1') {
 test('image: metadata is stripped server-side, stored privately, served only after approval', async () => {
   const bytes = Buffer.from(FIX.jpg, 'base64');
   assert.ok(bytes.includes(Buffer.from('Exif')));
-  const env = mkEnv({ IMAGES: makeR2() });
+  const env = mkEnv();
   const r = await api.submitPlan(multipart(PLAN, { bytes, type: 'image/jpeg', ext: 'jpg' }), env, NOW); assert.equal(r.status, 200);
-  const stored = [...env.IMAGES.m.values()][0].bytes; assert.ok(!Buffer.from(stored).includes(Buffer.from('Exif')));
+  const stored = env.DB.raw.prepare('SELECT bytes FROM images').get().bytes; assert.ok(!Buffer.from(stored).includes(Buffer.from('Exif')));
   const [p] = await pending(env);
   assert.match(p.image, /^\/api\/admin\/image/);
   assert.equal((await api.adminImage(get(p.image), env, NOW, fetchKeys)).status, 403);
@@ -162,13 +158,11 @@ test('image: metadata is stripped server-side, stored privately, served only aft
   const img = await api.publicImage(get('/x'), env, p.id); assert.equal(img.status, 200);
   assert.equal(img.headers.get('x-content-type-options'), 'nosniff');
 });
-test('image: junk, wrong type, oversize rejected; no bucket means images refused, not silently dropped', async () => {
-  const env = mkEnv({ IMAGES: makeR2() });
+test('image: junk, wrong type, oversize rejected, nothing stored', async () => {
+  const env = mkEnv();
   assert.equal((await api.submitPlan(multipart(PLAN, { bytes: Buffer.from('<svg onload=alert(1)>'.padEnd(40)), type: 'image/svg+xml', ext: 'svg' }), env, NOW)).status, 400);
-  assert.equal((await api.submitPlan(multipart(PLAN, { bytes: Buffer.alloc(3 * 1024 * 1024, 1), type: 'image/jpeg', ext: 'jpg' }), env, NOW)).status, 400);
-  assert.equal(env.IMAGES.m.size, 0); assert.equal((await pending(env)).length, 0);
-  const noBucket = mkEnv();
-  assert.equal((await api.submitPlan(multipart(PLAN, { bytes: Buffer.from(FIX.jpg, 'base64'), type: 'image/jpeg', ext: 'jpg' }), noBucket, NOW)).status, 400);
+  assert.equal((await api.submitPlan(multipart(PLAN, { bytes: Buffer.alloc(1100 * 1024, 1), type: 'image/jpeg', ext: 'jpg' }), env, NOW)).status, 400);
+  assert.equal(env.DB.raw.prepare('SELECT COUNT(*) c FROM images').get().c, 0); assert.equal((await pending(env)).length, 0);
 });
 test('IPs are stored only as salted hashes', async () => {
   const env = mkEnv(); await submit(env, PLAN, { ip: '203.0.113.7' });
