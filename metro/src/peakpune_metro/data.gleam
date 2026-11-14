@@ -303,6 +303,7 @@ pub fn network() -> types.Network {
     ],
     maha_whatsapp: Some("https://wa.me/9420101990"),
     pink_whatsapp: None,
+    pink_whatsapp_shared: Some("https://wa.me/9420101990"),
     maha_fare_chart_url: "https://www.punemetrorail.org/fare_chart.aspx",
     pink_fare_chart_url: "https://punerimetro.in/passenger-info/fare-table",
   )
