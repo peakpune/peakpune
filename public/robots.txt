@@ -1,2 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /backend
+
+Sitemap: https://peakpune.com/sitemap.xml
