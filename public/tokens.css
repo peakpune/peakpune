@@ -242,3 +242,4 @@ a.category:nth-child(4n+1){color:#fff}a.category:hover{outline:4px solid var(--r
 .now-cell.tone-unhealthy{background:var(--brick);color:#fff}
 .now-cell.tone-unhealthy h3,.now-cell.tone-unhealthy .note{color:#fff}
 .now .note a{color:var(--brick)}
+.card .chips .chip{white-space:normal;text-align:center;padding-top:var(--s1);padding-bottom:var(--s1)}

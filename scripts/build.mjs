@@ -32,7 +32,7 @@ const known = (v) => v && v !== 'UNKNOWN';
 export const slugOf = (row) => row.id.replace(/^place-/, '');
 const clip = (s, n) => (s.length <= n ? s : s.slice(0, n - 1).replace(/\s+\S*$/, '') + '…');
 
-const NAV = [['/', 'Explore'], ['/places/', 'Places'], ['/outdoors/', 'Outdoors'], ['/events/', 'Events'], ['/meetups/', 'Meetups'], ['/moments/', 'Moments'], ['/PuneMetroguide/', 'Metro']];
+const NAV = [['/', 'Explore'], ['/places/', 'Places'], ['/history/', 'History'], ['/markets/', 'Markets'], ['/outdoors/', 'Outdoors'], ['/events/', 'Events'], ['/meetups/', 'Meetups'], ['/moments/', 'Moments'], ['/PuneMetroguide/', 'Metro']];
 const TYPE_LABEL = { museum: 'Museums', heritage: 'Heritage and history', temple: 'Temples', bookstore: 'Bookstores', gallery: 'Galleries', 'cultural-centre': 'Cultural centres', archive: 'Archives', cafe: 'Cafes', restaurant: 'Restaurants', bar: 'Bars and brewpubs', sweets: 'Sweets and snacks', park: 'Parks and gardens', zoo: 'Zoo' };
 const TYPE_SINGULAR = { museum: 'Museum', heritage: 'Heritage site', temple: 'Temple', bookstore: 'Bookstore', gallery: 'Art gallery', 'cultural-centre': 'Cultural centre', archive: 'Archive', cafe: 'Cafe', restaurant: 'Restaurant', bar: 'Bar and brewpub', sweets: 'Sweet shop', park: 'Park', zoo: 'Zoo' };
 const SCHEMA_TYPE = { museum: 'Museum', heritage: 'LandmarksOrHistoricalBuildings', temple: 'HinduTemple', bookstore: 'BookStore', gallery: 'ArtGallery', 'cultural-centre': 'Place', archive: 'ArchiveOrganization', cafe: 'CafeOrCoffeeShop', restaurant: 'Restaurant', bar: 'BarOrPub', sweets: 'FoodEstablishment', park: 'Park', zoo: 'Zoo' };
@@ -86,7 +86,7 @@ ${cta}
 </main>
 <footer class="site-footer"><div class="wrap">
 <div class="foot-brand"><a class="wordmark" href="/">${mark}Peak <span>Pune</span></a><p>Everything Pune, in one scroll. Made in Pune, for Pune. Not affiliated with any other city's peak.</p><p class="hash">#PeakPune · #OnlyInPune</p></div>
-<nav aria-label="Sections"><h2>Explore</h2><a href="/places/">Places</a><a href="/outdoors/">Runs and treks</a><a href="/events/">Events</a><a href="/meetups/">Meetups</a><a href="/moments/">Moments</a><a href="/PuneMetroguide/">Pune Metro guide</a></nav>
+<nav aria-label="Sections"><h2>Explore</h2><a href="/places/">Places</a><a href="/history/">History</a><a href="/markets/">Markets</a><a href="/outdoors/">Runs and treks</a><a href="/events/">Events</a><a href="/meetups/">Meetups</a><a href="/moments/">Moments</a><a href="/PuneMetroguide/">Pune Metro guide</a></nav>
 <nav aria-label="Powered by"><h2>Powered by</h2><a href="https://punerunners.com/" target="_blank" rel="noopener">PuneRunners.com</a><a href="https://punetrekkers.org/" target="_blank" rel="noopener">PuneTrekkers.org</a><a href="https://karawaan.in/" target="_blank" rel="noopener">karawaan.in</a><a href="/powered-by/">About these links</a></nav>
 <p class="fine">Place and route details are sourced and dated. Event plans are platform listings, not organiser-confirmed. Map data © OpenStreetMap contributors.</p>
 </div></footer>
@@ -283,7 +283,22 @@ function momentsBlock(rows) {
   return rows.map((m) => `<a class="card place-card" href="/${m.linked_id.startsWith('place-') ? 'places/' + m.linked_id.replace(/^place-/, '') : 'outdoors/' + m.linked_id.replace(/^run-(trek-)?/, '')}/"><div class="inner"><span class="eyebrow">${esc(m.best_time)}</span><h3>${esc(m.caption)}</h3><p class="note">${esc(m.name)} · ${esc(m.season)}</p></div></a>`).join('');
 }
 
+const ERA_LABELS = { ancient: ['Ancient Pune', 'प्राचीन काळ'], bhosale: ['The Bhosale era', 'भोसल्यांचा काळ'], peshwa: ['The Peshwa era', 'पेशवेकाळ'], british: ['British Pune', 'ब्रिटिश काळ'], modern: ['Modern Pune', 'आधुनिक काळ'] };
+const srcChips = (sources) => `<nav class="chips" aria-label="Sources">${sources.map((s) => { const u = safeUrl(s.url); return u ? `<a class="chip" href="${esc(u)}" target="_blank" rel="noopener noreferrer">${esc(s.label)}</a>` : ''; }).join('')}</nav>`;
+function historyBlock(rows) {
+  if (!rows.length) return '<p class="note">No history entries are published yet.</p>';
+  return Object.keys(ERA_LABELS).map((era) => {
+    const rs = rows.filter((r) => r.era === era);
+    if (!rs.length) return '';
+    return `<section class="section" id="${era}"><div class="section-head"><h2>${ERA_LABELS[era][0]}</h2><p lang="mr">${ERA_LABELS[era][1]}</p></div><div class="grid">${rs.map((r) => `<article class="card"><div class="inner"><span class="eyebrow">${esc(r.date_label)}</span><h3>${esc(r.title_en)}</h3><p lang="mr"><strong>${esc(r.title_mr)}</strong></p><p>${esc(r.summary_en)}</p><p lang="mr" class="note">${esc(r.summary_mr)}</p>${srcChips(r.sources)}</div></article>`).join('')}</div></section>`;
+  }).join('');
+}
+const shopCard = (s) => `<article class="card"><div class="inner"><span class="eyebrow">${esc(s.area)}${s.since ? ` · since ${esc(s.since)}` : ''}</span><h3>${esc(s.name)}</h3><p><strong>${esc(s.known_for)}</strong></p><p class="note">${esc(s.note)}</p>${srcChips(s.sources)}</div></article>`;
+const areaCard = (a) => `<article class="card"><div class="inner"><span class="eyebrow">${esc(a.area)}</span><h3>${esc(a.name)}</h3><p><strong>Best for: ${esc(a.best_for)}</strong></p><p>${esc(a.known_for)}</p><p class="note">${esc(a.notes)}</p>${srcChips(a.sources)}</div></article>`;
+
 const STATIC = [
+  { file: 'history', path: '/history/', fill: 'history', title: 'History of Pune: a sourced timeline in English and Marathi | Peak Pune', description: 'A starter timeline of Pune, from stone tools on the Mutha to the modern city. Every entry is checked against a named source and written in English and Marathi.', crumbs: [['History', '/history/']] },
+  { file: 'markets', path: '/markets/', fill: 'markets', title: 'Where Pune shops: market areas and standout shops | Peak Pune', description: 'Pune shopping areas from Laxmi Road to FC Road, plus standout retail houses and food institutions, each with sources checked on 14 November 2026.', crumbs: [['Markets', '/markets/']] },
   { file: 'meetups', path: '/meetups/', fill: 'meetups', title: 'Meetups in Pune: run clubs, book clubs, tech and board games | Peak Pune', description: 'Find your people in Pune: runners, readers, coders, board gamers and trekkers, with verified joining links.', crumbs: [['Meetups', '/meetups/']] },
   { file: 'moments', path: '/moments/', fill: 'moments', title: 'Peak Pune Moments | Peak Pune', description: 'Genuine Pune moments will appear here after review. Reader submissions are not open yet.', crumbs: [['Moments', '/moments/']] },
   { file: 'powered-by', path: '/powered-by/', title: 'Powered by PuneRunners, Pune Trekkers and Karawaan | Peak Pune', description: 'The three Pune groups behind Peak Pune runs, treks and trips: PuneRunners Club, Pune Trekkers and Karawaan. What each does and where to join.', crumbs: [['Powered by', '/powered-by/']] },
@@ -300,6 +315,8 @@ export function build({ outDir = join(root, 'public'), log = () => {}, dryRun = 
   for (const p of STATIC) {
     let main = read(`site/pages/${p.file}.html`);
     if (p.fill === 'meetups') main = main.replace('<!--MEETUPS-->', meetupsBlock(publishRows(JSON.parse(read('data/batch-4-meetups/meetups.json')))));
+    if (p.fill === 'history') main = main.replace('<!--HISTORY-->', historyBlock(publishRows(JSON.parse(read('data/batch-6-history/history.json')))));
+    if (p.fill === 'markets') { const m = JSON.parse(read('data/batch-7-shopping/shopping.json')); main = main.replace('<!--AREAS-->', publishRows(m.areas).map(areaCard).join('')).replace('<!--RETAIL-->', publishRows(m.shops).filter((s) => s.category === 'retail').map(shopCard).join('')).replace('<!--FOOD-->', publishRows(m.shops).filter((s) => s.category === 'food').map(shopCard).join('')); }
     if (p.fill === 'moments') main = main.replace('<!--MOMENTS-->', momentsBlock(publishRows(JSON.parse(read('data/batch-5-moments-reference/moments.json')))));
     out(p.path, page({ ...p, main, ld: [{ '@type': 'WebPage', '@id': SITE_URL + p.path, url: SITE_URL + p.path, name: p.title, description: p.description, isPartOf: { '@id': `${SITE_URL}/#site` } }] }));
     urls.push([p.path, null]);
