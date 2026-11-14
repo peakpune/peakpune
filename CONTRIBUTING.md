@@ -19,17 +19,25 @@ the owner to review and merge.
 
 ## Where things live
 
-- `public/index.html` and `public/app.js`: the page and its views.
-- `public/tokens.css`: the single stylesheet (colours, type, layout).
-- `src/client/`: strict TypeScript validation, dates and sharing. `public/lib/` is generated.
-- `src/components/Plans.svelte` and `PlanCard.svelte`: existing plans UI, weekend filter and sharing.
-- `src/pages/` and `src/layouts/`: Astro static routes and shared layout.
-- `public/plans.js`: legacy renderer reference only; deployed Astro pages do not load it.
-- `public/data/plans.json`: a reviewed, time-limited snapshot. Do not hand-edit it. To
-  refresh it, follow `docs/PLANS.md`, and only with the owner's go-ahead.
-- `src/abuse-guard.js`: helpers for a future submissions backend. They are not connected to
-  anything and do not protect the site today.
+The full map, including what is hand-written and what is generated, is in
+[`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md). In short:
+
+- `data/`: sourced datasets and the publication audit. Edit these for listings.
+- `site/`, `src/`, `public/tokens.css`: page fragments, TypeScript, Svelte and the single stylesheet.
+- `public/`: **generated output**, committed. Rebuild with `npm run build`; never edit generated files by hand.
+  Hand-written exceptions: `tokens.css`, `app.js`, `fonts/`, and the reviewed `data/plans.json` snapshot
+  (do not hand-edit it; follow `docs/PLANS.md` and only with the owner's go-ahead).
+- `metro/`, `data/metro/`: the Pune Metro planner and its data.
 - `tests/`: `npm test` runs all of them.
+- `peakpuneapp/`, `punepedia/`: separate Android projects, not part of the site.
+
+## Branches, commits and pull requests
+
+- Branch from `main`: `feat/…`, `fix/…`, `docs/…` or `data/…`, with a short name.
+- One idea per pull request. Small is faster to review.
+- Commit messages: a short imperative summary ("Add Kharadi to area pages"), then a line on *why* if it is not obvious.
+- Fill in the pull request template. Reviewers follow [`docs/REVIEWING.md`](docs/REVIEWING.md); generated
+  files are collapsed in the diff, so point them at the files you wrote.
 
 ## Brand kit
 

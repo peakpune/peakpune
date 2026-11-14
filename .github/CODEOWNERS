@@ -1,0 +1,6 @@
+# Review requests are sent automatically to the owner. A merge to main deploys https://peakpune.com/.
+# See docs/REVIEWING.md for what each area needs.
+*                       @verdalio
+/data/                  @verdalio
+/.github/               @verdalio
+/scripts/               @verdalio

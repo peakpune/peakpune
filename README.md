@@ -6,7 +6,9 @@
   <a href="https://peakpune.com/"><b>peakpune.com</b></a> &nbsp;·&nbsp;
   <a href="CONTRIBUTING.md">Contribute</a> &nbsp;·&nbsp;
   <a href="docs/SCOPE.md">Scope and brand</a> &nbsp;·&nbsp;
-  <a href="docs/PLANS.md">Plans data</a> &nbsp;·&nbsp;
+  <a href="docs/ARCHITECTURE.md">Architecture</a> &nbsp;·&nbsp;
+  <a href="docs/REVIEWING.md">Review a PR</a> &nbsp;·&nbsp;
+  <a href="CHANGELOG.md">Changelog</a> &nbsp;·&nbsp;
   <a href="SECURITY.md">Security</a>
 </p>
 
@@ -114,34 +116,26 @@ npm run dev       # serves public/ at http://localhost:4173
 
 ## How it is put together
 
-```text
-public/                 the site (this folder is what gets deployed)
-  index.html, app.js    home page and shared script
-  places/, outdoors/, events/, meetups/, moments/, powered-by/   generated pages
-  _astro/               generated Svelte client bundles (home and Events only)
-  plans.js              legacy renderer reference; not loaded by Astro pages
-  lib/                  generated TypeScript validation, dates and sharing
-  filters.js, share.js   compatibility exports for tests/legacy code
-  tokens.css            the single stylesheet, brand colours and type
-  data/plans.json       reviewed, time-limited snapshot of plans
-  fonts/                Fraunces and Inter, with licences
-src/
-  client/               strict TypeScript publication, snapshot, date and URL boundaries
-  components/           Svelte plans/filter/share UI
-  pages/, layouts/      Astro static routes and document layout
-  events.js             legacy ingestion validation
-  discovery.js          source parsers, offline by default
-  abuse-guard.js        dormant helpers for a future form backend
-scripts/update-plans.mjs   manual, one-off plans export (no schedule)
-scripts/build.mjs       reviewed content renderer used by Astro
-site/                   page fragments the generator reads
-data/                   source datasets plus a default-deny publication audit
-data/metro/             Pune Metro dataset, area directory and verification log
-metro/                  Gleam/Lustre journey planner (dist/planner.js is the committed bundle)
-tests/                  node:test suites
-peakpuneapp/, punepedia/ separate Android app projects. Not part of the website build or deploy
-docs/                   scope and brand, plans data, third-party notices
+Edit **data and source files**, run one command, commit the generated `public/`, and the site deploys. The full
+picture, with diagrams, is in [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md).
+
+```mermaid
+flowchart LR
+  A["data/ · site/ · src/ · metro/"] -->|"npm run build"| B["public/<br/>generated, committed"]
+  B -->|"merge to main"| C[("peakpune.com")]
 ```
+
+| Folder | What lives there | Edit by hand? |
+| --- | --- | :---: |
+| [`data/`](data/README.md) | Sourced datasets, the publication audit, Pune Metro data | Yes |
+| [`site/`](site/README.md) | Page fragments, metro stylesheet, service-worker template | Yes |
+| [`src/`](src/README.md) | Strict TypeScript, the Svelte plans island, Astro routes and layout | Yes |
+| [`metro/`](metro/README.md) | Gleam and Lustre journey planner (`dist/planner.js` is the committed bundle) | Yes (not `dist/`) |
+| [`scripts/`](scripts/README.md) | Build, validators, calendar, offline browser check | Yes |
+| [`tests/`](tests/README.md) | `node:test` suites | Yes |
+| [`docs/`](docs/README.md) | Scope and brand, architecture, review guide, audits, research | Yes |
+| `public/` | **The deployed site.** Generated pages, bundles, `.ics`, sitemap. Hand-written: `tokens.css`, `app.js`, `fonts/`, `data/plans.json` | Only the exceptions |
+| `peakpuneapp/`, `punepedia/` | Separate Android projects, not part of the site build or deploy | n/a |
 
 **How pages are made.** `public/` is served as plain files. Its HTML is written by
 `npm run build` from `site/` and `data/` and then committed, so there is nothing to build on
