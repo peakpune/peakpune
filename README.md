@@ -26,6 +26,14 @@ It has no backend, no build on deploy and no tracking.
 > **Status: live.** Listings are source-checked, not a promise of current availability.
 > Search indexing and reader submissions remain disabled. No personal data is collected.
 
+## Contribute in 10 minutes
+
+New here? Pick a task labelled [good first issue](https://github.com/peakpune/peakpune/labels/good%20first%20issue), fork the repo, make one small change and open a pull request. You do not need Write access, and nothing is pushed straight to `main`.
+
+1. Fork, then `git clone` your fork and run `npm ci`.
+2. Make one small change. Listings need a public source link, never a guess.
+3. Run `npm test` and `npm run build`, then open a pull request that says what you changed and why.
+
 ## What works today
 
 | Area | State |
