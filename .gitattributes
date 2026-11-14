@@ -1,0 +1,24 @@
+# Generated output is collapsed by default in GitHub pull request diffs, so a review shows the
+# files a person actually wrote. Everything below is rebuilt by `npm run build` (see docs/ARCHITECTURE.md).
+# Hand-written files inside public/ (tokens.css, app.js, plans.js, filters.js, share.js, fonts/, og.png,
+# data/plans.json) are deliberately NOT listed here: review those.
+
+# Generated site pages
+public/*.html                        linguist-generated=true
+public/**/*.html                     linguist-generated=true
+public/sitemap.xml                   linguist-generated=true
+public/robots.txt                    linguist-generated=true
+public/site.webmanifest              linguist-generated=true
+public/icon.svg                      linguist-generated=true
+# Generated bundles, compiled TypeScript and calendar files
+public/_astro/**                     linguist-generated=true
+public/lib/**                        linguist-generated=true
+public/calendar/**                   linguist-generated=true
+public/PuneMetroguide/*.js           linguist-generated=true
+# Pune Metro planner: compiled bundle and Gleam data generated from data/metro/*.json
+metro/dist/**                        linguist-generated=true
+metro/src/peakpune_metro/data.gleam  linguist-generated=true
+metro/src/peakpune_metro/ids.gleam   linguist-generated=true
+# Lockfile
+package-lock.json                    linguist-generated=true
+
