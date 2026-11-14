@@ -94,7 +94,7 @@ try {
     const dis = await page.evaluate(() => ['baner-gaon', 'balewadi-high-street', 'range-hill'].map((v) => { const o = [...document.querySelectorAll('#pl-to option')].find((x) => x.value === v); return o && o.disabled; }));
     check('offline: closed Line 3 stations and Range Hill cannot be selected', dis.every(Boolean), JSON.stringify(dis));
     t = await trip('hinjawadi-phase-ii-circle-ii', 'swargate');
-    check('offline: Hinjawadi to Swargate changes at District Court with two separate tickets and the media-report note', /District Court/.test(t) && /Line 3 \(Pink\)/.test(t) && /two separate fare systems/.test(t) && /reported open by the media/.test(t), t.slice(0, 200));
+    check('offline: Hinjawadi to Swargate changes at District Court with two separate tickets and the launch-reporting note', /District Court/.test(t) && /Line 3 \(Pink\)/.test(t) && /two separate fare systems/.test(t) && /Individual station opening statuses are based on launch reporting/.test(t), t.slice(0, 200));
     await page.selectOption('#pl-area', 'kharadi'); await page.waitForTimeout(80);
     check('offline: area helper says Kharadi has no station and offers Ramwadi', /No station in the area/.test(await page.innerText('#metro-planner')) && /Ramwadi/.test(await page.innerText('#metro-planner .area-stations')));
   }

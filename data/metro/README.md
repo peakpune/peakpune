@@ -4,7 +4,7 @@
 `areas.json` maps common areas to their closest stations. `station-geo.json` holds the OpenStreetMap
 coordinates those mappings were computed from.
 
-**Verified on 2026-11-13 (Asia/Kolkata).** Every operational date on the guide is rendered from
+**Verified on 2026-11-14 (Asia/Kolkata).** Every operational date on the guide is rendered from
 `verified_on`; change it only when the data has been re-checked against the operators.
 
 ## What was checked, and how
@@ -30,11 +30,14 @@ and punerimetro.in (home, station list, fare table, time table, route map, overv
 
 ## What is not known
 
-- **Line 3 station status.** Neither operator publishes an open/closed list. All 23 statuses are media-reported
-  (`status_source: "media"`, `verified: false`). The planner will not offer a Line 3 station until a status is flipped to
-  `verified: true` here, with its source.
-- Ticket validity rules, per-station first and last trains, a Line 3 WhatsApp number, and any Line 3 discount are not
-  published on the pages checked.
+- **Line 3 station status.** The line is in passenger service since 4 Nov 2026 (operator timetable PDF; inauguration
+  coverage), but neither operator publishes an open/closed list. All 23 statuses stay media-reported
+  (`status_source: "media"`, `verified: false`): 17 open, 6 closed (targets: two by end Nov 2026, four by Jan 2027).
+  The planner routes the open ones and labels them media-reported; closed ones stay blocked.
+- Ticket validity rules, per-station first and last trains, a Line 3-specific WhatsApp number, and any Line 3 discount
+  are not published on the pages checked. Launch-day media report the shared official number wa.me/9420101990 offers a
+  'Line 3' option (`ticketing.line3.whatsapp_shared_number`, `status_source: "media"`, `verified: false`); the guide
+  shows it labelled as reported.
 - The 2022 timetable PDFs linked from the Maha Metro homepage are stale and are not used.
 
 ## Area directory
