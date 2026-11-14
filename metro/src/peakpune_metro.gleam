@@ -282,7 +282,7 @@ fn route_view(network: Network, route: Route) -> Element(Msg) {
       [change],
       [html.h3([], [text("Tickets and fares")])],
       list.map(route.tickets, fn(ticket) { ticket_view(network, ticket) }),
-      fare_notes(route),
+      fare_notes(network, route),
     ]),
   )
 }
@@ -342,7 +342,18 @@ fn ticket_view(network: Network, ticket: Ticket) -> Element(Msg) {
   html.div([attribute.class("leg")], [html.strong([], [text(heading)]), body])
 }
 
-fn fare_notes(route: Route) -> List(Element(Msg)) {
+fn line3_ticket_text(network: Network) -> String {
+  case network.pink_whatsapp, network.pink_whatsapp_shared {
+    Some(_), _ ->
+      "Line 3 tickets: buy at the station counter or a ticket vending machine, use the Line 3 app, or book on WhatsApp."
+    None, Some(_) ->
+      "Line 3 tickets: buy at the station counter or a ticket vending machine, use the Line 3 app, or send 'Hi' to the official Pune Metro WhatsApp number and choose 'Line 3'. The operator confirms WhatsApp QR tickets but publishes no number; the Line 3 option on the shared number is media-reported."
+    None, None ->
+      "Line 3 tickets: buy at the station counter or a ticket vending machine, or use the Line 3 app. A Line 3 WhatsApp number is not confirmed, so none is shown."
+  }
+}
+
+fn fare_notes(network: Network, route: Route) -> List(Element(Msg)) {
   let two_systems = list.length(route.tickets) > 1
   let uses_line3 =
     list.any(route.tickets, fn(ticket) { ticket.system == PinkFares })
@@ -369,12 +380,10 @@ fn fare_notes(route: Route) -> List(Element(Msg)) {
     },
     case uses_line3 {
       True -> [
-        paragraph(
-          "Line 3 tickets: buy at the station counter or a ticket vending machine, or use the Line 3 app. A Line 3 WhatsApp number is not confirmed, so none is shown.",
-        ),
+        paragraph(line3_ticket_text(network)),
         html.p([attribute.class("warn")], [
           text(
-            "Line 3 is reported open by the media. The operator's website does not say which stations are open, so check at the station or on punerimetro.in before you travel.",
+            "Line 3 is in passenger service (operator timetable). Individual station opening statuses are based on launch reporting, so check your station before travel.",
           ),
         ]),
       ]
@@ -383,21 +392,31 @@ fn fare_notes(route: Route) -> List(Element(Msg)) {
   ])
 }
 
+fn wa_chip(url: String, label: String) -> Element(Msg) {
+  html.a(
+    [
+      attribute.href(url),
+      attribute.target("_blank"),
+      attribute.rel("noopener"),
+      attribute.class("chip"),
+    ],
+    [text(label), needs_internet()],
+  )
+}
+
 fn whatsapp(network: Network) -> Element(Msg) {
-  case network.maha_whatsapp {
-    Some(url) ->
-      html.p([attribute.class("btns")], [
-        html.a(
-          [
-            attribute.href(url),
-            attribute.target("_blank"),
-            attribute.rel("noopener"),
-            attribute.class("chip"),
-          ],
-          [text("Book on WhatsApp (Lines 1 and 2 only)"), needs_internet()],
-        ),
-      ])
-    None -> element.none()
+  let maha = case network.maha_whatsapp {
+    Some(url) -> [wa_chip(url, "Book on WhatsApp (Lines 1 and 2)")]
+    None -> []
+  }
+  let pink = case network.pink_whatsapp, network.pink_whatsapp_shared {
+    Some(url), _ -> [wa_chip(url, "Book on WhatsApp (Line 3)")]
+    None, Some(url) -> [wa_chip(url, "Book on WhatsApp (choose Line 3 - reported)")]
+    None, None -> []
+  }
+  case list.append(maha, pink) {
+    [] -> element.none()
+    chips -> html.p([attribute.class("btns")], chips)
   }
 }
 

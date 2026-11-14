@@ -75,6 +75,9 @@ pub type Network {
     areas: List(Area),
     maha_whatsapp: Option(String),
     pink_whatsapp: Option(String),
+    // The shared official Pune Metro WhatsApp number with a reported Line 3 option:
+    // the number is operator-published (Maha Metro), the Line 3 option on it is media-reported only.
+    pink_whatsapp_shared: Option(String),
     maha_fare_chart_url: String,
     pink_fare_chart_url: String,
   )

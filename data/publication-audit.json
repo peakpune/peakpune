@@ -1081,6 +1081,496 @@
         "https://www.openstreetmap.org/node/7944584962"
       ],
       "overrides": {}
+    },
+    "stone-tools": {
+      "kind": "history",
+      "decision": "publish",
+      "reason": "Current cited source supports the listing identity and displayed facts.",
+      "sources": [
+        "https://vishwakosh.marathi.gov.in/20975/"
+      ]
+    },
+    "satavahana-kasba": {
+      "kind": "history",
+      "decision": "publish",
+      "reason": "Current cited source supports the listing identity and displayed facts.",
+      "sources": [
+        "https://puneheritage.defindia.org/about-pune/"
+      ]
+    },
+    "copper-plates-758": {
+      "kind": "history",
+      "decision": "publish",
+      "reason": "Current cited source supports the listing identity and displayed facts.",
+      "sources": [
+        "https://vishwakosh.marathi.gov.in/20975/",
+        "https://puneheritage.defindia.org/about-pune/"
+      ]
+    },
+    "pataleshwar": {
+      "kind": "history",
+      "decision": "publish",
+      "reason": "Current cited source supports the listing identity and displayed facts.",
+      "sources": [
+        "https://docslib.org/doc/7816159/preparation-of-heritage-bye-laws-for-the-prohibited-and-regulated-areas-of-asi-protected-monuments-pataleshwar-caves-pune",
+        "https://www.hindustantimes.com/cities/others/sutradharas-tales-pataleshwar-cave-temple-is-rock-cut-legacy-and-monolithic-marvel-of-rashtrakuta-period-101615360167431.html"
+      ]
+    },
+    "yadava-sultanate": {
+      "kind": "history",
+      "decision": "publish",
+      "reason": "Current cited source supports the listing identity and displayed facts.",
+      "sources": [
+        "https://vishwakosh.marathi.gov.in/20975/"
+      ]
+    },
+    "shahaji-pune": {
+      "kind": "history",
+      "decision": "publish",
+      "reason": "Current cited source supports the listing identity and displayed facts.",
+      "sources": [
+        "https://vishwakosh.marathi.gov.in/20975/"
+      ]
+    },
+    "lal-mahal": {
+      "kind": "history",
+      "decision": "publish",
+      "reason": "Current cited source supports the listing identity and displayed facts.",
+      "sources": [
+        "https://pmc.gov.in/en/lal-mahal"
+      ]
+    },
+    "kasba-ganapati": {
+      "kind": "history",
+      "decision": "publish",
+      "reason": "Current cited source supports the listing identity and displayed facts.",
+      "sources": [
+        "https://map.sahapedia.org/article/Kasba%20Ganapati%20Temple/3052",
+        "https://lbb.in/pune/everything-you-need-to-know-about-punes-manache-ganpati/"
+      ]
+    },
+    "shaista-khan-1663": {
+      "kind": "history",
+      "decision": "publish",
+      "reason": "Current cited source supports the listing identity and displayed facts.",
+      "sources": [
+        "https://indianexpress.com/article/cities/pune/know-your-city-how-punes-lal-mahal-got-a-resident-it-did-not-expect-and-the-events-that-followed-9412802/"
+      ]
+    },
+    "sinhagad-1670": {
+      "kind": "history",
+      "decision": "publish",
+      "reason": "Current cited source supports the listing identity and displayed facts.",
+      "sources": [
+        "https://www.thehindu.com/news/national/other-states/commemorating-350-years-of-the-battle-of-sinhagad/article33546900.ece"
+      ]
+    },
+    "muhiyabad": {
+      "kind": "history",
+      "decision": "publish",
+      "reason": "Current cited source supports the listing identity and displayed facts.",
+      "sources": [
+        "https://timesofindia.indiatimes.com/city/pune/when-the-city-was-muhiabad/articleshow/2138145.cms"
+      ]
+    },
+    "peshwa-grant-1718": {
+      "kind": "history",
+      "decision": "publish",
+      "reason": "Current cited source supports the listing identity and displayed facts.",
+      "sources": [
+        "https://updf.in/document/history-of-pune-district/"
+      ]
+    },
+    "shaniwar-wada": {
+      "kind": "history",
+      "decision": "publish",
+      "reason": "Current cited source supports the listing identity and displayed facts.",
+      "sources": [
+        "https://map.sahapedia.org/about/1/22",
+        "https://www.incredibleindia.gov.in/en/maharashtra/pune/shaniwar-wada"
+      ]
+    },
+    "parvati-1749": {
+      "kind": "history",
+      "decision": "publish",
+      "reason": "Current cited source supports the listing identity and displayed facts.",
+      "sources": [
+        "https://devdeveshwarsanthan.org/about.html"
+      ]
+    },
+    "vishrambaug-1811": {
+      "kind": "history",
+      "decision": "publish",
+      "reason": "Current cited source supports the listing identity and displayed facts.",
+      "sources": [
+        "https://pune.gov.in/tourist-place/vishrambaug-wada/"
+      ]
+    },
+    "khadki-1817": {
+      "kind": "history",
+      "decision": "publish",
+      "reason": "Current cited source supports the listing identity and displayed facts.",
+      "sources": [
+        "https://timesofindia.indiatimes.com/city/pune/battle-of-khadki-paved-way-for-british-rule-in-pune/articleshow/102555414.cms",
+        "https://vishwakosh.marathi.gov.in/20975/"
+      ]
+    },
+    "deccan-college-1821": {
+      "kind": "history",
+      "decision": "publish",
+      "reason": "Current cited source supports the listing identity and displayed facts.",
+      "sources": [
+        "https://www.dcpune.edu.in/History.html",
+        "https://indianexpress.com/article/cities/pune/know-your-city-story-of-deccan-college-pune-where-indology-found-a-home-in-india-9085144/"
+      ]
+    },
+    "first-girls-school-1848": {
+      "kind": "history",
+      "decision": "publish",
+      "reason": "Current cited source supports the listing identity and displayed facts.",
+      "sources": [
+        "https://map.sahapedia.org/article/Bhide%20Wada/3365"
+      ]
+    },
+    "municipality-1858": {
+      "kind": "history",
+      "decision": "publish",
+      "reason": "Current cited source supports the listing identity and displayed facts.",
+      "sources": [
+        "https://vishwakosh.marathi.gov.in/20975/"
+      ]
+    },
+    "satyashodhak-1873": {
+      "kind": "history",
+      "decision": "publish",
+      "reason": "Current cited source supports the listing identity and displayed facts.",
+      "sources": [
+        "https://vishwakosh.marathi.gov.in/20975/"
+      ]
+    },
+    "kesari-1881": {
+      "kind": "history",
+      "decision": "publish",
+      "reason": "Current cited source supports the listing identity and displayed facts.",
+      "sources": [
+        "https://www.dailykesari.com/about"
+      ]
+    },
+    "fergusson-1885": {
+      "kind": "history",
+      "decision": "publish",
+      "reason": "Current cited source supports the listing identity and displayed facts.",
+      "sources": [
+        "https://www.fergusson.edu/page/14/history"
+      ]
+    },
+    "mandai-1886": {
+      "kind": "history",
+      "decision": "publish",
+      "reason": "Current cited source supports the listing identity and displayed facts.",
+      "sources": [
+        "https://pune.gov.in/tourist-place/mahatma-phule-mandai/",
+        "https://lbb.in/pune/everything-you-need-to-know-about-punes-manache-ganpati/"
+      ]
+    },
+    "aga-khan-palace-1892": {
+      "kind": "history",
+      "decision": "publish",
+      "reason": "Current cited source supports the listing identity and displayed facts.",
+      "sources": [
+        "https://pune.gov.in/tourist-place/agakhan-palace/",
+        "https://www.incredibleindia.gov.in/en/maharashtra/pune/aga-khan-palace"
+      ]
+    },
+    "bori-1917": {
+      "kind": "history",
+      "decision": "publish",
+      "reason": "Current cited source supports the listing identity and displayed facts.",
+      "sources": [
+        "https://www.bori.ac.in/"
+      ]
+    },
+    "poona-pact-1932": {
+      "kind": "history",
+      "decision": "publish",
+      "reason": "Current cited source supports the listing identity and displayed facts.",
+      "sources": [
+        "https://cmsadmin.amritmahotsav.nic.in/unsung-heroes-detail.htm?215"
+      ]
+    },
+    "oxford-of-east": {
+      "kind": "history",
+      "decision": "publish",
+      "reason": "Current cited source supports the listing identity and displayed facts.",
+      "sources": [
+        "https://indianexpress.com/article/cities/pune/oxford-of-the-east-why-pune-is-known-by-this-tag-9378089/"
+      ]
+    },
+    "panshet-1961": {
+      "kind": "history",
+      "decision": "publish",
+      "reason": "Current cited source supports the listing identity and displayed facts.",
+      "sources": [
+        "https://swarajyamag.com/culture/the-day-pune-went-underwater-how-the-city-overcame-one-of-its-worst-floods-in-july-1961",
+        "https://www.dnaindia.com/pune/report-pune-remembers-55-years-since-panshet-flood-havoc-2232317"
+      ]
+    },
+    "rename-1978": {
+      "kind": "history",
+      "decision": "publish",
+      "reason": "Current cited source supports the listing identity and displayed facts.",
+      "sources": [
+        "https://indianexpress.com/article/cities/pune/know-your-city-how-poona-became-pune-and-a-lost-name-comes-back-into-use-9623600/"
+      ]
+    },
+    "wagholi-cavansite": {
+      "kind": "history",
+      "decision": "publish",
+      "reason": "Current cited source supports the listing identity and displayed facts.",
+      "sources": [
+        "https://www.mdpi.com/2075-163X/15/2/126",
+        "https://collections.rom.on.ca/objects/428466/pentagonite-on-basalt"
+      ]
+    },
+    "pune-metro": {
+      "kind": "history",
+      "decision": "publish",
+      "reason": "Current cited source supports the listing identity and displayed facts.",
+      "sources": [
+        "https://www.punemetrorail.org/assets/backend/uploads/project_brief/project_brief_files/Project_Brief.pdf",
+        "https://www.railwaygazette.com/passenger/punes-first-metro-starts-trial-running/59664.article"
+      ]
+    },
+    "laxmi-road": {
+      "kind": "shopping",
+      "decision": "publish",
+      "reason": "Current cited source supports the listing identity and displayed facts.",
+      "sources": [
+        "https://map.sahapedia.org/article/Sonya%20Maruti%20Chowk/3167",
+        "https://lbb.in/pune/saree-shops-in-pune/"
+      ]
+    },
+    "tulsi-baug": {
+      "kind": "shopping",
+      "decision": "publish",
+      "reason": "Current cited source supports the listing identity and displayed facts.",
+      "sources": [
+        "https://www.hindustantimes.com/cities/pune-news/sutradharas-tales-a-basil-garden-gives-root-to-pune-s-first-shopping-plaza-101637146120644.html",
+        "https://timesofindia.indiatimes.com/city/pune/bargains-galore-at-tulshibaug/articleshow/30099711.cms"
+      ]
+    },
+    "mandai": {
+      "kind": "shopping",
+      "decision": "publish",
+      "reason": "Current cited source supports the listing identity and displayed facts.",
+      "sources": [
+        "https://indianexpress.com/article/cities/pune/pune-know-your-city-marketplace-mahatma-phule-mandai-7574678/"
+      ]
+    },
+    "raviwar-peth": {
+      "kind": "shopping",
+      "decision": "publish",
+      "reason": "Current cited source supports the listing identity and displayed facts.",
+      "sources": [
+        "https://map.sahapedia.org/article/Sonya%20Maruti%20Chowk/3167",
+        "https://indianexpress.com/article/cities/pune/postcards-from-past-gadgils-golden-memories-simple-designs-pune-shops-8933000/"
+      ]
+    },
+    "juna-bazaar": {
+      "kind": "shopping",
+      "decision": "publish",
+      "reason": "Current cited source supports the listing identity and displayed facts.",
+      "sources": [
+        "https://lbb.in/pune/juna-bazaar-0b89af/",
+        "https://timesofindia.indiatimes.com/life-style/spotlight/find-everything-lost-in-time-at-punes-juna-bazar/articleshow/69629933.cms"
+      ]
+    },
+    "hong-kong-lane": {
+      "kind": "shopping",
+      "decision": "publish",
+      "reason": "Current cited source supports the listing identity and displayed facts.",
+      "sources": [
+        "https://lbb.in/pune/low-on-budget-but-still-af53d0/"
+      ]
+    },
+    "fc-road": {
+      "kind": "shopping",
+      "decision": "publish",
+      "reason": "Current cited source supports the listing identity and displayed facts.",
+      "sources": [
+        "https://www.reddit.com/r/pune/comments/1ikh73t/street_shopping_areas_in_pune/"
+      ]
+    },
+    "mg-road-east-street": {
+      "kind": "shopping",
+      "decision": "publish",
+      "reason": "Current cited source supports the listing identity and displayed facts.",
+      "sources": [
+        "https://www.travelandleisureasia.com/in/destinations/india/shopping-destinations-in-pune-are-what-you-need-for-some-affordable-beautiful-buys/"
+      ]
+    },
+    "png-gadgil": {
+      "kind": "shopping",
+      "decision": "publish",
+      "reason": "Current cited source supports the listing identity and displayed facts.",
+      "sources": [
+        "https://pngadgilandsons.com/about/",
+        "https://indianexpress.com/article/cities/pune/postcards-from-past-gadgils-golden-memories-simple-designs-pune-shops-8933000/"
+      ]
+    },
+    "ranka-jewellers": {
+      "kind": "shopping",
+      "decision": "publish",
+      "reason": "Current cited source supports the listing identity and displayed facts.",
+      "sources": [
+        "https://rankajewellers.com/pages/our-story"
+      ]
+    },
+    "international-book-service": {
+      "kind": "shopping",
+      "decision": "publish",
+      "reason": "Current cited source supports the listing identity and displayed facts.",
+      "sources": [
+        "https://indianexpress.com/article/cities/pune/book-mark-3/",
+        "https://timesofindia.indiatimes.com/city/pune/precious-pages-of-first-pm-jawaharlal-nehrus-letters-in-pune-bookshop/articleshow/45141918.cms"
+      ]
+    },
+    "express-book-service": {
+      "kind": "shopping",
+      "decision": "publish",
+      "reason": "Current cited source supports the listing identity and displayed facts.",
+      "sources": [
+        "https://www.hindustantimes.com/pune-news/pune-bookstores-are-still-standing-tall-and-the-secret-is/story-pk616EmbGs0G7zMOrPTihO.html"
+      ]
+    },
+    "akshardhara": {
+      "kind": "shopping",
+      "decision": "publish",
+      "reason": "Current cited source supports the listing identity and displayed facts.",
+      "sources": [
+        "https://www.hindustantimes.com/pune-news/pune-bookstores-are-still-standing-tall-and-the-secret-is/story-pk616EmbGs0G7zMOrPTihO.html"
+      ]
+    },
+    "moolchand-mill": {
+      "kind": "shopping",
+      "decision": "publish",
+      "reason": "Current cited source supports the listing identity and displayed facts.",
+      "sources": [
+        "https://lbb.in/pune/saree-shops-in-pune/"
+      ]
+    },
+    "kalashetram-silks": {
+      "kind": "shopping",
+      "decision": "publish",
+      "reason": "Current cited source supports the listing identity and displayed facts.",
+      "sources": [
+        "https://www.wedmegood.com/blog/most-stunning-stores-and-labels-in-maharashtra-to-buy-the-authentic-paithani-saree/"
+      ]
+    },
+    "dorabjee": {
+      "kind": "shopping",
+      "decision": "publish",
+      "reason": "Current cited source supports the listing identity and displayed facts.",
+      "sources": [
+        "https://indianexpress.com/article/cities/pune/know-your-city-pune-restaurant-menu-1878-8438417/",
+        "https://map.sahapedia.org/article/Dorabjee-and+Sons/2792"
+      ]
+    },
+    "kaka-halwai": {
+      "kind": "shopping",
+      "decision": "publish",
+      "reason": "Current cited source supports the listing identity and displayed facts.",
+      "sources": [
+        "https://www.kakahalwai.com/pages/about-us",
+        "https://preprod.loksatta.com/pune/kaka-halwai-sweet-centre-pune-1564531/"
+      ]
+    },
+    "gujar-cold-drink": {
+      "kind": "shopping",
+      "decision": "publish",
+      "reason": "Current cited source supports the listing identity and displayed facts.",
+      "sources": [
+        "https://indianexpress.com/article/cities/pune/know-your-city-mastani-a-cold-pune-beverage-thats-an-ode-to-peshwa-bajiraos-beloved-7928801/"
+      ]
+    },
+    "goodluck": {
+      "kind": "shopping",
+      "decision": "publish",
+      "reason": "Current cited source supports the listing identity and displayed facts.",
+      "sources": [
+        "https://goodluckcafe.co.in/about-us/",
+        "https://map.sahapedia.org/article/Cafe-Goodluck/2783"
+      ]
+    },
+    "poona-guest-house": {
+      "kind": "shopping",
+      "decision": "publish",
+      "reason": "Current cited source supports the listing identity and displayed facts.",
+      "sources": [
+        "https://timesofindia.indiatimes.com/tracing-punes-oldest-cafes/articleshow/46978099.cms"
+      ]
+    },
+    "chitale": {
+      "kind": "shopping",
+      "decision": "publish",
+      "reason": "Current cited source supports the listing identity and displayed facts.",
+      "sources": [
+        "https://www.chitalebandhu.in/pages/about-us",
+        "https://theprint.in/india/the-chitale-bandhu-story-how-snack-shop-born-in-sleepy-pune-went-global-changed-with-the-times/2487413/"
+      ]
+    },
+    "kayani": {
+      "kind": "shopping",
+      "decision": "publish",
+      "reason": "Current cited source supports the listing identity and displayed facts.",
+      "sources": [
+        "https://www.kayanibakerypune.com/about-us",
+        "https://indianexpress.com/article/cities/pune/know-your-city-pune-kayani-bakery-heritage-landmark-7976536/"
+      ]
+    },
+    "budhani": {
+      "kind": "shopping",
+      "decision": "publish",
+      "reason": "Current cited source supports the listing identity and displayed facts.",
+      "sources": [
+        "https://www.dnaindia.com/mumbai/report-crispy-business-pune-s-famous-budhani-wafers-shares-its-story-1564359"
+      ]
+    },
+    "marzorin": {
+      "kind": "shopping",
+      "decision": "publish",
+      "reason": "Current cited source supports the listing identity and displayed facts.",
+      "sources": [
+        "https://marzorin.com/about/",
+        "https://indianexpress.com/article/cities/pune/impatient-man-formidable-wife-pune-food-landmark-marz-o-rin-9953062/"
+      ]
+    },
+    "sujata": {
+      "kind": "shopping",
+      "decision": "publish",
+      "reason": "Current cited source supports the listing identity and displayed facts.",
+      "sources": [
+        "https://www.indiatoday.in/magazine/supplement/story/20170911-sujata-mastani-rose-flavoured-milk-1035103-2017-09-01",
+        "https://sujatamastani.com/about/"
+      ]
+    },
+    "vohuman": {
+      "kind": "shopping",
+      "decision": "publish",
+      "reason": "Current cited source supports the listing identity and displayed facts.",
+      "sources": [
+        "https://map.sahapedia.org/article/Vohuman%20Cafe/2795",
+        "https://indianexpress.com/article/cities/pune/coffee-cream-cheese-omelette-vohuman-cafe-10325205/"
+      ]
+    },
+    "laxminarayan-chivda": {
+      "kind": "shopping",
+      "decision": "publish",
+      "reason": "Current cited source supports the listing identity and displayed facts.",
+      "sources": [
+        "https://indianexpress.com/article/cities/pune/railway-vendor-pune-loved-chiwda-brand-10405889/",
+        "https://uppercrustindia.com/oldsite/9crust/nine/pune4.htm"
+      ]
     }
   }
 }

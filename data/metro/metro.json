@@ -1,5 +1,5 @@
 {
- "verified_on": "2026-11-13",
+ "verified_on": "2026-11-14",
  "timezone": "Asia/Kolkata",
  "provenance": {
   "mahametro_homepage": "https://punemetrorail.org/",
@@ -189,7 +189,7 @@
     "date": "2026-11-04",
     "status_source": "media",
     "verified": false,
-    "note": "Launch date consistent across multiple media reports; not confirmed on operator pages checked."
+    "note": "Inaugurated virtually on 3 Nov 2026; commercial passenger services began 06:00 on 4 Nov 2026 (inauguration coverage; consortium partner Siemens press release, 3 Nov 2026). The operator's own timetable PDF publishes a working Maan to District Court service (first train 06:00 from Maan, District Court and other stations), so the line is in passenger service; the start date itself does not appear on the operator pages checked."
    },
    "station_order": [
     "Maan",
@@ -219,8 +219,8 @@
    "station_status": {
     "status_source": "media",
     "verified": false,
-    "as_of": "2026-11-13",
-    "note": "17 of 23 stations reported open since launch 2026-11-04; the six listed closed reported to open in phases (Balewadi pair ~end Nov 2026, rest ~Jan 2027, media). The operator publishes no clean open/closed list on the pages checked; the operator fare chart covers all 23 stations including closed ones. Re-verify every status against punerimetro.in before publishing and update verified/status_source per station.",
+    "as_of": "2026-11-14",
+    "note": "17 of 23 stations opened with the launch on 2026-11-04: ten with both escalators, and seven initially with one staircase (Maan, Maan - MIDC Circle Phase II, Maan Bus Depot, Hinjawadi Phase II - Circle I, Padmabhushan Chowk, Agriculture College, District Court), per inauguration coverage. The six closed are targeted in phases: Balewadi High Street and Balewadi Phata by end Nov 2026, and Baner Gaon, Baner Pashan Link Road, Bhosalenagar - RBI and Shivaji Nagar by Jan 2027 (PMRDA schedule as reported in the press). The operator publishes no per-station open/closed list; its fare chart covers all 23 stations including closed ones, and its timetable runs Maan to District Court. Re-verify every status against punerimetro.in.",
     "open": [
      "Maan",
      "Maan - MIDC Circle, Phase II",
@@ -249,7 +249,7 @@
      "Shivaji Nagar"
     ]
    },
-   "boarding_rule": "A station is selectable for boarding or alighting only when its open status is operator-verified (verified: true). All Line 3 statuses ship verified: false (media-reported), so Line 3 stations must NOT be silently routable as operator-confirmed: show them as 'status not yet confirmed by the operator - check punerimetro.in' until the flags are updated. Stations listed closed stay blocked ('not open yet') even then unless the operator confirms them open.",
+   "boarding_rule": "A station is selectable for boarding or alighting only when the data lists it as open. Line 3 open stations are media-reported (status_source: media, verified: false): the planner routes them and labels them as media-reported, never as operator-confirmed. Stations listed closed stay blocked ('not open yet') unless the operator confirms them open.",
    "termini": [
     "Maan",
     "District Court"
@@ -587,7 +587,13 @@
     "manual counter at every station"
    ],
    "whatsapp_number": null,
-   "whatsapp_note": "Operator's fare-table page confirms WhatsApp QR ticketing but publishes no number on the pages checked. Media reports Line 3 tickets are bookable through the same wa.me/9420101990 number with a separate 'Line 3' option (status_source: media, verified: false) - confirm only from official published evidence before publishing; do not probe the bot with test messages.",
+   "whatsapp_shared_number": {
+    "url": "https://wa.me/9420101990",
+    "status_source": "media",
+    "verified": false,
+    "note": "Send 'Hi' to the official Pune Metro WhatsApp number and choose 'Line 3' in the bot (the options are Lines 1 and 2, and Line 3), pick origin and destination, pay by UPI or card; the QR e-ticket arrives on WhatsApp. The number is the official Pune Metro e-ticket number published on the Maha Metro homepage (verified there). The Line 3 option on it is from launch-day media reports (one describing a trial booking); the Line 3 operator's amenities page confirms WhatsApp QR ticketing but publishes no number."
+   },
+   "whatsapp_note": "Operator's fare-table page confirms WhatsApp QR ticketing but publishes no Line 3-specific number on the pages checked. Launch-day media reports say the shared official number wa.me/9420101990 offers a 'Line 3' option (see whatsapp_shared_number); not confirmed on the operator's own pages. Do not probe the bot with test messages.",
    "operator_stated": {
     "source": [
      "https://punerimetro.in/passenger-info/fare-table",
@@ -662,7 +668,7 @@
   "Shivaji Nagar": "shivaji-nagar-pink"
  },
  "verification": {
-  "verified_on": "2026-11-13",
+  "verified_on": "2026-11-14",
   "timezone": "Asia/Kolkata",
   "method": "Operator pages opened in a browser on the date above; fare and timetable images downloaded and read.",
   "confirmed": [
@@ -673,13 +679,18 @@
    "Maha Metro WhatsApp link wa.me/9420101990 on the operator homepage; helpline 18002705501.",
    "Maha Metro fare chart image: 812 off-diagonal cells read independently of the brief; 811 matched, 1 corrected (see fares.maha_metro.corrections). The 11 remaining direction-asymmetric pairs are printed as listed.",
    "Line 3 fare chart image: all 529 cells agree with the chart's fare-band colours; the matrix is symmetric.",
-   "Line 3 timetable image: first train 06:00, last Maan->District Court 22:30, last District Court->Maan 23:40, 5 min 30 s peak, 10 min off-peak, 45 min approx, 23.3 km, subject to change.",
+   "Line 3 timetable PDF (punerimetro.in/documents/pink-line-time-table.pdf, read 14 Nov 2026): Pink Line in passenger service, Maan to District Court; 17:30 running hours; first train 06:00 from Maan, District Court and other stations; last 22:30 from Maan towards District Court and 23:40 from District Court towards Maan; peak 07:30-09:30 and 17:00-20:00 every 5 min 30 sec; off-peak every 10 min; 45 min approx, 23.3 km; subject to change based on passenger flow.",
+   "Line 3 fare-table page: tickets can be purchased using NCMC card, WhatsApp QR, ticket vending machine or manual counter at every station.",
+   "Line 3 passenger amenities page: 'QR-based tickets via Pune Metro Line 3 app and WhatsApp', NCMC (One Pune Card), contactless ticket vending machines and AFC gates.",
+   "Line 3 contact page: Tel 020-65520100, support@punerimetro.in; no WhatsApp number published there.",
+   "Maha Metro homepage (14 Nov 2026): WhatsApp e-ticket link wa.me/9420101990 live ('Send Hi to book your E-Ticket').",
    "Line 3 station list: 23 stations. Contact: 020-65520100, support@punerimetro.in.",
    "Discounts: see discounts.items."
   ],
   "not_available": [
    "The Maha Metro fare calculator is protected by Google reCAPTCHA and was not automated.",
-   "Neither operator publishes a Line 3 open/closed station list, so every Line 3 status remains media-reported and unverified.",
+   "Neither operator publishes a Line 3 open/closed station list, so every Line 3 station status remains media-reported and unverified.",
+   "No Line 3-specific WhatsApp number is published on the operator pages checked; launch-day media reports say the shared official number wa.me/9420101990 offers a Line 3 option.",
    "Ticket validity rules and per-station first/last train times are not published on the pages checked."
   ]
  }
