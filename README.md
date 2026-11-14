@@ -28,7 +28,7 @@ It has no backend, no build on deploy and no tracking.
 
 ## Contribute in 10 minutes
 
-Peak Pune is built for Pune, and people who live in Pune are especially welcome, but anyone can help. New here? Pick a task labelled [good first issue](https://github.com/peakpune/peakpune/labels/good%20first%20issue), fork the repo, make one small change and open a pull request. You do not need Write access, and nothing is pushed straight to `main`.
+Peak Pune is about Pune, and contributors from Pune and across India are warmly welcome. Anyone can help. New here? Pick a task labelled [good first issue](https://github.com/peakpune/peakpune/labels/good%20first%20issue), fork the repo, make one small change and open a pull request. You do not need Write access, and nothing is pushed straight to `main`.
 
 1. Fork, then `git clone` your fork and run `npm ci`.
 2. Make one small change. Listings need a public source link, never a guess.
