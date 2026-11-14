@@ -1,0 +1,46 @@
+name: punepedia
+description: "PunePedia — a sourced, growing encyclopaedia of Pune. Publisher: OverTime Labs."
+publish_to: "none"
+version: 0.2.0+2
+
+environment:
+  sdk: ">=3.4.0 <4.0.0"
+  flutter: ">=3.22.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  # Local key-value storage for bookmarks and settings (no network).
+  shared_preferences: ^2.2.3
+  # Opens source links in the user's browser.
+  url_launcher: ^6.3.0
+  # Google Play Billing for the one-time unlock (lib/purchase/).
+  in_app_purchase: ^3.3.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/content/
+    - assets/fonts/OFL-Mukta.txt
+    - assets/fonts/OFL-TiroDevanagariMarathi.txt
+  fonts:
+    - family: TiroDevanagariMarathi
+      fonts:
+        - asset: assets/fonts/TiroDevanagariMarathi-Regular.ttf
+        - asset: assets/fonts/TiroDevanagariMarathi-Italic.ttf
+          style: italic
+    - family: Mukta
+      fonts:
+        - asset: assets/fonts/Mukta-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Mukta-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Mukta-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/Mukta-Bold.ttf
+          weight: 700
