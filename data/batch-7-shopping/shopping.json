@@ -1,0 +1,482 @@
+{
+  "areas": [
+    {
+      "id": "laxmi-road",
+      "name": "Laxmi Road",
+      "area": "Old city spine",
+      "known_for": "Pune's traditional shopping street - sarees, clothing, jewellery and festival shopping.",
+      "best_for": "Sarees, dress material, festive wear",
+      "notes": "The old city's main commercial axis through the peths; its side lanes lead into Tulsi Baug and Raviwar Peth. Long-running saree houses here include Moolchand Mill (see standout shops).",
+      "sources": [
+        {
+          "label": "Sahapedia: Sonya Maruti Chowk",
+          "url": "https://map.sahapedia.org/article/Sonya%20Maruti%20Chowk/3167"
+        },
+        {
+          "label": "LBB Pune: saree stores",
+          "url": "https://lbb.in/pune/saree-shops-in-pune/"
+        }
+      ]
+    },
+    {
+      "id": "tulsi-baug",
+      "name": "Tulsi Baug",
+      "area": "Budhwar Peth",
+      "known_for": "A bargain bazaar grown around the Peshwa-era Ram temple complex; the name means \"basil garden\".",
+      "best_for": "Budget clothing, kitchenware, puja items, accessories",
+      "notes": "Five lanes of dense stalls; haggling is the norm. The Tulshibaug Ram Mandir, built under the Peshwas, stands inside.",
+      "sources": [
+        {
+          "label": "Hindustan Times: Sutradhara's Tales",
+          "url": "https://www.hindustantimes.com/cities/pune-news/sutradharas-tales-a-basil-garden-gives-root-to-pune-s-first-shopping-plaza-101637146120644.html"
+        },
+        {
+          "label": "Times of India: Bargains galore at Tulshibaug",
+          "url": "https://timesofindia.indiatimes.com/city/pune/bargains-galore-at-tulshibaug/articleshow/30099711.cms"
+        }
+      ]
+    },
+    {
+      "id": "mandai",
+      "name": "Mahatma Phule Mandai",
+      "area": "Shukrawar Peth",
+      "known_for": "The 1886 Gothic market building - the city's biggest vegetable and fruit market.",
+      "best_for": "Fresh produce, dried fruit and spice stalls around it",
+      "notes": "Built as Reay Market; mornings are the busiest. A landmark in its own right - see the history timeline.",
+      "sources": [
+        {
+          "label": "Indian Express: Know Your City",
+          "url": "https://indianexpress.com/article/cities/pune/pune-know-your-city-marketplace-mahatma-phule-mandai-7574678/"
+        }
+      ]
+    },
+    {
+      "id": "raviwar-peth",
+      "name": "Raviwar Peth and Sonya Maruti Chowk",
+      "area": "Old city",
+      "known_for": "Pune's jewellery quarter - gold and silver shops run by the same families for five or six generations.",
+      "best_for": "Gold and silver jewellery, old-style designs",
+      "notes": "Several jewellers here trace back over a century, including P. N. Gadgil & Sons, featured in the Indian Express \"Postcards from the Past\" series. Ranka Jewellers (1879) is a few lanes away on Tilak Road.",
+      "sources": [
+        {
+          "label": "Sahapedia: Sonya Maruti Chowk",
+          "url": "https://map.sahapedia.org/article/Sonya%20Maruti%20Chowk/3167"
+        },
+        {
+          "label": "Indian Express: Gadgil's golden memories",
+          "url": "https://indianexpress.com/article/cities/pune/postcards-from-past-gadgils-golden-memories-simple-designs-pune-shops-8933000/"
+        }
+      ]
+    },
+    {
+      "id": "juna-bazaar",
+      "name": "Juna Bazaar",
+      "area": "Kasba Peth",
+      "known_for": "A weekly flea market for antiques, brassware, old cameras, vinyl and curios - Pune's own \"chor bazaar\".",
+      "best_for": "Vintage finds and antiques",
+      "notes": "Held on Wednesdays and Sundays, roughly 9 am to 5 pm, per current listings. The Times of India calls it a 250-year-old market.",
+      "sources": [
+        {
+          "label": "LBB Pune",
+          "url": "https://lbb.in/pune/juna-bazaar-0b89af/"
+        },
+        {
+          "label": "Times of India: Juna Bazar",
+          "url": "https://timesofindia.indiatimes.com/life-style/spotlight/find-everything-lost-in-time-at-punes-juna-bazar/articleshow/69629933.cms"
+        }
+      ]
+    },
+    {
+      "id": "hong-kong-lane",
+      "name": "Hong Kong Lane",
+      "area": "Deccan Gymkhana, off FC Road",
+      "known_for": "A compact street-shopping lane for bags, footwear, phone accessories and books near Garware Bridge.",
+      "best_for": "Budget accessories, bags, phone gear",
+      "notes": "A small, dense lane; combine with the street stalls along FC Road.",
+      "sources": [
+        {
+          "label": "LBB Pune",
+          "url": "https://lbb.in/pune/low-on-budget-but-still-af53d0/"
+        }
+      ]
+    },
+    {
+      "id": "fc-road",
+      "name": "Fergusson College Road",
+      "area": "Shivajinagar to Deccan",
+      "known_for": "Street stalls for clothing and accessories along the pavement, alongside cafes and bookshops.",
+      "best_for": "Casual clothes, accessories, college-budget shopping",
+      "notes": "Street shopping concentrates on the stalls between Deccan Gymkhana and Shivajinagar; r/pune threads routinely name FC Road for street shopping.",
+      "sources": [
+        {
+          "label": "r/pune: Street shopping areas in Pune",
+          "url": "https://www.reddit.com/r/pune/comments/1ikh73t/street_shopping_areas_in_pune/"
+        }
+      ]
+    },
+    {
+      "id": "mg-road-east-street",
+      "name": "MG Road and East Street",
+      "area": "Camp",
+      "known_for": "The Cantonment's heritage shopping streets - Irani and Parsi-era shops, bakeries and old restaurants among the retail.",
+      "best_for": "Iconic food institutions (see standout shops), general retail",
+      "notes": "Walk East Street for Kayani Bakery and the old Camp storefronts; Fashion Street, a lane of export-surplus clothing stalls, sits off MG Road.",
+      "sources": [
+        {
+          "label": "Travel + Leisure Asia: Pune shopping destinations",
+          "url": "https://www.travelandleisureasia.com/in/destinations/india/shopping-destinations-in-pune-are-what-you-need-for-some-affordable-beautiful-buys/"
+        }
+      ]
+    }
+  ],
+  "shops": [
+    {
+      "id": "png-gadgil",
+      "name": "P. N. Gadgil & Sons",
+      "area": "Raviwar Peth - Laxmi Road",
+      "category": "retail",
+      "known_for": "Gold and silver jewellery from a house whose founding is traced to 1832.",
+      "since": "1832",
+      "note": "The Gadgil family began the business in 1832 (starting in Sangli, per the company record) and its Pune shops in the Raviwar Peth-Laxmi Road quarter have served generations; the Indian Express \"Postcards from the Past\" profiles the house.",
+      "sources": [
+        {
+          "label": "P. N. Gadgil & Sons: history",
+          "url": "https://pngadgilandsons.com/about/"
+        },
+        {
+          "label": "Indian Express: Postcards from the Past",
+          "url": "https://indianexpress.com/article/cities/pune/postcards-from-past-gadgils-golden-memories-simple-designs-pune-shops-8933000/"
+        }
+      ],
+      "checked_at": "2026-11-14"
+    },
+    {
+      "id": "ranka-jewellers",
+      "name": "Ranka Jewellers",
+      "area": "Tilak Road",
+      "category": "retail",
+      "known_for": "Gold jewellery from a Pune family business started in 1879.",
+      "since": "1879",
+      "note": "The Ranka family traces its jewellery business in Pune to 1879; the company records Shri Pukhraj Ranka re-establishing it, and seven generations have since run it. Now a multi-store group, with the Tilak Road shop the original.",
+      "sources": [
+        {
+          "label": "Ranka Jewellers: Our Story",
+          "url": "https://rankajewellers.com/pages/our-story"
+        }
+      ],
+      "checked_at": "2026-11-14"
+    },
+    {
+      "id": "international-book-service",
+      "name": "International Book Service",
+      "area": "Deccan Gymkhana",
+      "category": "retail",
+      "known_for": "Independent English bookshop open since 1931.",
+      "since": "1931",
+      "note": "Opened in 1931 beside the Deccan Gymkhana post office and among the city's oldest bookshops; the Times of India notes letters from Jawaharlal Nehru on its walls.",
+      "sources": [
+        {
+          "label": "Indian Express: Book Mark",
+          "url": "https://indianexpress.com/article/cities/pune/book-mark-3/"
+        },
+        {
+          "label": "Times of India",
+          "url": "https://timesofindia.indiatimes.com/city/pune/precious-pages-of-first-pm-jawaharlal-nehrus-letters-in-pune-bookshop/articleshow/45141918.cms"
+        }
+      ],
+      "checked_at": "2026-11-14"
+    },
+    {
+      "id": "express-book-service",
+      "name": "Express Book Service",
+      "area": "Camp (Ambedkar Road)",
+      "category": "retail",
+      "known_for": "Heritage English bookshop in the Cantonment.",
+      "since": null,
+      "note": "Hindustan Times (2017) lists Express Book Service among Pune's surviving old bookstores at over 80 years old; an exact founding year is not published, so none is claimed.",
+      "sources": [
+        {
+          "label": "Hindustan Times: Pune bookstores",
+          "url": "https://www.hindustantimes.com/pune-news/pune-bookstores-are-still-standing-tall-and-the-secret-is/story-pk616EmbGs0G7zMOrPTihO.html"
+        }
+      ],
+      "checked_at": "2026-11-14"
+    },
+    {
+      "id": "akshardhara",
+      "name": "Akshardhara Book Gallery",
+      "area": "Bajirao Road",
+      "category": "retail",
+      "known_for": "Long-running Marathi bookshop in the old city.",
+      "since": null,
+      "note": "A Bajirao Road institution for Marathi books; Hindustan Times (2017) lists it among the city's surviving heritage bookstores.",
+      "sources": [
+        {
+          "label": "Hindustan Times: Pune bookstores",
+          "url": "https://www.hindustantimes.com/pune-news/pune-bookstores-are-still-standing-tall-and-the-secret-is/story-pk616EmbGs0G7zMOrPTihO.html"
+        }
+      ],
+      "checked_at": "2026-11-14"
+    },
+    {
+      "id": "moolchand-mill",
+      "name": "Moolchand Mill",
+      "area": "Laxmi Road (Budhwar Peth end)",
+      "category": "retail",
+      "known_for": "Multi-storey saree emporium on the old shopping street.",
+      "since": null,
+      "note": "LBB Pune lists Moolchand Mill as one of the oldest and best-known saree shops on Laxmi Road; the founding year is not published, so none is claimed.",
+      "sources": [
+        {
+          "label": "LBB Pune: saree stores",
+          "url": "https://lbb.in/pune/saree-shops-in-pune/"
+        }
+      ],
+      "checked_at": "2026-11-14"
+    },
+    {
+      "id": "kalashetram-silks",
+      "name": "Kalashetram Silks",
+      "area": "Deccan Gymkhana area",
+      "category": "retail",
+      "known_for": "Paithani sarees - Pune's specialist name for the weave.",
+      "since": null,
+      "note": "Named in curated Paithani guides (WedMeGood) as a Pune specialist for the weave; treated as a local-known specialist rather than a dated institution.",
+      "sources": [
+        {
+          "label": "WedMeGood: authentic Paithani stores",
+          "url": "https://www.wedmegood.com/blog/most-stunning-stores-and-labels-in-maharashtra-to-buy-the-authentic-paithani-saree/"
+        }
+      ],
+      "checked_at": "2026-11-14"
+    },
+    {
+      "id": "dorabjee",
+      "name": "Dorabjee & Sons",
+      "area": "Camp",
+      "category": "food",
+      "known_for": "Parsi food, especially dhansak, in a near-unchanged old-world dining room.",
+      "since": "1878",
+      "note": "Founded by Sorabjee Dorabjee in 1878 and run today by the fourth generation; the Indian Express documents a menu kept essentially the same since 1878.",
+      "sources": [
+        {
+          "label": "Indian Express: Know Your City",
+          "url": "https://indianexpress.com/article/cities/pune/know-your-city-pune-restaurant-menu-1878-8438417/"
+        },
+        {
+          "label": "Sahapedia",
+          "url": "https://map.sahapedia.org/article/Dorabjee-and+Sons/2792"
+        }
+      ],
+      "checked_at": "2026-11-14"
+    },
+    {
+      "id": "kaka-halwai",
+      "name": "Kaka Halwai Sweet Centre",
+      "area": "Budhwar Peth (branches citywide)",
+      "category": "food",
+      "known_for": "Classic Maharashtrian mithai - pedha, kaju katli, anjir barfi.",
+      "since": "1892",
+      "note": "Founded by Kakasaheb Gadve in 1892; Loksatta and the family record trace the shop from a single Budhwar Peth unit to a citywide name.",
+      "sources": [
+        {
+          "label": "Kaka Halwai: About",
+          "url": "https://www.kakahalwai.com/pages/about-us"
+        },
+        {
+          "label": "Loksatta (Marathi)",
+          "url": "https://preprod.loksatta.com/pune/kaka-halwai-sweet-centre-pune-1564531/"
+        }
+      ],
+      "checked_at": "2026-11-14"
+    },
+    {
+      "id": "gujar-cold-drink",
+      "name": "Gujar Cold Drink House",
+      "area": "Budhwar Peth",
+      "category": "food",
+      "known_for": "Sharbat and sodas since the 1920s; later an early mastani stop.",
+      "since": "1923",
+      "note": "Established in 1923 by Baburao Gujar; the Indian Express's history of mastani begins at its counter.",
+      "sources": [
+        {
+          "label": "Indian Express: Know Your City - Mastani",
+          "url": "https://indianexpress.com/article/cities/pune/know-your-city-mastani-a-cold-pune-beverage-thats-an-ode-to-peshwa-bajiraos-beloved-7928801/"
+        }
+      ],
+      "checked_at": "2026-11-14"
+    },
+    {
+      "id": "goodluck",
+      "name": "Cafe Goodluck",
+      "area": "FC Road, Deccan Gymkhana",
+      "category": "food",
+      "known_for": "Irani-cafe staples - bun maska, Irani chai, caramel custard.",
+      "since": "1935",
+      "note": "Set up by Hussain Ali Yakhshi in 1935; one of Pune's oldest Irani cafes, documented by Sahapedia and its own record.",
+      "sources": [
+        {
+          "label": "Goodluck Cafe: Legacy",
+          "url": "https://goodluckcafe.co.in/about-us/"
+        },
+        {
+          "label": "Sahapedia",
+          "url": "https://map.sahapedia.org/article/Cafe-Goodluck/2783"
+        }
+      ],
+      "checked_at": "2026-11-14"
+    },
+    {
+      "id": "poona-guest-house",
+      "name": "Poona Guest House",
+      "area": "Laxmi Road",
+      "category": "food",
+      "known_for": "Old-style Maharashtrian snacks and meals in a 1930s boarding house.",
+      "since": "1935",
+      "note": "Established by Nanasaheb Sarpotdar in 1935; the Times of India notes its links with Dadasaheb Phalke's film circle.",
+      "sources": [
+        {
+          "label": "Times of India: Tracing Pune's oldest cafes",
+          "url": "https://timesofindia.indiatimes.com/tracing-punes-oldest-cafes/articleshow/46978099.cms"
+        }
+      ],
+      "checked_at": "2026-11-14"
+    },
+    {
+      "id": "chitale",
+      "name": "Chitale Bandhu Mithaiwale",
+      "area": "Bajirao Road (branches worldwide)",
+      "category": "food",
+      "known_for": "Bhakarwadi - the snack that made a Pune dairy a global brand.",
+      "since": "1939",
+      "note": "The Chitale family business traces to a 1939 dairy; the Bajirao Road shop made bhakarwadi a Pune signature, as The Print recounts.",
+      "sources": [
+        {
+          "label": "Chitale Bandhu: About",
+          "url": "https://www.chitalebandhu.in/pages/about-us"
+        },
+        {
+          "label": "The Print: the Chitale story",
+          "url": "https://theprint.in/india/the-chitale-bandhu-story-how-snack-shop-born-in-sleepy-pune-went-global-changed-with-the-times/2487413/"
+        }
+      ],
+      "checked_at": "2026-11-14"
+    },
+    {
+      "id": "kayani",
+      "name": "Kayani Bakery",
+      "area": "East Street, Camp",
+      "category": "food",
+      "known_for": "Shrewsbury biscuits, mawa cakes and bread - queues are part of the ritual.",
+      "since": "1955",
+      "note": "Opened in August 1955 by the Kayani brothers, who had migrated from Iran; the Indian Express profiles it as a city heritage landmark.",
+      "sources": [
+        {
+          "label": "Kayani Bakery: About",
+          "url": "https://www.kayanibakerypune.com/about-us"
+        },
+        {
+          "label": "Indian Express: Know Your City",
+          "url": "https://indianexpress.com/article/cities/pune/know-your-city-pune-kayani-bakery-heritage-landmark-7976536/"
+        }
+      ],
+      "checked_at": "2026-11-14"
+    },
+    {
+      "id": "budhani",
+      "name": "Budhani Bros Waferwala",
+      "area": "Camp / MG Road area",
+      "category": "food",
+      "known_for": "Potato wafers fried in-house since before the packaged-chip era.",
+      "since": "1955",
+      "note": "DNA traces the family shop from a kadhai and kerosene stove in 1955 to an automated line, still a city icon.",
+      "sources": [
+        {
+          "label": "DNA: Crispy business",
+          "url": "https://www.dnaindia.com/mumbai/report-crispy-business-pune-s-famous-budhani-wafers-shares-its-story-1564359"
+        }
+      ],
+      "checked_at": "2026-11-14"
+    },
+    {
+      "id": "marzorin",
+      "name": "Marz-o-rin",
+      "area": "MG Road, Camp",
+      "category": "food",
+      "known_for": "Sandwiches, cold coffee and plum cake in a heritage building.",
+      "since": "1965",
+      "note": "Sheriar Sheriyarji opened it on 11 February 1965 with four items; the family tells the story on its site, and the Indian Express profiles the founders.",
+      "sources": [
+        {
+          "label": "Marz-o-rin: Our Story",
+          "url": "https://marzorin.com/about/"
+        },
+        {
+          "label": "Indian Express",
+          "url": "https://indianexpress.com/article/cities/pune/impatient-man-formidable-wife-pune-food-landmark-marz-o-rin-9953062/"
+        }
+      ],
+      "checked_at": "2026-11-14"
+    },
+    {
+      "id": "sujata",
+      "name": "Sujata Mastani",
+      "area": "Sadashiv Peth (original), branches citywide",
+      "category": "food",
+      "known_for": "Mastani - Pune's thick milkshake-dessert; the rose flavour came first.",
+      "since": "1967",
+      "note": "Sharadrao Kondhalkar started the shop in 1967; India Today records the original 80-paise rose mastani. The drink's name nods to Mastani of Peshwa-era fame, as the Indian Express explains.",
+      "sources": [
+        {
+          "label": "India Today",
+          "url": "https://www.indiatoday.in/magazine/supplement/story/20170911-sujata-mastani-rose-flavoured-milk-1035103-2017-09-01"
+        },
+        {
+          "label": "Sujata Mastani: About",
+          "url": "https://sujatamastani.com/about/"
+        }
+      ],
+      "checked_at": "2026-11-14"
+    },
+    {
+      "id": "vohuman",
+      "name": "Vohuman Cafe",
+      "area": "Sangamvadi, near Ruby Hall Clinic",
+      "category": "food",
+      "known_for": "Cheese omelette, bun maska and Irani chai.",
+      "since": "1978",
+      "note": "Hormuz Irani opened it on 15 August 1978; Sahapedia and the Indian Express both record the story.",
+      "sources": [
+        {
+          "label": "Sahapedia",
+          "url": "https://map.sahapedia.org/article/Vohuman%20Cafe/2795"
+        },
+        {
+          "label": "Indian Express: Pune on my plate",
+          "url": "https://indianexpress.com/article/cities/pune/coffee-cream-cheese-omelette-vohuman-cafe-10325205/"
+        }
+      ],
+      "checked_at": "2026-11-14"
+    },
+    {
+      "id": "laxminarayan-chivda",
+      "name": "Laxminarayan Chivda",
+      "area": "Old city",
+      "category": "food",
+      "known_for": "The city's signature chivda - poha, peanuts, copra and raisins.",
+      "since": null,
+      "note": "Founded by hawker-turned-merchant Laxminarayan Data; published accounts place the founding in the early 1900s but differ on the exact year, so no \"since\" date is claimed here.",
+      "sources": [
+        {
+          "label": "Indian Express: Pune's most-loved chiwda brand",
+          "url": "https://indianexpress.com/article/cities/pune/railway-vendor-pune-loved-chiwda-brand-10405889/"
+        },
+        {
+          "label": "Upper Crust",
+          "url": "https://uppercrustindia.com/oldsite/9crust/nine/pune4.htm"
+        }
+      ],
+      "checked_at": "2026-11-14"
+    }
+  ]
+}
