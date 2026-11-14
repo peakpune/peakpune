@@ -1,6 +1,6 @@
 {
- "verified_on": "2026-11-13",
- "method": "Each area's reference point and each station's position are OpenStreetMap coordinates. Stations are ranked by straight-line distance from the reference point. Distances are kept for audit and are not shown on the page; no walking time or last-mile route is claimed. Line 3 station status is media-reported and unverified. The brief's leads were checked, and two were corrected: Viman Nagar's closest station is Ramwadi, and Koregaon Park's are Bund Garden and Yerwada.",
+ "verified_on": "2026-11-14",
+ "method": "Each area's reference point and each station's position are OpenStreetMap coordinates. Stations are ranked by straight-line distance from the reference point. Distances are kept for audit and are not shown on the page; no walking time or last-mile route is claimed. Line 3 station status remains media-reported and unverified; the operator publishes no open/closed list (re-checked 2026-11-14). Rankings re-computed from station-geo.json on 2026-11-14 with no change. The brief's leads were checked, and two were corrected: Viman Nagar's closest station is Ramwadi, and Koregaon Park's are Bund Garden and Yerwada.",
  "basis_source": "https://www.openstreetmap.org/copyright",
  "areas": [
   {
@@ -306,7 +306,7 @@
      "straight_line_km": 3.1
     }
    ],
-   "note": "Line 3 (Pink) serves Hinjawadi. Its stations here are reported open since early November 2026, but only by media: the operator publishes no open list. The planner does not offer Line 3 stations until the operator confirms. No Line 1 or Line 2 station is near."
+   "note": "Line 3 (Pink) serves Hinjawadi and has been in passenger service since 4 November 2026. Its stations here are reported open, but only by media: the operator publishes no open list. The planner offers them and labels them as media-reported. No Line 1 or Line 2 station is near."
   },
   {
    "id": "pune-airport",
