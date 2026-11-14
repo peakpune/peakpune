@@ -1,0 +1,46 @@
+{
+  "_about": "Eras, categories and collections. Labels are interface text.",
+  "eras": [
+    { "id": "early", "order": 1, "label": { "en": "Early & medieval" }, "range": { "en": "Before 1600" } },
+    { "id": "swarajya", "order": 2, "label": { "en": "Shahaji & Shivaji" }, "range": { "en": "1600–1713" } },
+    { "id": "peshwa", "order": 3, "label": { "en": "Peshwa Pune" }, "range": { "en": "1713–1818" } },
+    { "id": "colonial", "order": 4, "label": { "en": "British Poona" }, "range": { "en": "1818–1947" } },
+    { "id": "modern", "order": 5, "label": { "en": "Modern Pune" }, "range": { "en": "1947–today" } }
+  ],
+  "categories": [
+    { "id": "event", "icon": "event", "label": { "en": "Events" } },
+    { "id": "place", "icon": "place", "label": { "en": "Places" } },
+    { "id": "neighbourhood", "icon": "neighbourhood", "label": { "en": "Neighbourhoods & peths" } },
+    { "id": "person", "icon": "person", "label": { "en": "People" } },
+    { "id": "food", "icon": "food", "label": { "en": "Food" } },
+    { "id": "festival", "icon": "festival", "label": { "en": "Festivals" } },
+    { "id": "term", "icon": "term", "label": { "en": "Local words" } },
+    { "id": "institution", "icon": "institution", "label": { "en": "Institutions" } }
+  ],
+  "collections": [
+    {
+      "id": "col-peshwa-pune",
+      "title": { "en": "The Peshwas' city" },
+      "blurb": { "en": "Palaces, hill temples and the events that played out inside them." },
+      "entries": ["ev-1730-shaniwar-wada", "shaniwar-wada", "ev-1749-parvati", "parvati-hill", "ev-1773-narayanrao", "ev-1807-vishrambaug", "vishrambaug-wada", "ev-1817-khadki"]
+    },
+    {
+      "id": "col-learning",
+      "title": { "en": "Places of learning" },
+      "blurb": { "en": "Colleges, archives and research institutes that made Pune a centre of scholarship." },
+      "entries": ["deccan-college", "ev-1821-deccan-college", "fergusson-college", "bism", "bori", "kelkar-museum"]
+    },
+    {
+      "id": "col-reform",
+      "title": { "en": "Reform and freedom" },
+      "blurb": { "en": "Schools, social reform and the national movement in Pune." },
+      "entries": ["phules", "ev-1848-girls-school", "bhide-wada", "ev-1873-satyashodhak", "ev-1932-poona-pact", "yerwada-jail", "ev-1942-aga-khan", "aga-khan-palace"]
+    },
+    {
+      "id": "col-open-questions",
+      "title": { "en": "Questions still open" },
+      "blurb": { "en": "Where the sources disagree, PunePedia shows the disagreement instead of picking a side." },
+      "entries": ["early-names", "ev-ganeshotsav-origins", "ev-municipality-founding"]
+    }
+  ]
+}

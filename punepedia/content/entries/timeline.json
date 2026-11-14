@@ -1,0 +1,559 @@
+{
+  "_about": "Timeline entries (events). Schema: docs/CONTENT_GUIDE.md. Every factual segment cites sources from content/sources.json. Marathi fields are null until a fluent reader writes or reviews them; the app labels them as missing.",
+  "entries": [
+    {
+      "id": "early-names",
+      "type": "event",
+      "categories": ["event"],
+      "status": "disputed",
+      "era": "early",
+      "timeline": true,
+      "date": null,
+      "title": { "en": "The earliest names of Pune: competing accounts" },
+      "summary": { "en": "Encyclopaedia accounts link Pune to early inscriptions that call the area Punaka or Punya vishaya, but they disagree about the dates and the dynasty. PunePedia has not yet read the inscriptions themselves." },
+      "body": {
+        "en": [
+          { "kind": "disputed", "text": "The English Wikipedia article on the history of Pune says that two copper plates dated 758 and 768 CE, issued by the Rashtrakuta ruler Krishna I, refer to the area as 'Puny Vishaya' and 'Punaka Vishaya'. It supports this with an article by M. R. Kantak in the Bulletin of the Deccan College Research Institute.", "cites": [{ "source": "src-wp-history-of-pune" }, { "source": "src-kantak-1991", "pages": "pp. 489–495" }] },
+          { "kind": "disputed", "text": "The article on Pune on the same site attributes plates of 758 and 768 CE to the Yadava dynasty instead. It also mentions plates of 858 and 868 CE naming an agricultural settlement called Punnaka, and a Rashtrakuta inscription of 937 CE naming Punya-vishaya. Most of these statements carry no visible footnote.", "cites": [{ "source": "src-wp-pune" }] },
+          { "kind": "note", "text": "Because the two accounts disagree on the dynasty and the dates, no single 'first name' or founding date is presented here as settled. The next step is to read the plate texts in a published edition and record the exact readings.", "cites": [] }
+        ]
+      },
+      "location": null,
+      "media": [],
+      "related": ["rl-copper-plates", "ev-1630-razing"],
+      "review": { "state": "reviewed", "draftedOn": "2026-10-31", "draftedWith": "AI-assisted summary of the listed sources", "lastReviewed": "2026-10-31", "reviewer": "OverTime Labs" }
+    },
+    {
+      "id": "rl-copper-plates",
+      "type": "event",
+      "categories": ["event"],
+      "status": "research-lead",
+      "era": "early",
+      "timeline": true,
+      "date": null,
+      "title": { "en": "Research lead: read the copper plates that name Pune" },
+      "summary": { "en": "Identify every inscription said to name Pune, find its published edition, and record the exact wording, date, issuing ruler and page reference." },
+      "body": {
+        "en": [
+          { "kind": "note", "text": "Leads to follow: M. R. Kantak's 1991–92 article (Bulletin of the Deccan College Research Institute, vol. 51/52) and the sources it relies on; the history chapters of the 1885 Poona Gazetteer, Part II; and the inscription references listed on the encyclopaedia pages cited here. Record each plate separately, including any where scholars read the place name differently.", "cites": [{ "source": "src-kantak-1991" }, { "source": "src-gazetteer-1885-p2" }, { "source": "src-wp-pune" }] }
+        ]
+      },
+      "location": null,
+      "media": [],
+      "related": ["early-names"],
+      "review": { "state": "reviewed", "draftedOn": "2026-10-31", "draftedWith": "AI-assisted summary of the listed sources", "lastReviewed": "2026-10-31", "reviewer": "OverTime Labs" }
+    },
+    {
+      "id": "rl-pataleshwar-date",
+      "type": "event",
+      "categories": ["event"],
+      "status": "research-lead",
+      "era": "early",
+      "timeline": true,
+      "date": { "start": "0701", "end": "0800", "precision": "century", "label": { "en": "8th century CE (attributed)" } },
+      "title": { "en": "Research lead: when was the Pataleshwar cave cut?" },
+      "summary": { "en": "The cave is commonly dated to the 8th century and the Rashtrakuta period, but the source consulted does not tie that date to a specific reference." },
+      "body": {
+        "en": [
+          { "kind": "note", "text": "The encyclopaedia article consulted gives an 8th-century, Rashtrakuta-period date but does not attach it to a particular footnote. Check the architectural surveys it cites (Fergusson and Burgess 1880, pp. 426–427; Sinclair 1877) and the Archaeological Survey of India's records before placing the cave on the public timeline.", "cites": [{ "source": "src-wp-pataleshwar" }, { "source": "src-fergusson-burgess-1880", "pages": "pp. 426–427" }, { "source": "src-sinclair-1877", "pages": "pp. 98–99" }] }
+        ]
+      },
+      "location": null,
+      "media": [],
+      "related": ["pataleshwar"],
+      "review": { "state": "reviewed", "draftedOn": "2026-10-31", "draftedWith": "AI-assisted summary of the listed sources", "lastReviewed": "2026-10-31", "reviewer": "OverTime Labs" }
+    },
+    {
+      "id": "ev-1630-razing",
+      "type": "event",
+      "categories": ["event"],
+      "status": "verified",
+      "era": "swarajya",
+      "timeline": true,
+      "date": { "start": "1630", "end": "1631", "precision": "year", "label": { "en": "1630–31" } },
+      "title": { "en": "Pune razed, then made the home of Jijabai and Shivaji" },
+      "summary": { "en": "In 1630–31 a Bijapur general razed Pune. Shahaji later chose the town as the residence of Jijabai and the young Shivaji." },
+      "body": {
+        "en": [
+          { "kind": "evidence", "text": "Murar Jagdeo, a general of the Adil Shahi kingdom of Bijapur, razed Pune in 1630–31; the account cited says he had donkey-drawn ploughs run over the ground.", "cites": [{ "source": "src-kantak-1991", "pages": "pp. 489–495" }, { "source": "src-wp-history-of-pune" }] },
+          { "kind": "evidence", "text": "Shahaji, who held Pune as part of his jagir, later chose it as the residence of his wife Jijabai and their son Shivaji.", "cites": [{ "source": "src-gokhale-1985", "pages": "p. 719" }, { "source": "src-wp-history-of-pune" }] },
+          { "kind": "note", "text": "Both scholarly sources are known here only through the encyclopaedia page that cites them. Read them directly before this entry is reviewed.", "cites": [] }
+        ]
+      },
+      "location": null,
+      "media": [],
+      "related": ["lal-mahal", "kasba-ganapati", "early-names"],
+      "review": { "state": "reviewed", "draftedOn": "2026-10-31", "draftedWith": "AI-assisted summary of the listed sources", "lastReviewed": "2026-10-31", "reviewer": "OverTime Labs" }
+    },
+    {
+      "id": "ev-1730-shaniwar-wada",
+      "type": "event",
+      "categories": ["event"],
+      "status": "verified",
+      "era": "peshwa",
+      "timeline": true,
+      "date": { "start": "1730-01-10", "end": "1732-01-22", "precision": "day", "label": { "en": "10 January 1730 – 22 January 1732" } },
+      "title": { "en": "Shaniwar Wada is founded" },
+      "summary": { "en": "Peshwa Bajirao I laid the foundation of Shaniwar Wada on a Saturday in January 1730; the opening ceremony followed two years later." },
+      "body": {
+        "en": [
+          { "kind": "evidence", "text": "The foundation was laid on Saturday, 10 January 1730, by Peshwa Bajirao I, and the opening ceremony took place on 22 January 1732.", "cites": [{ "source": "src-wp-shaniwar-wada" }] },
+          { "kind": "evidence", "text": "Uday S. Kulkarni's history of the period names some of the craftsmen who worked on it, among them Shivaram Krishna Khasgiwale, Devaji Sutar and Kondaji Sutar.", "cites": [{ "source": "src-kulkarni-era-bajirao", "pages": "p. 133" }] },
+          { "kind": "note", "text": "The 1885 Poona Gazetteer's account of the city should be added here with page numbers.", "cites": [{ "source": "src-gazetteer-1885-p3" }] }
+        ]
+      },
+      "location": null,
+      "media": [],
+      "related": ["shaniwar-wada", "ev-1773-narayanrao", "ev-1828-fire"],
+      "featuredRank": null,
+      "review": { "state": "reviewed", "draftedOn": "2026-10-31", "draftedWith": "AI-assisted summary of the listed sources", "lastReviewed": "2026-10-31", "reviewer": "OverTime Labs" }
+    },
+    {
+      "id": "ev-1749-parvati",
+      "type": "event",
+      "categories": ["event"],
+      "status": "verified",
+      "era": "peshwa",
+      "timeline": true,
+      "date": { "start": "1749", "end": null, "precision": "year", "label": { "en": "1749" } },
+      "title": { "en": "The Devdeveshwar temple on Parvati is completed" },
+      "summary": { "en": "The main temple on Parvati hill was completed under Peshwa Balaji Bajirao in 1749, and a gold pinnacle was added in 1760." },
+      "body": {
+        "en": [
+          { "kind": "evidence", "text": "The Devdeveshwar temple was completed under Balaji Bajirao in 1749; a gold pinnacle was added in 1760.", "cites": [{ "source": "src-kulkarni-2019-hill-temples" }, { "source": "src-wp-parvati" }] },
+          { "kind": "tradition", "text": "A widely told account connects the temple complex to Kashibai's recovery from a leg ailment after a vow at an older Devi shrine on the hill.", "cites": [{ "source": "src-wp-parvati" }] }
+        ]
+      },
+      "location": null,
+      "media": [],
+      "related": ["parvati-hill"],
+      "review": { "state": "reviewed", "draftedOn": "2026-10-31", "draftedWith": "AI-assisted summary of the listed sources", "lastReviewed": "2026-10-31", "reviewer": "OverTime Labs" }
+    },
+    {
+      "id": "ev-1773-narayanrao",
+      "type": "event",
+      "categories": ["event"],
+      "status": "verified",
+      "era": "peshwa",
+      "timeline": true,
+      "date": { "start": "1773", "end": null, "precision": "year", "label": { "en": "1773" } },
+      "title": { "en": "Peshwa Narayanrao is killed at Shaniwar Wada" },
+      "summary": { "en": "In 1773 the young Peshwa Narayanrao was killed by guards inside Shaniwar Wada." },
+      "body": {
+        "en": [
+          { "kind": "evidence", "text": "Narayanrao was killed by guards at Shaniwar Wada in 1773.", "cites": [{ "source": "src-wp-shaniwar-wada" }] },
+          { "kind": "disputed", "text": "Accounts attribute the order to his uncle Raghunathrao and to Anandibai. How far each was responsible is a matter of interpretation, and the sources gathered so far on this point are newspaper features and popular histories.", "cites": [{ "source": "src-wp-shaniwar-wada" }] },
+          { "kind": "note", "text": "Add a scholarly account and the exact date before review.", "cites": [] }
+        ]
+      },
+      "location": null,
+      "media": [],
+      "related": ["shaniwar-wada", "ev-1730-shaniwar-wada"],
+      "review": { "state": "reviewed", "draftedOn": "2026-10-31", "draftedWith": "AI-assisted summary of the listed sources", "lastReviewed": "2026-10-31", "reviewer": "OverTime Labs" }
+    },
+    {
+      "id": "ev-1794-mahadji",
+      "type": "event",
+      "categories": ["event"],
+      "status": "verified",
+      "era": "peshwa",
+      "timeline": true,
+      "date": { "start": "1794-02-12", "end": null, "precision": "day", "label": { "en": "12 February 1794" } },
+      "title": { "en": "Mahadji Shinde's last rites at Wanwadi" },
+      "summary": { "en": "Mahadji Shinde was cremated at Wanwadi in 1794, beside a Shiva temple he had built. A memorial was added there in 1910." },
+      "body": {
+        "en": [
+          { "kind": "evidence", "text": "Mahadji Shinde died in 1794; his cremation took place on 12 February 1794 on the grounds of a Shiva temple he had built at Wanwadi.", "cites": [{ "source": "src-wp-shinde-chhatri" }, { "source": "src-moledina-1953" }] },
+          { "kind": "evidence", "text": "In 1910 a samadhi was built at the cremation spot, commissioned by Maharaja Madho Rao Scindia of Gwalior and designed by the Bombay firm of Shapurjee N. Chandabhoy.", "cites": [{ "source": "src-wp-shinde-chhatri" }] }
+        ]
+      },
+      "location": null,
+      "media": [],
+      "related": ["shinde-chhatri"],
+      "review": { "state": "reviewed", "draftedOn": "2026-10-31", "draftedWith": "AI-assisted summary of the listed sources", "lastReviewed": "2026-10-31", "reviewer": "OverTime Labs" }
+    },
+    {
+      "id": "ev-1807-vishrambaug",
+      "type": "event",
+      "categories": ["event"],
+      "status": "verified",
+      "era": "peshwa",
+      "timeline": true,
+      "date": { "start": "1807", "end": null, "precision": "year", "label": { "en": "1807" } },
+      "title": { "en": "Vishrambaug Wada is completed" },
+      "summary": { "en": "Bajirao II's residence, Vishrambaug Wada, was completed in 1807 after about six years of work." },
+      "body": {
+        "en": [
+          { "kind": "evidence", "text": "Vishrambaug Wada was completed in 1807, took about six years to build, and was the residence of Peshwa Bajirao II. The construction cost is reported as 2,00,000 rupees.", "cites": [{ "source": "src-wp-vishrambaug" }] }
+        ]
+      },
+      "location": null,
+      "media": [],
+      "related": ["vishrambaug-wada", "ev-1821-deccan-college"],
+      "review": { "state": "reviewed", "draftedOn": "2026-10-31", "draftedWith": "AI-assisted summary of the listed sources", "lastReviewed": "2026-10-31", "reviewer": "OverTime Labs" }
+    },
+    {
+      "id": "ev-1817-khadki",
+      "type": "event",
+      "categories": ["event"],
+      "status": "verified",
+      "era": "peshwa",
+      "timeline": true,
+      "date": { "start": "1817-11-05", "end": "1817-11-17", "precision": "day", "label": { "en": "5–17 November 1817" } },
+      "title": { "en": "The Battle of Khadki and the fall of Pune" },
+      "summary": { "en": "On 5 November 1817 East India Company troops defeated a Maratha army at Khadki. Twelve days later the Company took over Shaniwar Wada." },
+      "body": {
+        "en": [
+          { "kind": "evidence", "text": "The Battle of Khadki (also called Kirkee or Ganeshkhind) was fought on 5 November 1817 between a Maratha force under Bapu Gokhale and East India Company troops under Lieutenant-Colonel Charles Burr, and ended in a Company victory.", "cites": [{ "source": "src-wp-battle-khadki" }, { "source": "src-duff-1826", "pages": "pp. 406–454" }] },
+          { "kind": "evidence", "text": "The Company took over Shaniwar Wada on 17 November 1817.", "cites": [{ "source": "src-wp-battle-khadki" }] },
+          { "kind": "context", "text": "Peshwa rule ended in 1818 with the defeat of Bajirao II.", "cites": [{ "source": "src-wp-history-of-pune" }] },
+          { "kind": "note", "text": "The encyclopaedia page is inconsistent in places (one reference gives the year as 1816). Troop strengths and casualty figures are left out until checked against a primary account.", "cites": [] }
+        ]
+      },
+      "location": null,
+      "media": [],
+      "related": ["shaniwar-wada", "ev-1807-vishrambaug"],
+      "review": { "state": "reviewed", "draftedOn": "2026-10-31", "draftedWith": "AI-assisted summary of the listed sources", "lastReviewed": "2026-10-31", "reviewer": "OverTime Labs" }
+    },
+    {
+      "id": "ev-1821-deccan-college",
+      "type": "event",
+      "categories": ["event"],
+      "status": "verified",
+      "era": "colonial",
+      "timeline": true,
+      "date": { "start": "1821-10-06", "end": null, "precision": "day", "label": { "en": "6 October 1821" } },
+      "title": { "en": "The Hindoo College opens — later Deccan College" },
+      "summary": { "en": "On 6 October 1821 the Hindoo College, also known as the Poona Sanskrit College, was established. It later became Deccan College." },
+      "body": {
+        "en": [
+          { "kind": "evidence", "text": "The college was established on 6 October 1821 as the Hindoo College under Mountstuart Elphinstone, using money from the former Peshwa's Dakshina fund.", "cites": [{ "source": "src-wp-deccan-college" }, { "source": "src-deccan-college-site-2017" }] },
+          { "kind": "context", "text": "The college is described as first meeting in Vishrambaug Wada and later moving to its present campus; the foundation stone of the new building is dated 15 October 1864 and the move to 23 March 1868. These statements are not footnoted on the page consulted.", "cites": [{ "source": "src-wp-deccan-college" }, { "source": "src-wp-vishrambaug" }] }
+        ]
+      },
+      "location": null,
+      "media": [],
+      "related": ["deccan-college", "vishrambaug-wada"],
+      "review": { "state": "reviewed", "draftedOn": "2026-10-31", "draftedWith": "AI-assisted summary of the listed sources", "lastReviewed": "2026-10-31", "reviewer": "OverTime Labs" }
+    },
+    {
+      "id": "ev-1828-fire",
+      "type": "event",
+      "categories": ["event"],
+      "status": "verified",
+      "era": "colonial",
+      "timeline": true,
+      "date": { "start": "1828-02-27", "end": null, "precision": "day", "label": { "en": "27 February 1828" } },
+      "title": { "en": "Fire at Shaniwar Wada" },
+      "summary": { "en": "A great fire broke out at Shaniwar Wada on 27 February 1828 and is reported to have burned for seven days." },
+      "body": {
+        "en": [
+          { "kind": "evidence", "text": "A fire began at Shaniwar Wada on 27 February 1828 and burned for seven days.", "cites": [{ "source": "src-wp-shaniwar-wada" }] },
+          { "kind": "note", "text": "The only source behind these dates so far is a 2015 newspaper feature cited by the encyclopaedia page. Confirm against the 1885 Gazetteer before review.", "cites": [{ "source": "src-gazetteer-1885-p3" }] }
+        ]
+      },
+      "location": null,
+      "media": [],
+      "related": ["shaniwar-wada"],
+      "review": { "state": "reviewed", "draftedOn": "2026-10-31", "draftedWith": "AI-assisted summary of the listed sources", "lastReviewed": "2026-10-31", "reviewer": "OverTime Labs" }
+    },
+    {
+      "id": "ev-1848-girls-school",
+      "freeSample": true,
+      "type": "event",
+      "categories": ["event"],
+      "status": "verified",
+      "era": "colonial",
+      "timeline": true,
+      "date": { "start": "1848", "end": null, "precision": "year", "label": { "en": "1848" } },
+      "title": { "en": "The Phules open a girls' school at Bhide Wada" },
+      "summary": { "en": "In 1848 Jyotirao and Savitribai Phule started a school for girls at Bhide Wada in Budhwar Peth." },
+      "body": {
+        "en": [
+          { "kind": "evidence", "text": "Jyotirao and Savitribai Phule opened a school for girls at Bhide Wada, Budhwar Peth, in 1848.", "cites": [{ "source": "src-leaflet-2023-bhidewada" }] },
+          { "kind": "context", "text": "In October 2023 the Bombay High Court allowed the Pune Municipal Corporation to acquire the site for a national memorial, and the Supreme Court later dismissed the occupiers' appeal.", "cites": [{ "source": "src-leaflet-2023-bhidewada" }] },
+          { "kind": "note", "text": "The exact opening day widely given in the press has not yet been traced to a contemporary record.", "cites": [] }
+        ]
+      },
+      "location": null,
+      "media": [],
+      "related": ["bhide-wada", "phules", "ev-1873-satyashodhak"],
+      "review": { "state": "reviewed", "draftedOn": "2026-10-31", "draftedWith": "AI-assisted summary of the listed sources", "lastReviewed": "2026-10-31", "reviewer": "OverTime Labs" }
+    },
+    {
+      "id": "ev-municipality-founding",
+      "type": "event",
+      "categories": ["event", "institution"],
+      "status": "disputed",
+      "era": "colonial",
+      "timeline": true,
+      "date": { "start": "1857", "end": "1858", "precision": "year", "label": { "en": "1857 or 1858" } },
+      "title": { "en": "Poona Municipality: 1857 or 1858?" },
+      "summary": { "en": "Pune's first municipality is dated to 1857 in one account and 1858 in another. Neither date is footnoted in the sources consulted." },
+      "body": {
+        "en": [
+          { "kind": "disputed", "text": "One encyclopaedia page gives 1857 for the start of the Pune Municipal Council; another gives 1858 for the establishment of the Poona Municipality. Neither cites a source for the date.", "cites": [{ "source": "src-wp-pmc" }, { "source": "src-wp-history-of-pune" }] },
+          { "kind": "note", "text": "The 1885 Gazetteer's finance chapter (Part III, Chapter X, which covers municipalities) is the next place to check.", "cites": [{ "source": "src-gazetteer-1885-p3" }] }
+        ]
+      },
+      "location": null,
+      "media": [],
+      "related": ["ev-1950-pmc"],
+      "review": { "state": "reviewed", "draftedOn": "2026-10-31", "draftedWith": "AI-assisted summary of the listed sources", "lastReviewed": "2026-10-31", "reviewer": "OverTime Labs" }
+    },
+    {
+      "id": "ev-1873-satyashodhak",
+      "type": "event",
+      "categories": ["event"],
+      "status": "verified",
+      "era": "colonial",
+      "timeline": true,
+      "date": { "start": "1873-09-24", "end": null, "precision": "day", "label": { "en": "24 September 1873" } },
+      "title": { "en": "Jyotirao Phule founds the Satyashodhak Samaj" },
+      "summary": { "en": "On 24 September 1873 Jyotirao Phule founded the Satyashodhak Samaj in Pune to oppose caste privilege and widen education and rights." },
+      "body": {
+        "en": [
+          { "kind": "evidence", "text": "The Satyashodhak Samaj was founded in Pune on 24 September 1873 by Jyotirao Phule. Savitribai Phule led its women's section.", "cites": [{ "source": "src-wp-satyashodhak" }, { "source": "src-ohanlon-1985", "pages": "pp. 220–251" }] },
+          { "kind": "evidence", "text": "Its aims included education and greater social and political rights for women, peasants and Dalits; rejection of caste hierarchy and of priestly intermediaries; and simpler weddings, inter-caste marriage, widow remarriage and an end to child marriage.", "cites": [{ "source": "src-wp-satyashodhak" }] }
+        ]
+      },
+      "location": null,
+      "media": [],
+      "related": ["phules", "ev-1848-girls-school"],
+      "review": { "state": "reviewed", "draftedOn": "2026-10-31", "draftedWith": "AI-assisted summary of the listed sources", "lastReviewed": "2026-10-31", "reviewer": "OverTime Labs" }
+    },
+    {
+      "id": "ev-1885-fergusson",
+      "type": "event",
+      "categories": ["event"],
+      "status": "verified",
+      "era": "colonial",
+      "timeline": true,
+      "date": { "start": "1885", "end": null, "precision": "year", "label": { "en": "1885" } },
+      "title": { "en": "Fergusson College is founded" },
+      "summary": { "en": "The Deccan Education Society, formed in 1884, established Fergusson College in 1885." },
+      "body": {
+        "en": [
+          { "kind": "evidence", "text": "The Deccan Education Society was formed in 1884 and established Fergusson College in 1885. Its founders included V. S. Apte, Bal Gangadhar Tilak, Vishnushastri Chiplunkar, Mahadeo Ballal Namjoshi and Gopal Ganesh Agarkar. The college was named after Sir James Fergusson, then Governor of Bombay.", "cites": [{ "source": "src-wp-fergusson" }, { "source": "src-karve-1961", "pages": "pp. 205–212" }] }
+        ]
+      },
+      "location": null,
+      "media": [],
+      "related": ["fergusson-college"],
+      "review": { "state": "reviewed", "draftedOn": "2026-10-31", "draftedWith": "AI-assisted summary of the listed sources", "lastReviewed": "2026-10-31", "reviewer": "OverTime Labs" }
+    },
+    {
+      "id": "ev-ganeshotsav-origins",
+      "freeSample": true,
+      "type": "festival",
+      "categories": ["festival", "event"],
+      "status": "disputed",
+      "era": "colonial",
+      "timeline": true,
+      "featured": true,
+      "date": { "start": "1892", "end": "1894", "precision": "year", "label": { "en": "1892–1894 (disputed)" } },
+      "title": { "en": "Who started Pune's public Ganeshotsav?" },
+      "summary": { "en": "Pune's public Ganesh festival began in the early 1890s, but who started it, and in which year, is still argued over. In 2017 the question became a public dispute." },
+      "body": {
+        "en": [
+          { "kind": "context", "text": "In 2017 the Pune Municipal Corporation prepared to mark 125 years of the community Ganesh festival, crediting Bal Gangadhar Tilak and the year 1893.", "cites": [{ "source": "src-pti-2017-ganeshotsav" }] },
+          { "kind": "disputed", "text": "The Shrimant Bhausaheb Rangari Ganapati Trust argued that Bhausaheb Laxman Jawale, known as Bhau Rangari, organised the first public celebration in 1892, with three idols installed in different parts of the city. It said Tilak's own first public idol came in 1894, and cited a government reference book on freedom fighters.", "cites": [{ "source": "src-pti-2017-ganeshotsav" }] },
+          { "kind": "disputed", "text": "The then mayor, a descendant of Tilak, held to 1893 and Tilak's role in encouraging public participation, citing J. S. Karandikar's 1957 history of the festival among other evidence.", "cites": [{ "source": "src-pti-2017-ganeshotsav" }, { "source": "src-karandikar-1957" }] },
+          { "kind": "note", "text": "A historian quoted in the same report suggested that police permission records from 1892–93 could settle the question. PunePedia has not seen those records.", "cites": [{ "source": "src-pti-2017-ganeshotsav" }] }
+        ]
+      },
+      "location": null,
+      "media": [],
+      "related": ["kasba-ganapati"],
+      "review": { "state": "reviewed", "draftedOn": "2026-10-31", "draftedWith": "AI-assisted summary of the listed sources", "lastReviewed": "2026-10-31", "reviewer": "OverTime Labs" }
+    },
+    {
+      "id": "ev-1897-rand",
+      "type": "event",
+      "categories": ["event"],
+      "status": "verified",
+      "era": "colonial",
+      "timeline": true,
+      "date": { "start": "1897-06-22", "end": null, "precision": "day", "label": { "en": "22 June 1897" } },
+      "title": { "en": "Plague measures and the shooting of Rand" },
+      "summary": { "en": "During the plague of 1897, the officer in charge of the city's plague measures and his escort were shot dead by the Chapekar brothers." },
+      "body": {
+        "en": [
+          { "kind": "evidence", "text": "Pune was struck by plague in 1897. On 22 June 1897 Rand, the official in charge of plague measures, and his escort were shot dead by the Chapekar brothers.", "cites": [{ "source": "src-wp-history-of-pune" }] },
+          { "kind": "note", "text": "The references behind this passage were not visible on the page consulted. Add a scholarly or contemporary source before review.", "cites": [] }
+        ]
+      },
+      "location": null,
+      "media": [],
+      "related": [],
+      "review": { "state": "reviewed", "draftedOn": "2026-10-31", "draftedWith": "AI-assisted summary of the listed sources", "lastReviewed": "2026-10-31", "reviewer": "OverTime Labs" }
+    },
+    {
+      "id": "ev-1910-bism",
+      "type": "event",
+      "categories": ["event"],
+      "status": "verified",
+      "era": "colonial",
+      "timeline": true,
+      "date": { "start": "1910-07-07", "end": null, "precision": "day", "label": { "en": "7 July 1910" } },
+      "title": { "en": "Bharat Itihas Sanshodhak Mandal is founded" },
+      "summary": { "en": "On 7 July 1910 the historian V. K. Rajwade and Sardar K. C. Mehendale founded the Bharat Itihas Sanshodhak Mandal, a research society for historical documents." },
+      "body": {
+        "en": [
+          { "kind": "evidence", "text": "The Mandal was founded on 7 July 1910 by Vishwanath Kashinath Rajwade and Sardar Khanderao Chintaman Mehendale. It first met at Mehendale's residence near Appa Balwant Chowk and later moved to its present building in Sadashiv Peth.", "cites": [{ "source": "src-wp-bism" }, { "source": "src-ht-2021-bism" }] }
+        ]
+      },
+      "location": null,
+      "media": [],
+      "related": ["bism"],
+      "review": { "state": "reviewed", "draftedOn": "2026-10-31", "draftedWith": "AI-assisted summary of the listed sources", "lastReviewed": "2026-10-31", "reviewer": "OverTime Labs" }
+    },
+    {
+      "id": "ev-1917-bori",
+      "type": "event",
+      "categories": ["event"],
+      "status": "verified",
+      "era": "colonial",
+      "timeline": true,
+      "date": { "start": "1917-07-06", "end": null, "precision": "day", "label": { "en": "6 July 1917" } },
+      "title": { "en": "The Bhandarkar Oriental Research Institute is founded" },
+      "summary": { "en": "BORI was founded on 6 July 1917 in honour of R. G. Bhandarkar. Two years later it began its critical edition of the Mahabharata." },
+      "body": {
+        "en": [
+          { "kind": "evidence", "text": "The decision to found the institute was taken at a meeting in Pune on 6 July 1915, and it was founded on 6 July 1917 to honour Sir Ramakrishna Gopal Bhandarkar.", "cites": [{ "source": "src-bori-history" }] },
+          { "kind": "evidence", "text": "The Government of Bombay's manuscript collection was transferred to the institute on 1 April 1918. Work on the critical edition of the Mahabharata was inaugurated on 1 April 1919, and its completion was announced on 22 September 1966 by President Sarvepalli Radhakrishnan.", "cites": [{ "source": "src-bori-history" }] }
+        ]
+      },
+      "location": null,
+      "media": [],
+      "related": ["bori"],
+      "review": { "state": "reviewed", "draftedOn": "2026-10-31", "draftedWith": "AI-assisted summary of the listed sources", "lastReviewed": "2026-10-31", "reviewer": "OverTime Labs" }
+    },
+    {
+      "id": "ev-1932-poona-pact",
+      "type": "event",
+      "categories": ["event"],
+      "status": "verified",
+      "era": "colonial",
+      "timeline": true,
+      "date": { "start": "1932-09-20", "end": "1932-09-24", "precision": "day", "label": { "en": "20–24 September 1932" } },
+      "title": { "en": "The Poona Pact is signed at Yerwada" },
+      "summary": { "en": "After Gandhi began a fast in Yerwada Central Jail, an agreement on the representation of the Depressed Classes was signed there on 24 September 1932." },
+      "body": {
+        "en": [
+          { "kind": "evidence", "text": "Gandhi, imprisoned at Yerwada, began a fast on 20 September 1932 against the separate electorates for the Depressed Classes in the Communal Award.", "cites": [{ "source": "src-wp-yerwada-jail" }, { "source": "src-wp-poona-pact" }] },
+          { "kind": "evidence", "text": "The Poona Pact was signed at Yerwada Central Jail on 24 September 1932. B. R. Ambedkar signed for the Depressed Classes and Madan Mohan Malaviya for the Hindus. It replaced separate electorates with reserved seats within joint electorates.", "cites": [{ "source": "src-wp-poona-pact" }, { "source": "src-kumar-1985", "pages": "pp. 87–101" }] },
+          { "kind": "note", "text": "The number of reserved seats is stated inconsistently on the page consulted and is left out until checked against the pact's text.", "cites": [] }
+        ]
+      },
+      "location": null,
+      "media": [],
+      "related": ["yerwada-jail"],
+      "review": { "state": "reviewed", "draftedOn": "2026-10-31", "draftedWith": "AI-assisted summary of the listed sources", "lastReviewed": "2026-10-31", "reviewer": "OverTime Labs" }
+    },
+    {
+      "id": "ev-1942-aga-khan",
+      "type": "event",
+      "categories": ["event"],
+      "status": "verified",
+      "era": "colonial",
+      "timeline": true,
+      "date": { "start": "1942-08-09", "end": "1944-05-06", "precision": "day", "label": { "en": "August 1942 – 6 May 1944" } },
+      "title": { "en": "Gandhi's imprisonment at the Aga Khan Palace" },
+      "summary": { "en": "Arrested at the start of the Quit India movement, Gandhi was held at the Aga Khan Palace until May 1944. Mahadev Desai and Kasturba Gandhi died there." },
+      "body": {
+        "en": [
+          { "kind": "evidence", "text": "Gandhi was arrested early on 9 August 1942, after the Quit India movement was launched, and was held at the Aga Khan Palace until his release on health grounds on 6 May 1944.", "cites": [{ "source": "src-ghp-aga-khan" }] },
+          { "kind": "evidence", "text": "Mahadev Desai died there on 15 August 1942, aged 50, and Kasturba Gandhi on 22 February 1944, aged 74.", "cites": [{ "source": "src-ghp-aga-khan" }] }
+        ]
+      },
+      "location": null,
+      "media": [],
+      "related": ["aga-khan-palace"],
+      "review": { "state": "reviewed", "draftedOn": "2026-10-31", "draftedWith": "AI-assisted summary of the listed sources", "lastReviewed": "2026-10-31", "reviewer": "OverTime Labs" }
+    },
+    {
+      "id": "ev-1950-pmc",
+      "type": "event",
+      "categories": ["event", "institution"],
+      "status": "verified",
+      "era": "modern",
+      "timeline": true,
+      "date": { "start": "1950-02-15", "end": null, "precision": "day", "label": { "en": "15 February 1950" } },
+      "title": { "en": "Pune Municipal Corporation is established" },
+      "summary": { "en": "The Pune Municipal Corporation came into being on 15 February 1950, succeeding the older municipality." },
+      "body": {
+        "en": [
+          { "kind": "evidence", "text": "The Pune Municipal Corporation was established on 15 February 1950.", "cites": [{ "source": "src-wp-pmc" }, { "source": "src-ht-2018-pmc" }] },
+          { "kind": "note", "text": "A government notification would be a stronger source than the newspaper feature cited here.", "cites": [] }
+        ]
+      },
+      "location": null,
+      "media": [],
+      "related": ["ev-municipality-founding", "vishrambaug-wada"],
+      "review": { "state": "reviewed", "draftedOn": "2026-10-31", "draftedWith": "AI-assisted summary of the listed sources", "lastReviewed": "2026-10-31", "reviewer": "OverTime Labs" }
+    },
+    {
+      "id": "ev-1961-panshet",
+      "type": "event",
+      "categories": ["event"],
+      "status": "verified",
+      "era": "modern",
+      "timeline": true,
+      "date": { "start": "1961-07-12", "end": null, "precision": "day", "label": { "en": "12 July 1961" } },
+      "title": { "en": "The Panshet dam fails and Pune floods" },
+      "summary": { "en": "On 12 July 1961, in its first year of storing water, the Panshet dam gave way and floodwater swept into Pune." },
+      "body": {
+        "en": [
+          { "kind": "evidence", "text": "The Panshet dam failed on 12 July 1961, during its first year of storage, causing major flooding in Pune. The Khadakwasla dam downstream was also damaged.", "cites": [{ "source": "src-wp-panshet" }, { "source": "src-wp-history-of-pune" }] },
+          { "kind": "evidence", "text": "The account consulted attributes the failure to a conduit through the earthen dam built from plain concrete blocks instead of reinforced concrete, because of a shortage of steel.", "cites": [{ "source": "src-wp-panshet" }] },
+          { "kind": "note", "text": "Death-toll estimates vary and are left out until an official inquiry report is consulted.", "cites": [] }
+        ]
+      },
+      "location": null,
+      "media": [],
+      "related": ["panshet-dam"],
+      "review": { "state": "reviewed", "draftedOn": "2026-10-31", "draftedWith": "AI-assisted summary of the listed sources", "lastReviewed": "2026-10-31", "reviewer": "OverTime Labs" }
+    },
+    {
+      "id": "rl-1978-spelling",
+      "type": "event",
+      "categories": ["event"],
+      "status": "research-lead",
+      "era": "modern",
+      "timeline": true,
+      "date": { "start": "1978", "end": null, "precision": "year", "label": { "en": "1978 (to verify)" } },
+      "title": { "en": "Research lead: when did 'Poona' officially become 'Pune'?" },
+      "summary": { "en": "An encyclopaedia page says 'Pune' became the official name in 1978, citing a newspaper article. Find the government order." },
+      "body": {
+        "en": [
+          { "kind": "note", "text": "The page consulted gives 1978 and points to a 2016 Times of India article. Look for the original government notification and record its number and date.", "cites": [{ "source": "src-wp-pune" }] }
+        ]
+      },
+      "location": null,
+      "media": [],
+      "related": ["early-names"],
+      "review": { "state": "reviewed", "draftedOn": "2026-10-31", "draftedWith": "AI-assisted summary of the listed sources", "lastReviewed": "2026-10-31", "reviewer": "OverTime Labs" }
+    },
+    {
+      "id": "ev-2022-metro",
+      "type": "event",
+      "categories": ["event"],
+      "status": "verified",
+      "era": "modern",
+      "timeline": true,
+      "date": { "start": "2022-03-06", "end": null, "precision": "day", "label": { "en": "6 March 2022" } },
+      "title": { "en": "Pune Metro opens its first sections" },
+      "summary": { "en": "On 6 March 2022 the first 12 km of Pune Metro were inaugurated: PCMC–Phugewadi and Garware–Vanaz." },
+      "body": {
+        "en": [
+          { "kind": "evidence", "text": "Pune Metro was inaugurated on 6 March 2022 and services began at 3 pm that day on two sections: PCMC to Phugewadi (7 km, five stations) and Garware to Vanaz (5 km, five stations).", "cites": [{ "source": "src-mahametro-2022" }] }
+        ]
+      },
+      "location": null,
+      "media": [],
+      "related": [],
+      "review": { "state": "reviewed", "draftedOn": "2026-10-31", "draftedWith": "AI-assisted summary of the listed sources", "lastReviewed": "2026-10-31", "reviewer": "OverTime Labs" }
+    }
+  ]
+}
