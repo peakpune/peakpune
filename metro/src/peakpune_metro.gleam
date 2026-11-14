@@ -383,7 +383,7 @@ fn fare_notes(network: Network, route: Route) -> List(Element(Msg)) {
         paragraph(line3_ticket_text(network)),
         html.p([attribute.class("warn")], [
           text(
-            "Line 3 is reported open by the media. The operator's website does not say which stations are open, so check at the station or on punerimetro.in before you travel.",
+            "Line 3 is in passenger service (operator timetable). Individual station opening statuses are based on launch reporting, so check your station before travel.",
           ),
         ]),
       ]
@@ -406,7 +406,7 @@ fn wa_chip(url: String, label: String) -> Element(Msg) {
 
 fn whatsapp(network: Network) -> Element(Msg) {
   let maha = case network.maha_whatsapp {
-    Some(url) -> [wa_chip(url, "Book on WhatsApp (Lines 1 and 2 only)")]
+    Some(url) -> [wa_chip(url, "Book on WhatsApp (Lines 1 and 2)")]
     None -> []
   }
   let pink = case network.pink_whatsapp, network.pink_whatsapp_shared {
