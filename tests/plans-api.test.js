@@ -2,7 +2,6 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { DatabaseSync } from 'node:sqlite';
 import { readFileSync } from 'node:fs';
-import { webcrypto } from 'node:crypto';
 import * as api from '../functions/_lib/api.js';
 import { FIX } from './fixtures-images.js';
 
@@ -19,25 +18,19 @@ function makeDB() {
   return { prepare: (sql) => stmt(sql), raw: db };
 }
 const NOW = new Date('2026-11-14T10:00:00Z');
-const key = await webcrypto.subtle.generateKey({ name: 'RSASSA-PKCS1-v1_5', modulusLength: 2048, publicExponent: new Uint8Array([1, 0, 1]), hash: 'SHA-256' }, true, ['sign', 'verify']);
-const jwk = { ...(await webcrypto.subtle.exportKey('jwk', key.publicKey)), kid: 'k1' };
-const fetchKeys = async () => [jwk];
-const b64u = (b) => Buffer.from(b).toString('base64url');
-async function jwt(over = {}, signKey = key.privateKey) {
-  const h = b64u(JSON.stringify({ alg: 'RS256', kid: 'k1' }));
-  const p = b64u(JSON.stringify({ aud: ['AUD1'], iss: 'https://team.cloudflareaccess.com', email: 'owner@example.com', exp: NOW.getTime() / 1000 + 600, ...over }));
-  const s = await webcrypto.subtle.sign('RSASSA-PKCS1-v1_5', signKey, new TextEncoder().encode(h + '.' + p));
-  return `${h}.${p}.${b64u(s)}`;
-}
-const mkEnv = (extra = {}) => ({ DB: makeDB(), HASH_SALT: 'salt', ADMIN_EMAIL: 'owner@example.com', ACCESS_TEAM_DOMAIN: 'team.cloudflareaccess.com', ACCESS_AUD: 'AUD1', ...extra });
+const PASS = 'correct horse battery staple';
+const mkEnv = (extra = {}) => ({ DB: makeDB(), ADMIN_PASSPHRASE: PASS, ...extra });
+const login = (env, passphrase = PASS, o = {}) => api.adminLogin(post('/api/admin/login', { passphrase }, o), env, NOW);
+async function cookie(env) { const r = await login(env); assert.equal(r.status, 200); return r.headers.get('set-cookie').split(';')[0]; }
 const PLAN = { title: 'Sunday run at Baner hill', date: '2026-11-16', time: '06:30', area: 'Baner', venue: 'Gate 2', link: 'https://example.com/run' };
 const post = (url, body, { ip = '1.1.1.1', headers = {} } = {}) => new Request('https://peakpune.test' + url, { method: 'POST', headers: { 'content-type': 'application/json', 'cf-connecting-ip': ip, ...headers }, body: JSON.stringify(body) });
 const get = (url, headers = {}) => new Request('https://peakpune.test' + url, { headers });
 const submit = (env, body = PLAN, o) => api.submitPlan(post('/api/plans', body, o), env, NOW);
 const list = async (env) => (await (await api.listPlans(get('/api/plans'), env, NOW)).json()).plans;
-const admin = async (extra) => ({ 'cf-access-jwt-assertion': await jwt(extra) });
-const decide = async (env, id, action, extra, h) => api.adminDecide(post('/api/admin/decide', { id, action }, { headers: h ?? (await admin(extra)) }), env, NOW, fetchKeys);
-const pending = async (env) => (await (await api.adminList(get('/api/admin/list', await admin()), env, NOW, fetchKeys)).json()).plans;
+const envC = new WeakMap();
+const admin = async (env) => ({ cookie: envC.get(env) ?? (envC.set(env, await cookie(env)), envC.get(env)) });
+const decide = async (env, id, action, _x, h) => api.adminDecide(post('/api/admin/decide', { id, action }, { headers: h ?? (await admin(env)) }), env, NOW);
+const pending = async (env) => (await (await api.adminList(get('/api/admin/list', await admin(env)), env, NOW)).json()).plans;
 
 test('submission is stored pending and is NOT public until approved', async () => {
   const env = mkEnv();
@@ -96,23 +89,34 @@ test('cross-origin POST is refused', async () => {
 test('fails closed when unconfigured', async () => {
   assert.equal((await api.submitPlan(post('/api/plans', PLAN), { DB: makeDB() }, NOW)).status, 503);
 });
-test('admin: no token, wrong email, wrong aud, expired, bad signature, unconfigured => 403', async () => {
+test('admin: no cookie, wrong passphrase, forged, expired, unconfigured => 403', async () => {
   const env = mkEnv(); await submit(env); const [p] = await pending(env);
-  const other = (await webcrypto.subtle.generateKey({ name: 'RSASSA-PKCS1-v1_5', modulusLength: 2048, publicExponent: new Uint8Array([1, 0, 1]), hash: 'SHA-256' }, true, ['sign', 'verify'])).privateKey;
-  const cases = [{}, { 'cf-access-jwt-assertion': await jwt({ email: 'x@example.com' }) }, { 'cf-access-jwt-assertion': await jwt({ aud: ['NOPE'] }) },
-    { 'cf-access-jwt-assertion': await jwt({ exp: 1 }) }, { 'cf-access-jwt-assertion': await jwt({}, other) }, { 'cf-access-jwt-assertion': await jwt({ iss: 'https://evil' }) }];
+  assert.equal((await login(env, 'wrong')).status, 401);
+  const good = await cookie(env); const [exp] = good.split('=')[1].split('.');
+  const cases = [{}, { cookie: 'pp_admin=' + exp + '.' + 'a'.repeat(64) }, { cookie: 'pp_admin=1.' + good.split('.')[1] }, { cookie: 'pp_admin=' + (Number(exp) + 99999) + '.' + good.split('.')[1] }, { cookie: 'other=1' }];
   for (const h of cases) {
     assert.equal((await decide(env, p.id, 'approve', {}, h)).status, 403);
-    assert.equal((await api.adminList(get('/api/admin/list', h), env, NOW, fetchKeys)).status, 403);
+    assert.equal((await api.adminList(get('/api/admin/list', h), env, NOW)).status, 403);
   }
-  const open = { ...env, ACCESS_AUD: '' };
-  assert.equal((await api.adminList(get('/api/admin/list', await admin()), open, NOW, fetchKeys)).status, 403);
+  const open = { DB: env.DB };
+  assert.equal((await api.adminList(get('/api/admin/list', { cookie: good }), open, NOW)).status, 403);
+  assert.equal((await login(open)).status, 503);
   assert.deepEqual(await list(env), []);
 });
+test('login is rate limited and cross-origin or form logins are refused', async () => {
+  const env = mkEnv();
+  for (let i = 0; i < 8; i++) assert.equal((await login(env, 'bad' + i, { ip: '9.9.9.9' })).status, 401);
+  assert.equal((await login(env, PASS, { ip: '9.9.9.9' })).status, 429);
+  assert.equal((await login(env, PASS, { ip: '8.8.8.8', headers: { origin: 'https://evil.test' } })).status, 403);
+  const form = new Request('https://peakpune.test/api/admin/login', { method: 'POST', headers: { 'content-type': 'text/plain' }, body: '{}' });
+  assert.equal((await api.adminLogin(form, env, NOW)).status, 403);
+  const c = (await login(env, PASS, { ip: '7.7.7.7' })).headers.get('set-cookie');
+  assert.match(c, /HttpOnly/); assert.match(c, /Secure/); assert.match(c, /SameSite=Strict/);
+});
 test('admin decide rejects form posts and cross-origin', async () => {
-  const env = mkEnv(); await submit(env); const [p] = await pending(env); const h = await admin();
+  const env = mkEnv(); await submit(env); const [p] = await pending(env); const h = await admin(env);
   const form = new Request('https://peakpune.test/api/admin/decide', { method: 'POST', headers: { ...h, 'content-type': 'text/plain' }, body: JSON.stringify({ id: p.id, action: 'approve' }) });
-  assert.equal((await api.adminDecide(form, env, NOW, fetchKeys)).status, 403);
+  assert.equal((await api.adminDecide(form, env, NOW)).status, 403);
   assert.equal((await decide(env, p.id, 'approve', undefined, { ...h, origin: 'https://evil.test' })).status, 403);
 });
 test('reports go to the private owner queue only; they never hide a plan automatically', async () => {
@@ -151,8 +155,8 @@ test('image: metadata is stripped server-side, stored privately, served only aft
   const stored = env.DB.raw.prepare('SELECT bytes FROM images').get().bytes; assert.ok(!Buffer.from(stored).includes(Buffer.from('Exif')));
   const [p] = await pending(env);
   assert.match(p.image, /^\/api\/admin\/image/);
-  assert.equal((await api.adminImage(get(p.image), env, NOW, fetchKeys)).status, 403);
-  assert.equal((await api.adminImage(get(p.image, await admin()), env, NOW, fetchKeys)).status, 200);
+  assert.equal((await api.adminImage(get(p.image), env, NOW)).status, 403);
+  assert.equal((await api.adminImage(get(p.image, await admin(env)), env, NOW)).status, 200);
   assert.equal((await api.publicImage(get('/x'), env, p.id)).status, 404);
   await decide(env, p.id, 'approve');
   const img = await api.publicImage(get('/x'), env, p.id); assert.equal(img.status, 200);
