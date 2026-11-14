@@ -86,9 +86,14 @@ test('external links are labelled as needing the internet', () => {
   assert.ok(links.length > 20);
   assert.ok(links.every((m) => m[1].includes('needs internet')));
 });
-test('the Line 3 WhatsApp number is never invented', () => {
-  assert.equal(data.operators.pitcmrl.whatsapp_eticket, null);
-  assert.ok(/do not list one/.test(guideHtml));
+test('Line 3 WhatsApp: only the official shared number, always labelled reported', () => {
+  assert.equal(data.operators.pitcmrl.whatsapp_eticket, null); // no Line 3-specific number is published
+  const wa = data.ticketing.line3.whatsapp_shared_number;
+  assert.equal(wa.url, 'https://wa.me/9420101990'); // the official Pune Metro number, never an invented one
+  assert.equal(wa.status_source, 'media');
+  assert.equal(wa.verified, false);
+  assert.ok(guideHtml.includes('wa.me/9420101990'));
+  assert.ok(/labelled reported/.test(guideHtml));
 });
 
 test('service worker: guide-only scope, precache exists, no silent skipWaiting, passes other requests through', () => {
