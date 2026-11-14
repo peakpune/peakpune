@@ -139,6 +139,7 @@ data/                   source datasets plus a default-deny publication audit
 data/metro/             Pune Metro dataset, area directory and verification log
 metro/                  Gleam/Lustre journey planner (dist/planner.js is the committed bundle)
 tests/                  node:test suites
+peakpuneapp/, punepedia/ separate Android app projects. Not part of the website build or deploy
 docs/                   scope and brand, plans data, third-party notices
 ```
 
