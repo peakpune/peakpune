@@ -1,0 +1,870 @@
+[
+ {
+  "id": "meetup-punerunners-club",
+  "name": "PuneRunners Club",
+  "type": "meetup",
+  "tags": [
+   "running",
+   "walking",
+   "free"
+  ],
+  "scope": "CORE",
+  "neighbourhood": "UNKNOWN",
+  "address": "UNKNOWN",
+  "lat": null,
+  "lon": null,
+  "url_official": "https://punerunners.com/",
+  "url_deep": "https://punerunners.com/join/",
+  "summary": "Free running community for runners, joggers and walkers of every pace; runs and race plans are arranged in its WhatsApp community.",
+  "status": "verified",
+  "sources": [
+   "https://punerunners.com/join/",
+   "https://punerunners.com/events/",
+   "https://www.strava.com/clubs/2015700"
+  ],
+  "evidence": [
+   {
+    "field": "name",
+    "value": "PuneRunners Club",
+    "source_url": "https://punerunners.com/join/",
+    "source_type": "primary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "join_url",
+    "value": "https://punerunners.com/join/",
+    "source_url": "https://punerunners.com/join/",
+    "source_type": "primary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "schedule_text",
+    "value": "Event details, race plans and people looking for running partners in the WhatsApp community",
+    "source_url": "https://punerunners.com/join/",
+    "source_type": "primary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "last_public_activity",
+    "value": "Club event listed Sun, 25 October 2026, 6:30 AM",
+    "source_url": "https://punerunners.com/events/",
+    "source_type": "primary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "members",
+    "value": "174 members on Strava",
+    "source_url": "https://www.strava.com/clubs/2015700",
+    "source_type": "primary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "url_deep",
+    "value": "https://punerunners.com/join/",
+    "source_url": "https://punerunners.com/join/",
+    "source_type": "primary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   }
+  ],
+  "checked_at": "2026-11-13",
+  "freshness_days": 19,
+  "schedule_text": "No fixed public meet point. Runs are planned in the WhatsApp community; the Strava club page mentions weekly runs and long runs.",
+  "join_url": "https://punerunners.com/join/",
+  "last_public_activity": "2026-10-25",
+  "activity_state": "active",
+  "cost_note": "Free to join",
+  "linked_id": null,
+  "notes": null,
+  "stale_over_90_days": false
+ },
+ {
+  "id": "meetup-pune-trekkers",
+  "name": "Pune Trekkers",
+  "type": "meetup",
+  "tags": [
+   "trekking",
+   "hiking",
+   "free",
+   "beginner"
+  ],
+  "scope": "CORE",
+  "neighbourhood": "UNKNOWN",
+  "address": "UNKNOWN",
+  "lat": null,
+  "lon": null,
+  "url_official": "https://punetrekkers.org/",
+  "url_deep": "https://punetrekkers.org/join",
+  "summary": "Free, volunteer-run trekking group of about 2,300 members across three WhatsApp groups. Trek costs are shared at actuals with no markup.",
+  "status": "verified",
+  "sources": [
+   "https://punetrekkers.org/join",
+   "https://punetrekkers.org/treks"
+  ],
+  "evidence": [
+   {
+    "field": "name",
+    "value": "Pune Trekkers",
+    "source_url": "https://punetrekkers.org/join",
+    "source_type": "primary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "join_url",
+    "value": "https://punetrekkers.org/join",
+    "source_url": "https://punetrekkers.org/join",
+    "source_type": "primary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "members",
+    "value": "~2,300 members, 3 WhatsApp groups, Rs. 0 membership fee",
+    "source_url": "https://punetrekkers.org/join",
+    "source_type": "primary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "last_public_activity",
+    "value": "Guides last updated 6 Nov 2026; next trek 14 Nov 2026",
+    "source_url": "https://punetrekkers.org/treks",
+    "source_type": "primary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "url_deep",
+    "value": "https://punetrekkers.org/join",
+    "source_url": "https://punetrekkers.org/join",
+    "source_type": "primary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   }
+  ],
+  "checked_at": "2026-11-13",
+  "freshness_days": 7,
+  "schedule_text": "Weekend treks posted on the trek board; register per trek and wait for the coordinator to confirm.",
+  "join_url": "https://punetrekkers.org/join",
+  "last_public_activity": "2026-11-06",
+  "activity_state": "active",
+  "cost_note": "Membership free; you pay your share of actual trek expenses",
+  "linked_id": null,
+  "notes": "The join page says your phone number may be visible to other members and asks members not to message each other directly.",
+  "stale_over_90_days": false
+ },
+ {
+  "id": "meetup-pune-trekkers-member-hikes",
+  "name": "Pune Trekkers member hikes",
+  "type": "meetup",
+  "tags": [
+   "trekking",
+   "hiking",
+   "member-led"
+  ],
+  "scope": "CORE",
+  "neighbourhood": "UNKNOWN",
+  "address": "UNKNOWN",
+  "lat": null,
+  "lon": null,
+  "url_official": "https://punetrekkers.org/",
+  "url_deep": "https://punetrekkers.org/plans",
+  "summary": "Board where members post their own hike plans; each plan is reviewed by an admin before it appears.",
+  "status": "partial",
+  "sources": [
+   "https://punetrekkers.org/plans"
+  ],
+  "evidence": [
+   {
+    "field": "name",
+    "value": "Hikes planned by members",
+    "source_url": "https://punetrekkers.org/plans",
+    "source_type": "primary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "join_url",
+    "value": "https://punetrekkers.org/plans",
+    "source_url": "https://punetrekkers.org/plans",
+    "source_type": "primary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "url_deep",
+    "value": "https://punetrekkers.org/plans",
+    "source_url": "https://punetrekkers.org/plans",
+    "source_type": "primary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   }
+  ],
+  "checked_at": "2026-11-13",
+  "freshness_days": null,
+  "schedule_text": "No fixed schedule. Plans appear when members post them.",
+  "join_url": "https://punetrekkers.org/plans",
+  "last_public_activity": null,
+  "activity_state": "UNKNOWN",
+  "cost_note": null,
+  "linked_id": null,
+  "notes": "The page says these are member-organised hikes, not official Pune Trekkers treks. No dated plan was visible when checked.",
+  "stale_over_90_days": false
+ },
+ {
+  "id": "meetup-karawaan-community",
+  "name": "Karawaan community",
+  "type": "meetup",
+  "tags": [
+   "travel",
+   "trekking",
+   "camping",
+   "paid-trips"
+  ],
+  "scope": "CORE",
+  "neighbourhood": "UNKNOWN",
+  "address": "UNKNOWN",
+  "lat": null,
+  "lon": null,
+  "url_official": "https://karawaan.in/",
+  "url_deep": "https://karawaan.in/",
+  "summary": "WhatsApp community of a Pune travel company whose paid treks, camps and trips are planned for people joining alone.",
+  "status": "verified",
+  "sources": [
+   "https://karawaan.in/",
+   "https://karawaan.in/events"
+  ],
+  "evidence": [
+   {
+    "field": "name",
+    "value": "Karawaan",
+    "source_url": "https://karawaan.in/",
+    "source_type": "primary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "join_url",
+    "value": "Join WhatsApp Community link on the home page",
+    "source_url": "https://karawaan.in/",
+    "source_type": "primary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "last_public_activity",
+    "value": "Trip listed for Saturday 21 November 2026",
+    "source_url": "https://karawaan.in/events",
+    "source_type": "primary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "url_deep",
+    "value": "https://karawaan.in/",
+    "source_url": "https://karawaan.in/",
+    "source_type": "primary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   }
+  ],
+  "checked_at": "2026-11-13",
+  "freshness_days": 0,
+  "schedule_text": "Trips are announced in the WhatsApp community and listed on the trips page.",
+  "join_url": "https://karawaan.in/",
+  "last_public_activity": "2026-11-13",
+  "activity_state": "active",
+  "cost_note": "Community is free to join; trips are paid, priced per trip",
+  "linked_id": null,
+  "notes": null,
+  "stale_over_90_days": false
+ },
+ {
+  "id": "meetup-karawaan-crew",
+  "name": "Karawaan crew (volunteers)",
+  "type": "meetup",
+  "tags": [
+   "travel",
+   "volunteering"
+  ],
+  "scope": "CORE",
+  "neighbourhood": "UNKNOWN",
+  "address": "UNKNOWN",
+  "lat": null,
+  "lon": null,
+  "url_official": "https://karawaan.in/",
+  "url_deep": "https://karawaan.in/volunteer",
+  "summary": "Volunteer crew of students and professionals who help scout routes, host groups and document trips alongside the company's team.",
+  "status": "partial",
+  "sources": [
+   "https://karawaan.in/volunteer"
+  ],
+  "evidence": [
+   {
+    "field": "name",
+    "value": "Join the Karawaan Crew",
+    "source_url": "https://karawaan.in/volunteer",
+    "source_type": "primary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "join_url",
+    "value": "https://karawaan.in/volunteer",
+    "source_url": "https://karawaan.in/volunteer",
+    "source_type": "primary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "url_deep",
+    "value": "https://karawaan.in/volunteer",
+    "source_url": "https://karawaan.in/volunteer",
+    "source_type": "primary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   }
+  ],
+  "checked_at": "2026-11-13",
+  "freshness_days": null,
+  "schedule_text": "Apply through the form on the volunteer page.",
+  "join_url": "https://karawaan.in/volunteer",
+  "last_public_activity": null,
+  "activity_state": "UNKNOWN",
+  "cost_note": null,
+  "linked_id": null,
+  "notes": null,
+  "stale_over_90_days": false
+ },
+ {
+  "id": "meetup-gdg-pune",
+  "name": "Google Developer Group Pune",
+  "type": "meetup",
+  "tags": [
+   "tech",
+   "developers",
+   "free"
+  ],
+  "scope": "CORE",
+  "neighbourhood": "UNKNOWN",
+  "address": "UNKNOWN",
+  "lat": null,
+  "lon": null,
+  "url_official": "https://gdg.community.dev/gdg-pune/",
+  "url_deep": "https://gdg.community.dev/gdg-pune/",
+  "summary": "Volunteer-run developer community holding talks, workshops, study jams and an annual DevFest; the chapter page shows about 6,300 members.",
+  "status": "verified",
+  "sources": [
+   "https://gdg.community.dev/gdg-pune/"
+  ],
+  "evidence": [
+   {
+    "field": "name",
+    "value": "GDG Pune",
+    "source_url": "https://gdg.community.dev/gdg-pune/",
+    "source_type": "primary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "join_url",
+    "value": "https://gdg.community.dev/gdg-pune/",
+    "source_url": "https://gdg.community.dev/gdg-pune/",
+    "source_type": "primary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "members",
+    "value": "6300 Group members",
+    "source_url": "https://gdg.community.dev/gdg-pune/",
+    "source_type": "primary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "last_public_activity",
+    "value": "Past event 31 Oct 2026; upcoming 28 Nov and 13 Dec 2026",
+    "source_url": "https://gdg.community.dev/gdg-pune/",
+    "source_type": "primary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "url_deep",
+    "value": "https://gdg.community.dev/gdg-pune/",
+    "source_url": "https://gdg.community.dev/gdg-pune/",
+    "source_type": "primary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   }
+  ],
+  "checked_at": "2026-11-13",
+  "freshness_days": 13,
+  "schedule_text": "Events through the year. Upcoming on the chapter page: 28 Nov 2026 and DevFest Pune on 13 Dec 2026.",
+  "join_url": "https://gdg.community.dev/gdg-pune/",
+  "last_public_activity": "2026-10-31",
+  "activity_state": "active",
+  "cost_note": null,
+  "linked_id": null,
+  "notes": "Venues and ticket details for the upcoming events were not captured.",
+  "stale_over_90_days": false
+ },
+ {
+  "id": "meetup-aws-user-group-pune",
+  "name": "AWS User Group Pune",
+  "type": "meetup",
+  "tags": [
+   "tech",
+   "cloud"
+  ],
+  "scope": "CORE",
+  "neighbourhood": "UNKNOWN",
+  "address": "UNKNOWN",
+  "lat": null,
+  "lon": null,
+  "url_official": "https://www.awsugpune.in/",
+  "url_deep": "https://www.awsugpune.in/",
+  "summary": "Community-led cloud group running monthly meetups, workshops and mentoring for students and professionals.",
+  "status": "partial",
+  "sources": [
+   "https://www.awsugpune.in/"
+  ],
+  "evidence": [
+   {
+    "field": "name",
+    "value": "AWS User Group Pune",
+    "source_url": "https://www.awsugpune.in/",
+    "source_type": "primary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "join_url",
+    "value": "https://www.awsugpune.in/",
+    "source_url": "https://www.awsugpune.in/",
+    "source_type": "primary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "schedule_text",
+    "value": "Monthly sessions with builders across cloud, data, and AI",
+    "source_url": "https://www.awsugpune.in/",
+    "source_type": "primary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "url_deep",
+    "value": "https://www.awsugpune.in/",
+    "source_url": "https://www.awsugpune.in/",
+    "source_type": "primary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   }
+  ],
+  "checked_at": "2026-11-13",
+  "freshness_days": null,
+  "schedule_text": "Monthly sessions, per the site. No dates were visible when checked.",
+  "join_url": "https://www.awsugpune.in/",
+  "last_public_activity": null,
+  "activity_state": "UNKNOWN",
+  "cost_note": null,
+  "linked_id": null,
+  "notes": "The site states 20K+ members and 200+ events; these are the group's own figures.",
+  "stale_over_90_days": false
+ },
+ {
+  "id": "meetup-pythonpune",
+  "name": "PythonPune",
+  "type": "meetup",
+  "tags": [
+   "tech",
+   "python",
+   "open-source"
+  ],
+  "scope": "CORE",
+  "neighbourhood": "UNKNOWN",
+  "address": "UNKNOWN",
+  "lat": null,
+  "lon": null,
+  "url_official": "https://pythonpune.in/",
+  "url_deep": "https://pythonpune.in/",
+  "summary": "Community of Python and open-source programmers with monthly meetups that welcome first-time speakers.",
+  "status": "partial",
+  "sources": [
+   "https://pythonpune.in/"
+  ],
+  "evidence": [
+   {
+    "field": "name",
+    "value": "PythonPune",
+    "source_url": "https://pythonpune.in/",
+    "source_type": "primary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "join_url",
+    "value": "https://pythonpune.in/",
+    "source_url": "https://pythonpune.in/",
+    "source_type": "primary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "schedule_text",
+    "value": "monthly meetups",
+    "source_url": "https://pythonpune.in/",
+    "source_type": "primary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "url_deep",
+    "value": "https://pythonpune.in/",
+    "source_url": "https://pythonpune.in/",
+    "source_type": "primary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   }
+  ],
+  "checked_at": "2026-11-13",
+  "freshness_days": null,
+  "schedule_text": "Monthly meetups, per the site. Join through Telegram, the mailing list or the IRC channel.",
+  "join_url": "https://pythonpune.in/",
+  "last_public_activity": null,
+  "activity_state": "UNKNOWN",
+  "cost_note": null,
+  "linked_id": null,
+  "notes": "The site links a Meetup page for dates; it was not opened because Meetup restricts automated reads.",
+  "stale_over_90_days": false
+ },
+ {
+  "id": "meetup-intach-pune-warsaa-walks",
+  "name": "INTACH Pune Warsaa heritage walks",
+  "type": "meetup",
+  "tags": [
+   "heritage",
+   "walks",
+   "history"
+  ],
+  "scope": "CORE",
+  "neighbourhood": "UNKNOWN",
+  "address": "UNKNOWN",
+  "lat": null,
+  "lon": null,
+  "url_official": "https://www.intachpune.org/",
+  "url_deep": "https://www.intachpune.org/",
+  "summary": "Heritage walks and workshops run by the Pune chapter of INTACH, established in 1986; the site describes a monthly walk open to all.",
+  "status": "partial",
+  "sources": [
+   "https://www.intachpune.org/"
+  ],
+  "evidence": [
+   {
+    "field": "name",
+    "value": "INTACH Pune Chapter",
+    "source_url": "https://www.intachpune.org/",
+    "source_type": "primary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "schedule_text",
+    "value": "monthly open for all Warsaa Walks and Workshops",
+    "source_url": "https://www.intachpune.org/",
+    "source_type": "primary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "join_url",
+    "value": "https://www.intachpune.org/",
+    "source_url": "https://www.intachpune.org/",
+    "source_type": "primary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "url_deep",
+    "value": "https://www.intachpune.org/",
+    "source_url": "https://www.intachpune.org/",
+    "source_type": "primary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   }
+  ],
+  "checked_at": "2026-11-13",
+  "freshness_days": null,
+  "schedule_text": "Monthly open-for-all Warsaa walks and workshops; join by writing to the address on the site.",
+  "join_url": "https://www.intachpune.org/",
+  "last_public_activity": null,
+  "activity_state": "UNKNOWN",
+  "cost_note": null,
+  "linked_id": null,
+  "notes": "Booking is by email or phone listed on the site. No upcoming date was visible.",
+  "stale_over_90_days": false
+ },
+ {
+  "id": "meetup-we-barroom-lit-club",
+  "name": "We Barroom The Lit Club",
+  "type": "meetup",
+  "tags": [
+   "books",
+   "book-club"
+  ],
+  "scope": "CORE",
+  "neighbourhood": "Baner",
+  "address": "We Idliwale Barroom, Unit no 102, 1st Floor, near Balewadi High St, Baner, Pune",
+  "lat": null,
+  "lon": null,
+  "url_official": "https://pagdandi.org/",
+  "url_deep": "https://pagdandi.org/events/",
+  "summary": "Book club run with Pagdandi; edition 18 discusses To Kill a Mockingbird at We Idliwale Barroom near Balewadi High Street.",
+  "status": "verified",
+  "sources": [
+   "https://pagdandi.org/events/"
+  ],
+  "evidence": [
+   {
+    "field": "name",
+    "value": "We Barroom The Lit Club",
+    "source_url": "https://pagdandi.org/events/",
+    "source_type": "primary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "schedule_text",
+    "value": "November 14 @ 4:00 pm - 7:00 pm, We Idliwale Barroom, Balewadi High St, Baner",
+    "source_url": "https://pagdandi.org/events/",
+    "source_type": "primary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "join_url",
+    "value": "https://pagdandi.org/events/",
+    "source_url": "https://pagdandi.org/events/",
+    "source_type": "primary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "url_deep",
+    "value": "https://pagdandi.org/events/",
+    "source_url": "https://pagdandi.org/events/",
+    "source_type": "primary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   }
+  ],
+  "checked_at": "2026-11-13",
+  "freshness_days": null,
+  "schedule_text": "Next session: 14 November 2026, 4:00 pm to 7:00 pm.",
+  "join_url": "https://pagdandi.org/events/",
+  "last_public_activity": "2026-11-14",
+  "activity_state": "active",
+  "cost_note": null,
+  "linked_id": null,
+  "notes": null,
+  "stale_over_90_days": false
+ },
+ {
+  "id": "meetup-malaka-book-club",
+  "name": "The Malaka Book Club",
+  "type": "meetup",
+  "tags": [
+   "books",
+   "book-club",
+   "food"
+  ],
+  "scope": "CORE",
+  "neighbourhood": "Koregaon Park",
+  "address": "UNKNOWN",
+  "lat": null,
+  "lon": null,
+  "url_official": "https://pagdandi.org/",
+  "url_deep": "https://pagdandi.org/events/",
+  "summary": "Book club session with a meal inspired by the book, hosted by Malaka Spice with Pagdandi; registration is through a ticketing listing.",
+  "status": "verified",
+  "sources": [
+   "https://pagdandi.org/events/"
+  ],
+  "evidence": [
+   {
+    "field": "name",
+    "value": "The Malaka Book Club",
+    "source_url": "https://pagdandi.org/events/",
+    "source_type": "primary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "schedule_text",
+    "value": "November 22 @ 11:00 am - 1:30 pm, Malaka Spice, Koregaon Park",
+    "source_url": "https://pagdandi.org/events/",
+    "source_type": "primary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "join_url",
+    "value": "https://pagdandi.org/events/",
+    "source_url": "https://pagdandi.org/events/",
+    "source_type": "primary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "url_deep",
+    "value": "https://pagdandi.org/events/",
+    "source_url": "https://pagdandi.org/events/",
+    "source_type": "primary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   }
+  ],
+  "checked_at": "2026-11-13",
+  "freshness_days": null,
+  "schedule_text": "Next session: 22 November 2026, 11:00 am to 1:30 pm, on Plant Lady.",
+  "join_url": "https://pagdandi.org/events/",
+  "last_public_activity": "2026-11-22",
+  "activity_state": "active",
+  "cost_note": "Ticketed; price not stated on the page opened",
+  "linked_id": "place-malaka-spice-koregaon-park",
+  "notes": null,
+  "stale_over_90_days": false
+ },
+ {
+  "id": "meetup-pagdandi-book-club",
+  "name": "Pagdandi Book Club",
+  "type": "meetup",
+  "tags": [
+   "books",
+   "book-club"
+  ],
+  "scope": "CORE",
+  "neighbourhood": "Baner",
+  "address": "UNKNOWN",
+  "lat": null,
+  "lon": null,
+  "url_official": "https://pagdandi.org/",
+  "url_deep": "https://pagdandi.org/events/",
+  "summary": "The bookstore's own book club, meeting at the shop on a Saturday morning.",
+  "status": "verified",
+  "sources": [
+   "https://pagdandi.org/events/"
+  ],
+  "evidence": [
+   {
+    "field": "name",
+    "value": "Pagdandi Book Club",
+    "source_url": "https://pagdandi.org/events/",
+    "source_type": "primary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "schedule_text",
+    "value": "November 28 @ 11:30 am - 1:30 pm, Pagdandi Bookstore",
+    "source_url": "https://pagdandi.org/events/",
+    "source_type": "primary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "join_url",
+    "value": "https://pagdandi.org/events/",
+    "source_url": "https://pagdandi.org/events/",
+    "source_type": "primary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "url_deep",
+    "value": "https://pagdandi.org/events/",
+    "source_url": "https://pagdandi.org/events/",
+    "source_type": "primary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   }
+  ],
+  "checked_at": "2026-11-13",
+  "freshness_days": null,
+  "schedule_text": "Next session: 28 November 2026, 11:30 am to 1:30 pm, on John of John.",
+  "join_url": "https://pagdandi.org/events/",
+  "last_public_activity": "2026-11-28",
+  "activity_state": "active",
+  "cost_note": null,
+  "linked_id": "place-pagdandi-bookstore-coffee",
+  "notes": null,
+  "stale_over_90_days": false
+ },
+ {
+  "id": "meetup-gyaan-adab-book-club",
+  "name": "The Book Club, Pune (Gyaan Adab)",
+  "type": "meetup",
+  "tags": [
+   "books",
+   "book-club"
+  ],
+  "scope": "CORE",
+  "neighbourhood": "Kalyani Nagar",
+  "address": "UNKNOWN",
+  "lat": null,
+  "lon": null,
+  "url_official": "https://www.gyaanadab.org/",
+  "url_deep": "https://www.gyaanadab.org/the-rime-of-the-ancient-mariner/",
+  "summary": "Book club listed on Gyaan Adab's home page; the linked page describes an online discussion held in March 2020.",
+  "status": "partial",
+  "sources": [
+   "https://www.gyaanadab.org/",
+   "https://www.gyaanadab.org/the-rime-of-the-ancient-mariner/"
+  ],
+  "evidence": [
+   {
+    "field": "name",
+    "value": "The Book Club Pune",
+    "source_url": "https://www.gyaanadab.org/",
+    "source_type": "primary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "last_public_activity",
+    "value": "online discussion (29th March, 2020)",
+    "source_url": "https://www.gyaanadab.org/the-rime-of-the-ancient-mariner/",
+    "source_type": "primary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   },
+   {
+    "field": "url_deep",
+    "value": "https://www.gyaanadab.org/the-rime-of-the-ancient-mariner/",
+    "source_url": "https://www.gyaanadab.org/the-rime-of-the-ancient-mariner/",
+    "source_type": "primary",
+    "checked_at": "2026-11-13",
+    "corroborated": false
+   }
+  ],
+  "checked_at": "2026-11-13",
+  "freshness_days": 2420,
+  "schedule_text": "No current schedule found.",
+  "join_url": "https://www.gyaanadab.org/the-rime-of-the-ancient-mariner/",
+  "last_public_activity": "2020-03-29",
+  "activity_state": "DORMANT",
+  "cost_note": null,
+  "linked_id": "place-gyaan-adab",
+  "notes": "Marked DORMANT because the only dated activity on the pages opened is from 2020. The club may be active offline; ask the centre.",
+  "stale_over_90_days": true
+ }
+]
