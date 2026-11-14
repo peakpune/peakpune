@@ -139,9 +139,9 @@ flowchart LR
 
 **How pages are made.** `public/` is served as plain files. Its HTML is written by
 `npm run build` from `site/` and `data/` and then committed, so there is nothing to build on
-deploy. Edit `site/` or `data/`, run the build, commit the result. Pages are generated with
-`noindex` by default; `INDEXING=on npm run build` turns indexing and the
-sitemap reference on when the owner decides. Set `SITE_URL` if the origin is not
+deploy. Edit `site/` or `data/`, run the build, commit the result. Pages are generated for
+search indexing by default; `INDEXING=off npm run build` builds a `noindex`
+copy without the sitemap reference. Set `SITE_URL` if the origin is not
 `https://peakpune.com`.
 
 **How plans get on the page.** A person runs the export by hand (see

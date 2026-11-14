@@ -14,9 +14,9 @@ export const SITE_URL = (process.env.SITE_URL || 'https://peakpune.com').replace
 // A project site (https://user.github.io/repo) is served under a sub-path: prefix root links with it.
 export const BASE = new URL(SITE_URL + '/').pathname.replace(/\/+$/, '');
 export const withBase = (html) => (BASE ? html.replace(/(href|src)="\/(?!\/)/g, `$1="${BASE}/`) : html);
-// Search indexing stays off until the owner explicitly turns it on:
-//   INDEXING=on npm run build
-export const INDEXING = process.env.INDEXING === 'on';
+// Search indexing is on: the owner turned it on for launch (2026-11-15).
+//   INDEXING=off npm run build   builds a noindex copy without the sitemap reference
+export const INDEXING = process.env.INDEXING !== 'off';
 const ROBOTS = INDEXING ? 'index,follow,max-image-preview:large' : 'noindex,nofollow';
 const read = (p) => readFileSync(join(root, p), 'utf8');
 export const publicationAudit = JSON.parse(read('data/publication-audit.json'));
@@ -371,7 +371,8 @@ export function build({ outDir = join(root, 'public'), log = () => {}, dryRun = 
   out('/404.html', page({ path: '/404.html', title: 'Page not found | Peak Pune', description: 'This page is closed 1 to 4, or possibly forever.', main: '<div class="hero hero-single"><div><div class="eyebrow">404</div><h1>Closed. Not just 1 to 4.</h1><p>This page does not exist. The rest of Pune does.</p><p class="actions"><a class="primary" href="/">Back to Explore</a> <a class="chip" href="/places/">Browse places</a></p></div></div>' }).replace(`content="${ROBOTS}"`, 'content="noindex"'));
   if (!dryRun) {
   writeFileSync(join(outDir, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map(([p, d]) => `<url><loc>${esc(SITE_URL + p)}</loc>${d ? `<lastmod>${d}</lastmod>` : ''}</url>`).join('\n')}\n</urlset>\n`);
-  writeFileSync(join(outDir, 'robots.txt'), `User-agent: *\nAllow: /\n${INDEXING ? `\nSitemap: ${SITE_URL}/sitemap.xml\n` : ''}`);
+  writeFileSync(join(outDir, 'robots.txt'), `User-agent: *\nAllow: /\nDisallow: /backend\n${INDEXING ? `\nSitemap: ${SITE_URL}/sitemap.xml\n` : ''}`);
+
   writeFileSync(join(outDir, 'site.webmanifest'), JSON.stringify({ name: 'Peak Pune', short_name: 'Peak Pune', start_url: '.', display: 'standalone', background_color: '#F6EFE2', theme_color: '#F6EFE2', icons: [{ src: 'icon.svg', sizes: 'any', type: 'image/svg+xml' }] }));
   writeFileSync(join(outDir, 'icon.svg'), mark.replace('<svg class="mark"', '<svg xmlns="http://www.w3.org/2000/svg"').replace(' aria-hidden="true"', ''));
   }
