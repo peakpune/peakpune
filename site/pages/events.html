@@ -1,5 +1,24 @@
 <div class="hero"><div><div class="eyebrow">What is on</div><h1>Events and parties</h1><p class="lede">Gigs, club nights, pop-ups, comedy, races and treks across Pune. Every plan links to the listing it came from.</p></div><div class="sign">Real plans.<br>Not invented<br>ones.<small>NO DEMO TICKETS · NO MADE-UP DATES</small></div></div>
 <section class="feed-status"><h2>Plans, with sources.</h2><p>Platform listings, not independently confirmed by the organiser. Check current dates, prices, availability and cancellation terms before booking.</p><p id="plans-status" role="status">Loading source-listed plans...</p><div class="chips" id="plan-filters" role="group" aria-label="Filter plans"><button class="chip" data-filter="wknd" aria-pressed="false">This weekend</button></div><p class="note" id="filter-status" role="status"></p><p class="note" id="plans-health"></p></section><div class="grid" id="plans"></div>
+<section class="section post-plan" id="post-a-plan"><div class="section-head"><h2>Post a plan</h2><p>Know something happening in Pune? Send it in. Every plan is read by a person before it shows here. Never add a phone number or email.</p></div>
+<form class="plan-form" id="plan-form" method="post" action="#post-a-plan" novalidate>
+<label><span>Plan title</span><input name="title" maxlength="80" required></label>
+<label><span>Date</span><input name="date" type="date" required></label>
+<label><span>Time <small>(optional)</small></span><input name="time" type="time"></label>
+<label><span>Area</span><input name="area" maxlength="40" required placeholder="Baner, Koregaon Park..."></label>
+<label><span>Venue <small>(optional)</small></span><input name="venue" maxlength="80"></label>
+<label><span>Link <small>(optional, https only)</small></span><input name="link" type="url" maxlength="300" placeholder="https://"></label>
+<label class="full"><span>Image <small>(optional, JPG/PNG/WebP, up to 1 MB)</small></span><input name="image" type="file" accept="image/jpeg,image/png,image/webp"></label>
+<p class="note">Only add an image you have the right to use. Avoid showing faces, number plates or phone numbers. Images are checked by a person before they appear.</p>
+<input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
+<p class="note">Only the fields above are saved and shown. Approved plans are marked "Community-posted, not organiser-confirmed". To limit spam, the site may briefly use technical data such as your IP address for rate limiting; it is not published.</p>
+<button class="primary" type="submit">Send for review</button>
+<p class="note" id="plan-form-status" role="status"></p>
+</form>
+<div class="grid" id="community-plans" aria-live="polite"></div>
+<p class="note" id="community-status" role="status"></p>
+<script type="module" src="/community.js"></script>
+</section>
 <!--ORGANISER-EVENTS-->
 <section class="section"><div class="section-head"><h2>Source calendars</h2><p>Check the linked calendar and the event organiser before making plans.</p></div>
 <div class="grid">

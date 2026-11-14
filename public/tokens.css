@@ -243,3 +243,14 @@ a.category:nth-child(4n+1){color:#fff}a.category:hover{outline:4px solid var(--r
 .now-cell.tone-unhealthy h3,.now-cell.tone-unhealthy .note{color:#fff}
 .now .note a{color:var(--brick)}
 .card .chips .chip{white-space:normal;text-align:center;padding-top:var(--s1);padding-bottom:var(--s1)}
+
+/* Post a plan form */
+.plan-form{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:var(--s4) var(--s6);max-width:880px;position:relative}
+.plan-form label{display:grid;gap:var(--s2);font-weight:700;font-size:15px}
+.plan-form input{min-height:48px;padding:0 var(--s4);border:2px solid var(--rim);border-radius:var(--r-input);background:var(--white);font-weight:500}
+.plan-form .note,.plan-form .primary{grid-column:1/-1}
+.plan-form .primary{justify-self:start}
+.plan-form label>span{display:block;min-height:22px}.plan-form label small{font-weight:500;font-size:13px;color:var(--ink-soft)}
+.plan-form .full{grid-column:1/-1}.plan-form input[type=file]{padding:var(--s3) var(--s4);min-height:48px}.preview-sample{margin-top:var(--s8);max-width:420px}.preview-sample .card{margin-top:var(--s2)}
+.plan-form input[type=file]{width:100%;box-sizing:border-box}
+#community-plans{margin-top:1.5rem}
