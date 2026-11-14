@@ -140,6 +140,7 @@ ${areaSrc},
     ],
     maha_whatsapp: Some(${gs(data.operators.maha_metro.whatsapp_eticket)}),
     pink_whatsapp: ${data.operators.pitcmrl.whatsapp_eticket ? `Some(${gs(data.operators.pitcmrl.whatsapp_eticket)})` : 'None'},
+    pink_whatsapp_shared: ${data.ticketing.line3.whatsapp_shared_number && data.ticketing.line3.whatsapp_shared_number.url ? `Some(${gs(data.ticketing.line3.whatsapp_shared_number.url)})` : 'None'},
     maha_fare_chart_url: ${gs(data.provenance.mahametro_fare_chart_page)},
     pink_fare_chart_url: ${gs(data.provenance.line3_fare_table_page)},
   )
