@@ -86,6 +86,11 @@ extensions.getByType<ApplicationAndroidComponentsExtension>().onVariants { varia
 tasks.withType<Test>().configureEach {
     // JVM tests read the same files the app ships.
     systemProperty("peak.data", rootProject.layout.projectDirectory.dir("../data").asFile.absolutePath)
+    // Robolectric downloads its Android runtime from Maven Central. A machine that must use a
+    // mirror can set robolectricRepoUrl in ~/.gradle/gradle.properties; nobody else needs it.
+    // ./gradlew :app:testDebugUnitTest --tests '*Screenshots*' -PscreenshotsDir=/some/folder
+    providers.gradleProperty("screenshotsDir").orNull?.let { systemProperty("peak.screenshots", it) }
+    providers.gradleProperty("robolectricRepoUrl").orNull?.let { systemProperty("robolectric.dependency.repo.url", it) }
 }
 
 dependencies {
