@@ -1,0 +1,96 @@
+{
+  "_about": "DEVELOPMENT FIXTURES ONLY. These are invented records used to exercise the interface (empty categories, Marathi rendering, image credits, map pins). They are not history. They are copied into the app only by `python3 tools/content.py build --fixtures`, are never loaded by a release build, and `tools/content.py release-check` fails if they are present in assets.",
+  "entries": [
+    {
+      "id": "fx-food-sample",
+      "fixture": true,
+      "type": "food",
+      "categories": [
+        "food"
+      ],
+      "status": "research-lead",
+      "era": null,
+      "timeline": false,
+      "date": null,
+      "title": {
+        "en": "[DEV FIXTURE] Sample food entry"
+      },
+      "summary": {
+        "en": "Invented test record. Used to check how the Food category, Marathi text and image credits render. Not real content."
+      },
+      "body": {
+        "en": [
+          {
+            "kind": "note",
+            "text": "This fixture exists only to test layout. Replace it with a sourced entry.",
+            "cites": []
+          }
+        ]
+      },
+      "location": null,
+      "media": [
+        {
+          "asset": null,
+          "placeholder": "pattern",
+          "caption": {
+            "en": "Generated test pattern (drawn by the app)"
+          },
+          "credit": "PunePedia development fixture",
+          "license": "Not applicable — test graphic",
+          "sourceUrl": null
+        }
+      ],
+      "related": [],
+      "review": {
+        "state": "fixture",
+        "draftedOn": "2026-10-31",
+        "draftedWith": "Hand-written test fixture",
+        "lastReviewed": null,
+        "reviewer": null
+      }
+    },
+    {
+      "id": "fx-neighbourhood-sample",
+      "fixture": true,
+      "type": "neighbourhood",
+      "categories": [
+        "neighbourhood"
+      ],
+      "status": "research-lead",
+      "era": null,
+      "timeline": false,
+      "date": null,
+      "title": {
+        "en": "[DEV FIXTURE] Sample neighbourhood"
+      },
+      "summary": {
+        "en": "Invented test record with a map pin at the Pune city centre coordinates, used to test the map with an unverified location. Not real content."
+      },
+      "body": {
+        "en": [
+          {
+            "kind": "note",
+            "text": "Layout test only.",
+            "cites": []
+          }
+        ]
+      },
+      "location": {
+        "lat": 18.52111,
+        "lng": 73.85528,
+        "status": "sourced",
+        "source": "src-wp-pune",
+        "note": "Pune city coordinates used only to place a test pin."
+      },
+      "media": [],
+      "related": [],
+      "review": {
+        "state": "fixture",
+        "draftedOn": "2026-10-31",
+        "draftedWith": "Hand-written test fixture",
+        "lastReviewed": null,
+        "reviewer": null
+      }
+    }
+  ]
+}

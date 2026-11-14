@@ -1,0 +1,49 @@
+{
+  "_about": "People, local words, food, festivals and neighbourhoods. Categories with no entry that has passed sourcing stay empty; the app says so rather than filling them.",
+  "entries": [
+    {
+      "id": "phules",
+      "type": "person",
+      "categories": ["person"],
+      "status": "verified",
+      "era": "colonial",
+      "timeline": false,
+      "date": null,
+      "title": { "en": "Jyotirao and Savitribai Phule" },
+      "summary": { "en": "Social reformers who opened a girls' school in Pune in 1848 and built the Satyashodhak Samaj from 1873." },
+      "body": {
+        "en": [
+          { "kind": "evidence", "text": "In 1848 the Phules opened a school for girls at Bhide Wada in Budhwar Peth.", "cites": [{ "source": "src-leaflet-2023-bhidewada" }] },
+          { "kind": "evidence", "text": "On 24 September 1873 Jyotirao Phule founded the Satyashodhak Samaj; Savitribai Phule led its women's section.", "cites": [{ "source": "src-wp-satyashodhak" }, { "source": "src-ohanlon-1985", "pages": "pp. 220–251" }] },
+          { "kind": "note", "text": "This is a short starter entry. Biographical dates and their other work will be added once sources have been read directly.", "cites": [] }
+        ]
+      },
+      "location": null,
+      "media": [],
+      "related": ["ev-1848-girls-school", "ev-1873-satyashodhak", "bhide-wada"],
+      "review": { "state": "reviewed", "draftedOn": "2026-10-31", "draftedWith": "AI-assisted summary of the listed sources", "lastReviewed": "2026-10-31", "reviewer": "OverTime Labs" }
+    },
+    {
+      "id": "wada",
+      "freeSample": true,
+      "type": "term",
+      "categories": ["term"],
+      "status": "verified",
+      "era": null,
+      "timeline": false,
+      "date": null,
+      "title": { "en": "Wada" },
+      "summary": { "en": "A Marathi word for a residence complex, familiar from names such as Shaniwar Wada and Vishrambaug Wada." },
+      "body": {
+        "en": [
+          { "kind": "evidence", "text": "The name Shaniwar Wada joins 'Shaniwar' (Saturday) with 'wada', a residence complex.", "cites": [{ "source": "src-wp-shaniwar-wada" }] },
+          { "kind": "note", "text": "A dictionary citation (for example Molesworth's Marathi–English dictionary) should be added, along with notes on how wadas were laid out around courtyards.", "cites": [] }
+        ]
+      },
+      "location": null,
+      "media": [],
+      "related": ["shaniwar-wada", "vishrambaug-wada", "bhide-wada"],
+      "review": { "state": "reviewed", "draftedOn": "2026-10-31", "draftedWith": "AI-assisted summary of the listed sources", "lastReviewed": "2026-10-31", "reviewer": "OverTime Labs" }
+    }
+  ]
+}
