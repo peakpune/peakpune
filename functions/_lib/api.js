@@ -1,5 +1,5 @@
 // Plan posting API. Pure handlers: (request, env, now) -> Response. Cloudflare Pages Functions wrap them.
-// env.DB = D1 (plans, and sanitized images as blobs, so no R2 and no extra cost), env.HASH_SALT, env.ADMIN_EMAIL, env.ACCESS_TEAM_DOMAIN, env.ACCESS_AUD.
+// env.DB = D1 (plans, and sanitized images as blobs, so no R2 and no extra cost), env.ADMIN_PASSPHRASE (a Cloudflare secret; the owner's login).
 // No personal contact is collected. IPs are stored only as salted hashes.
 import { validatePlan } from '../../src/plan-submission.js';
 import { checkLimits, RATE_LIMIT_PER_HOUR } from '../../src/abuse-guard.js';
@@ -13,8 +13,9 @@ const hex = (buf) => [...new Uint8Array(buf)].map((x) => x.toString(16).padStart
 const newId = () => hex(crypto.getRandomValues(new Uint8Array(9)));
 
 async function ipHash(request, env) {
+  const salt = env.HASH_SALT || (await hmac(env.ADMIN_PASSPHRASE, 'ip-salt'));
   const ip = request.headers.get('cf-connecting-ip') || 'unknown';
-  return hex(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(env.HASH_SALT + '|' + ip))).slice(0, 32);
+  return hex(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(salt + '|' + ip))).slice(0, 32);
 }
 const sameOrigin = (request) => { const o = request.headers.get('origin'); return !o || o === new URL(request.url).origin; };
 
@@ -51,7 +52,7 @@ async function readBody(request) {
 }
 
 export async function submitPlan(request, env, now = new Date()) {
-  if (!env.DB || !env.HASH_SALT) return json({ error: 'unavailable' }, 503);
+  if (!env.DB || !(env.HASH_SALT || env.ADMIN_PASSPHRASE)) return json({ error: 'unavailable' }, 503);
   if (!sameOrigin(request)) return json({ error: 'forbidden' }, 403);
   const { body, file, error } = await readBody(request);
   if (error) return error;
@@ -85,7 +86,7 @@ export async function listPlans(request, env, now = new Date()) {
 async function approvedPlan(env, id) { return env.DB.prepare("SELECT id FROM plans WHERE id = ? AND status = 'approved'").bind(String(id ?? '')).first(); }
 
 export async function markGoing(request, env, now = new Date()) {
-  if (!env.DB || !env.HASH_SALT) return json({ error: 'unavailable' }, 503);
+  if (!env.DB || !(env.HASH_SALT || env.ADMIN_PASSPHRASE)) return json({ error: 'unavailable' }, 503);
   if (!sameOrigin(request)) return json({ error: 'forbidden' }, 403);
   const { body, error } = await readBody(request); if (error) return error;
   const hash = await ipHash(request, env);
@@ -97,7 +98,7 @@ export async function markGoing(request, env, now = new Date()) {
 }
 
 export async function reportPlan(request, env, now = new Date()) {
-  if (!env.DB || !env.HASH_SALT) return json({ error: 'unavailable' }, 503);
+  if (!env.DB || !(env.HASH_SALT || env.ADMIN_PASSPHRASE)) return json({ error: 'unavailable' }, 503);
   if (!sameOrigin(request)) return json({ error: 'forbidden' }, 403);
   const { body, error } = await readBody(request); if (error) return error;
   const hash = await ipHash(request, env);
@@ -117,33 +118,42 @@ export async function publicImage(request, env, id) {
   return imageResponse(env, "SELECT i.bytes, i.type FROM images i JOIN plans p ON p.id = i.plan_id WHERE p.id = ? AND p.status = 'approved'", id, 'public, max-age=3600');
 }
 
-// ---- Admin (behind Cloudflare Access). Fails closed unless a valid Access JWT for ADMIN_EMAIL is present. ----
-const b64u = (s) => Uint8Array.from(atob(s.replace(/-/g, '+').replace(/_/g, '/')), (c) => c.charCodeAt(0));
-export async function isAdmin(request, env, now = new Date(), fetchKeys = defaultKeys) {
-  if (!env.ADMIN_EMAIL || !env.ACCESS_TEAM_DOMAIN || !env.ACCESS_AUD) return false;
-  const jwt = request.headers.get('cf-access-jwt-assertion');
-  if (!jwt) return false;
-  try {
-    const [h, p, s] = jwt.split('.');
-    const header = JSON.parse(new TextDecoder().decode(b64u(h))), claims = JSON.parse(new TextDecoder().decode(b64u(p)));
-    if (header.alg !== 'RS256') return false;
-    const jwk = (await fetchKeys(env)).find((k) => k.kid === header.kid);
-    if (!jwk) return false;
-    const key = await crypto.subtle.importKey('jwk', jwk, { name: 'RSASSA-PKCS1-v1_5', hash: 'SHA-256' }, false, ['verify']);
-    if (!(await crypto.subtle.verify('RSASSA-PKCS1-v1_5', key, b64u(s), new TextEncoder().encode(h + '.' + p)))) return false;
-    const aud = Array.isArray(claims.aud) ? claims.aud : [claims.aud];
-    return aud.includes(env.ACCESS_AUD) && claims.iss === `https://${env.ACCESS_TEAM_DOMAIN}` && claims.exp * 1000 > now.getTime() && String(claims.email).toLowerCase() === env.ADMIN_EMAIL.toLowerCase();
-  } catch { return false; }
+// ---- Admin. Fails closed unless ADMIN_PASSPHRASE is set and the request carries a valid signed session cookie. ----
+// Owner login: one passphrase held as the Cloudflare secret ADMIN_PASSPHRASE. A correct login sets a signed, HttpOnly session cookie.
+// The cookie key and the IP-hash salt are derived from that secret, so there is nothing else to configure.
+const enc = new TextEncoder();
+async function hmac(secret, msg) {
+  const key = await crypto.subtle.importKey('raw', enc.encode(secret), { name: 'HMAC', hash: 'SHA-256' }, false, ['sign']);
+  return hex(await crypto.subtle.sign('HMAC', key, enc.encode(msg)));
 }
-async function defaultKeys(env) { return (await (await fetch(`https://${env.ACCESS_TEAM_DOMAIN}/cdn-cgi/access/certs`)).json()).keys; }
+const same = (a, b) => { let d = a.length ^ b.length; for (let i = 0; i < Math.max(a.length, b.length); i++) d |= (a.charCodeAt(i) || 0) ^ (b.charCodeAt(i) || 0); return d === 0; };
+const SESSION_SECONDS = 8 * 3600;
+const cookieOf = (request, name) => (request.headers.get('cookie') || '').split(/;\s*/).map((c) => c.split('=')).find(([k]) => k === name)?.[1] || '';
 
-export async function adminList(request, env, now, fetchKeys) {
-  if (!(await isAdmin(request, env, now, fetchKeys))) return json({ error: 'forbidden' }, 403);
+export async function isAdmin(request, env, now = new Date()) {
+  if (!env.ADMIN_PASSPHRASE) return false;
+  const [exp, sig] = cookieOf(request, 'pp_admin').split('.');
+  if (!exp || !sig || !(Number(exp) * 1000 > now.getTime())) return false;
+  return same(sig, await hmac(env.ADMIN_PASSPHRASE, 'session|' + exp));
+}
+export async function adminLogin(request, env, now = new Date()) {
+  if (!env.DB || !env.ADMIN_PASSPHRASE) return json({ error: 'unavailable' }, 503);
+  if (!sameOrigin(request) || !(request.headers.get('content-type') || '').startsWith('application/json')) return json({ error: 'forbidden' }, 403);
+  if ((await rateLimit(env, 'login|' + (await ipHash(request, env)), now)) > 8) return json({ error: 'too many attempts' }, 429);
+  const { passphrase } = await request.json().catch(() => ({}));
+  if (typeof passphrase !== 'string' || !same(await hmac(env.ADMIN_PASSPHRASE, 'check|' + passphrase), await hmac(env.ADMIN_PASSPHRASE, 'check|' + env.ADMIN_PASSPHRASE))) return json({ error: 'wrong passphrase' }, 401);
+  const exp = Math.floor(now.getTime() / 1000) + SESSION_SECONDS;
+  const cookie = `pp_admin=${exp}.${await hmac(env.ADMIN_PASSPHRASE, 'session|' + exp)}; Max-Age=${SESSION_SECONDS}; Path=/; HttpOnly; Secure; SameSite=Strict`;
+  return json({ ok: true }, 200, { 'set-cookie': cookie });
+}
+
+export async function adminList(request, env, now) {
+  if (!(await isAdmin(request, env, now))) return json({ error: 'forbidden' }, 403);
   const rows = (await env.DB.prepare("SELECT p.id, p.title, p.date, p.time, p.area, p.venue, p.link, p.image_key, p.status, (SELECT COUNT(*) FROM reports r WHERE r.plan_id = p.id) AS reports FROM plans p WHERE p.status = 'pending' OR (p.status = 'approved' AND (SELECT COUNT(*) FROM reports r WHERE r.plan_id = p.id) > 0) ORDER BY p.created_at DESC LIMIT 100").all()).results;
   return json({ plans: rows.map((x) => ({ ...x, image: x.image_key ? `/api/admin/image?id=${x.id}` : '' })) });
 }
-export async function adminDecide(request, env, now, fetchKeys) {
-  if (!(await isAdmin(request, env, now, fetchKeys))) return json({ error: 'forbidden' }, 403);
+export async function adminDecide(request, env, now) {
+  if (!(await isAdmin(request, env, now))) return json({ error: 'forbidden' }, 403);
   if (!sameOrigin(request) || !(request.headers.get('content-type') || '').startsWith('application/json')) return json({ error: 'forbidden' }, 403);
   const { id, action } = await request.json().catch(() => ({}));
   const status = action === 'approve' ? 'approved' : action === 'reject' ? 'rejected' : '';
@@ -152,7 +162,7 @@ export async function adminDecide(request, env, now, fetchKeys) {
   if (status === 'approved') await env.DB.prepare('DELETE FROM reports WHERE plan_id = ?').bind(String(id)).run();
   return json({ ok: true, changed: res.meta?.changes ?? res.changes ?? 0 });
 }
-export async function adminImage(request, env, now, fetchKeys) {
-  if (!(await isAdmin(request, env, now, fetchKeys))) return new Response('forbidden', { status: 403 });
+export async function adminImage(request, env, now) {
+  if (!(await isAdmin(request, env, now))) return new Response('forbidden', { status: 403 });
   return imageResponse(env, 'SELECT bytes, type FROM images WHERE plan_id = ?', new URL(request.url).searchParams.get('id'), 'no-store');
 }
