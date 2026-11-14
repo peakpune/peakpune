@@ -1,0 +1,573 @@
+[
+  {
+    "id": "stone-tools",
+    "era": "ancient",
+    "year": null,
+    "date_label": "Prehistory",
+    "title_en": "Stone tools on the Mutha bank",
+    "title_mr": "मुठा काठीची दगडी हत्यारे",
+    "summary_en": "Stone tools found on the banks of the Mutha near Pune are dated to at least 150,000-200,000 years ago - very early human presence along the river, per the Marathi Vishwakosh.",
+    "summary_mr": "मुठा नदीच्या काठी सापडलेली दगडी हत्यारे किमान दीड ते दोन लाख वर्षे जुनी आहेत - नदीकाठावर अत्यंत प्राचीन मानवी वस्तीचे पुरावे, असे मराठी विश्वकोश नोंदवतो.",
+    "sources": [
+      {
+        "label": "Marathi Vishwakosh: Pune city",
+        "url": "https://vishwakosh.marathi.gov.in/20975/"
+      }
+    ],
+    "checked_at": "2026-11-14"
+  },
+  {
+    "id": "satavahana-kasba",
+    "era": "ancient",
+    "year": -200,
+    "date_label": "c. 2nd c. BCE - 3rd c. CE",
+    "title_en": "Satavahana-period settlement at Kasba Peth",
+    "title_mr": "कसबा पेठेतील सातवाहनकालीन वस्ती",
+    "summary_en": "Habitation in today's Kasba Peth is traced to the Satavahana period, roughly the 2nd century BCE to 3rd century CE. The Buddhist caves at Karla, Bhaja and Junnar and the Naneghat trade route point to a busy trading region, and large numbers of coins from the period have been found in the district.",
+    "summary_mr": "आजच्या कसबा पेठेतील वस्ती सातवाहन काळाशी निगडित आहे - अंदाजे इ.स.पू. दुसरे ते इ.स. तिसरे शतक. कर्ले, भाजे व जुन्नर येथील बौद्ध लेणी आणि नाणेघाट हा जुना वाणिज्यमार्ग व्यस्त व्यापारी प्रदेशाचे दर्शक आहेत; त्या काळची मोठ्या संख्येने नाणी जिल्ह्यात सापडली आहेत.",
+    "sources": [
+      {
+        "label": "Pune heritage project (DEF)",
+        "url": "https://puneheritage.defindia.org/about-pune/"
+      }
+    ],
+    "checked_at": "2026-11-14"
+  },
+  {
+    "id": "copper-plates-758",
+    "era": "ancient",
+    "year": 758,
+    "date_label": "758 CE",
+    "title_en": "The copper plates that first record Pune",
+    "title_mr": "पुण्याचा नोंदवणारी पहिली ताम्रपटशासने",
+    "summary_en": "The earliest known inscriptional mention of Pune is in a Rashtrakuta copper-plate grant of king Krishna I, dated 16 October 758 CE, which records a village gift in the \"Punya vishaya\" (district of Punya). Plates of 768 and 993 CE record the form \"Punaka vishaya\". The city's name is traced to these early forms - \"punya\" means holy.",
+    "summary_mr": "पुण्याचा शिलालेखांतील पहिला उल्लेख राष्ट्रकूट राजा कृष्णाच्या १६ ऑक्टोबर ७५८ च्या ताम्रपट दानशासनात आहे; त्यात \"पुण्य विषय\" या प्रदेशातील गावदानाची नोंद आहे. ७६८ व ९९३ च्या शासनांत \"पुणक विषय\" असे रूप आले आहे. शहराचे नाव याच प्राचीन रूपांशी जोडले जाते - \"पुण्य\" म्हणजे पवित्र.",
+    "sources": [
+      {
+        "label": "Marathi Vishwakosh: Pune city",
+        "url": "https://vishwakosh.marathi.gov.in/20975/"
+      },
+      {
+        "label": "Pune heritage project (DEF)",
+        "url": "https://puneheritage.defindia.org/about-pune/"
+      }
+    ],
+    "checked_at": "2026-11-14"
+  },
+  {
+    "id": "pataleshwar",
+    "era": "ancient",
+    "year": 750,
+    "date_label": "8th century CE",
+    "title_en": "Pataleshwar caves carved from rock",
+    "title_mr": "पाताळेश्वर शैलगुहा",
+    "summary_en": "The Pataleshwar cave temple on Jangli Maharaj Road was cut out of basalt in the 8th century, in the Rashtrakuta era - long before Pune grew into a city in the Maratha period. The site is a protected monument of the Archaeological Survey of India.",
+    "summary_mr": "जंगली महाराज रस्त्यावरील पाताळेश्वर गुहामंदिर आठव्या शतकात, राष्ट्रकूट काळात, दगडात कोरले गेले - मराठा काळात पुणे शहर व्हायच्या खूप आधी. हे स्थळ भारतीय पुरातत्व सर्वेक्षणाचे संरक्षित स्मारक आहे.",
+    "sources": [
+      {
+        "label": "ASI heritage bye-laws (INTACH)",
+        "url": "https://docslib.org/doc/7816159/preparation-of-heritage-bye-laws-for-the-prohibited-and-regulated-areas-of-asi-protected-monuments-pataleshwar-caves-pune"
+      },
+      {
+        "label": "Hindustan Times: Sutradhara's Tales",
+        "url": "https://www.hindustantimes.com/cities/others/sutradharas-tales-pataleshwar-cave-temple-is-rock-cut-legacy-and-monolithic-marvel-of-rashtrakuta-period-101615360167431.html"
+      }
+    ],
+    "checked_at": "2026-11-14"
+  },
+  {
+    "id": "yadava-sultanate",
+    "era": "ancient",
+    "year": 1327,
+    "date_label": "9th-17th century",
+    "title_en": "Yadavas, then the Deccan sultanates",
+    "title_mr": "यादव व नंतर दख्खनच्या सल्तनती",
+    "summary_en": "Under the Yadavas of Devagiri (9th-13th century) Pune was a sizeable township. After Alauddin Khilji defeated the Yadavas, the town passed to the Bahmanis (until 1490), the Nizamshahi (until 1636) and then the Adilshahi. The riverside Punyeshwar and Narayaneshwar temples were converted into the Sheikh Salla dargahs in this period; their remains are still visible.",
+    "summary_mr": "देवगिरीच्या यादवांच्या काळात (९वे-१३वे शतक) पुणे लक्षणीय गांव होते. अलाउद्दीन खलजीने यादवांचा पराभव केल्यावर गाव बहमनी (१४९० पर्यंत), निजामशाही (१६३६ पर्यंत) आणि मग आदिलशाहीकडे गेले. मुठा काठीची पुण्येश्वर व नारायणेश्वर देवळे याच काळात शेख सल्ला दर्ग्यांत रूपांतरित झाली; त्यांचे अवशेष आजही दिसतात.",
+    "sources": [
+      {
+        "label": "Marathi Vishwakosh: Pune city",
+        "url": "https://vishwakosh.marathi.gov.in/20975/"
+      }
+    ],
+    "checked_at": "2026-11-14"
+  },
+  {
+    "id": "shahaji-pune",
+    "era": "bhosale",
+    "year": 1625,
+    "date_label": "c. 1625-1630s",
+    "title_en": "Shahaji Bhosale re-settles Pune",
+    "title_mr": "शहाजी भोसलेंनी पुणे पुन्हा वसवले",
+    "summary_en": "After Adilshahi general Murar Jagdev razed Pune in 1630, Adilshahi noble Shahaji Bhosale and his wife Jijabai re-settled the town through the 1620s-30s. Shahaji built the Lal Mahal as the family residence, and their son Shivaji spent his childhood here.",
+    "summary_mr": "आदिलशाही सरदार मुरार जगदेव याने १६३० मध्ये पुणे उध्वस्त केल्यानंतर आदिलशाही सरदार शहाजी भोसले व जिजाबाई यांनी १६२०-३० च्या दशकात गाव पुन्हा वसवले. शहाजींनी लाल महाल रहिवास म्हणून बांधला आणि त्यांचा मुलगा शिवाजी इथेच लहानाचा मोठा झाला.",
+    "sources": [
+      {
+        "label": "Marathi Vishwakosh: Pune city",
+        "url": "https://vishwakosh.marathi.gov.in/20975/"
+      }
+    ],
+    "checked_at": "2026-11-14"
+  },
+  {
+    "id": "lal-mahal",
+    "era": "bhosale",
+    "year": 1630,
+    "date_label": "1630 CE",
+    "title_en": "The Lal Mahal",
+    "title_mr": "लाल महाल",
+    "summary_en": "Shahaji Bhosale built the Lal Mahal (Red Palace) in 1630 as his Pune residence; Shivaji grew up in it. The original fell into ruin, and the present structure is a 1984-88 reconstruction by the municipal corporation on part of the site.",
+    "summary_mr": "शहाजी भोसलेंनी १६३० मध्ये लाल महाल हे पुण्यातील निवासस्थान बांधले; शिवाजी त्यात वाढले. मूळ इमारत जीर्णावस्थेत गेल्यावर सध्याची इमारत महापालिकेने १९८४-८८ मध्ये मूळ जागेच्या भागावर पुनःबांधली.",
+    "sources": [
+      {
+        "label": "Pune Municipal Corporation: Lal Mahal",
+        "url": "https://pmc.gov.in/en/lal-mahal"
+      }
+    ],
+    "checked_at": "2026-11-14"
+  },
+  {
+    "id": "kasba-ganapati",
+    "era": "bhosale",
+    "year": 1640,
+    "date_label": "before 1640",
+    "title_en": "Kasba Ganapati, the city's first deity",
+    "title_mr": "कसबा गणपती - शहराचे पहिले दैवत",
+    "summary_en": "The Kasba Ganapati temple is recorded before 1640; local history links its re-establishment to Jijabai. It heads the city's five Manache Ganapati and leads Pune's Ganapati processions. Shivaji's mother Jijabai and later the Peshwas worshipped here.",
+    "summary_mr": "कसबा गणपती मंदिराची नोंद १६४० पूर्वीची आहे; तिची पुनःस्थापना जिजाबाईंशी जोडली जाते. शहरातील पाच मानाच्या गणपतींपैकी हा पहिला आणि पुण्याच्या गणपती मिरवणुकीला हेच नेतृत्व करते. जिजाबाई व नंतर पेशवे इथल्या उपासक होते.",
+    "sources": [
+      {
+        "label": "Sahapedia: Kasba Ganapati Temple",
+        "url": "https://map.sahapedia.org/article/Kasba%20Ganapati%20Temple/3052"
+      },
+      {
+        "label": "LBB: Manache Ganpati",
+        "url": "https://lbb.in/pune/everything-you-need-to-know-about-punes-manache-ganpati/"
+      }
+    ],
+    "checked_at": "2026-11-14"
+  },
+  {
+    "id": "shaista-khan-1663",
+    "era": "bhosale",
+    "year": 1663,
+    "date_label": "April 1663",
+    "title_en": "The night raid on Shaista Khan",
+    "title_mr": "शायस्तेखानावरील रात्रीचा छापा",
+    "summary_en": "While Mughal governor Shaista Khan occupied the Lal Mahal with a large army, Shivaji entered Pune at night in April 1663 with a small party and attacked him in his quarters. Khan lost fingers in the fight and soon left Pune; the raid is recorded in contemporary accounts.",
+    "summary_mr": "मुघल सुभेदार शायस्तेखान मोठ्या फौजेसह लाल महालात मुक्कामी असताना शिवाजींनी १६६३ च्या एप्रिल महिन्यात मुठ्ठभर माणसांसह रात्री पुण्यात घुसून त्याच्या निवासस्थानी हल्ला केला. खानाच्या बोटांना इजा झाली आणि तो लवकरच पुणे सोडून गेला; हा प्रसंग समकालीन नोंदींमध्ये आहे.",
+    "sources": [
+      {
+        "label": "Indian Express: Know Your City",
+        "url": "https://indianexpress.com/article/cities/pune/know-your-city-how-punes-lal-mahal-got-a-resident-it-did-not-expect-and-the-events-that-followed-9412802/"
+      }
+    ],
+    "checked_at": "2026-11-14"
+  },
+  {
+    "id": "sinhagad-1670",
+    "era": "bhosale",
+    "year": 1670,
+    "date_label": "February 1670",
+    "title_en": "Tanaji takes Sinhagad",
+    "title_mr": "तानाजींचा सिंहगड विजय",
+    "summary_en": "In February 1670 Shivaji's general Tanaji Malusare scaled the sheer cliff of Kondhana fort and took it from the Mughals, dying in the battle. Shivaji renamed the fort Sinhagad, the lion's fort, after him. The capture is recorded in the sabhasad bakhar of 1697.",
+    "summary_mr": "१६७० च्या फेब्रुवारीत शिवाजींचे सरदार तानाजी मालुसरे यांनी कोंढाण्याचा कडा चढून किल्ला मुघलांकडून जिंकला आणि लढाईत शहीद झाले. शिवाजींनी त्यांच्या स्मरणार्थ किल्ल्याला सिंहगड असे नाव दिले. हा विजय १६९७ च्या सभासद बखरीत नोंदलेला आहे.",
+    "sources": [
+      {
+        "label": "The Hindu: Battle of Sinhagad",
+        "url": "https://www.thehindu.com/news/national/other-states/commemorating-350-years-of-the-battle-of-sinhagad/article33546900.ece"
+      }
+    ],
+    "checked_at": "2026-11-14"
+  },
+  {
+    "id": "muhiyabad",
+    "era": "bhosale",
+    "year": 1703,
+    "date_label": "1703-1705",
+    "title_en": "Aurangzeb renames Pune",
+    "title_mr": "औरंगजेबाने पुण्याचे नामांतर केले",
+    "summary_en": "Aurangzeb stayed in Pune from 1703 to 1705 during his Deccan campaign and renamed it Muhiyabad - the Maharashtra Gazetteer records this, as scholars note. The name fell out of use soon after his death in 1707.",
+    "summary_mr": "दख्खन मोहिमेदरम्यान औरंगजेब १७०३ ते १७०५ पुण्यात राहिला आणि शहराचे नाव मुहियाबाद असे केले - असे महाराष्ट्र गॅझेटियर नोंदवतो, असे विद्वान सांगतात. १७०७ मध्ये त्याच्या मृत्यूनंतर हे नाव लवकरच वापरातून गेले.",
+    "sources": [
+      {
+        "label": "Times of India: How Pune got its name",
+        "url": "https://timesofindia.indiatimes.com/city/pune/when-the-city-was-muhiabad/articleshow/2138145.cms"
+      }
+    ],
+    "checked_at": "2026-11-14"
+  },
+  {
+    "id": "peshwa-grant-1718",
+    "era": "peshwa",
+    "year": 1718,
+    "date_label": "1718",
+    "title_en": "Chhatrapati Shahu grants Pune to the Peshwa",
+    "title_mr": "छत्रपती शाहूंनी पुणे पेशव्यांना इनाम दिले",
+    "summary_en": "In 1718 Chhatrapati Shahu Maharaj gave Pune, Supa, Baramati, Indapur, Junnar and Chakan in jagir to Peshwa Balaji Vishwanath - recorded in a Tamrapatra quoted in the history of Pune district. Pune's Peshwa period begins here.",
+    "summary_mr": "१७१८ मध्ये छत्रपती शाहू महाराजांनी पुणे, सुपा, बारामती, इंदापूर, जुन्नर व चाकण ही गावे पेशवे बालाजी विश्वनाथ यांना जाहगीर म्हणून दिली - पुणे जिल्ह्याच्या इतिहासात उद्धृत ताम्रपटातून ही नोंद आहे. पुण्याच्या पेशवे काळाची सुरुवात इथून होते.",
+    "sources": [
+      {
+        "label": "History of Pune district (UPDF)",
+        "url": "https://updf.in/document/history-of-pune-district/"
+      }
+    ],
+    "checked_at": "2026-11-14"
+  },
+  {
+    "id": "shaniwar-wada",
+    "era": "peshwa",
+    "year": 1730,
+    "date_label": "1730s",
+    "title_en": "Shaniwar Wada rises in Kasba Peth",
+    "title_mr": "कसबा पेठेत शनिवारवाडा उभारला गेला",
+    "summary_en": "Peshwa Bajirao I built the Shaniwar Wada in the 1730s as his residence and the seat of Peshwa power, in Kasba Peth. It remained the Peshwas' seat until British rule began in 1818, and its ruins are the old city's best-known landmark.",
+    "summary_mr": "पेशवे बाजीराव पहिल्यांनी १७३० च्या दशकात कसबा पेठेत शनिवारवाडा हे आपले वास्तव्य व पेशवाईचे सत्ताकेंद्र बांधले. १८१८ मध्ये ब्रिटिश राजवट सुरू होईपर्यंत तो पेशव्यांचा सत्तास्थान राहिला आणि त्याचे अवशेष जुन्या शहराचे सर्वात ओळखीचे स्थळ आहे.",
+    "sources": [
+      {
+        "label": "Sahapedia: About Pune",
+        "url": "https://map.sahapedia.org/about/1/22"
+      },
+      {
+        "label": "Incredible India: Shaniwar Wada",
+        "url": "https://www.incredibleindia.gov.in/en/maharashtra/pune/shaniwar-wada"
+      }
+    ],
+    "checked_at": "2026-11-14"
+  },
+  {
+    "id": "parvati-1749",
+    "era": "peshwa",
+    "year": 1749,
+    "date_label": "1749",
+    "title_en": "Parvati hill temple complex",
+    "title_mr": "पर्वती टेकडीवरील मंदिर संकुल",
+    "summary_en": "Nanasaheb Peshwa built the Devdeveshwar temple on Parvati hill in 1749 - the main Peshwa-era temple complex in Pune, with shrines to Vishnu, Kartikeya and Rama alongside. The hilltop museum holds Peshwa-era objects, and the temple is still in daily use.",
+    "summary_mr": "नानासाहेब पेशव्यांनी १७४९ मध्ये पर्वती टेकडीवर देवदेवेश्वर मंदिर बांधले - पुण्यातील प्रमुख पेशवेकालीन मंदिर संकुल, जिथे विष्णू, कार्तिकेय व राम यांची देवळेही आहेत. टेकडीवरील संग्रहालयात पेशवेकालीन वस्तू आहेत आणि मंदिर आजही नित्य उपासनेत आहे.",
+    "sources": [
+      {
+        "label": "Devdeveshwar Sansthan",
+        "url": "https://devdeveshwarsanthan.org/about.html"
+      }
+    ],
+    "checked_at": "2026-11-14"
+  },
+  {
+    "id": "vishrambaug-1811",
+    "era": "peshwa",
+    "year": 1811,
+    "date_label": "1811",
+    "title_en": "Vishrambaug Wada, the Peshwas' last home",
+    "title_mr": "विश्रामबाग वाडा - पेशव्यांचे शेवटचे वास्तव्य",
+    "summary_en": "Vishrambaug Wada was completed in 1811 at a cost of Rs 2 lakh and was the Peshwas' last residence before British rule. Bajirao II preferred it to Shaniwar Wada and stayed there about 11 years. The red-brick building with carved wooden balconies is now a municipal heritage site.",
+    "summary_mr": "विश्रामबाग वाडा १८११ मध्ये दोन लाख रुपये खर्चून पूर्ण झाला; ब्रिटिश राजवटीपूर्वीचे पेशव्यांचे शेवटचे वास्तव्य तो. बाजीराव दुसऱ्याने शनिवारवाड्याऐवजी त्याला पसंती दिली आणि सुमारे ११ वर्षे तिथे राहिला. विटांची व कोरिव कासवांची ही इमारत आता महापालिकेच्या वारसा स्थळांत आहे.",
+    "sources": [
+      {
+        "label": "Pune district administration",
+        "url": "https://pune.gov.in/tourist-place/vishrambaug-wada/"
+      }
+    ],
+    "checked_at": "2026-11-14"
+  },
+  {
+    "id": "khadki-1817",
+    "era": "peshwa",
+    "year": 1817,
+    "date_label": "5 November 1817",
+    "title_en": "The battle that ended Peshwa rule",
+    "title_mr": "पेशवाईचा शेवट करणारी लढाई",
+    "summary_en": "On 5 November 1817, British forces defeated Peshwa Bajirao II at Khadki (Kirkee) - the decisive battle of the Third Anglo-Maratha War. Pune passed to the British, who made it a monsoon capital of the Bombay Presidency; the Marathi Vishwakosh records they considered making it the presidency's permanent capital until 1864.",
+    "summary_mr": "५ नोव्हेंबर १८१७ रोजी खडकी (किरकी) येथे ब्रिटिशांनी पेशवे बाजीराव दुसऱ्याचा पराभव केला - तिसऱ्या इंग्रज-मराठा युद्धाची निर्णायक लढाई. पुणे ब्रिटिशांच्या ताब्यात गेले; त्यांनी ते मुंबई प्रेसिडेन्सीची मान्सून राजधानी केले. १८६४ पर्यंत ती कायमची राजधानी करण्याचा विचार ब्रिटिशांनी केला होता, असे मराठी विश्वकोश नोंदवतो.",
+    "sources": [
+      {
+        "label": "Times of India: Battle of Khadki",
+        "url": "https://timesofindia.indiatimes.com/city/pune/battle-of-khadki-paved-way-for-british-rule-in-pune/articleshow/102555414.cms"
+      },
+      {
+        "label": "Marathi Vishwakosh: Pune city",
+        "url": "https://vishwakosh.marathi.gov.in/20975/"
+      }
+    ],
+    "checked_at": "2026-11-14"
+  },
+  {
+    "id": "deccan-college-1821",
+    "era": "british",
+    "year": 1821,
+    "date_label": "1821",
+    "title_en": "Deccan College founded",
+    "title_mr": "डेक्कन कॉलेजची स्थापना",
+    "summary_en": "Founded on 15 October 1821 as Hindoo College at the initiative of Mountstuart Elphinstone, it was renamed Poona College in 1827 and later Deccan College. The college describes itself as the third-oldest educational institution in India. It became famous for Indology, linguistics and archaeology.",
+    "summary_mr": "माउंटस्टुअर्ट एल्फिन्स्टोन यांच्या पुढाकाराने १५ ऑक्टोबर १८२१ रोजी हिंदू कॉलेज म्हणून स्थापन; १८२७ मध्ये पुणे कॉलेज आणि नंतर डेक्कन कॉलेज असे नाव. भारतातील तिसऱ्या क्रमांकाची जुनी शैक्षणिक संस्था असा उल्लेख कॉलेज स्वतः करते. प्राच्यविद्या, भाषाशास्त्र व पुरातत्वासाठी ती प्रसिद्ध झाली.",
+    "sources": [
+      {
+        "label": "Deccan College: history",
+        "url": "https://www.dcpune.edu.in/History.html"
+      },
+      {
+        "label": "Indian Express: Know Your City",
+        "url": "https://indianexpress.com/article/cities/pune/know-your-city-story-of-deccan-college-pune-where-indology-found-a-home-in-india-9085144/"
+      }
+    ],
+    "checked_at": "2026-11-14"
+  },
+  {
+    "id": "first-girls-school-1848",
+    "era": "british",
+    "year": 1848,
+    "date_label": "1 January 1848",
+    "title_en": "India's first girls' school, in Bhide Wada",
+    "title_mr": "भिडे वाड्यात भारतातील पहिली मुलींची शाळा",
+    "summary_en": "On 1 January 1848 Jyotirao and Savitribai Phule opened a school for girls in Bhide Wada, Budhwar Peth, with eight students - recorded as India's first school for girls. Savitribai taught there despite public hostility. The wada was acquired by the state in 2024 for a national memorial.",
+    "summary_mr": "१ जानेवारी १८४८ रोजी ज्योतिराव व सावित्रीबाई फुले यांनी बुधवार पेठेतील भिडे वाड्यात आठ विद्यार्थिनींसह मुलींची शाळा सुरू केली - भारतातील पहिली मुलींची शाळा अशी तिची नोंद आहे. लोकविरोधानंतही सावित्रीबाई शिकवत राहिल्या. राष्ट्रीय स्मारकासाठी २०२४ मध्ये राज्याने वाडा ताब्यात घेतला.",
+    "sources": [
+      {
+        "label": "Sahapedia: Bhide Wada",
+        "url": "https://map.sahapedia.org/article/Bhide%20Wada/3365"
+      }
+    ],
+    "checked_at": "2026-11-14"
+  },
+  {
+    "id": "municipality-1858",
+    "era": "british",
+    "year": 1858,
+    "date_label": "1858",
+    "title_en": "Pune gets a municipality",
+    "title_mr": "पुण्याला नगरपालिका मिळाली",
+    "summary_en": "The Pune municipality was founded on 15 February 1858 under a government resolution of 1856; it became a borough municipality in 1870 and the municipal corporation in 1950.",
+    "summary_mr": "१८५६ च्या शासन निर्णयानुसार १५ फेब्रुवारी १८५८ रोजी पुणे नगरपालिका स्थापन झाली; १८७० मध्ये ती बरो नगरपालिका आणि १९५० मध्ये महानगरपालिका झाली.",
+    "sources": [
+      {
+        "label": "Marathi Vishwakosh: Pune city",
+        "url": "https://vishwakosh.marathi.gov.in/20975/"
+      }
+    ],
+    "checked_at": "2026-11-14"
+  },
+  {
+    "id": "satyashodhak-1873",
+    "era": "british",
+    "year": 1873,
+    "date_label": "24 September 1873",
+    "title_en": "Satyashodhak Samaj founded",
+    "title_mr": "सत्यशोधक समाजाची स्थापना",
+    "summary_en": "Jyotirao Phule founded the Satyashodhak Samaj (Truth-Seekers' Society) in Pune on 24 September 1873, campaigning against caste and for education and equality. Its critique of Brahmin dominance marked a turn in Pune's reform movements, per the Marathi Vishwakosh.",
+    "summary_mr": "ज्योतिराव फुलेंनी २४ सप्टेंबर १८७३ रोजी पुण्यात सत्यशोधक समाज स्थापला - जातिविरोध व शिक्षण, समतेसाठी चळवळ. ब्राह्मणी वर्चस्वावरील टीकेमुळे पुण्याच्या सुधारणा चळवळींना याने नवी दिशा दिली, असे मराठी विश्वकोश नोंदवतो.",
+    "sources": [
+      {
+        "label": "Marathi Vishwakosh: Pune city",
+        "url": "https://vishwakosh.marathi.gov.in/20975/"
+      }
+    ],
+    "checked_at": "2026-11-14"
+  },
+  {
+    "id": "kesari-1881",
+    "era": "british",
+    "year": 1881,
+    "date_label": "4 January 1881",
+    "title_en": "Kesari begins publication",
+    "title_mr": "केसरीचा प्रवास सुरू",
+    "summary_en": "Lokmanya Tilak, Gopal Ganesh Agarkar and Vishnushastri Chiplunkar started Kesari (Marathi) and the Mahratta (English) in Pune on 4 January 1881; the first issue carried Tilak's editorial \"Has the Government lost its head?\" Kesari became the voice of the nationalist movement.",
+    "summary_mr": "लोकमान्य टिळक, गोपाळ गणेश आगरकर व विष्णुशास्त्री चिपळूणकर यांनी ४ जानेवारी १८८१ रोजी पुण्यातून केसरी (मराठी) व महारट्ट (इंग्रजी) सुरू केले; पहिल्या अंकात टिळकांचे \"सरकारचे डोके ठिकाणावर आहे काय?\" हे अग्रलेख होते. केसरी राष्ट्रवादी चळवळीचे मुखपत्र बनले.",
+    "sources": [
+      {
+        "label": "Daily Kesari",
+        "url": "https://www.dailykesari.com/about"
+      }
+    ],
+    "checked_at": "2026-11-14"
+  },
+  {
+    "id": "fergusson-1885",
+    "era": "british",
+    "year": 1885,
+    "date_label": "1885",
+    "title_en": "Fergusson College, Deccan Education Society",
+    "title_mr": "फर्ग्युसन कॉलेज व डेक्कन एज्युकेशन सोसायटी",
+    "summary_en": "Lokmanya Tilak, Gopal Ganesh Agarkar, Mahadev Ballal Namjoshi and Vaman Shivram Apte founded the Deccan Education Society on 24 October 1884, and Fergusson College opened in January 1885, named after Governor Sir James Fergusson. Its alumni include leaders of the freedom movement.",
+    "summary_mr": "लोकमान्य टिळक, गोपाळ गणेश आगरकर, महादेव बल्लाळ नामजोशी व वामन शिवराम आपटे यांनी २४ ऑक्टोबर १८८४ रोजी डेक्कन एज्युकेशन सोसायटी स्थापली; जानेवारी १८८५ मध्ये फर्ग्युसन कॉलेज सुरू झाले, नाव गव्हर्नर सर जेम्स फर्ग्युसन यांच्या नावावरून. स्वातंत्र्यचळवळीतील अनेक नेते या कॉलेजचे माजी विद्यार्थी आहेत.",
+    "sources": [
+      {
+        "label": "Fergusson College: history",
+        "url": "https://www.fergusson.edu/page/14/history"
+      }
+    ],
+    "checked_at": "2026-11-14"
+  },
+  {
+    "id": "mandai-1886",
+    "era": "british",
+    "year": 1886,
+    "date_label": "1886",
+    "title_en": "Phule Mandai opens",
+    "title_mr": "फुले मंडई उघडली",
+    "summary_en": "The Reay Market opened in 1886 as the city's vegetable market, in a Gothic-style building designed by W.M. Ducat. Renamed Mahatma Phule Mandai in 1938, it remains Pune's largest retail vegetable market. Tilak introduced the public Ganapati festival to Pune from Khasbag Maidan nearby in 1894.",
+    "summary_mr": "१८८६ मध्ये डब्ल्यू.एम. दुकात यांनी गॉथिक शैलीत रचलेली रे मार्केट भाजीमंडई म्हणून उघडली. १९३८ मध्ये तिचे नाव महात्मा फुले मंडई झाले आणि ती आजही पुण्याची मोठी किरकोळ भाजीमंडई आहे. टिळकांनी १८९४ मध्ये जवळच्या खासबाग मैदानावरून पुण्यात सार्वजनिक गणेशोत्सवाची सुरुवात केली.",
+    "sources": [
+      {
+        "label": "Pune district administration: Mahatma Phule Mandai",
+        "url": "https://pune.gov.in/tourist-place/mahatma-phule-mandai/"
+      },
+      {
+        "label": "LBB: Manache Ganpati",
+        "url": "https://lbb.in/pune/everything-you-need-to-know-about-punes-manache-ganpati/"
+      }
+    ],
+    "checked_at": "2026-11-14"
+  },
+  {
+    "id": "aga-khan-palace-1892",
+    "era": "british",
+    "year": 1892,
+    "date_label": "1892",
+    "title_en": "Aga Khan Palace",
+    "title_mr": "आगाखान पॅलेस",
+    "summary_en": "Sultan Muhammed Shah Aga Khan III built the palace in 1892 to give employment to famine-hit villagers. During the Quit India movement the British jailed Mahatma Gandhi, Kasturba and Mahadev Desai here; Kasturba and Desai died in this captivity in 1942 and 1944, and their memorials stand in the grounds. It is a national monument.",
+    "summary_mr": "सुलतान महम्मद शाह आगाखान तिसऱ्याने १८९२ मध्ये दुष्काळग्रस्त गावकर्यांना रोजगार देण्यासाठी हा वाडा बांधला. भारत छोडो चळवळीत ब्रिटिशांनी महात्मा गांधी, कस्तूरबा व महादेव देसाई यांना इथे कैदेत ठेवले; कस्तूरबा (१९४४) व देसाई (१९४२) या कैदेत वारले आणि त्यांच्या समाध्या परिसरात आहेत. हे राष्ट्रीय स्मारक आहे.",
+    "sources": [
+      {
+        "label": "Pune district administration: Aga Khan Palace",
+        "url": "https://pune.gov.in/tourist-place/agakhan-palace/"
+      },
+      {
+        "label": "Incredible India: Aga Khan Palace",
+        "url": "https://www.incredibleindia.gov.in/en/maharashtra/pune/aga-khan-palace"
+      }
+    ],
+    "checked_at": "2026-11-14"
+  },
+  {
+    "id": "bori-1917",
+    "era": "british",
+    "year": 1917,
+    "date_label": "6 January 1917",
+    "title_en": "Bhandarkar Oriental Research Institute",
+    "title_mr": "भांडारकर प्राच्यविद्या संशोधन संस्था",
+    "summary_en": "Founded in Pune on 6 January 1917 and named after R.G. Bhandarkar, BORI marked its centenary in 2017 - President Pranab Mukherjee inaugurated the celebrations. Its library and manuscript collection remain a major resource for research in Indology.",
+    "summary_mr": "रा.गो. भांडारकर यांच्या स्मरणार्थ ६ जानेवारी १९१७ रोजी पुण्यात स्थापन; २०१७ मध्ये शताब्दी साजरी झाली - उद्घाटन राष्ट्रपती प्रणव मुखर्जी यांनी केले. तिचे ग्रंथालय व हस्तलिखित संग्रह प्राच्यविद्या संशोधनासाठी महत्त्वाचा स्रोत आहे.",
+    "sources": [
+      {
+        "label": "BORI: introduction",
+        "url": "https://www.bori.ac.in/"
+      }
+    ],
+    "checked_at": "2026-11-14"
+  },
+  {
+    "id": "poona-pact-1932",
+    "era": "british",
+    "year": 1932,
+    "date_label": "September 1932",
+    "title_en": "The Poona Pact at Yerwada Jail",
+    "title_mr": "यरवडा तुरुंगात पुणे करार",
+    "summary_en": "In September 1932, in Yerwada Jail, B.R. Ambedkar and Madan Mohan Malaviya signed the Poona Pact while Gandhi fasted against separate electorates. It withdrew separate electorates for the Depressed Classes and gave them reserved seats instead. The British Government accepted it on 24 September 1932.",
+    "summary_mr": "सप्टेंबर १९३२ मध्ये यरवडा तुरुंगात, गांधींचे पृथक निवडणूक प्रणालीविरोधातील उपोषण सुरू असताना, डॉ. बाबासाहेब आंबेडकर व मदनमोहन मालवीय यांनी पुणे करार केला. त्यानुसार पृथक निवडणुका मागे घेऊन आरक्षित जागा देण्यात आल्या. २४ सप्टेंबर १९३२ रोजी ब्रिटिश सरकारने करार मान्य केला.",
+    "sources": [
+      {
+        "label": "Govt. of India (Amrit Mahotsav)",
+        "url": "https://cmsadmin.amritmahotsav.nic.in/unsung-heroes-detail.htm?215"
+      }
+    ],
+    "checked_at": "2026-11-14"
+  },
+  {
+    "id": "oxford-of-east",
+    "era": "modern",
+    "year": 1957,
+    "date_label": "1950s",
+    "title_en": "The \"Oxford of the East\"",
+    "title_mr": "\"पूर्वेचे ऑक्सफर्ड\"",
+    "summary_en": "After Independence Pune grew into a major education centre, with the University of Pune (1949) and new colleges. The title \"Oxford of the East\" is widely reported as Jawaharlal Nehru's description of the city during a late-1950s visit.",
+    "summary_mr": "स्वातंत्र्यानंतर पुणे विद्येचे मोठे केंद्र बनले - पुणे विद्यापीठ (१९४९) आणि नवी महाविद्यालये. \"पूर्वेचे ऑक्सफर्ड\" ही उपमा जवाहरलाल नेहरू यांनी १९५० च्या दशकाच्या उत्तरार्धातील भेटीदरम्यान केल्याचे सांगितले जाते.",
+    "sources": [
+      {
+        "label": "Indian Express",
+        "url": "https://indianexpress.com/article/cities/pune/oxford-of-the-east-why-pune-is-known-by-this-tag-9378089/"
+      }
+    ],
+    "checked_at": "2026-11-14"
+  },
+  {
+    "id": "panshet-1961",
+    "era": "modern",
+    "year": 1961,
+    "date_label": "12 July 1961",
+    "title_en": "The Panshet flood",
+    "title_mr": "पानशेत पूर",
+    "summary_en": "On 12 July 1961, the still-unfinished Panshet dam burst. A deliberate delay in the second breach meant the flood reached Pune in the morning rather than at night, per later accounts. Old parts of the city were submerged for days and thousands of houses were destroyed; the city was rebuilt within about two years.",
+    "summary_mr": "१२ जुलै १९६१ रोजी अपूर्ण असलेले पानशेत धरण तुटले. नंतरच्या वृत्तांतांनुसार दुसरा भंग उशिरा केल्यामुळे पूर रात्रीऐवजी सकाळी पुण्यात शिरला. जुने भाग दिवसांखाली पाण्याखाली गेले आणि हजारो घरे पडली; सुमारे दोन वर्षांत शहर पुन्हा उभे राहिले.",
+    "sources": [
+      {
+        "label": "Swarajya: The day Pune flooded",
+        "url": "https://swarajyamag.com/culture/the-day-pune-went-underwater-how-the-city-overcame-one-of-its-worst-floods-in-july-1961"
+      },
+      {
+        "label": "DNA: 55 years since the flood",
+        "url": "https://www.dnaindia.com/pune/report-pune-remembers-55-years-since-panshet-flood-havoc-2232317"
+      }
+    ],
+    "checked_at": "2026-11-14"
+  },
+  {
+    "id": "rename-1978",
+    "era": "modern",
+    "year": 1978,
+    "date_label": "1978",
+    "title_en": "Poona becomes Pune",
+    "title_mr": "पुणे नाव अधिकृत",
+    "summary_en": "The city's official name changed from Poona to Pune in 1978.",
+    "summary_mr": "१९७८ मध्ये शहराचे अधिकृत नाव पुणे (पूर्वीचे Poona) झाले.",
+    "sources": [
+      {
+        "label": "Indian Express: How Poona became Pune",
+        "url": "https://indianexpress.com/article/cities/pune/know-your-city-how-poona-became-pune-and-a-lost-name-comes-back-into-use-9623600/"
+      }
+    ],
+    "checked_at": "2026-11-14"
+  },
+  {
+    "id": "wagholi-cavansite",
+    "era": "modern",
+    "year": 1973,
+    "date_label": "1970s onwards",
+    "title_en": "Wagholi, the mineral quarries",
+    "title_mr": "वाघोलीचे खनिज खदान",
+    "summary_en": "Cavansite was discovered in the Wagholi quarries in 1973; the area later yielded the world's only known pentagonite, its dimorph. Wagholi is internationally known to mineral collectors, with specimens held by the Carnegie Museum of Natural History and the Royal Ontario Museum, and a 2025 mineralogical study examined the geology.",
+    "summary_mr": "वाघोलीच्या खदानांत १९७३ मध्ये कॅव्हन्साइट हे खनिज सापडले; नंतर त्याच प्रदेशात जगातील एकमेव ज्ञात पेंटागोनाइट मिळाले. वाघोली खनिज-संग्रहकांमध्ये आंतरराष्ट्रीय नावलौकिकाचे आहे; नमुने कार्नेगी नैसर्गिक इतिहास संग्रहालय व रॉयल ऑन्टारियो संग्रहालयात आहेत आणि २०२५ च्या खनिजशास्त्रीय अभ्यासात त्याचा भूगोल तपासला गेला.",
+    "sources": [
+      {
+        "label": "Minerals journal (MDPI), 2025",
+        "url": "https://www.mdpi.com/2075-163X/15/2/126"
+      },
+      {
+        "label": "Royal Ontario Museum collection",
+        "url": "https://collections.rom.on.ca/objects/428466/pentagonite-on-basalt"
+      }
+    ],
+    "checked_at": "2026-11-14"
+  },
+  {
+    "id": "pune-metro",
+    "era": "modern",
+    "year": 2022,
+    "date_label": "March 2022",
+    "title_en": "The Metro arrives",
+    "title_mr": "मेट्रोचा प्रवेश",
+    "summary_en": "Trial running on Pune Metro's first stretch began on 27 September 2021, and passenger service opened in March 2022. Phase 1 covers 33.2 km across three lines - PCMC to Swargate, Vanaz to Ramwadi, and Hinjawadi to Shivajinagar (line 3, PPP).",
+    "summary_mr": "पुणे मेट्रोच्या पहिल्या टप्प्यावर २७ सप्टेंबर २०२१ रोजी चाचणी धाव सुरू झाली आणि मार्च २०२२ मध्ये प्रवासी सेवा उघडली. टप्पा १ मध्ये तीन मार्गांवर ३३.२ कि.मी. - पिंपरी-चिंचवड ते स्वारगेट, वनझ ते रामवाडी आणि हिंजवडी ते शिवाजीनगर (मार्ग ३, पीपीपी).",
+    "sources": [
+      {
+        "label": "Pune Metro: project brief (PDF)",
+        "url": "https://www.punemetrorail.org/assets/backend/uploads/project_brief/project_brief_files/Project_Brief.pdf"
+      },
+      {
+        "label": "Railway Gazette",
+        "url": "https://www.railwaygazette.com/passenger/punes-first-metro-starts-trial-running/59664.article"
+      }
+    ],
+    "checked_at": "2026-11-14"
+  }
+]
