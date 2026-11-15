@@ -57,7 +57,12 @@ test('the fare correction and the remaining disputed pairs are recorded', () => 
 
 test('guide is at /PuneMetroguide/ with its own folder, canonical and no lower-case twin', () => {
   assert.ok(existsSync(join(out, 'PuneMetroguide/index.html')));
-  assert.ok(!existsSync(join(out, 'punemetroguide')));
+  // Check the real directory entry names, not existsSync: a case-insensitive filesystem
+  // (Windows, macOS) would otherwise report the lowercase twin as present just because
+  // PuneMetroguide exists. The concern is a genuinely separate lowercase-named folder.
+  const topLevel = readdirSync(out);
+  assert.ok(topLevel.includes('PuneMetroguide'));
+  assert.ok(!topLevel.includes('punemetroguide'));
   assert.ok(guideHtml.includes('<link rel="canonical" href="https://peakpune.com/PuneMetroguide/">'));
   assert.equal(GUIDE_PATH, '/PuneMetroguide/');
 });

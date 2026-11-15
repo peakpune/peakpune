@@ -1,0 +1,19 @@
+# Cloudflare Pages response headers. Served with the static files; no build step emits this.
+# Hand-written, like tokens.css / app.js / data/plans.json. Keep in sync with the CSP notes below.
+#
+# CSP notes (why 'unsafe-inline' is present):
+#   Astro's static output hydrates islands with a small INLINE <script> and ships an inline
+#   <style> block, and pages embed inline <script type="application/ld+json">. A static CDN
+#   has no per-request nonce, so script-src/style-src must allow 'unsafe-inline' or the live
+#   pages break. There are no inline on* event handlers (verified), so this is the minimum.
+#   connect-src is limited to the browser's own fetches: same-origin plans.json plus the two
+#   Open-Meteo endpoints used by the "Pune right now" strip. Everything else is link navigation.
+
+/*
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://api.open-meteo.com https://air-quality-api.open-meteo.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'; manifest-src 'self'; upgrade-insecure-requests
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  Cross-Origin-Opener-Policy: same-origin
+  Permissions-Policy: geolocation=(), microphone=(), camera=(), payment=(), usb=()

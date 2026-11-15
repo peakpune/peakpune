@@ -1,8 +1,8 @@
 // Plan posting API. Pure handlers: (request, env, now) -> Response. Cloudflare Pages Functions wrap them.
 // env.DB = D1 (plans, and sanitized images as blobs, so no R2 and no extra cost), env.ADMIN_PASSPHRASE (a Cloudflare secret; the owner's login).
 // No personal contact is collected. IPs are stored only as salted hashes.
-import { validatePlan } from '../../src/plan-submission.js';
-import { checkLimits, RATE_LIMIT_PER_HOUR } from '../../src/abuse-guard.js';
+import { validatePlan, MIN_FILL_MS } from '../../src/plan-submission.js';
+import { checkLimits, RATE_LIMIT_PER_HOUR, isHoneypotTripped } from '../../src/abuse-guard.js';
 import { sanitizeImage } from '../../src/image-sanitize.js';
 
 export const IMAGE_MAX_BYTES = 1024 * 1024; // D1 rows are capped at 2 MB
@@ -35,7 +35,27 @@ export function goingLabel(n) {
   return `${Math.floor(n / 5) * 5}+ going`;
 }
 
+// Cap on the actual bytes read from a JSON body. Content-Length can lie or be absent
+// (chunked bodies), so measure what truly arrives instead of trusting the header.
+async function readJsonCapped(request, max) {
+  const reader = request.body?.getReader?.();
+  if (!reader) return request.json(); // no stream: fall back (test/mocked requests)
+  const parts = []; let size = 0;
+  for (;;) {
+    const { value, done } = await reader.read();
+    if (done) break;
+    size += value.byteLength;
+    if (size > max) { await reader.cancel(); throw new RangeError('too large'); }
+    parts.push(value);
+  }
+  const buf = new Uint8Array(size); let o = 0;
+  for (const p of parts) { buf.set(p, o); o += p.length; }
+  return JSON.parse(new TextDecoder().decode(buf));
+}
+
 async function readBody(request) {
+  // Cheap first filter when the header is present and honest; the real guards below
+  // enforce the limit against the bytes that actually arrive.
   const len = Number(request.headers.get('content-length') || 0);
   if (len > MAX_BODY) return { error: json({ error: 'too large' }, 413) };
   const type = request.headers.get('content-type') || '';
@@ -43,11 +63,21 @@ async function readBody(request) {
     if (type.startsWith('multipart/form-data')) {
       const fd = await request.formData();
       const body = {}; let file = null;
-      for (const [k, v] of fd.entries()) { if (typeof v === 'string') body[k] = v; else if (k === 'image' && v.size > 0) file = v; }
+      for (const [k, v] of fd.entries()) {
+        if (typeof v === 'string') body[k] = v;
+        else if (k === 'image' && v.size > 0) {
+          // Reject oversized uploads up front, before any buffering or DB work.
+          if (v.size > IMAGE_MAX_BYTES) return { error: json({ error: 'image too large (max 1 MB)' }, 400) };
+          file = v;
+        }
+      }
       return { body, file };
     }
-    if (type.startsWith('application/json')) return { body: await request.json(), file: null };
-  } catch { /* fall through */ }
+    if (type.startsWith('application/json')) return { body: await readJsonCapped(request, MAX_BODY), file: null };
+  } catch (e) {
+    if (e instanceof RangeError) return { error: json({ error: 'too large' }, 413) };
+    /* fall through */
+  }
   return { error: json({ error: 'bad request' }, 400) };
 }
 
@@ -56,9 +86,16 @@ export async function submitPlan(request, env, now = new Date()) {
   if (!sameOrigin(request)) return json({ error: 'forbidden' }, 403);
   const { body, file, error } = await readBody(request);
   if (error) return error;
+  // Reject the cheap, counter-free cases BEFORE touching the DB: a filled honeypot or a
+  // sub-threshold fill time is a bot. Answer with the same fake success and write nothing,
+  // so a request flood cannot amplify into rate-table writes.
+  const startedAt = body?.t ? Number(body.t) : undefined;
+  if (isHoneypotTripped(body) || (startedAt !== undefined && Number.isFinite(startedAt) && now.getTime() - startedAt < MIN_FILL_MS)) {
+    return json({ ok: true, pending: true });
+  }
   const hash = await ipHash(request, env);
   const counters = { ipCountThisHour: await rateLimit(env, hash, now), totalEntries: await total(env) };
-  const r = validatePlan(body, { now, startedAt: body?.t ? Number(body.t) : undefined, counters });
+  const r = validatePlan(body, { now, startedAt, counters });
   if (!r.store) {
     if (r.errors) return json({ error: r.errors.join(', ') }, r.status);
     return r.status === 200 ? json({ ok: true, pending: true }) : json({ error: r.error }, r.status); // honeypot / too fast: fake success, nothing stored

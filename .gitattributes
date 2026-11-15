@@ -1,3 +1,31 @@
+# Line endings. The build hashes file bytes (assetUrl SHA-256 over tokens.css/app.js, and the
+# generated HTML), so a Windows CRLF checkout would change those hashes and make `npm run build`
+# drift against the committed public/ output. Pin LF on the text types that feed the build and on
+# the hand-written source, so the build is byte-reproducible on every OS. iCalendar output stays
+# CRLF (RFC 5545, emitted that way by scripts/calendar.mjs); binaries are left untouched.
+*.ts     text eol=lf
+*.tsx    text eol=lf
+*.js     text eol=lf
+*.mjs    text eol=lf
+*.cjs    text eol=lf
+*.svelte text eol=lf
+*.astro  text eol=lf
+*.json   text eol=lf
+*.css    text eol=lf
+*.html   text eol=lf
+*.svg    text eol=lf
+*.md     text eol=lf
+*.csv    text eol=lf
+*.xml    text eol=lf
+*.txt    text eol=lf
+*.webmanifest text eol=lf
+*.gleam  text eol=lf
+*.sql    text eol=lf
+*.sh     text eol=lf
+
+# iCalendar output MUST stay CRLF (RFC 5545); scripts/calendar.mjs generates it that way.
+*.ics    -text
+
 # Generated output is collapsed by default in GitHub pull request diffs, so a review shows the
 # files a person actually wrote. Everything below is rebuilt by `npm run build` (see docs/ARCHITECTURE.md).
 # Hand-written files inside public/ (tokens.css, app.js, plans.js, filters.js, share.js, fonts/, og.png,

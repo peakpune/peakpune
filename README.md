@@ -134,7 +134,8 @@ flowchart LR
 | [`scripts/`](scripts/README.md) | Build, validators, calendar, offline browser check | Yes |
 | [`tests/`](tests/README.md) | `node:test` suites | Yes |
 | [`docs/`](docs/README.md) | Scope and brand, architecture, review guide, audits, research | Yes |
-| `public/` | **The deployed site.** Generated pages, bundles, `.ics`, sitemap. Hand-written: `tokens.css`, `app.js`, `fonts/`, `data/plans.json` | Only the exceptions |
+| `functions/`, `migrations/` | A **present-but-unwired** plan-submission backend (Cloudflare Pages Functions + D1 schema). Not deployed, not referenced by the static site. See the note below. | Yes (review before enabling) |
+| `public/` | **The deployed site.** Generated pages, bundles, `.ics`, sitemap. Hand-written: `tokens.css`, `app.js`, `fonts/`, `data/plans.json`, `_headers` (response headers / CSP) | Only the exceptions |
 | `peakpuneapp/`, `punepedia/` | Separate Android projects, not part of the site build or deploy | n/a |
 
 **How pages are made.** `public/` is served as plain files. Its HTML is written by
@@ -153,6 +154,15 @@ each day. Visitors' browsers never call event providers. There is no automatic r
 are validated and original links are kept. `src/abuse-guard.js` (a honeypot field, an hourly
 per-IP limit and an entry cap, adapted from PuneAfterhours) is not connected to anything and
 protects nothing today. It is there for the first form backend.
+
+**About `functions/` (not live).** The repository also carries a complete plan-submission
+backend under `functions/` (Cloudflare Pages Functions: submit, going, report, admin review)
+with a D1 schema in `migrations/`. It is **present but unwired**: the static `public/` site
+never calls it, `npm run build` does not bundle it, and it does nothing until someone deploys
+it with a `DB` binding, an `ADMIN_PASSPHRASE` and a `HASH_SALT`. Treat it as draft code pending
+the moderation, storage and privacy review listed in the roadmap. Do not enable it before that
+review. If you are assessing the site's live security surface, note that today it is static
+files only; the backend is the thing to audit before any launch that turns it on.
 
 ## Brand
 

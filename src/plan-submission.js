@@ -4,7 +4,7 @@ import { screenSubmission } from './abuse-guard.js';
 
 export const PLAN_FIELDS = ['title', 'date', 'time', 'area', 'venue', 'link'];
 export const LIMITS = { title: 80, area: 40, venue: 80, link: 300 };
-const MIN_FILL_MS = 3000;
+export const MIN_FILL_MS = 3000;
 
 const clean = (v) => String(v ?? '').replace(/[\u0000-\u001f\u007f]/g, ' ').replace(/\s+/g, ' ').trim();
 // 10+ digit runs (phone numbers) and emails are rejected so no contact details get published.
