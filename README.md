@@ -23,10 +23,10 @@
 
 An open-source website for local events, meetups and moments in Pune, with the Puneri
 attitude. It is a small static site: Astro-generated HTML and CSS, with TypeScript validation and a Svelte island for plans.
-It has no backend, no build on deploy and no tracking.
+The pages are static, with no build on deploy. Plan posting and the owner's review page run on a small Cloudflare Pages Functions backend (`functions/`).
 
 > **Status: live.** Listings are source-checked, not a promise of current availability.
-> Search indexing and reader submissions remain disabled. No personal data is collected.
+> Search indexing is on. Visitors can send a plan on the Events page, and a person reviews every plan before it shows. A salted hash of the visitor's IP address is stored for spam limits and to limit repeat "going" taps and reports from the same IP address. It is never published. See SECURITY.md.
 
 ## Contribute in 10 minutes
 
@@ -45,7 +45,7 @@ Peak Pune is about Pune, and contributors from Pune and across India are warmly 
 | **Outdoors** | 8 mapped running loops and 20 treks and day trips with sourced distance and drive-time details where available, credited to PuneRunners Club and Pune Trekkers. |
 | **Events** | A reviewed snapshot of Pune plans listed on District, each linking to its original listing. A **This weekend** filter uses only the listed date. A **Share** button on each plan shares or copies the original link. |
 | **Meetups** | 7 communities with current source evidence and public joining pages. Unconfirmed activity listings are withheld. |
-| **Moments** | No genuine submitted moments published yet. Generated captions removed; reader submissions remain closed. |
+| **Moments** | No genuine submitted moments published yet. Generated captions removed. Moments has no submission form; the plans form on Events is separate. |
 | **Submissions, uploads, accounts** | Not enabled. There is no backend. |
 
 Plans are source-listed, not confirmed by organisers. Always check the original listing for
@@ -96,7 +96,7 @@ validates the data, `npm run metro:offline` runs the browser checks (needs Playw
 
 `npm run build` compiles TypeScript, generates Astro HTML and copies the complete static result into committed `public/`. Existing Cloudflare Pages can keep deploying that folder with no build command. Do not change the production build settings or add an SSR adapter/Functions. The stack upgrade does not fix a separate Cloudflare publishing incident.
 
-`npm run check` checks Astro/Svelte/TypeScript. `npm test` runs the regression suite. CI installs the lockfile, runs both, rebuilds and checks committed output has not drifted. Only IDs explicitly allowed by the publication audit publish; noindex and closed submissions remain in place. The manual snapshot expiry is unchanged.
+`npm run check` checks Astro/Svelte/TypeScript. `npm test` runs the regression suite. CI installs the lockfile, runs both, rebuilds and checks committed output has not drifted. Only IDs explicitly allowed by the publication audit publish; indexing is on, and plan submissions are reviewed before they publish. The manual snapshot expiry is unchanged.
 
 The tools are build-time dependencies, not a paid runtime. Static hosting still depends on the current free plan limits. Paid APIs, databases and server rendering are not enabled. See [`docs/STACK.md`](docs/STACK.md) for maintenance notes.
 
@@ -134,7 +134,7 @@ flowchart LR
 | [`scripts/`](scripts/README.md) | Build, validators, calendar, offline browser check | Yes |
 | [`tests/`](tests/README.md) | `node:test` suites | Yes |
 | [`docs/`](docs/README.md) | Scope and brand, architecture, review guide, audits, research | Yes |
-| `functions/`, `migrations/` | A **present-but-unwired** plan-submission backend (Cloudflare Pages Functions + D1 schema). Not deployed, not referenced by the static site. See the note below. | Yes (review before enabling) |
+| `functions/`, `migrations/` | The **live** plan-posting backend (Cloudflare Pages Functions + D1 schema). Serves /api/plans and the owner's /backend review page. See the note below. | Yes (carefully; run the tests first) |
 | `public/` | **The deployed site.** Generated pages, bundles, `.ics`, sitemap. Hand-written: `tokens.css`, `app.js`, `fonts/`, `data/plans.json`, `_headers` (response headers / CSP) | Only the exceptions |
 | `peakpuneapp/`, `punepedia/` | Separate Android projects, not part of the site build or deploy | n/a |
 
@@ -155,14 +155,11 @@ are validated and original links are kept. `src/abuse-guard.js` (a honeypot fiel
 per-IP limit and an entry cap, adapted from PuneAfterhours) is not connected to anything and
 protects nothing today. It is there for the first form backend.
 
-**About `functions/` (not live).** The repository also carries a complete plan-submission
-backend under `functions/` (Cloudflare Pages Functions: submit, going, report, admin review)
-with a D1 schema in `migrations/`. It is **present but unwired**: the static `public/` site
-never calls it, `npm run build` does not bundle it, and it does nothing until someone deploys
-it with a `DB` binding, an `ADMIN_PASSPHRASE` and a `HASH_SALT`. Treat it as draft code pending
-the moderation, storage and privacy review listed in the roadmap. Do not enable it before that
-review. If you are assessing the site's live security surface, note that today it is static
-files only; the backend is the thing to audit before any launch that turns it on.
+**About `functions/` (live).** The site's plan-posting backend lives here (Cloudflare Pages
+Functions: submit, going, report, owner review) with a D1 schema in `migrations/`. It is not bundled by
+`npm run build`. It needs a `DB` binding, an `ADMIN_PASSPHRASE` and a `HASH_SALT`. Every submitted plan
+starts as pending and shows only after the owner approves it. If you are assessing the live security
+surface, this backend and the /backend review page are the parts to audit. See SECURITY.md.
 
 ## Brand
 

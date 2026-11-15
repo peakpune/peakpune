@@ -25,7 +25,7 @@ midnight IST, and hides a snapshot once its 24-hour expiry is reached. It never
 requests event providers from visitors' browsers. To publish a new manual snapshot,
 export to `public/data/plans.json`, inspect source health and the resulting cards,
 then commit the reviewed update. Git pushes to main trigger deployment, not data refresh.
-Meetup/Reddit network feeds, uploads and submissions remain disabled.
+Meetup/Reddit network feeds remain offline. Visitors can send plans on the Events page; the owner reviews each one before it shows.
 
 ## Source checks, 13 November 2026
 
