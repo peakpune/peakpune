@@ -13,7 +13,8 @@ const root = process.cwd();
 export const SITE_URL = (process.env.SITE_URL || 'https://peakpune.com').replace(/\/+$/, '');
 // A project site (https://user.github.io/repo) is served under a sub-path: prefix root links with it.
 export const BASE = new URL(SITE_URL + '/').pathname.replace(/\/+$/, '');
-export const withBase = (html) => (BASE ? html.replace(/(href|src)="\/(?!\/)/g, `$1="${BASE}/`) : html);
+import { openExternalLinksInNewTab } from './links.mjs';
+export const withBase = (html) => openExternalLinksInNewTab(BASE ? html.replace(/(href|src)="\/(?!\/)/g, `$1="${BASE}/`) : html);
 // Search indexing is on: the owner turned it on for launch (2026-11-15).
 //   INDEXING=off npm run build   builds a noindex copy without the sitemap reference
 export const INDEXING = process.env.INDEXING !== 'off';
