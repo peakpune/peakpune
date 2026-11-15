@@ -16,7 +16,7 @@
   <img alt="Licence: MIT" src="https://img.shields.io/badge/licence-MIT-1C1410?labelColor=F6EFE2">
   <img alt="Node.js 22+" src="https://img.shields.io/badge/node-22%2B-B8381F?labelColor=F6EFE2">
   <img alt="Status: live" src="https://img.shields.io/badge/status-live-E8A317?labelColor=F6EFE2">
-  <img alt="No backend" src="https://img.shields.io/badge/backend-none-C9D6B5?labelColor=F6EFE2">
+  <img alt="Plan review backend" src="https://img.shields.io/badge/backend-plan%20review-C9D6B5?labelColor=F6EFE2">
 </p>
 
 # Peak Pune
@@ -46,7 +46,7 @@ Peak Pune is about Pune, and contributors from Pune and across India are warmly 
 | **Events** | A reviewed snapshot of Pune plans listed on District, each linking to its original listing. A **This weekend** filter uses only the listed date. A **Share** button on each plan shares or copies the original link. |
 | **Meetups** | 7 communities with current source evidence and public joining pages. Unconfirmed activity listings are withheld. |
 | **Moments** | No genuine submitted moments published yet. Generated captions removed. Moments has no submission form; the plans form on Events is separate. |
-| **Submissions, uploads, accounts** | Not enabled. There is no backend. |
+| **Submissions, uploads, accounts** | Visitors can submit plans with an optional image; each is approved by the owner before it shows. No visitor accounts. |
 
 Plans are source-listed, not confirmed by organisers. Always check the original listing for
 current dates, prices and availability. Nothing here promises live availability, and unknown
@@ -152,8 +152,8 @@ each day. Visitors' browsers never call event providers. There is no automatic r
 
 **Safety by default.** Event text is untrusted and escaped by Svelte (never rendered as raw HTML). Source URLs
 are validated and original links are kept. `src/abuse-guard.js` (a honeypot field, an hourly
-per-IP limit and an entry cap, adapted from PuneAfterhours) is not connected to anything and
-protects nothing today. It is there for the first form backend.
+per-IP limit and an entry cap, adapted from PuneAfterhours) is live in the plan-submission
+backend in `functions/`.
 
 **About `functions/` (live).** The site's plan-posting backend lives here (Cloudflare Pages
 Functions: submit, going, report, owner review) with a D1 schema in `migrations/`. It is not bundled by
