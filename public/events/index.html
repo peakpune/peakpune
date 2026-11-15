@@ -48,7 +48,7 @@
 <label class="full"><span>Image <small>(optional, JPG/PNG/WebP, up to 1 MB)</small></span><input name="image" type="file" accept="image/jpeg,image/png,image/webp"></label>
 <p class="note">Only add an image you have the right to use. Avoid showing faces, number plates or phone numbers. Images are checked by a person before they appear.</p>
 <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
-<p class="note">Only the fields above are saved and shown. Approved plans are marked "Community-posted, not organiser-confirmed". To limit spam, the site may briefly use technical data such as your IP address for rate limiting; it is not published.</p>
+<p class="note">Only the fields above are saved and shown. Approved plans are marked "Community-posted, not organiser-confirmed". To limit spam and to limit repeat "going" taps and reports, the site stores a salted hash of your IP address, not the address itself. It is not published.</p>
 <button class="primary" type="submit">Send for review</button>
 <p class="note" id="plan-form-status" role="status"></p>
 </form>
@@ -65,8 +65,7 @@
 <a class="card link-card" href="https://karawaan.in/events" rel="noopener noreferrer" target="_blank"><div class="inner"><span class="eyebrow">Trips</span><h3>Upcoming trips</h3><p>Paid treks, camping and group trips from Pune, run by Karawaan.</p><span class="go">karawaan.in</span></div></a>
 </div></section>
 
-<div class="cta"><div><strong>Hosting something in Pune?</strong><span>List it free once submissions open.</span></div><button class="chip" data-action="submission">List your event or meetup</button></div>
-<div class="dialog" id="submission" hidden role="status"><h3>Submissions are not open yet.</h3><p>Nothing is collected or uploaded from this page. Before launch: moderation, reporting, upload safeguards and privacy details.</p><button class="chip" id="close-dialog">Close</button></div>
+<div class="cta"><div><strong>Hosting something in Pune?</strong><span>Post it free. A person reads every plan before it shows.</span></div><a class="chip" href="/events/#post-a-plan">Post a plan</a></div>
 
 </main>
 <footer class="site-footer"><div class="wrap">
@@ -75,7 +74,7 @@
 <nav aria-label="Powered by"><h2>Powered by</h2><a href="https://punerunners.com/" target="_blank" rel="noopener">PuneRunners.com</a><a href="https://punetrekkers.org/" target="_blank" rel="noopener">PuneTrekkers.org</a><a href="https://karawaan.in/" target="_blank" rel="noopener">karawaan.in</a><a href="/powered-by/">About these links</a></nav>
 <p class="fine">Place and route details are sourced and dated. Event plans are platform listings, not organiser-confirmed. Map data © OpenStreetMap contributors.</p>
 </div></footer>
-<script type="module" src="/app.js?v=deaecbfcd260"></script>
+<script type="module" src="/app.js?v=5e0dc30d1893"></script>
 
   </body>
 </html>
