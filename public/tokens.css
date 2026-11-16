@@ -202,7 +202,7 @@ a.category:nth-child(4n+1){color:#fff}a.category:hover{outline:4px solid var(--r
 
 /* Footer */
 .site-footer{border-top:2px solid var(--rim);margin-top:0}
-.site-footer .wrap{display:grid;grid-template-columns:minmax(0,2fr) repeat(2,minmax(0,1fr));gap:var(--s10) var(--s12);padding-block:var(--s12) var(--s8)}
+.site-footer .wrap{display:grid;grid-template-columns:minmax(0,2fr) repeat(3,minmax(0,1fr));gap:var(--s10) var(--s12);padding-block:var(--s12) var(--s8)}
 .foot-brand{display:grid;gap:var(--s3);justify-items:start;align-content:start}
 .foot-brand p{font-size:16px;line-height:24px;max-width:38ch}
 .hash{font-weight:700}
@@ -312,3 +312,18 @@ a.category:nth-child(4n+1){color:#fff}a.category:hover{outline:4px solid var(--r
 .stop>summary{display:grid!important;grid-template-columns:1fr!important;padding-right:var(--s6)}
 .stop>summary>span{display:block}
 .stop>summary::after{top:var(--s4)}
+
+/* Navigation: four main links and a More menu (no JavaScript needed) */
+.site-header nav{position:relative;align-items:center}
+.site-header .more{position:relative}
+.site-header .more>summary{list-style:none;cursor:pointer;min-height:44px;display:inline-flex;align-items:center;padding:0 var(--s4);font-weight:600;border-radius:var(--r-input)}
+.site-header .more>summary::-webkit-details-marker{display:none}
+.site-header .more>summary::after{content:"\25BE";margin-left:6px}
+.site-header .more[open]>summary,.site-header .more[data-current]>summary{background:var(--brick);color:#fff}
+.site-header .more>div{position:absolute;right:0;top:100%;z-index:20;min-width:200px;display:grid;background:var(--white);border:2px solid var(--ink);border-radius:var(--r-card);padding:var(--s2);box-shadow:4px 4px 0 var(--ink)}
+.site-header .more>div a{display:flex;align-items:center;min-height:44px;padding:0 var(--s4)}
+@media(max-width:860px){
+  .site-header nav{overflow:visible;mask-image:none;margin-inline:0;padding-inline:0;flex-wrap:nowrap;justify-content:space-between}
+  .site-header nav a,.site-header .more>summary{font-size:15px;padding:0 var(--s2)}
+  .site-footer .wrap{grid-template-columns:1fr 1fr}
+}

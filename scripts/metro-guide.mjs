@@ -94,7 +94,8 @@ export function renderGuideMain({ data, model, areas, esc, nearby = '' }) {
   return `<div class="metro">
 <div class="hero hero-single"><div><div class="eyebrow">Pune Metro guide</div><h1>Pune Metro, simply.</h1>
 <p class="lede">Which line, where to change, what it costs and what is near each station. The journey planner works offline after one visit.</p>
-<p class="verified"><span>Checked on</span> <time datetime="${esc(verified)}">${esc(longDate(verified))}</time></p>
+<p class="verified"><span>Data checked on</span> <time datetime="${esc(verified)}">${esc(longDate(verified))}</time></p>
+<p class="note">Lines 1 and 2 stations come from the operator's project page (13 Nov 2026). Line 3 station status is from news reports, not an operator list: confirm on <a href="https://punerimetro.in/" rel="noopener" target="_blank">punerimetro.in</a> before you travel. This is not live service information.</p>
 <div class="status-bar"><div class="banner" id="metro-update" hidden role="status"><p>A new version of this guide is ready.</p><button class="chip" type="button">Tap to refresh</button></div>
 <p class="offline-note" id="metro-offline-ready" hidden>Saved for offline use. Links marked <span class="net">needs internet</span> need a connection.</p>
 <p class="notice" id="metro-net" hidden role="status">You are offline. This is the saved copy checked on ${esc(longDate(verified))}.</p></div>
