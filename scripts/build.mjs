@@ -7,6 +7,7 @@ import { fileURLToPath } from 'node:url';
 import { publishAuditedRows } from '../public/lib/publication.js';
 import { googleUrl, ics, icsPath, when, ALL_ICS_PATH } from './calendar.mjs';
 import { buildMetroGuide, writeMetroAssets, GUIDE_PATH } from './metro-guide.mjs';
+import { buildStops, buildInterests, STOPS_PATH, INTERESTS_PATH } from './discover-pages.mjs';
 
 // Astro bundles this module; cwd remains the project root in both build paths.
 const root = process.cwd();
@@ -33,11 +34,16 @@ const known = (v) => v && v !== 'UNKNOWN';
 export const slugOf = (row) => row.id.replace(/^place-/, '');
 const clip = (s, n) => (s.length <= n ? s : s.slice(0, n - 1).replace(/\s+\S*$/, '') + '…');
 
-const NAV = [['/', 'Explore'], ['/places/', 'Places'], ['/history/', 'History'], ['/markets/', 'Markets'], ['/outdoors/', 'Outdoors'], ['/events/', 'Events'], ['/meetups/', 'Meetups'], ['/PuneMetroguide/', 'Metro'], ['/about/', 'About']];
+const NAV = [['/', 'Explore'], ['/places/', 'Places'], ['/history/', 'History'], ['/markets/', 'Markets'], ['/outdoors/', 'Outdoors'], ['/interests/', 'Interests'], ['/events/', 'Events'], ['/meetups/', 'Meetups'], ['/stops/', 'Stops'], ['/PuneMetroguide/', 'Metro'], ['/about/', 'About']];
 const TYPE_LABEL = { museum: 'Museums', heritage: 'Heritage and history', temple: 'Temples', bookstore: 'Bookstores', gallery: 'Galleries', 'cultural-centre': 'Cultural centres', archive: 'Archives', cafe: 'Cafes', restaurant: 'Restaurants', bar: 'Bars and brewpubs', sweets: 'Sweets and snacks', park: 'Parks and gardens', zoo: 'Zoo' };
 const TYPE_SINGULAR = { museum: 'Museum', heritage: 'Heritage site', temple: 'Temple', bookstore: 'Bookstore', gallery: 'Art gallery', 'cultural-centre': 'Cultural centre', archive: 'Archive', cafe: 'Cafe', restaurant: 'Restaurant', bar: 'Bar and brewpub', sweets: 'Sweet shop', park: 'Park', zoo: 'Zoo' };
 const SCHEMA_TYPE = { museum: 'Museum', heritage: 'LandmarksOrHistoricalBuildings', temple: 'HinduTemple', bookstore: 'BookStore', gallery: 'ArtGallery', 'cultural-centre': 'Place', archive: 'ArchiveOrganization', cafe: 'CafeOrCoffeeShop', restaurant: 'Restaurant', bar: 'BarOrPub', sweets: 'FoodEstablishment', park: 'Park', zoo: 'Zoo' };
 
+// Every page has its own 1200x630 share image in public/og/, made by scripts/og/generate.mjs from the page title.
+// A page without one falls back to the home image, so a missing file never breaks a build.
+export const ogSlug = (path) => (path === '/' ? 'home' : path.replace(/^\/|\/$|\.html$/g, '').replace(/\//g, '-').toLowerCase());
+export const ogImagePath = (path) => (existsSync(join(root, 'public/og', `${ogSlug(path)}.png`)) ? `/og/${ogSlug(path)}.png` : '/og.png');
+export const ogAlt = (title) => { const t = String(title).split(' | ').filter((x) => x !== 'Peak Pune'); return `Peak Pune: ${t[0] || 'everything Pune, in one scroll'}`; };
 const mark = read('site/mark.svg.html');
 const cta = read('site/cta.html');
 // One quotable sentence that says what the site is. Used in the Organization markup, the home page and /about/.
@@ -71,11 +77,14 @@ ${url === `${SITE_URL}/` ? '<meta name="google-site-verification" content="Dm6js
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(description)}">
 <meta property="og:url" content="${esc(url)}">
-<meta property="og:image" content="${SITE_URL}/og.png">
+<meta property="og:image" content="${SITE_URL}${ogImagePath(path)}">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Peak Pune: everything Pune, in one scroll">
+<meta property="og:image:alt" content="${esc(ogAlt(title))}">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="${esc(title)}">
+<meta name="twitter:description" content="${esc(description)}">
+<meta name="twitter:image" content="${SITE_URL}${ogImagePath(path)}">
 <link rel="icon" href="/icon.svg" type="image/svg+xml">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="preload" href="/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
@@ -92,7 +101,7 @@ ${cta}
 </main>
 <footer class="site-footer"><div class="wrap">
 <div class="foot-brand"><a class="wordmark" href="/">${mark}Peak <span>Pune</span></a><p>Everything Pune, in one scroll. Made in Pune, for Pune. Not affiliated with any other city's peak.</p><p class="hash">#PeakPune · #OnlyInPune</p></div>
-<nav aria-label="Sections"><h2>Explore</h2><a href="/places/">Places</a><a href="/history/">History</a><a href="/markets/">Markets</a><a href="/outdoors/">Runs and treks</a><a href="/events/">Events</a><a href="/meetups/">Meetups</a><a href="/PuneMetroguide/">Pune Metro guide</a><a href="/about/">About Peak Pune</a></nav>
+<nav aria-label="Sections"><h2>Explore</h2><a href="/places/">Places</a><a href="/history/">History</a><a href="/markets/">Markets</a><a href="/outdoors/">Runs and treks</a><a href="/interests/">Interests</a><a href="/events/">Events</a><a href="/meetups/">Meetups</a><a href="/PuneMetroguide/">Pune Metro guide</a><a href="/about/">About Peak Pune</a></nav>
 <nav aria-label="Powered by"><h2>Powered by</h2><a href="https://punerunners.com/" target="_blank" rel="noopener">PuneRunners.com</a><a href="https://punetrekkers.org/" target="_blank" rel="noopener">PuneTrekkers.org</a><a href="https://karawaan.in/" target="_blank" rel="noopener">karawaan.in</a><a href="/powered-by/">About these links</a></nav>
 <p class="fine">Place and route details are sourced and dated. Event plans are platform listings, not organiser-confirmed. Map data © OpenStreetMap contributors.</p>
 </div></footer>
@@ -387,6 +396,21 @@ export function build({ outDir = join(root, 'public'), log = () => {}, dryRun = 
     out(path, page({ path, current: '/outdoors/', title: c.title, description: clip(`${rs.length} ${c.h1.toLowerCase()}: ${rs.map((r) => r.name).join(', ')}. ${c.blurb}`, 158), crumbs: [['Outdoors', '/outdoors/'], [c.h1, path]], main: `<div class="hero hero-single"><div><div class="eyebrow">Outdoors · ${rs.length} listed</div><h1>${esc(c.h1)}</h1><p class="lede">${esc(c.blurb)}</p></div></div><section class="section"><div class="grid">${rs.map(outdoorCard).join('')}</div></section><section class="section"><div class="section-head"><h2>More ways to get out</h2></div><nav class="chips" aria-label="Collections">${COLLECTIONS.filter((x) => x !== c && outdoors.filter(x.test).length >= 2).map((x) => `<a class="chip" href="/outdoors/${x.slug}/">${esc(x.h1)}</a>`).join('')}</nav></section>`, ld: [{ '@type': 'ItemList', name: c.h1, numberOfItems: rs.length, itemListElement: rs.map((r, i) => ({ '@type': 'ListItem', position: i + 1, name: r.name, url: `${SITE_URL}/outdoors/${slugOut(r)}/` })) }] }));
     urls.push([path, rs[0].checked_at]);
   }
+  // Discovery by Metro stop and by interest. Both read only audited rows; see scripts/discover-pages.mjs.
+  const meetupRows = publishRows(JSON.parse(read('data/batch-4-meetups/meetups.json')));
+  const hrefOf = (r) => safeUrl(r.url_deep) || safeUrl(r.url_official) || safeUrl(r.join_url) || '/events/';
+  const listings = [...events, ...meetupRows].map((r) => ({ name: r.name, neighbourhood: r.neighbourhood, href: hrefOf(r) }));
+  const stops = buildStops({ root, esc, places: rows, listings, TYPE_SINGULAR, slugOf });
+  out(STOPS_PATH, page({ path: STOPS_PATH, title: 'Pune Metro stops: checked places near each station | Peak Pune', description: `Pick a Pune Metro station and see the checked places within 1.5 km, nearest first. ${stops.count} stations have one. Straight-line distances, not walking times.`, crumbs: [['Metro stops', STOPS_PATH]], main: stops.main, ld: [{ '@type': 'WebPage', '@id': SITE_URL + STOPS_PATH, url: SITE_URL + STOPS_PATH, name: 'Pune Metro stops', isPartOf: { '@id': `${SITE_URL}/#site` } }] }));
+  urls.push([STOPS_PATH, rows[0]?.checked_at]);
+  const interests = buildInterests({ esc, groups: [
+    { label: 'Place', rows, href: (r) => `/places/${slugOf(r)}/` },
+    { label: 'Run or trek', labelOf: (r) => (isTrek(r) ? 'Trek' : 'Run'), rows: outdoors, href: (r) => `/outdoors/${slugOut(r)}/` },
+    { label: 'Event', rows: events, href: hrefOf },
+    { label: 'Community', rows: meetupRows, href: hrefOf },
+  ] });
+  out(INTERESTS_PATH, page({ path: INTERESTS_PATH, title: 'Things to do in Pune by interest: treks, running, books, history, food | Peak Pune', description: `Pune listings grouped by hobby: ${interests.shelves.map(([t]) => t.toLowerCase()).join(', ')}. Every card opens its own checked page.`, crumbs: [['Interests', INTERESTS_PATH]], main: interests.main, ld: [{ '@type': 'WebPage', '@id': SITE_URL + INTERESTS_PATH, url: SITE_URL + INTERESTS_PATH, name: 'Pune by interest', isPartOf: { '@id': `${SITE_URL}/#site` } }] }));
+  urls.push([INTERESTS_PATH, rows[0]?.checked_at]);
   // Pune Metro guide: an Astro route like the rest. Its hashed assets and service worker are written beside it
   // (and reach dist through Astro's publicDir); they are skipped in dryRun, which only enumerates routes.
   const metro = buildMetroGuide({ ctx: { esc, page, assetUrl, BASE, SITE_URL } });
