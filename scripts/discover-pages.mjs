@@ -2,6 +2,7 @@
 //   /stops/      places and listings near each Pune Metro station
 //   /interests/  the same rows grouped by hobby, not by weather or mood
 // Nothing here is typed in by hand: no walking times, no timings, no invented listings.
+// No station open/closed status is shown here: that changes and is not published as a list by the operators.
 // Distances are straight-line (haversine) from OpenStreetMap coordinates, and are labelled that way.
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
@@ -23,15 +24,9 @@ export function stationsWithPlaces(root, places) {
   const geo = read('data/metro/station-geo.json');
   const lineOf = new Map();
   for (const line of metro.lines) for (const s of line.station_order) lineOf.set(`${line.id}|${norm(s)}`, s);
-  const l3 = metro.lines.find((l) => l.id === 'pink_line3').station_status;
-  const l3Open = new Set(l3.open.map(norm)), l3Closed = new Set(l3.closed.map(norm));
   const located = places.filter((p) => typeof p.lat === 'number' && typeof p.lon === 'number');
   return Object.entries(geo.stations).map(([id, st]) => {
-    const lines = metro.lines.filter((l) => lineOf.has(`${l.id}|${norm(st.name)}`)).map((l) => {
-      let note = 'open per the operator';
-      if (l.id === 'pink_line3') note = l3Open.has(norm(st.name)) ? 'reported open (media)' : l3Closed.has(norm(st.name)) ? 'reported not open yet (media)' : 'status not confirmed';
-      return { id: l.id, name: l.name, note };
-    });
+    const lines = metro.lines.filter((l) => lineOf.has(`${l.id}|${norm(st.name)}`)).map((l) => ({ id: l.id, name: l.name }));
     const near = located.map((p) => ({ p, d: km(st, p) })).filter((x) => x.d <= RADIUS_KM).sort((a, b) => a.d - b.d);
     return { id, name: st.name, lat: st.lat, lon: st.lon, lines, near };
   }).filter((s) => s.lines.length).sort((a, b) => a.name.localeCompare(b.name));
@@ -41,7 +36,7 @@ export function buildStops({ root, esc, places, listings, TYPE_SINGULAR, slugOf 
   const stations = stationsWithPlaces(root, places);
   const withNear = stations.filter((s) => s.near.length);
   const without = stations.filter((s) => !s.near.length);
-  const lineLabel = (s) => s.lines.map((l) => `${l.name}: ${l.note}`).join(' · ');
+  const lineLabel = (s) => s.lines.map((l) => l.name).join(' · ');
   const hood = (s) => s.near[0].p.neighbourhood;
   const card = (s) => {
     const here = known(hood(s)) ? listings.filter((e) => e.neighbourhood === hood(s)).slice(0, 3) : [];
@@ -51,7 +46,7 @@ ${here.length ? `<p class="note">Listed in ${esc(hood(s))}, the neighbourhood of
   };
     const main = `<div class="hero hero-single"><div><div class="eyebrow">Pick a Metro stop</div><h1>Start at the station.</h1>
 <p class="lede">Pune Metro stations with the checked places within ${RADIUS_KM} km of each, nearest first. Distances are straight-line from OpenStreetMap coordinates, not walking time. Check the route on the map before you set out.</p></div></div>
-<section class="section"><div class="section-head"><h2>${withNear.length} stations with a checked place nearby</h2><p>Only places that passed review and have coordinates are used. Line 3 open status is media-reported; the operator publishes no list. Hours, fares and the planner are in the <a href="/PuneMetroguide/">Metro guide</a>.</p></div>
+<section class="section"><div class="section-head"><h2>${withNear.length} stations with a checked place nearby</h2><p>Only places that passed review and have coordinates are used. Which stations are open changes, and this page does not say: check the operators (<a href="https://www.punemetrorail.org/" rel="noopener" target="_blank">Maha Metro</a>, <a href="https://punerimetro.in/" rel="noopener" target="_blank">Pune IT City Metro</a>) before you travel. Fares and the planner are in the <a href="/PuneMetroguide/">Metro guide</a>.</p></div>
 <div class="grid">${withNear.map(card).join('')}</div></section>
 <section class="section"><div class="section-head"><h2>Stations with nothing checked nearby yet</h2><p>${without.map((s) => esc(s.name)).join(', ')}.</p></div></section>`;
   return { main, count: withNear.length };

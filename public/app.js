@@ -21,3 +21,6 @@ document.querySelectorAll('.stale[data-checked]').forEach((el) => {
   el.setAttribute('role', 'note');
   el.hidden = false;
 });
+
+// On small screens the main navigation scrolls sideways: bring the current page's link into view.
+document.querySelector('.site-header nav a[aria-current=page]')?.scrollIntoView({ block: 'nearest', inline: 'center' });
