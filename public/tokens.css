@@ -266,3 +266,19 @@ a.category:nth-child(4n+1){color:#fff}a.category:hover{outline:4px solid var(--r
 .now-summary{font-weight:700;margin:0 0 var(--s4);min-height:104px}
 .now-cell{min-height:152px}
 @media(min-width:700px){.now-summary{min-height:52px}}
+/* Stops and interests */
+.stop-list{list-style:none;margin:var(--s3) 0 0;padding:0;display:grid;gap:var(--s2)}
+.stop-list li{display:grid;gap:2px}
+.stop-list span{font-size:14px;line-height:20px;color:var(--ink-soft)}
+/* Calmer buttons: one filled button per view, everything else is a plain link. Same links, same targets. */
+.community-links{padding:var(--s2) 0;border-bottom:1px solid var(--rule)}
+.community-links strong{font-size:15px;font-weight:600;color:var(--ink-soft)}
+.community-links .chip{min-height:36px;padding:0;border:0;background:none;border-radius:0;font-weight:600;font-size:15px;text-decoration:underline;text-decoration-thickness:1px}
+.community-links .chip:hover{background:none;color:var(--brick)}
+.community-links>div{gap:var(--s5)}
+.hero .actions .chip{border:0;background:none;padding:0 var(--s2);text-decoration:underline;text-underline-offset:4px}
+.hero .actions .chip:hover{background:none;color:var(--brick)}
+.plan-actions{gap:var(--s4);align-items:center}
+.plan-actions a.chip:not(:first-child){border:0;background:none;padding:0;min-height:44px;text-decoration:underline;font-weight:600}
+.plan-actions a.chip:not(:first-child):hover{background:none;color:var(--brick)}
+.chips .chip{font-size:15px;font-weight:600}
