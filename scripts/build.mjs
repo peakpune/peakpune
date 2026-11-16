@@ -92,6 +92,7 @@ ${cta}
 <p class="fine">Place and route details are sourced and dated. Event plans are platform listings, not organiser-confirmed. Map data © OpenStreetMap contributors.</p>
 </div></footer>
 <script type="module" src="${assetUrl('/app.js')}"></script>${plans ? `<script type="module" src="${assetUrl('/plans.js')}"></script>` : ''}${nowStrip ? `<script type="module" src="${assetUrl('/lib/pune-now.js')}"></script>` : ''}
+<script data-goatcounter="https://peakpune.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
 `;
