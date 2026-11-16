@@ -282,3 +282,18 @@ a.category:nth-child(4n+1){color:#fff}a.category:hover{outline:4px solid var(--r
 .plan-actions a.chip:not(:first-child){border:0;background:none;padding:0;min-height:44px;text-decoration:underline;font-weight:600}
 .plan-actions a.chip:not(:first-child):hover{background:none;color:var(--brick)}
 .chips .chip{font-size:15px;font-weight:600}
+
+/* Mobile navigation: one scrollable row instead of a three-row block. Same links. */
+@media(max-width:860px){
+  .site-header nav{flex-wrap:nowrap;overflow-x:auto;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch;scrollbar-width:none;margin-inline:calc(var(--gutter) * -1);padding-inline:var(--gutter);mask-image:linear-gradient(90deg,#000 calc(100% - 28px),transparent)}
+  .site-header nav::-webkit-scrollbar{display:none}
+  .site-header nav a{scroll-snap-align:start;flex:none}
+  .bar{min-height:0;padding-top:var(--s3)}
+  .community-links{flex-direction:row;gap:var(--s2) var(--s4)}
+  .community-links strong{display:none}
+  .community-links>div{gap:var(--s4)}
+  .community-links .chip{font-size:14px}
+  .hero{padding-top:var(--s8);gap:var(--s6)}
+  .hero .sign{padding:var(--s6) var(--s5)}
+  html{scroll-padding-top:120px}
+}

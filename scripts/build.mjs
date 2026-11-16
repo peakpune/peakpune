@@ -442,7 +442,7 @@ export function build({ outDir = join(root, 'public'), log = () => {}, dryRun = 
   const hrefOf = (r) => safeUrl(r.url_deep) || safeUrl(r.url_official) || safeUrl(r.join_url) || '/events/';
   const listings = [...events, ...meetupRows].map((r) => ({ name: r.name, neighbourhood: r.neighbourhood, href: hrefOf(r) }));
   const stops = buildStops({ root, esc, places: rows, listings, TYPE_SINGULAR, slugOf });
-  out(STOPS_PATH, page({ path: STOPS_PATH, title: 'Pune Metro stops: checked places near each station | Peak Pune', description: `Pick a Pune Metro station and see the checked places within 1.5 km, nearest first. ${stops.count} stations have one. Straight-line distances, not walking times.`, crumbs: [['Metro stops', STOPS_PATH]], main: stops.main, ld: [{ '@type': 'WebPage', '@id': SITE_URL + STOPS_PATH, url: SITE_URL + STOPS_PATH, name: 'Pune Metro stops', isPartOf: { '@id': `${SITE_URL}/#site` } }] }));
+  out(STOPS_PATH, page({ path: STOPS_PATH, title: 'Pune Metro stops: checked places near each station | Peak Pune', description: `Pick a Pune Metro station and see the checked places within 1.5 km, nearest first. ${stops.count} stations have one. Straight-line distances, not walking times; check the operators for which stations are open.`, crumbs: [['Metro stops', STOPS_PATH]], main: stops.main, ld: [{ '@type': 'WebPage', '@id': SITE_URL + STOPS_PATH, url: SITE_URL + STOPS_PATH, name: 'Pune Metro stops', isPartOf: { '@id': `${SITE_URL}/#site` } }] }));
   urls.push([STOPS_PATH, rows[0]?.checked_at]);
   const interests = buildInterests({ esc, groups: [
     { label: 'Place', rows, href: (r) => `/places/${slugOf(r)}/` },
