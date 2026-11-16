@@ -8,3 +8,16 @@ if (legacy && location.pathname === base) location.replace(base + legacy);
 
 // Organiser event cards are static HTML: hide the ones whose day has passed.
 document.querySelectorAll('.event-card[data-expires]').forEach((c) => { const t = Date.parse(c.dataset.expires); if (Number.isFinite(t) && t < Date.now()) c.hidden = true; });
+
+// Freshness: a listing whose check date is older than its limit says so, in plain words.
+document.querySelectorAll('.stale[data-checked]').forEach((el) => {
+  const checked = Date.parse(`${el.dataset.checked}T00:00:00+05:30`);
+  const limit = Number(el.dataset.maxAge);
+  if (!Number.isFinite(checked) || !(limit > 0)) return;
+  const days = Math.floor((Date.now() - checked) / 86400000);
+  if (days <= limit) return;
+  const when = new Date(checked).toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'Asia/Kolkata' });
+  el.textContent = `This was last checked on ${when}, ${days} days ago. Details may have changed: confirm with the venue or organiser before you go.`;
+  el.setAttribute('role', 'note');
+  el.hidden = false;
+});

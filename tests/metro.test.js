@@ -109,7 +109,7 @@ test('service worker: guide-only scope, precache exists, no silent skipWaiting, 
     const file = path.startsWith('/PuneMetroguide/') ? join(out, path.slice(1)) : join(root, 'public', path.slice(1));
     assert.ok(existsSync(file) || existsSync(join(out, path.slice(1))), `${u} is not in the build`);
   }
-  assert.ok(precache.some((u) => u.includes('/fonts/inter.ttf')) && precache.some((u) => u.includes('/fonts/fraunces.ttf')) && precache.some((u) => u.startsWith('/tokens.css?v=')));
+  assert.ok(precache.some((u) => u.includes('/fonts/inter.woff2')) && precache.some((u) => u.includes('/fonts/fraunces.woff2')) && precache.some((u) => u.startsWith('/tokens.css?v=')));
   assert.equal((sw.match(/self\.skipWaiting\(\)/g) || []).length, 1);
   assert.ok(/addEventListener\('message'[^\n]*self\.skipWaiting\(\)/.test(sw));
   assert.ok(/if \(!isGuidePage && !listed\.has\(key\)\) return;/.test(sw));
