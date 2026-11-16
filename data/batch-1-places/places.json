@@ -51,15 +51,15 @@
     "value": "10.00 a.m. to 5.30 p.m.; holidays 26 January, 15 August, Anant Chaturdashi and next day",
     "source_url": "https://rajakelkarmuseum.org/plan-a-visit-2",
     "source_type": "primary",
-    "checked_at": "2026-11-13",
+    "checked_at": "2026-11-17",
     "corroborated": false
    },
    {
     "field": "price_note",
-    "value": "Rs. 140 adult above 12; Rs. 50 children below 12; Rs. 500 foreign adult; Rs. 100 foreign child; free for blind and differently abled visitors",
+    "value": "Rs. 120 adult above 12; Rs. 50 children below 12; Rs. 400 foreign adult; Rs. 100 foreign child; free for blind and differently abled visitors",
     "source_url": "https://rajakelkarmuseum.org/plan-a-visit-2",
     "source_type": "primary",
-    "checked_at": "2026-11-13",
+    "checked_at": "2026-11-17",
     "corroborated": false
    },
    {
@@ -99,13 +99,13 @@
   "freshness_days": null,
   "stale_over_90_days": false,
   "hours": "10:00 am to 5:30 pm daily; closed 26 January, 15 August, Anant Chaturdashi and the next day; festival timings differ (call to confirm)",
-  "price_note": "Rs. 140 adult (above 12); Rs. 50 child (below 12); Rs. 500 foreign adult; Rs. 100 foreign child; free for blind and differently abled visitors",
+  "price_note": "Rs. 120 adult (above 12); Rs. 50 child (below 12); Rs. 400 foreign adult; Rs. 100 foreign child; free for blind and differently abled visitors",
   "good_for": [
    "families",
    "history",
    "rainy-day"
   ],
-  "notes": null
+  "notes": "Hours, closure days and entry fees were re-read on the museum visit page on 17 November 2026. Fees there differ from the 13 November reading (adult Rs. 120, foreign adult Rs. 400)."
  },
  {
   "id": "place-joshis-museum-of-miniature-railways",
@@ -122,7 +122,7 @@
   "lon": 73.822364,
   "url_official": "https://minirailways.com/",
   "url_deep": "https://minirailways.com/pune-museum/",
-  "summary": "Working model city with miniature trains, run as a 25-minute narrated show every half hour. A minimum group size is needed for a show to run.",
+  "summary": "Working model city with miniature trains, run as a narrated show every half hour.",
   "status": "verified",
   "sources": [
    "https://minirailways.com/pune-museum/",
@@ -159,15 +159,7 @@
     "value": "Weekdays 9am to 5pm; Thursday 9am to 1pm; Saturday 9am to 4pm and 5pm to 8pm; Sunday 5pm to 8pm; lunch break 1.00 to 1.30 pm",
     "source_url": "https://minirailways.com/pune-museum/",
     "source_type": "primary",
-    "checked_at": "2026-11-13",
-    "corroborated": false
-   },
-   {
-    "field": "price_note",
-    "value": "Rs. 120 per head above 3 years; free below 3 years",
-    "source_url": "https://minirailways.com/pune-museum/",
-    "source_type": "primary",
-    "checked_at": "2026-11-13",
+    "checked_at": "2026-11-17",
     "corroborated": false
    },
    {
@@ -215,13 +207,13 @@
   "freshness_days": null,
   "stale_over_90_days": false,
   "hours": "Weekdays 9am-5pm; Thursday 9am-1pm; Saturday 9am-4pm and 5pm-8pm; Sunday 5pm-8pm; lunch break 1:00-1:30 pm; shows every half hour",
-  "price_note": "Rs. 120 per head (above 3 years); free below 3 years; minimum 4 persons to conduct a show (home page says 3)",
+  "price_note": null,
   "good_for": [
    "families",
    "kids",
    "rainy-day"
   ],
-  "notes": "Site is inconsistent on minimum group size: Pune page says 4, home page says 3. OpenStreetMap opening_hours agree with the site's timetable."
+  "notes": "Timetable re-read on the museum Pune page on 17 November 2026 and unchanged. Ticket price and minimum group size are no longer shown in that page text, so they are not listed here; ask at the museum. OpenStreetMap opening_hours agree with the timetable."
  },
  {
   "id": "place-pagdandi-bookstore-coffee",
