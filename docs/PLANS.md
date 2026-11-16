@@ -11,8 +11,8 @@ node scripts/update-plans.mjs --write /tmp/peakpune-plans.json
 ```
 
 This is a manual command, not a scheduled job. Node.js 22+ is sufficient; no API key,
-package install, account login or paid service is required. It reads five fixed public
-District Pune category pages once each, sequentially, with timeout/size limits. A failed
+package install, account login or paid service is required. It reads nine fixed public
+District Pune category pages (nightlife, music, fests and fairs, performances, food and drinks, fitness, sports, comedy, workshops) once each, sequentially, with timeout/size limits. A failed
 source is visible, dates are evaluated in Asia/Kolkata, repeated plans are deduplicated,
 and an empty/failed run cannot overwrite an existing export. Unknown prices stay blank.
 The export expires after 24 hours; consumers must hide expired snapshots and past dates.
@@ -43,3 +43,7 @@ Meetup/Reddit network feeds remain offline. Visitors can send plans on the Event
 Recheck provider conditions before enabling additional sources or changing usage. Public
 crawl guidance is not a blanket licence for copying descriptions, reviews or images.
 This exporter keeps short event facts and links, not full source pages, reviews or photos.
+
+## Refreshing the snapshot
+
+Run `node scripts/update-plans.mjs --write public/data/plans.json` (nine public District pages, once each, no key or login). A partial or empty run leaves the existing export untouched. Past dates drop on every run. Visitor-submitted plans live in the review backend and are never touched by this script.

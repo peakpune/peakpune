@@ -18,7 +18,7 @@ export async function fetchText(url) {
 }
 export async function collectPlans({transport=fetchText,now=new Date()}={}) {
   const status=[],all=[];const checkedAt=now.toISOString();
-  // Five public pages, once each, sequentially. No detail-page fan-out or retries.
+  // Nine public pages, once each, sequentially. No detail-page fan-out or retries.
   for(const source of SOURCES){
     try{const parsed=parseDistrictPune(await transport(source.url));const rows=normalizePuneEvents(parsed.filter(e=>!restricted(e)),{today:istDate(now)}).filter(e=>e.links.every(l=>new URL(l.url).hostname==='www.district.in'));
       all.push(...rows);status.push({source:source.id,url:source.url,state:'ok',count:rows.length,checkedAt});
@@ -36,6 +36,8 @@ export async function savePlans(path,payload){
 async function main(){
   const args=process.argv.slice(2);if(args.length && !(args.length===2&&args[0]==='--write'))throw new Error('Usage: node scripts/update-plans.mjs [--write output.json]');
   const payload=await collectPlans();
+  // A refresh never replaces the export from a partial run: a source that is down must not wipe its upcoming events.
+  if(args[0]==='--write'&&payload.partial)throw new Error('Partial run: a source was unavailable, existing export left unchanged');
   if(args[0]==='--write'){const path=resolve(args[1]);await savePlans(path,payload);console.log(`Exported ${payload.events.length} source-linked Pune plans to ${path}`);}
   else console.log(JSON.stringify({fetchedAt:payload.fetchedAt,count:payload.events.length,status:payload.status,partial:payload.partial,sample:payload.events.slice(0,3)},null,2));
   if(!payload.events.length)process.exitCode=1;
