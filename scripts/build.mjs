@@ -57,7 +57,7 @@ export function page({ path, title, description, main, ld = [], current = path, 
 <meta name="description" content="${esc(description)}">
 <link rel="canonical" href="${esc(url)}">
 <meta name="robots" content="${ROBOTS}">
-<meta name="theme-color" content="#F6EFE2">
+${url === `${SITE_URL}/` ? '<meta name="google-site-verification" content="Dm6jseCMG_x2qMQcfdWTmdD-gy92x4m_ahJkQpIZBPQ" />\n' : ''}<meta name="theme-color" content="#F6EFE2">
 <meta name="geo.region" content="IN-MH">
 <meta name="geo.placename" content="Pune">
 <meta property="og:site_name" content="Peak Pune">
