@@ -376,3 +376,7 @@ a.category:nth-child(4n+1){color:#fff}a.category:hover{outline:4px solid var(--r
 .map-head .note{margin:0}
 .map-section{padding-top:var(--s3)}
 @media(max-width:860px){.map-canvas{height:min(68vh,560px)}}
+
+@media(max-width:400px){
+  .site-header nav a,.site-header .more>summary{font-size:14px;padding:0 6px}
+}
