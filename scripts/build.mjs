@@ -34,7 +34,9 @@ const known = (v) => v && v !== 'UNKNOWN';
 export const slugOf = (row) => row.id.replace(/^place-/, '');
 const clip = (s, n) => (s.length <= n ? s : s.slice(0, n - 1).replace(/\s+\S*$/, '') + '…');
 
-const NAV = [['/', 'Explore'], ['/places/', 'Places'], ['/history/', 'History'], ['/markets/', 'Markets'], ['/outdoors/', 'Outdoors'], ['/interests/', 'Interests'], ['/events/', 'Events'], ['/meetups/', 'Meetups'], ['/PuneMetroguide/', 'Metro'], ['/about/', 'About']];
+const NAV_MAIN = [['/places/', 'Places'], ['/outdoors/', 'Outdoors'], ['/events/', 'Events'], ['/PuneMetroguide/', 'Metro']];
+const NAV_MORE = [['/', 'Home'], ['/interests/', 'Interests'], ['/meetups/', 'Meetups'], ['/history/', 'History'], ['/markets/', 'Markets'], ['/about/', 'About']];
+const NAV = [...NAV_MAIN, ...NAV_MORE];
 const TYPE_LABEL = { museum: 'Museums', heritage: 'Heritage and history', temple: 'Temples', bookstore: 'Bookstores', gallery: 'Galleries', 'cultural-centre': 'Cultural centres', archive: 'Archives', cafe: 'Cafes', restaurant: 'Restaurants', bar: 'Bars and brewpubs', sweets: 'Sweets and snacks', park: 'Parks and gardens', zoo: 'Zoo' };
 const TYPE_SINGULAR = { museum: 'Museum', heritage: 'Heritage site', temple: 'Temple', bookstore: 'Bookstore', gallery: 'Art gallery', 'cultural-centre': 'Cultural centre', archive: 'Archive', cafe: 'Cafe', restaurant: 'Restaurant', bar: 'Bar and brewpub', sweets: 'Sweet shop', park: 'Park', zoo: 'Zoo' };
 const SCHEMA_TYPE = { museum: 'Museum', heritage: 'LandmarksOrHistoricalBuildings', temple: 'HinduTemple', bookstore: 'BookStore', gallery: 'ArtGallery', 'cultural-centre': 'Place', archive: 'ArchiveOrganization', cafe: 'CafeOrCoffeeShop', restaurant: 'Restaurant', bar: 'BarOrPub', sweets: 'FoodEstablishment', park: 'Park', zoo: 'Zoo' };
@@ -57,7 +59,8 @@ export function page({ path, title, description, main, ld = [], current = path, 
   const url = SITE_URL + path;
   const graph = [org, ...ld];
   if (crumbs.length) graph.push({ '@type': 'BreadcrumbList', itemListElement: [['Peak Pune', '/'], ...crumbs].map(([name, p], i) => ({ '@type': 'ListItem', position: i + 1, name, item: SITE_URL + p })) });
-  const nav = NAV.map(([href, label]) => `<a href="${href}"${href === current ? ' aria-current="page"' : ''}>${label}</a>`).join('');
+  const link = ([href, label]) => `<a href="${href}"${href === current ? ' aria-current="page"' : ''}>${label}</a>`;
+  const nav = NAV_MAIN.map(link).join('') + `<details class="more"${NAV_MORE.some(([h]) => h === current) ? ' data-current' : ''}><summary>More</summary><div>${NAV_MORE.map(link).join('')}</div></details>`;
   const trail = crumbs.length ? `<nav class="crumbs" aria-label="Breadcrumb"><a href="/">Peak Pune</a>${crumbs.map(([n, p], i) => (i === crumbs.length - 1 ? `<span aria-current="page">${esc(n)}</span>` : `<a href="${p}">${esc(n)}</a>`)).join('')}</nav>` : '';
   return `<!doctype html>
 <html lang="en-IN">
@@ -94,7 +97,6 @@ ${jsonLd({ '@context': 'https://schema.org', '@graph': graph })}
 <body>
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-header"><div class="wrap bar"><a class="wordmark" href="/" aria-label="Peak Pune home">${mark}Peak <span>Pune</span></a><nav aria-label="Main navigation">${nav}</nav></div></header>
-<div class="wrap"><section class="community-links" aria-label="Community"><strong>Find your Pune people.</strong><div><a class="chip" href="https://chat.whatsapp.com/BVTlwmhkqGU4WKzCsZFG95?s=cl&amp;p=i&amp;iam=2" target="_blank" rel="noopener noreferrer">Join WhatsApp</a><a class="chip" href="https://whatsapp.com/channel/0029VbE00gNEVccC06aRUK2e" target="_blank" rel="noopener noreferrer">Channel for updates</a><a class="chip" href="https://www.reddit.com/r/punetonight/" target="_blank" rel="noopener noreferrer">r/punetonight</a></div></section></div>
 <main id="main" class="wrap">
 ${trail}${main}
 ${cta}
@@ -102,6 +104,7 @@ ${cta}
 <footer class="site-footer"><div class="wrap">
 <div class="foot-brand"><a class="wordmark" href="/">${mark}Peak <span>Pune</span></a><p>Everything Pune, in one scroll. Made in Pune, for Pune. Not affiliated with any other city's peak.</p><p class="hash">#PeakPune · #OnlyInPune</p></div>
 <nav aria-label="Sections"><h2>Explore</h2><a href="/places/">Places</a><a href="/history/">History</a><a href="/markets/">Markets</a><a href="/outdoors/">Runs and treks</a><a href="/interests/">Interests</a><a href="/events/">Events</a><a href="/meetups/">Meetups</a><a href="/PuneMetroguide/">Pune Metro guide</a><a href="/about/">About Peak Pune</a></nav>
+<nav aria-label="Community"><h2>Join</h2><a href="https://chat.whatsapp.com/BVTlwmhkqGU4WKzCsZFG95?s=cl&amp;p=i&amp;iam=2" target="_blank" rel="noopener noreferrer">Join WhatsApp</a><a href="https://whatsapp.com/channel/0029VbE00gNEVccC06aRUK2e" target="_blank" rel="noopener noreferrer">Channel for updates</a><a href="https://www.reddit.com/r/punetonight/" target="_blank" rel="noopener noreferrer">r/punetonight</a></nav>
 <nav aria-label="Powered by"><h2>Powered by</h2><a href="https://punerunners.com/" target="_blank" rel="noopener">PuneRunners.com</a><a href="https://punetrekkers.org/" target="_blank" rel="noopener">PuneTrekkers.org</a><a href="https://karawaan.in/" target="_blank" rel="noopener">karawaan.in</a><a href="/powered-by/">About these links</a></nav>
 <p class="fine">Place and route details are sourced and dated. Event plans are platform listings, not organiser-confirmed. Map data © OpenStreetMap contributors.</p>
 </div></footer>
@@ -272,7 +275,7 @@ function homeMain(places, outdoors) {
   const card = (r) => `<a class="card place-card" href="/places/${slugOf(r)}/"><div class="inner"><span class="eyebrow">${esc(TYPE_SINGULAR[r.type] || r.type)} · ${esc(known(r.neighbourhood) ? r.neighbourhood : 'Pune')}</span><h3>${esc(r.name)}</h3><p>${esc(r.summary)}</p></div></a>`;
   const runs = outdoors.filter((r) => !isTrek(r)); const treks = outdoors.filter(isTrek);
   const near = [...treks].sort((a, b) => (a.distance_from_pune_km || 0) - (b.distance_from_pune_km || 0)).slice(0, 3);
-  const tiles = [['Places', '/places/', `${places.length} checked at the source`], ['Runs and trails', '/outdoors/#runs', `${runs.length} mapped city loops`], ['Treks and day trips', '/outdoors/#treks', `${treks.length} with drive times`], ['Events', '/events/', 'Plans, with sources'], ['Meetups', '/meetups/', 'Communities to join'], ['Pune Metro', '/PuneMetroguide/', 'Journey planner, works offline']];
+  const tiles = [['Places', '/places/', `${places.length} checked at the source`], ['Runs and trails', '/outdoors/#runs', `${runs.length} mapped city loops`], ['Treks and day trips', '/outdoors/#treks', `${treks.length} with drive times`], ['Interests', '/interests/', 'Treks, books, food, history and more'], ['Events', '/events/', 'Plans, with sources'], ['Meetups', '/meetups/', 'Communities to join'], ['Pune Metro', '/PuneMetroguide/', 'Journey planner, works offline']];
   return `<div class="hero"><div><div class="eyebrow">Made in Pune, for Pune</div><h1>Everything Pune,<br>in one scroll.</h1>
 <p class="lede">${esc(ENTITY)}</p>
 <p class="actions"><a class="primary" href="/places/">Browse places</a><a class="chip" href="/outdoors/">Runs and treks</a></p></div>
