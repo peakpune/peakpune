@@ -23,6 +23,7 @@
     "@types/node": "22.20.5",
     "astro": "7.4.11",
     "cross-env": "7.0.3",
+    "maplibre-gl": "^5.13.0",
     "svelte": "5.57.3",
     "svelte-check": "4.7.8",
     "typescript": "6.0.3"

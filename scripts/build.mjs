@@ -35,7 +35,7 @@ export const slugOf = (row) => row.id.replace(/^place-/, '');
 const clip = (s, n) => (s.length <= n ? s : s.slice(0, n - 1).replace(/\s+\S*$/, '') + '…');
 
 const NAV_MAIN = [['/places/', 'Places'], ['/outdoors/', 'Outdoors'], ['/events/', 'Events'], ['/PuneMetroguide/', 'Metro']];
-const NAV_MORE = [['/', 'Home'], ['/interests/', 'Interests'], ['/meetups/', 'Meetups'], ['/history/', 'History'], ['/markets/', 'Markets'], ['/about/', 'About']];
+const NAV_MORE = [['/', 'Home'], ['/interests/', 'Interests'], ['/map/', 'Map'], ['/meetups/', 'Meetups'], ['/history/', 'History'], ['/markets/', 'Markets'], ['/about/', 'About']];
 const NAV = [...NAV_MAIN, ...NAV_MORE];
 const TYPE_LABEL = { museum: 'Museums', heritage: 'Heritage and history', temple: 'Temples', bookstore: 'Bookstores', gallery: 'Galleries', 'cultural-centre': 'Cultural centres', archive: 'Archives', cafe: 'Cafes', restaurant: 'Restaurants', bar: 'Bars and brewpubs', sweets: 'Sweets and snacks', park: 'Parks and gardens', zoo: 'Zoo' };
 const TYPE_SINGULAR = { museum: 'Museum', heritage: 'Heritage site', temple: 'Temple', bookstore: 'Bookstore', gallery: 'Art gallery', 'cultural-centre': 'Cultural centre', archive: 'Archive', cafe: 'Cafe', restaurant: 'Restaurant', bar: 'Bar and brewpub', sweets: 'Sweet shop', park: 'Park', zoo: 'Zoo' };
@@ -55,7 +55,7 @@ const STALE_DAYS = { venue: 30, event: 7 };
 export const staleNote = (date, kind) => (date ? `<p class="stale" data-checked="${esc(date)}" data-max-age="${STALE_DAYS[kind]}" hidden></p>` : '');
 const org = { '@type': 'Organization', '@id': `${SITE_URL}/#org`, name: 'Peak Pune', url: `${SITE_URL}/`, logo: `${SITE_URL}/icon.svg`, description: ENTITY, areaServed: { '@type': 'City', name: 'Pune', containedInPlace: { '@type': 'State', name: 'Maharashtra' } }, sameAs: ['https://github.com/peakpune/peakpune'] };
 
-export function page({ path, title, description, main, ld = [], current = path, crumbs = [], ogType = 'website', plans = false, nowStrip = false, noindex = false }) {
+export function page({ path, title, description, main, ld = [], current = path, crumbs = [], ogType = 'website', plans = false, nowStrip = false, noindex = false, map = false }) {
   const url = SITE_URL + path;
   const graph = [org, ...ld];
   if (crumbs.length) graph.push({ '@type': 'BreadcrumbList', itemListElement: [['Peak Pune', '/'], ...crumbs].map(([name, p], i) => ({ '@type': 'ListItem', position: i + 1, name, item: SITE_URL + p })) });
@@ -92,6 +92,7 @@ ${url === `${SITE_URL}/` ? '<meta name="google-site-verification" content="Dm6js
 <link rel="manifest" href="/site.webmanifest">
 <link rel="preload" href="/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="${assetUrl('/tokens.css')}">
+${map ? `<link rel="stylesheet" href="${assetUrl('/map/maplibre-gl.css')}">\n` : ''}
 ${jsonLd({ '@context': 'https://schema.org', '@graph': graph })}
 </head>
 <body>
@@ -103,12 +104,12 @@ ${cta}
 </main>
 <footer class="site-footer"><div class="wrap">
 <div class="foot-brand"><a class="wordmark" href="/">${mark}Peak <span>Pune</span></a><p>Everything Pune, in one scroll. Made in Pune, for Pune. Not affiliated with any other city's peak.</p><p class="hash">#PeakPune · #OnlyInPune</p></div>
-<nav aria-label="Sections"><h2>Explore</h2><a href="/places/">Places</a><a href="/history/">History</a><a href="/markets/">Markets</a><a href="/outdoors/">Runs and treks</a><a href="/interests/">Interests</a><a href="/events/">Events</a><a href="/meetups/">Meetups</a><a href="/PuneMetroguide/">Pune Metro guide</a><a href="/about/">About Peak Pune</a></nav>
+<nav aria-label="Sections"><h2>Explore</h2><a href="/places/">Places</a><a href="/map/">City map</a><a href="/history/">History</a><a href="/markets/">Markets</a><a href="/outdoors/">Runs and treks</a><a href="/interests/">Interests</a><a href="/events/">Events</a><a href="/meetups/">Meetups</a><a href="/PuneMetroguide/">Pune Metro guide</a><a href="/about/">About Peak Pune</a></nav>
 <nav aria-label="Community"><h2>Join</h2><a href="https://chat.whatsapp.com/BVTlwmhkqGU4WKzCsZFG95?s=cl&amp;p=i&amp;iam=2" target="_blank" rel="noopener noreferrer">Join WhatsApp</a><a href="https://whatsapp.com/channel/0029VbE00gNEVccC06aRUK2e" target="_blank" rel="noopener noreferrer">Channel for updates</a><a href="https://www.reddit.com/r/punetonight/" target="_blank" rel="noopener noreferrer">r/punetonight</a></nav>
 <nav aria-label="Powered by"><h2>Powered by</h2><a href="https://punerunners.com/" target="_blank" rel="noopener">PuneRunners.com</a><a href="https://punetrekkers.org/" target="_blank" rel="noopener">PuneTrekkers.org</a><a href="https://karawaan.in/" target="_blank" rel="noopener">karawaan.in</a><a href="/powered-by/">About these links</a></nav>
 <p class="fine">Place and route details are sourced and dated. Event plans are platform listings, not organiser-confirmed. Map data © OpenStreetMap contributors.</p>
 </div></footer>
-<script type="module" src="${assetUrl('/app.js')}"></script>${plans ? `<script type="module" src="${assetUrl('/plans.js')}"></script>` : ''}${nowStrip ? `<script type="module" src="${assetUrl('/lib/pune-now.js')}"></script>` : ''}
+<script type="module" src="${assetUrl('/app.js')}"></script>${plans ? `<script type="module" src="${assetUrl('/plans.js')}"></script>` : ''}${nowStrip ? `<script type="module" src="${assetUrl('/lib/pune-now.js')}"></script>` : ''}${map ? `<script defer src="${assetUrl('/map/maplibre-gl.js')}"></script><script type="module" src="${assetUrl('/map/map.js')}"></script>` : ''}
 <script data-goatcounter="https://peakpune.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
@@ -140,6 +141,7 @@ function placeMain(r, all = []) {
   const row = (k, v) => (v ? `<div><dt>${k}</dt><dd>${v}</dd></div>` : '');
   const links = [[safeUrl(r.url_deep), 'Open the source page'], [safeUrl(r.url_official), 'Official site']].filter(([u], i, a) => u && a.findIndex(([x]) => x === u) === i);
   const hasGeo = typeof r.lat === 'number';
+  const mapLink = hasGeo ? ` <a href="/map/#${slugOf(r)}">See it on the Peak Pune map</a>` : '';
   const sources = r.sources.map(safeUrl).filter(Boolean).map((u) => `<li><a href="${esc(u)}" rel="noopener nofollow">${esc((new URL(u).hostname + new URL(u).pathname).replace(/^www\./, '').replace(/\/$/, ''))}</a></li>`).join('');
   return `<article class="place">
 <div class="place-head"><div class="eyebrow">${esc(TYPE_SINGULAR[r.type] || r.type)}${known(r.neighbourhood) ? ' · ' + esc(r.neighbourhood) : ''}</div>
@@ -151,7 +153,7 @@ ${row('Address', known(r.address) ? esc(r.address) : 'Not stated on the source p
 ${row('Hours', known(r.hours) ? esc(r.hours) : 'Not stated on the source page')}
 ${row('Prices', r.price_note ? esc(r.price_note) : '')}
 ${row('Area', known(r.neighbourhood) ? esc(r.neighbourhood) + ', Pune' : '')}
-${row('Map', hasGeo ? `<a href="https://www.openstreetmap.org/?mlat=${r.lat}&amp;mlon=${r.lon}#map=17/${r.lat}/${r.lon}" rel="noopener nofollow">${r.lat}, ${r.lon}</a> <span class="note">© OpenStreetMap contributors</span>` : '')}
+${row('Map', hasGeo ? `<a href="https://www.openstreetmap.org/?mlat=${r.lat}&amp;mlon=${r.lon}#map=17/${r.lat}/${r.lon}" rel="noopener nofollow">${r.lat}, ${r.lon}</a>${mapLink} <span class="note">© OpenStreetMap contributors</span>` : '')}
 ${row('Good to know', r.notes ? esc(r.notes) : '')}
 </dl>
 <p class="actions">${links.map(([u, l], i) => `<a class="${i ? 'chip' : 'primary'}" href="${esc(u)}" rel="noopener">${l}</a>`).join(' ')}</p>
@@ -165,7 +167,7 @@ function placesIndex(rows) {
   const groups = Object.keys(TYPE_LABEL).map((t) => [t, rows.filter((r) => r.type === t)]).filter(([, rs]) => rs.length);
   const card = (r) => `<a class="card place-card" href="/places/${slugOf(r)}/"><div class="inner"><span class="eyebrow">${esc(known(r.neighbourhood) ? r.neighbourhood : 'Pune')}</span><h3>${esc(r.name)}</h3><p>${esc(r.summary)}</p>${known(r.hours) ? `<p class="note">${esc(clip(r.hours, 70))}</p>` : ''}</div></a>`;
   return `<div class="hero hero-single"><div><div class="eyebrow">Explore Pune</div><h1>Places in Pune,<br>checked at the source.</h1>
-<p class="lede">${rows.length} museums, bookstores, cafes, restaurants, temples and heritage spots across Pune. Addresses, timings and prices are copied from each venue's own page, with the date we checked.</p></div></div>
+<p class="lede">${rows.length} museums, bookstores, cafes, restaurants, temples and heritage spots across Pune. Addresses, timings and prices are copied from each venue's own page, with the date we checked.</p><p class="actions"><a class="chip" href="/map/">See them on the Pune map</a></p></div></div>
 <nav class="chips jump" aria-label="Jump to a category">${groups.map(([t]) => `<a class="chip" href="#${t}">${TYPE_LABEL[t]}</a>`).join('')}</nav>
 <section class="section"><div class="section-head"><h2>Which part of Pune are you in?</h2></div><nav class="chips" aria-label="Areas">${areasOf(rows).map(([a, x]) => `<a class="chip" href="/places/in/${AREA_SLUG(a)}/">${esc(a)} (${x.length})</a>`).join('')}</nav></section>
 ${groups.map(([t, rs]) => `<section class="section" id="${t}"><div class="section-head"><h2>${TYPE_LABEL[t]} in Pune</h2></div><div class="grid">${rs.map(card).join('')}</div></section>`).join('\n')}
@@ -173,6 +175,38 @@ ${groups.map(([t, rs]) => `<section class="section" id="${t}"><div class="sectio
 ${faqSection(placesFaq(rows), 'Questions about places in Pune')}`;
 }
 
+
+// City map page (/map/): pins come only from published rows with OpenStreetMap coordinates.
+export const MAP_PATH = '/map/';
+export function mapPins(rows) {
+  return rows
+    .filter((r) => typeof r.lat === 'number' && typeof r.lon === 'number')
+    .map((r) => ({ slug: slugOf(r), name: r.name, type: r.type, label: TYPE_SINGULAR[r.type] || r.type, neighbourhood: known(r.neighbourhood) ? r.neighbourhood : null, lat: r.lat, lon: r.lon, summary: r.summary, href: `/places/${slugOf(r)}/` }));
+}
+export function mapPage(rows) {
+  const pins = mapPins(rows);
+  const unpinned = rows.filter((r) => !pins.some((p) => p.slug === slugOf(r)));
+  const filters = Object.keys(TYPE_LABEL)
+    .filter((t) => pins.some((p) => p.type === t))
+    .map((t) => `<button class="chip" type="button" data-type="${esc(t)}" aria-pressed="true">${esc(TYPE_LABEL[t])}</button>`)
+    .join('');
+  const list = Object.keys(TYPE_LABEL)
+    .map((t) => [t, rows.filter((r) => r.type === t)])
+    .filter(([, rs]) => rs.length)
+    .map(([t, rs]) => `<section class="section"><div class="section-head"><h2>${TYPE_LABEL[t]}</h2></div><ul class="map-list">${rs.map((r) => `<li><a href="/places/${slugOf(r)}/">${esc(r.name)}</a>${known(r.neighbourhood) ? ` <span class="note">${esc(r.neighbourhood)}</span>` : ''}${typeof r.lat === 'number' ? '' : ' <span class="note">· not pinned</span>'}</li>`).join('')}</ul></section>`)
+    .join('\n');
+  const header = `<section class="section"><div class="section-head"><h2>Every place, pinned or not</h2><p>The same places the map shows, as plain links.${unpinned.length ? ` Not pinned yet: ${unpinned.map((r) => esc(r.name)).join(', ')}. OpenStreetMap has no confirmed spot for them, so they are not guessed.` : ''}</p></div></section>`;
+  const main = read('site/pages/map.html')
+    .replace('<!--MAP-COUNT-->', `${pins.length} of ${rows.length} places pinned${unpinned.length ? `; ${unpinned.length} listed only, below the map` : ''}. Tap a pin for the short version.`)
+    .replace('<!--MAP-FILTERS-->', filters)
+    .replace('<!--MAP-LIST-->', header + list)
+    .replace('<!--MAP-DATA-->', JSON.stringify(pins).replace(/</g, '\\u003c'));
+  return {
+    main,
+    title: `Pune map: ${pins.length} checked places on a detailed city map | Peak Pune`,
+    description: `A detailed map of Pune with ${pins.length} source-checked places pinned: museums, bookstores, cafes, restaurants, temples, parks and heritage. Every pin opens its checked page. Map data © OpenStreetMap contributors.`,
+  };
+}
 
 const LEVEL_CLASS = { Easy: 'lv-easy', Moderate: 'lv-mod', Challenging: 'lv-hard' };
 const level = (d) => (d ? `<span class="level ${LEVEL_CLASS[d] || ''}">${esc(d)}</span>` : '');
@@ -424,6 +458,10 @@ export function build({ outDir = join(root, 'public'), log = () => {}, dryRun = 
     out(path, page({ path, current: '/places/', title: `Places to visit in ${area}, Pune: ${rs.length} checked spots | Peak Pune`, description: clip(`${rs.length} places in ${area}, Pune with addresses and timings from their own pages: ${rs.map((r) => r.name).join(', ')}.`, 158), crumbs: [['Places', '/places/'], [area, path]], main: `<div class="hero hero-single"><div><div class="eyebrow">Places by area</div><h1>${esc(area)}</h1><p class="lede">${rs.length} places in ${esc(area)}, Pune, each with details copied from its own page and the date we checked.</p></div></div><section class="section"><div class="grid">${rs.map(placeCard).join('')}</div></section><section class="section"><div class="section-head"><h2>Other areas</h2></div><nav class="chips" aria-label="Areas">${areasOf(rows).filter(([a]) => a !== area).map(([a, x]) => `<a class="chip" href="/places/in/${AREA_SLUG(a)}/">${esc(a)} (${x.length})</a>`).join('')}</nav></section>`, ld: [{ '@type': 'ItemList', name: `Places in ${area}, Pune`, numberOfItems: rs.length, itemListElement: rs.map((r, i) => ({ '@type': 'ListItem', position: i + 1, name: r.name, url: `${SITE_URL}/places/${slugOf(r)}/` })) }] }));
     urls.push([path, rs[0].checked_at]);
   }
+  // City map: every published place with OpenStreetMap coordinates pinned; the page's plain list carries all of them.
+  const map = mapPage(rows);
+  out(MAP_PATH, page({ path: MAP_PATH, map: true, title: map.title, description: map.description, crumbs: [['Map', MAP_PATH]], main: map.main, ld: [{ '@type': 'Map', '@id': SITE_URL + MAP_PATH, url: SITE_URL + MAP_PATH, name: 'Peak Pune city map', description: map.description, isPartOf: { '@id': `${SITE_URL}/#site` } }] }));
+  urls.push([MAP_PATH, rows[0]?.checked_at]);
   const outDir2 = join(outDir, 'outdoors');
   if (!dryRun && existsSync(outDir2)) rmSync(outDir2, { recursive: true });
   out('/outdoors/', page({ path: '/outdoors/', title: 'Running routes in Pune and treks near Pune, with distances | Peak Pune', description: `${outdoors.filter((r) => !isTrek(r)).length} running loops inside Pune and ${outdoors.filter(isTrek).length} treks and day trips nearby, with distance from Pune, drive time and difficulty from PuneRunners and Pune Trekkers.`, main: outdoorsIndex(outdoors), crumbs: [['Outdoors', '/outdoors/']], ld: [faqLd(outdoorsFaq(outdoors.filter((r) => !isTrek(r)), outdoors.filter(isTrek))), { '@type': 'ItemList', name: 'Runs and treks in and near Pune', numberOfItems: outdoors.length, itemListElement: outdoors.map((r, i) => ({ '@type': 'ListItem', position: i + 1, name: r.name, url: `${SITE_URL}/outdoors/${slugOut(r)}/` })) }] }));
