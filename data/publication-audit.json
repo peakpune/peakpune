@@ -126,9 +126,13 @@
       "decision": "publish",
       "reason": "Current cited source supports the listing identity and displayed facts.",
       "sources": [
-        "https://doolally.in/web/"
+        "https://doolally.in/web/",
+        "https://www.openstreetmap.org/node/13955832747"
       ],
-      "overrides": {}
+      "overrides": {
+        "lat": 18.5383826,
+        "lon": 73.90772
+      }
     },
     "place-toit-pune": {
       "kind": "places",
@@ -193,9 +197,13 @@
       "decision": "publish",
       "reason": "Current cited source supports the listing identity and displayed facts.",
       "sources": [
-        "https://www.iskconpune.com/"
+        "https://www.iskconpune.com/",
+        "https://www.openstreetmap.org/way/264278038"
       ],
-      "overrides": {}
+      "overrides": {
+        "lat": 18.4479105,
+        "lon": 73.8807138
+      }
     },
     "place-national-film-archive-of-india": {
       "kind": "places",
@@ -226,12 +234,15 @@
       "decision": "publish",
       "reason": "Current cited source supports the listing identity and displayed facts.",
       "sources": [
-        "https://wadeshwar.com/"
+        "https://wadeshwar.com/",
+        "https://www.openstreetmap.org/node/2266979720"
       ],
       "overrides": {
         "hours": null,
         "notes": "The FC Road outlet is listed by the restaurant group. Current outlet hours were not verified.",
-        "status": "partial"
+        "status": "partial",
+        "lat": 18.5184279,
+        "lon": 73.8416116
       }
     },
     "place-cafe-peter-nibm": {
@@ -239,9 +250,13 @@
       "decision": "publish",
       "reason": "Current cited source supports the listing identity and displayed facts.",
       "sources": [
-        "https://cafepeter.in/"
+        "https://cafepeter.in/",
+        "https://www.openstreetmap.org/node/9314683517"
       ],
-      "overrides": {}
+      "overrides": {
+        "lat": 18.4769289,
+        "lon": 73.9107678
+      }
     },
     "place-bhandarkar-oriental-research-institute": {
       "kind": "places",
@@ -311,9 +326,13 @@
       "decision": "publish",
       "reason": "Current cited source supports the listing identity and displayed facts.",
       "sources": [
-        "https://pune.gov.in/en/tourist-place/rajiv-gandhi-zoological-park-and-wildlife-research-centre-katraj/"
+        "https://pune.gov.in/en/tourist-place/rajiv-gandhi-zoological-park-and-wildlife-research-centre-katraj/",
+        "https://www.openstreetmap.org/relation/12320169"
       ],
-      "overrides": {}
+      "overrides": {
+        "lat": 18.4529079,
+        "lon": 73.8618417
+      }
     },
     "run-koregaon-park-kalyani-nagar-loop": {
       "kind": "outdoors",
