@@ -19,3 +19,31 @@ export const isWeekend = (e, today) => {
     return typeof e.date === 'string' && e.date >= r.from && e.date <= r.to;
 };
 export const istDate = (now = Date.now()) => new Date(now + 330 * 60000).toISOString().slice(0, 10);
+const addDays = (s, n) => iso(new Date(day(s).getTime() + n * 864e5));
+// Rolling windows, always worked out from today's IST date: never typed in.
+export function nextWeekendRange(today) {
+    return weekendRange(addDays(weekendRange(today).to, 1));
+}
+export function nextMonthRange(today) {
+    if (!isDate(today))
+        throw new TypeError('bad date');
+    const d = day(today), y = d.getUTCFullYear(), m = d.getUTCMonth();
+    return { from: iso(new Date(Date.UTC(y, m + 1, 1))), to: iso(new Date(Date.UTC(y, m + 2, 0))) };
+}
+export function nextQuarterRange(today) {
+    if (!isDate(today))
+        throw new TypeError('bad date');
+    const d = day(today), y = d.getUTCFullYear(), q = Math.floor(d.getUTCMonth() / 3);
+    return { from: iso(new Date(Date.UTC(y, (q + 1) * 3, 1))), to: iso(new Date(Date.UTC(y, (q + 2) * 3, 0))) };
+}
+export const RANGES = [
+    { key: 'wknd', label: 'This weekend' }, { key: 'nextwknd', label: 'Next weekend' },
+    { key: 'nextmonth', label: 'Next month' }, { key: 'nextquarter', label: 'Next quarter' },
+];
+export function rangeOf(key, today) {
+    return { wknd: weekendRange, nextwknd: nextWeekendRange, nextmonth: nextMonthRange, nextquarter: nextQuarterRange }[key](today);
+}
+export const inRange = (e, key, today) => {
+    const r = rangeOf(key, today);
+    return typeof e.date === 'string' && e.date >= r.from && e.date <= r.to;
+};
