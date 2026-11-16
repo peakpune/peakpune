@@ -45,7 +45,7 @@
   <section class="feed-status"><h2>Plans, with sources.</h2><p>Platform listings, not independently confirmed by the organiser. Check current dates, prices, availability and cancellation terms before booking.</p>
     <p id="plans-status" role="status">{status}</p>
     <div class="chips" id="plan-filters" role="group" aria-label="Filter plans">{#each RANGES as r}<button class="chip" data-filter={r.key} aria-pressed={range === r.key} onclick={() => range = range === r.key ? null : r.key}>{r.label}</button>{/each}</div>
-    <p class="note" id="filter-status" role="status">{range && loadState === 'ready' ? `${shown.length} of ${rows.length} plans match (${rangeLabel}). Filter uses only the listed date.${shown.length === 0 ? ' Nothing is listed for that window in the sources yet.' : ''}` : ''}</p><p class="note" id="plans-health">{health}{#if latest} Listings in this check run to {latest}; later events are not covered yet.{/if}</p>
+    <p class="note" id="filter-status" role="status">{range && loadState === 'ready' ? `${shown.length} of ${rows.length} plans match (${rangeLabel}). Filter uses only the listed date.${shown.length === 0 ? ' Nothing is listed for that window in the sources yet.' : ''}` : ''}</p><p class="note" id="plans-health">{health}{#if latest}{" "}Listings in this check run to {latest}; later events are not covered yet.{/if}</p>
     <noscript><p class="note">JavaScript is needed for the dated snapshot and filter. The source calendars and organiser listings below remain available.</p></noscript>
   </section>
 {/if}
