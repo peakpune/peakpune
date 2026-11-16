@@ -112,7 +112,7 @@ export function parseRedditPune(xml) {
 
 export const PUNE_SOURCES = Object.freeze([
   {id:'Meetup Pune',url:'https://www.meetup.com/find/?location=in--pune&source=EVENTS',parser:parseMeetupPune},
-  ...['nightlife','music','fests-fairs','performances','food-drinks'].map(genre=>({
+  ...['nightlife','music','fests-fairs','performances','food-drinks','fitness','sports','comedy','workshops'].map(genre=>({
     id:`District Pune ${genre}`,url:`https://www.district.in/events/${genre}-in-pune-book-tickets`,parser:parseDistrictPune})),
   {id:'PuneTonight guides',url:'https://www.reddit.com/r/punetonight/.rss?limit=30',parser:xml=>parseRedditPune(xml).events}
 ]);
