@@ -21,22 +21,13 @@
       // Never leave stale cards visible during an expiry or midnight refresh.
       rows = [];
       try {
-        // Live source check first (a Pages Function, cached for up to 4 hours at the edge); the committed snapshot is the fallback.
-        let live = true, snapshot;
-        try {
-          const response = await fetch('/api/feed', {signal: controller.signal});
-          if (!response.ok) throw new Error('Unavailable');
-          snapshot = parseSnapshot(await response.json());
-        } catch {
-          live = false;
-          const response = await fetch(snapshotUrl, {cache: 'no-cache', signal: controller.signal});
-          if (!response.ok) throw new Error('Unavailable');
-          snapshot = parseSnapshot(await response.json());
-        }
+        const response = await fetch(snapshotUrl, {cache: 'no-cache', signal: controller.signal});
+        if (!response.ok) throw new Error('Unavailable');
+        const snapshot = parseSnapshot(await response.json());
         if (disposed) return;
         today = istDate(); rows = snapshot.events; loadState = 'ready';
         const format = (n: number) => new Date(n).toLocaleString('en-IN', {timeZone: 'Asia/Kolkata', day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit'});
-        status = rows.length ? (live ? `${rows.length} source-listed Pune plans. Sources last read ${format(snapshot.fetchedAt)} IST. Re-read when someone opens this page, at most every 4 hours; it is not a timed job. Past dates are hidden.` : `${rows.length} source-listed Pune plans. Checked ${format(snapshot.fetchedAt)} IST. Saved copy, because the live source check was unavailable; it expires ${format(snapshot.expiresAt)} IST. Past dates hidden daily.`) : 'No upcoming source-listed plans right now.';
+        status = rows.length ? `${rows.length} source-listed Pune plans. Checked ${format(snapshot.fetchedAt)} IST. Saved copy of the sources, refreshed by hand (no automatic refresh yet); it expires ${format(snapshot.expiresAt)} IST. Past dates hidden daily.` : 'No upcoming source-listed plans right now.';
         health = `District: ${snapshot.status.filter(s => s.state === 'ok').length}/${snapshot.status.length} category pages available at check. Meetup and Reddit feeds are not connected.`;
         timer = setTimeout(load, nextRefreshAt(snapshot));
       } catch {
