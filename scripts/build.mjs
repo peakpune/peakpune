@@ -96,7 +96,7 @@ ${jsonLd({ '@context': 'https://schema.org', '@graph': graph })}
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<header class="site-header"><div class="wrap bar"><a class="wordmark" href="/" aria-label="Peak Pune home">${mark}Peak <span>Pune</span></a><nav aria-label="Main navigation">${nav}</nav></div></header>
+<header class="site-header"><div class="wrap bar"><a class="wordmark" href="/" aria-label="Peak Pune home">${mark}Peak <span>Pune</span></a><nav aria-label="Main navigation">${nav}</nav><details class="join"><summary>Join</summary><div><a href="https://chat.whatsapp.com/BVTlwmhkqGU4WKzCsZFG95?s=cl&amp;p=i&amp;iam=2" target="_blank" rel="noopener noreferrer"><b>WhatsApp group</b><small>Chat with people</small></a><a href="https://whatsapp.com/channel/0029VbE00gNEVccC06aRUK2e" target="_blank" rel="noopener noreferrer"><b>WhatsApp channel</b><small>Updates only, no chatting</small></a><a href="https://www.reddit.com/r/punetonight/" target="_blank" rel="noopener noreferrer"><b>Reddit: r/punetonight</b><small>Discussions and plans</small></a></div></details></div></header>
 <main id="main" class="wrap">
 ${trail}${main}
 ${cta}
