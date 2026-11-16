@@ -7,7 +7,9 @@ const legacy = { events: 'events/', meetups: 'meetups/', moments: 'moments/', 'p
 if (legacy && location.pathname === base) location.replace(base + legacy);
 
 // Organiser event cards are static HTML: hide the ones whose day has passed.
-document.querySelectorAll('.event-card[data-expires]').forEach((c) => { const t = Date.parse(c.dataset.expires); if (Number.isFinite(t) && t < Date.now()) c.hidden = true; });
+document.querySelectorAll('.event-card[data-expires],.radar-card[data-expires]').forEach((c) => { const t = Date.parse(c.dataset.expires); if (Number.isFinite(t) && t < Date.now()) c.hidden = true; });
+const radar = document.querySelector('.radar-cards');
+if (radar) { const e = document.querySelector('.radar-empty'); if (e) e.hidden = !!radar.querySelector('.radar-card:not([hidden])'); }
 
 // Freshness: a listing whose check date is older than its limit says so, in plain words.
 document.querySelectorAll('.stale[data-checked]').forEach((el) => {
