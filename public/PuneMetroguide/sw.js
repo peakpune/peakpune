@@ -1,7 +1,7 @@
 // Pune Metro guide service worker. Registered with scope /PuneMetroguide/ only.
 // It serves the guide's own files from a versioned cache so the guide and planner work offline.
 // It never handles a request that is not in its precache list, so nothing else on the site is touched.
-const CACHE = 'pp-metro-4ac06af9df';
+const CACHE = 'pp-metro-aeb0d09c34';
 const PRECACHE = [
  "/PuneMetroguide/",
  "/icon.svg",
