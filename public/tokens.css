@@ -443,3 +443,4 @@ a.category:nth-child(4n+1){color:#fff}a.category:hover{outline:4px solid var(--r
 .tests li{counter-increment:t;display:flex;gap:var(--s4);padding:var(--s5) 0;border-bottom:2px solid var(--rule);font-size:17px}
 .tests li::before{content:counter(t);font:700 22px/26px var(--display);color:var(--brick);flex:none}
 .manifesto .eyebrow{margin:0 0 var(--s4)}
+.radar-card .rcal{margin:0;font-size:14px}.radar-card .rcal a{font-weight:600;color:var(--ink);min-height:44px;display:inline-flex;align-items:center}

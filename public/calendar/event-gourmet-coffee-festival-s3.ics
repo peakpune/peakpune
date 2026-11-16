@@ -1,0 +1,24 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Peak Pune//Events//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Gourmet Coffee Festival\, Season 3
+BEGIN:VEVENT
+UID:event-gourmet-coffee-festival-s3@peakpune.com
+DTSTAMP:20261117T000000Z
+SUMMARY:Gourmet Coffee Festival\, Season 3
+DTSTART;VALUE=DATE:20261121
+DTEND;VALUE=DATE:20261123
+LOCATION:KOPA Mall\, Koregaon Park\, Pune
+DESCRIPTION:Homegrown speciality roasters\, brewing workshops and music ove
+ r two days. Sat 21 and Sun 22 Nov\, from 4 pm\, KOPA Mall\, Koregaon Park.
+ \n\nDetails: https://www.simplifycoffee.in/events/gourmet-coffee-festival-
+ pune-november-2026\n\nPicked by hand and checked against the linked listin
+ g on 2026-11-17. Dates\, times and registration can change: confirm on the
+  listing before you go.
+URL:https://www.simplifycoffee.in/events/gourmet-coffee-festival-pune-novem
+ ber-2026
+STATUS:CONFIRMED
+END:VEVENT
+END:VCALENDAR
