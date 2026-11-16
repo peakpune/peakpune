@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { buildView, aqiBand, parseLocal, clock, duration, istDate, forecastUrl, airUrl } from '../public/lib/pune-now-model.js';
+import { summary, buildView, aqiBand, parseLocal, clock, duration, istDate, forecastUrl, airUrl } from '../public/lib/pune-now-model.js';
 import { moonTimes, moonIllumination, phaseName } from '../public/lib/astro.js';
 
 const forecast = {
@@ -79,8 +79,17 @@ test('moon: known full moon and new moon dates, and rise/set land on the right s
 
 test('the home page ships the hidden strip, the script and the attribution; other pages do not load it', () => {
   const home = readFileSync('public/index.html', 'utf8');
-  assert.match(home, /<section class="section now" id="pune-now"[^>]* hidden>/);
+  assert.match(home, /<section class="section now" id="pune-now"[^>]*>/);
+  assert.ok(!/id="pune-now"[^>]* hidden/.test(home), 'the strip is visible from the start so it cannot shift the page');
+  assert.equal((home.match(/class="now-cell"/g) || []).length, 4, 'four placeholder cards hold the space');
+  assert.match(home, /Loading current conditions for Pune/);
   assert.match(home, /lib\/pune-now\.js\?v=[a-f0-9]{12}/);
   assert.match(home, /Open-Meteo\.com/);
   assert.ok(!readFileSync('public/events/index.html', 'utf8').includes('pune-now'));
+});
+
+test('summary sentence states only what was returned', () => {
+  assert.equal(summary(buildView(forecast, air, NOW)), 'Pune right now: AQI 120 (unhealthy for sensitive groups, US scale), 18°C, 18°C expected at 4:00 am with a 10% chance of rain, sunset at 5:58 pm.');
+  assert.match(summary(buildView(null, null, NOW)), /unavailable right now/);
+  assert.equal(summary(buildView(null, air, NOW)), 'Pune right now: AQI 120 (unhealthy for sensitive groups, US scale).');
 });

@@ -13,3 +13,5 @@ Brand concept, colours and example copy came from owner-supplied PDFs.
 src/discovery.js adapts the owner-requested Afterhours api/discover.js at revision
 000cc1c8b441337587d3969cd07e9ec7ddc398ae. The original public repository is https://github.com/puneafterhours/puneafterhours.
 No Afterhours member data, credentials or storage configuration is included.
+
+The bundled font files in `public/fonts/` are WOFF2 subsets of the originals above (Latin, punctuation, arrows and currency; all variable axes kept), made with fontTools. Marathi text uses the reader's system font, as neither family contains Devanagari.
