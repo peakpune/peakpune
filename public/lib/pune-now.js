@@ -1,6 +1,7 @@
-// Home page "Pune right now" strip. Progressive enhancement: the section stays hidden until data arrives.
+// Home page "Pune right now" strip. Progressive enhancement: the page ships a placeholder of the same size,
+// so filling it in moves nothing below it.
 // The visitor's browser asks Open-Meteo directly (no key, no Peak Pune server); nothing is stored.
-import { airUrl, buildView, forecastUrl } from './pune-now-model.js';
+import { airUrl, buildView, forecastUrl, summary } from './pune-now-model.js';
 const root = document.querySelector('#pune-now');
 async function getJson(url) {
     const controller = new AbortController();
@@ -48,14 +49,14 @@ function render(view, host) {
         : cell('Sun', 'Unavailable', 'Sunrise and sunset were not returned.'));
     cells.push(cell('Moon', `↑ ${view.moon.rise ?? 'none today'}  ↓ ${view.moon.set ?? 'none today'}`, `${view.moon.phase}, ${view.moon.lit}% lit · times approx.`));
     grid.replaceChildren(...cells);
-    host.hidden = false;
+    const line = host.querySelector('.now-summary');
+    if (line)
+        line.textContent = summary(view);
 }
 async function load(host) {
     const [forecast, air] = await Promise.allSettled([getJson(forecastUrl()), getJson(airUrl())]);
     const view = buildView(forecast.status === 'fulfilled' ? forecast.value : null, air.status === 'fulfilled' ? air.value : null, new Date());
-    // Nothing from either service: leave the strip hidden rather than show a wall of "unavailable".
-    if (forecast.status === 'rejected' && air.status === 'rejected')
-        return;
+    // If both services fail the cards say so and the moon (computed locally) still shows; the strip keeps its space.
     render(view, host);
 }
 if (root) {

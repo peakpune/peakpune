@@ -15,8 +15,8 @@ const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 let chromium;
 try { ({ chromium } = createRequire(import.meta.url)('playwright')); } catch { console.error('Playwright is not installed here; cannot run browser checks.'); process.exit(2); }
 
-const TYPES = { '.html': 'text/html; charset=utf-8', '.css': 'text/css', '.js': 'text/javascript', '.json': 'application/json', '.svg': 'image/svg+xml', '.ttf': 'font/ttf', '.png': 'image/png', '.webmanifest': 'application/manifest+json', '.xml': 'application/xml', '.txt': 'text/plain' };
-const COMPRESS = new Set(['.html', '.css', '.js', '.json', '.svg', '.ttf', '.webmanifest', '.xml', '.txt']);
+const TYPES = { '.html': 'text/html; charset=utf-8', '.css': 'text/css', '.js': 'text/javascript', '.json': 'application/json', '.svg': 'image/svg+xml', '.woff2': 'font/woff2', '.png': 'image/png', '.webmanifest': 'application/manifest+json', '.xml': 'application/xml', '.txt': 'text/plain' };
+const COMPRESS = new Set(['.html', '.css', '.js', '.json', '.svg', '.webmanifest', '.xml', '.txt']);
 function serve(getDir) {
   const hits = [];
   const server = createServer((req, res) => {
@@ -187,7 +187,7 @@ try {
   const gz = (f) => gzipSync(readFileSync(f), { level: 9 }).length;
   const ownNames = ['index.html', 'sw.js', ...precache.filter((u) => u.startsWith('/PuneMetroguide/') && u !== '/PuneMetroguide/').map((u) => u.split('/').pop())];
   const own = ownNames.map((n) => [n, gz(join(PUBLIC, 'PuneMetroguide', n))]);
-  const shared = [['tokens.css', gz(join(PUBLIC, 'tokens.css'))], ['app.js', gz(join(PUBLIC, 'app.js'))], ['fonts/fraunces.ttf', gz(join(PUBLIC, 'fonts/fraunces.ttf'))], ['fonts/inter.ttf', gz(join(PUBLIC, 'fonts/inter.ttf'))]];
+  const shared = [['tokens.css', gz(join(PUBLIC, 'tokens.css'))], ['app.js', gz(join(PUBLIC, 'app.js'))], ['fonts/fraunces.woff2', gz(join(PUBLIC, 'fonts/fraunces.woff2'))], ['fonts/inter.woff2', gz(join(PUBLIC, 'fonts/inter.woff2'))]];
   const sum = (a) => a.reduce((n, x) => n + x[1], 0);
   info('metro-only weight (gzip)', `${(sum(own) / 1024).toFixed(0)} KB: ` + own.map(([n, s]) => `${n} ${(s / 1024).toFixed(0)} KB`).join(', '));
   info('shared site files the guide reuses (gzip)', `${(sum(shared) / 1024).toFixed(0)} KB: ` + shared.map(([n, s]) => `${n} ${(s / 1024).toFixed(0)} KB`).join(', '));
