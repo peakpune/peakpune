@@ -1,5 +1,54 @@
 [
-  {"id":"dire-straits-tribute","territory":"Crazy nights","date":"Fri 20 Nov, 8 pm","name":"Dire Straits tribute by Unkle Whisky Collective","venue":"Shisha Jazz Cafe, Bund Garden Road","price":"from ₹385 on BookMyShow","desc":"A live Dire Straits tribute set. Bring friends who know the guitar lines.","status":"checked","url":"https://in.bookmyshow.com/events/dire-straits-tribute-by-unkle-whisky-collective/ET00524510","link":"BookMyShow","expires_at":"2026-11-20T23:59:00+05:30"},
-  {"id":"gourmet-coffee-festival-s3","territory":"Food chaos","date":"Sat 21 and Sun 22 Nov, from 4 pm","name":"Gourmet Coffee Festival, Season 3","venue":"KOPA Mall, Koregaon Park","price":"from ₹299","desc":"Homegrown speciality roasters, brewing workshops and music over two days.","status":"checked","url":"https://www.simplifycoffee.in/events/gourmet-coffee-festival-pune-november-2026","link":"Event page","expires_at":"2026-11-22T23:59:00+05:30"},
-  {"id":"big-aaaaart-walk-bazaars","territory":"Subcultures","date":"Sun 22 Nov, from 4 pm","name":"The Big Aaaaart Walk, Bazaars of India","venue":"Bohri Ali and Juna Bazaar, Old Pune","price":"₹0 to 50","desc":"A community sketch walk through the old bazaar lanes. 16+, carry your own sketchbook.","status":"registration","caveat":"Registration is not confirmed open. Check the booking page before you go.","url":"https://www.skillboxes.com/events/the-big-aaaaart-walk-by-the-art-curry-pune-sbyzotts","link":"Skillboxes","expires_at":"2026-11-22T23:59:00+05:30"}
+ {
+  "id": "dire-straits-tribute",
+  "territory": "Crazy nights",
+  "date": "Fri 20 Nov, 8 pm",
+  "name": "Dire Straits tribute by Unkle Whisky Collective",
+  "venue": "Shisha Jazz Cafe, Bund Garden Road",
+  "price": "from ₹385 on BookMyShow",
+  "desc": "A live Dire Straits tribute set. Bring friends who know the guitar lines.",
+  "status": "checked",
+  "url": "https://in.bookmyshow.com/events/dire-straits-tribute-by-unkle-whisky-collective/ET00524510",
+  "link": "BookMyShow",
+  "expires_at": "2026-11-20T23:59:00+05:30",
+  "start_date": "2026-11-20",
+  "start": "2026-11-20T20:00:00+05:30",
+  "address": "Shisha Jazz Cafe, Bund Garden Road, Pune",
+  "checked_at": "2026-11-17"
+ },
+ {
+  "id": "gourmet-coffee-festival-s3",
+  "territory": "Food chaos",
+  "date": "Sat 21 and Sun 22 Nov, from 4 pm",
+  "name": "Gourmet Coffee Festival, Season 3",
+  "venue": "KOPA Mall, Koregaon Park",
+  "price": "from ₹299",
+  "desc": "Homegrown speciality roasters, brewing workshops and music over two days.",
+  "status": "checked",
+  "url": "https://www.simplifycoffee.in/events/gourmet-coffee-festival-pune-november-2026",
+  "link": "Event page",
+  "expires_at": "2026-11-22T23:59:00+05:30",
+  "start_date": "2026-11-21",
+  "end": "2026-11-22",
+  "address": "KOPA Mall, Koregaon Park, Pune",
+  "checked_at": "2026-11-17"
+ },
+ {
+  "id": "big-aaaaart-walk-bazaars",
+  "territory": "Subcultures",
+  "date": "Sun 22 Nov, from 4 pm",
+  "name": "The Big Aaaaart Walk, Bazaars of India",
+  "venue": "Bohri Ali and Juna Bazaar, Old Pune",
+  "price": "₹0 to 50",
+  "desc": "A community sketch walk through the old bazaar lanes. 16+, carry your own sketchbook.",
+  "status": "registration",
+  "caveat": "Registration is not confirmed open. Check the booking page before you go.",
+  "url": "https://www.skillboxes.com/events/the-big-aaaaart-walk-by-the-art-curry-pune-sbyzotts",
+  "link": "Skillboxes",
+  "expires_at": "2026-11-22T23:59:00+05:30",
+  "start_date": "2026-11-22",
+  "start": "2026-11-22T16:00:00+05:30",
+  "address": "Bohri Ali and Juna Bazaar, Raviwar Peth, Pune",
+  "checked_at": "2026-11-17"
+ }
 ]

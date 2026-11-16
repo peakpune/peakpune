@@ -28,7 +28,7 @@ export function when(e) {
 }
 
 const place = (e) => (known(e.address) ? e.address.replace(/\s*\(per [^)]*\)\s*$/, '') : known(e.neighbourhood) ? `${e.neighbourhood}, Pune` : 'Pune');
-const note = (e) => `Read from the organiser's page on ${e.checked_at}. Dates and times can change: confirm on the page before you go.`;
+const note = (e) => e.note ?? `Read from the organiser's page on ${e.checked_at}. Dates and times can change: confirm on the page before you go.`;
 const describe = (e, url) => [e.summary, url ? `Details: ${url}` : null, note(e)].filter(Boolean).join('\n\n');
 
 export function googleUrl(e, safeUrl) {

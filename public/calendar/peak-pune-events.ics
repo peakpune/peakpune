@@ -5,46 +5,52 @@ CALSCALE:GREGORIAN
 METHOD:PUBLISH
 X-WR-CALNAME:Peak Pune events
 BEGIN:VEVENT
-UID:event-karawaan-kamshet-paragliding-2026-11-21@peakpune.com
-DTSTAMP:20261113T000000Z
-SUMMARY:Kamshet Paragliding
+UID:event-dire-straits-tribute@peakpune.com
+DTSTAMP:20261117T000000Z
+SUMMARY:Dire Straits tribute by Unkle Whisky Collective
+DTSTART:20261120T143000Z
+LOCATION:Shisha Jazz Cafe\, Bund Garden Road\, Pune
+DESCRIPTION:A live Dire Straits tribute set. Bring friends who know the gui
+ tar lines. Fri 20 Nov\, 8 pm\, Shisha Jazz Cafe\, Bund Garden Road.\n\nDet
+ ails: https://in.bookmyshow.com/events/dire-straits-tribute-by-unkle-whisk
+ y-collective/ET00524510\n\nPicked by hand and checked against the linked l
+ isting on 2026-11-17. Dates\, times and registration can change: confirm o
+ n the listing before you go.
+URL:https://in.bookmyshow.com/events/dire-straits-tribute-by-unkle-whisky-c
+ ollective/ET00524510
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:event-gourmet-coffee-festival-s3@peakpune.com
+DTSTAMP:20261117T000000Z
+SUMMARY:Gourmet Coffee Festival\, Season 3
 DTSTART;VALUE=DATE:20261121
-DTEND;VALUE=DATE:20261122
-LOCATION:Kamshet\, Pune
-DESCRIPTION:One-day paid paragliding outing to Kamshet run by a Pune travel
-  company\; rated easy by the organiser.\n\nDetails: https://karawaan.in/ev
- ents\n\nRead from the organiser's page on 2026-11-13. Dates and times can 
- change: confirm on the page before you go.
-URL:https://karawaan.in/events
-STATUS:TENTATIVE
+DTEND;VALUE=DATE:20261123
+LOCATION:KOPA Mall\, Koregaon Park\, Pune
+DESCRIPTION:Homegrown speciality roasters\, brewing workshops and music ove
+ r two days. Sat 21 and Sun 22 Nov\, from 4 pm\, KOPA Mall\, Koregaon Park.
+ \n\nDetails: https://www.simplifycoffee.in/events/gourmet-coffee-festival-
+ pune-november-2026\n\nPicked by hand and checked against the linked listin
+ g on 2026-11-17. Dates\, times and registration can change: confirm on the
+  listing before you go.
+URL:https://www.simplifycoffee.in/events/gourmet-coffee-festival-pune-novem
+ ber-2026
+STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
-UID:event-pune-international-marathon-2026-12-06@peakpune.com
-DTSTAMP:20261113T000000Z
-SUMMARY:Pune International Marathon
-DTSTART;VALUE=DATE:20261206
-DTEND;VALUE=DATE:20261207
-LOCATION:Pune
-DESCRIPTION:Marathon\, half marathon\, 10K\, 5K and 3K wheelchair run liste
- d by the organiser for 6 December 2026. Start times on the organiser page 
- are tentative.\n\nDetails: https://www.marathonpune.com/raceinfo.html\n\nR
- ead from the organiser's page on 2026-11-13. Dates and times can change: c
- onfirm on the page before you go.
-URL:https://www.marathonpune.com/raceinfo.html
-STATUS:TENTATIVE
-END:VEVENT
-BEGIN:VEVENT
-UID:event-bajaj-pune-marathon-2026-12-13@peakpune.com
-DTSTAMP:20261113T000000Z
-SUMMARY:Bajaj Pune Marathon
-DTSTART;VALUE=DATE:20261213
-DTEND;VALUE=DATE:20261214
-LOCATION:Pune
-DESCRIPTION:Road race with 5K\, 10K\, half and full distances\; the PuneRun
- ners guide marks it beginner friendly.\n\nDetails: https://punerunners.com
- /races/bajaj-pune-marathon/\n\nRead from the organiser's page on 2026-11-1
- 3. Dates and times can change: confirm on the page before you go.
-URL:https://punerunners.com/races/bajaj-pune-marathon/
+UID:event-big-aaaaart-walk-bazaars@peakpune.com
+DTSTAMP:20261117T000000Z
+SUMMARY:The Big Aaaaart Walk\, Bazaars of India
+DTSTART:20261122T103000Z
+LOCATION:Bohri Ali and Juna Bazaar\, Raviwar Peth\, Pune
+DESCRIPTION:A community sketch walk through the old bazaar lanes. 16+\, car
+ ry your own sketchbook. Sun 22 Nov\, from 4 pm\, Bohri Ali and Juna Bazaar
+ \, Old Pune.\n\nDetails: https://www.skillboxes.com/events/the-big-aaaaart
+ -walk-by-the-art-curry-pune-sbyzotts\n\nPicked by hand and checked against
+  the linked listing on 2026-11-17. Dates\, times and registration can chan
+ ge: confirm on the listing before you go.
+URL:https://www.skillboxes.com/events/the-big-aaaaart-walk-by-the-art-curry
+ -pune-sbyzotts
 STATUS:TENTATIVE
 END:VEVENT
 END:VCALENDAR
