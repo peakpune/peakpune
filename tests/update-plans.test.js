@@ -7,3 +7,10 @@ test('invalid markup is unavailable, not a healthy empty feed',async()=>{const x
 test('partial failures retain healthy rows and never invent fields',async()=>{let n=0;const x=await collectPlans({now,transport:async()=>{if(n++===0)throw Error('fail');return html(event);}});assert.equal(x.partial,true);assert.equal(x.events.length,1);assert.equal(x.events[0].price,'');assert.match(x.events[0].verification,/not independently confirmed/);});
 test('reject past dates, non-Pune, unsafe links, off-provider links and restricted plans',async()=>{for(const e of [{...event,startDate:'2026-01-01'},{...event,location:{address:{addressLocality:'Mumbai'}}},{...event,url:'javascript:alert(1)'},{...event,url:'https://elsewhere.example/e'},{...event,name:'Members only party'}]){const x=await collectPlans({now,transport:async()=>html(e)});assert.equal(x.events.length,0);}});
 test('atomic output and failure keep last known export unchanged',async()=>{const dir=await mkdtemp(join(tmpdir(),'pp-plans-'));try{const path=join(dir,'plans.json');await writeFile(path,'old');await assert.rejects(()=>savePlans(path,{events:[],status:[]}),/refusing/);assert.equal(await readFile(path,'utf8'),'old');const x=await collectPlans({now,transport:async()=>html(event)});await savePlans(path,x);assert.equal(JSON.parse(await readFile(path,'utf8')).events.length,1);}finally{await rm(dir,{recursive:true,force:true});}});
+
+test('held back: District rows whose slug date disagrees with the listed date',async()=>{
+  const {normalizePuneEvents}=await import('../src/events.js');
+  const row=(slug,date)=>({title:'T '+slug,date,city:'Pune',place:'P',price:'',source:'District',links:[{url:`https://www.district.in/events/${slug}-buy-tickets`,label:'District'}]});
+  const out=normalizePuneEvents([row('a-nov4-2026','2026-11-18'),row('b-nov20-2026','2026-11-20'),row('c-open-ended','2026-11-21')],{today:'2026-11-17'});
+  assert.deepEqual(out.map(e=>e.date),['2026-11-20','2026-11-21']);
+});
