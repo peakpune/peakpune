@@ -1,5 +1,5 @@
 // Two discovery pages built only from rows that already passed the publication audit:
-//   /stops/      places and listings near each Pune Metro station
+//   places and listings near each Pune Metro station (a section of /PuneMetroguide/; /stops/ redirects there)
 //   /interests/  the same rows grouped by hobby, not by weather or mood
 // Nothing here is typed in by hand: no walking times, no timings, no invented listings.
 // No station open/closed status is shown here: that changes and is not published as a list by the operators.
@@ -40,16 +40,15 @@ export function buildStops({ root, esc, places, listings, TYPE_SINGULAR, slugOf 
   const hood = (s) => s.near[0].p.neighbourhood;
   const card = (s) => {
     const here = known(hood(s)) ? listings.filter((e) => e.neighbourhood === hood(s)).slice(0, 3) : [];
-    return `<article class="card" id="${esc(s.id)}"><div class="inner"><span class="eyebrow">${esc(s.lines.map((l) => l.name.replace(/ \(.*/, '')).join(' · '))}</span><h3>${esc(s.name)}</h3><p class="note">${esc(lineLabel(s))}</p>
+    const first = s.near[0];
+    return `<details class="stop" id="${esc(s.id)}"><summary><span class="stop-name">${esc(s.name)}</span><span class="stop-line">${esc(s.lines.map((l) => l.name.replace(/ \(.*/, '')).join(' · '))}</span><span class="stop-first">${esc(first.p.name)} · ${first.d.toFixed(1)} km</span></summary>
 <ul class="stop-list">${s.near.slice(0, 5).map(({ p, d }) => `<li><a href="/places/${slugOf(p)}/">${esc(p.name)}</a><span>${esc(TYPE_SINGULAR[p.type] || p.type)} · ${d.toFixed(1)} km straight line</span></li>`).join('')}</ul>
-${here.length ? `<p class="note">Listed in ${esc(hood(s))}, the neighbourhood of the nearest place: ${here.map((e) => `<a href="${esc(e.href)}"${e.href.startsWith('http') ? ' rel="noopener" target="_blank"' : ''}>${esc(e.name)}</a>`).join(', ')}</p>` : ''}</div></article>`;
+${here.length ? `<p class="note">Listed in ${esc(hood(s))}, the neighbourhood of the nearest place: ${here.map((e) => `<a href="${esc(e.href)}"${e.href.startsWith('http') ? ' rel="noopener" target="_blank"' : ''}>${esc(e.name)}</a>`).join(', ')}</p>` : ''}</details>`;
   };
-    const main = `<div class="hero hero-single"><div><div class="eyebrow">Pick a Metro stop</div><h1>Start at the station.</h1>
-<p class="lede">Pune Metro stations with the checked places within ${RADIUS_KM} km of each, nearest first. Distances are straight-line from OpenStreetMap coordinates, not walking time. Check the route on the map before you set out.</p></div></div>
-<section class="section"><div class="section-head"><h2>${withNear.length} stations with a checked place nearby</h2><p>Only places that passed review and have coordinates are used. Which stations are open changes, and this page does not say: check the operators (<a href="https://www.punemetrorail.org/" rel="noopener" target="_blank">Maha Metro</a>, <a href="https://punerimetro.in/" rel="noopener" target="_blank">Pune IT City Metro</a>) before you travel. Fares and the planner are in the <a href="/PuneMetroguide/">Metro guide</a>.</p></div>
-<div class="grid">${withNear.map(card).join('')}</div></section>
-<section class="section"><div class="section-head"><h2>Stations with nothing checked nearby yet</h2><p>${without.map((s) => esc(s.name)).join(', ')}.</p></div></section>`;
-  return { main, count: withNear.length };
+  const section = `<section class="section" id="near-stations"><div class="section-head"><h2>Places near each station</h2><p>Tap a station to see the checked places within ${RADIUS_KM} km, nearest first. Distances are straight-line from OpenStreetMap coordinates, not walking time, so check the route on a map. Which stations are open changes and this page does not say: check the operators (<a href="https://www.punemetrorail.org/" rel="noopener" target="_blank">Maha Metro</a>, <a href="https://punerimetro.in/" rel="noopener" target="_blank">Pune IT City Metro</a>) before you travel.</p></div>
+<div class="stop-grid">${withNear.map(card).join('')}</div>
+<p class="note">Nothing checked within ${RADIUS_KM} km yet: ${without.map((s) => esc(s.name)).join(', ')}.</p></section>`;
+  return { section, count: withNear.length };
 }
 
 export const SHELVES = [
