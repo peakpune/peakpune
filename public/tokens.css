@@ -409,3 +409,38 @@ a.category:nth-child(4n+1){color:#fff}a.category:hover{outline:4px solid var(--r
 .site-header .grp>div a{align-items:flex-start;text-align:left}
 .site-header .nav-m a[aria-current=page]{background:transparent;color:var(--brick);text-decoration:underline}
 .site-header .nav-m a.map[aria-current=page]{background:var(--brick);color:#fff;text-decoration:none}
+
+/* Radar home (evolution of the current brand) */
+.hero h1 em{font-style:italic;color:var(--brick)}
+.radar-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:var(--s6)}
+.radar-card{background:var(--white);border:2.5px solid var(--ink);border-radius:var(--r-card);box-shadow:var(--lift);padding:var(--s5);display:flex;flex-direction:column;gap:var(--s3);min-width:0}
+.radar-card[hidden]{display:none}
+.radar-card .meta{margin:0;font:700 12px/16px var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--brick)}
+.radar-card .date{display:block;margin-top:4px;color:var(--ink);font-weight:500;letter-spacing:0;text-transform:none;font-size:14px}
+.radar-card h3{font:700 24px/28px var(--display);margin:0}
+.radar-card .venue{font-size:14px;line-height:20px;color:var(--ink-soft);margin:0}
+.radar-card .desc{font-size:15px;margin:0}
+.radar-card .caveat{font-size:14px;line-height:20px;font-weight:500;background:var(--haldi);border:2px solid var(--ink);border-radius:10px;padding:10px 12px;margin:0}
+.radar-card .foot{margin-top:auto;padding-top:var(--s3);display:flex;align-items:center;justify-content:space-between;gap:var(--s3);border-top:2px solid var(--rule);flex-wrap:wrap}
+.radar-card .foot a{font-weight:700;font-size:14px;color:var(--brick);min-height:44px;display:inline-flex;align-items:center}
+.pill{font:700 11px/14px var(--body);letter-spacing:.1em;padding:5px 10px;border-radius:999px;border:2px solid var(--ink);white-space:nowrap}
+.pill.ok{background:var(--sage)}
+.pill.warn{background:var(--haldi)}
+.radar-empty[hidden]{display:none}
+.freq-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:var(--s5)}
+.freq-card{border:2.5px solid var(--ink);border-radius:var(--r-card);padding:var(--s5);min-width:0}
+.freq-card .no{font:700 12px/16px var(--body);letter-spacing:.14em;color:var(--brick);margin:0 0 var(--s2)}
+.freq-card h3{font:700 26px/30px var(--display);margin:0 0 var(--s2)}
+.freq-card p:last-child{font-size:15px;color:var(--ink-soft);margin:0}
+.manifesto{background:var(--ink);color:var(--paper);box-shadow:0 0 0 100vmax var(--ink);clip-path:inset(0 -100vmax);margin-top:var(--section);padding-block:var(--s24)}
+.manifesto .eyebrow{color:var(--haldi)}
+.manifesto .lead{font:600 clamp(32px,4.6vw,56px)/1.08 var(--display);max-width:16em;margin:0 0 var(--s8)}
+.manifesto .lead em{font-style:italic;color:var(--haldi)}
+.manifesto .body{max-width:38em;display:grid;gap:var(--s5);font-size:18px;line-height:1.65}
+.manifesto .body p{margin:0}
+.manifesto .end{font:italic 700 clamp(30px,4vw,48px)/1.1 var(--display);color:var(--haldi);margin:var(--s10) 0 0}
+.tests{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:0 var(--s10);counter-reset:t}
+.tests li{counter-increment:t;display:flex;gap:var(--s4);padding:var(--s5) 0;border-bottom:2px solid var(--rule);font-size:17px}
+.tests li::before{content:counter(t);font:700 22px/26px var(--display);color:var(--brick);flex:none}
+.radar-card .meta>.date{display:block!important}
+.manifesto .eyebrow{margin:0 0 var(--s4)}
