@@ -78,3 +78,12 @@ test('fonts are subset WOFF2 and nothing still points at the old files', () => {
 test('no node_modules entry is tracked by mistake', () => {
   assert.match(read('.gitignore'), /^node_modules$/m);
 });
+
+test('robots.txt allows AI crawlers and DuckDuckBot by name and still keeps /backend out for every group', () => {
+  const robots = read('public/robots.txt');
+  for (const agent of ['GPTBot', 'OAI-SearchBot', 'ClaudeBot', 'PerplexityBot', 'Google-Extended', 'CCBot', 'DuckAssistBot', 'DuckDuckBot']) assert.match(robots, new RegExp(`^User-agent: ${agent}$`, 'm'), agent);
+  const groups = robots.split(/\n\n/).filter((g) => /^(# .*\n)?User-agent:/.test(g));
+  assert.equal(groups.length, 3);
+  for (const g of groups) { assert.match(g, /^Allow: \/$/m); assert.match(g, /^Disallow: \/backend$/m); assert.ok(!/^Disallow: \/$/m.test(g), 'nothing is blocked site-wide'); }
+  assert.match(robots, /^Sitemap: https:\/\/peakpune\.com\/sitemap\.xml$/m);
+});
