@@ -68,3 +68,16 @@ export function buildView(forecast, air, now) {
     const airView = aqi === null ? null : { value: Math.round(aqi), ...aqiBand(aqi), pm25: num(a.pm2_5) };
     return { air: airView, now: temp === null ? null : { temp }, next, sun, moon };
 }
+/** One plain sentence a person (or an answer engine) can quote. Only states what the services returned. */
+export function summary(view) {
+    const parts = [];
+    if (view.air)
+        parts.push(`AQI ${view.air.value} (${view.air.label.toLowerCase()}, US scale)`);
+    if (view.now)
+        parts.push(`${Math.round(view.now.temp)}°C`);
+    if (view.next)
+        parts.push(`${Math.round(view.next.temp)}°C expected at ${view.next.at}${view.next.rain !== null ? ` with a ${Math.round(view.next.rain)}% chance of rain` : ''}`);
+    if (view.sun)
+        parts.push(`sunset at ${view.sun.set}`);
+    return parts.length ? `Pune right now: ${parts.join(', ')}.` : 'Live weather and air quality are unavailable right now. Moon times below are worked out on your device.';
+}

@@ -2,8 +2,8 @@
    Flat colour blocks, 4 px Ink outlines, pill navigation with a Brick current tab, Ink pill buttons.
    Light ground only: no dark mode, no blends, no glass effects.
    Spacing sits on a 4 px grid. Type scale follows the kit: 88/56/40/23/18/14/12. */
-@font-face{font-family:Fraunces;src:url('fonts/fraunces.ttf') format('truetype');font-style:normal;font-weight:100 900;font-display:swap}
-@font-face{font-family:Inter;src:url('fonts/inter.ttf') format('truetype');font-style:normal;font-weight:100 900;font-display:swap}
+@font-face{font-family:Fraunces;src:url('fonts/fraunces.woff2') format('woff2');font-style:normal;font-weight:100 900;font-display:swap}
+@font-face{font-family:Inter;src:url('fonts/inter.woff2') format('woff2');font-style:normal;font-weight:100 900;font-display:swap}
 
 :root{
   --ink:#1C1410;--paper:#F6EFE2;--brick:#B8381F;--haldi:#E8A317;--sage:#C9D6B5;--clay:#D9B99B;--white:#fff;
@@ -254,3 +254,15 @@ a.category:nth-child(4n+1){color:#fff}a.category:hover{outline:4px solid var(--r
 .plan-form .full{grid-column:1/-1}.plan-form input[type=file]{padding:var(--s3) var(--s4);min-height:48px}.preview-sample{margin-top:var(--s8);max-width:420px}.preview-sample .card{margin-top:var(--s2)}
 .plan-form input[type=file]{width:100%;box-sizing:border-box}
 #community-plans{margin-top:1.5rem}
+
+/* Freshness warning, quick answers, about page */
+.stale{background:var(--haldi);border-radius:var(--r-input);outline:2px solid var(--rim);outline-offset:-2px;padding:var(--s3) var(--s4);font-weight:700;font-size:15px;line-height:22px;margin:0 0 var(--s4)}
+.faq-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:var(--s6) var(--s8)}
+.faq-item h3{font-size:22px;line-height:28px;margin-bottom:var(--s2)}
+.faq-item p{margin:0;color:var(--ink-soft)}
+.prose>p,.prose>ul{max-width:68ch}
+.prose .facts-list{display:grid;gap:var(--s3);padding-left:var(--s5);margin:0 0 var(--s4)}
+/* Pune right now: the placeholder holds the same space as the loaded cards, so nothing below it jumps */
+.now-summary{font-weight:700;margin:0 0 var(--s4);min-height:104px}
+.now-cell{min-height:152px}
+@media(min-width:700px){.now-summary{min-height:52px}}
