@@ -57,7 +57,7 @@ export const ogAlt = (title) => { const t = String(title).split(' | ').filter((x
 const mark = read('site/mark.svg.html');
 const cta = read('site/cta.html');
 // One quotable sentence that says what the site is. Used in the Organization markup, the home page and /about/.
-export const ENTITY = 'Peak Pune is a Pune-based discovery site that gathers source-checked places, events, running loops, treks and meetups in one place. We do not organise runs or treks; we point to the people who do.';
+export const ENTITY = 'Peak Pune is Pune\'s unofficial guide to doing interesting shit: a city radar with a short, hand-checked list of things worth leaving the house for, plus source-checked places, running loops, treks and meetups. We do not organise runs or treks; we point to the people who do.';
 // A dated check older than this many days gets a visible warning (added in the browser by app.js).
 const STALE_DAYS = { venue: 30, event: 7 };
 export const staleNote = (date, kind) => (date ? `<p class="stale" data-checked="${esc(date)}" data-max-age="${STALE_DAYS[kind]}" hidden></p>` : '');
@@ -280,7 +280,7 @@ export function homeFaq(places, runs, treks) {
     ['Which places in Pune can I visit?', `Peak Pune lists ${places.length} places in Pune, including ${types.slice(0, 5).join(', ')}. Each page gives the address, timings and entry fee where the venue states them, with a link to the venue's own page and the date it was checked.`, '/places/', `All ${places.length} places`],
     ['Where can I run in Pune?', `Start with the ${runs.length} mapped city loops${range}, plotted by PuneRunners Club: ${runs.slice(0, 4).map((r) => r.name).join(', ')} and more. Peak Pune does not organise runs; PuneRunners Club does.`, '/outdoors/#runs', 'Running loops'],
     ['Which treks are near Pune?', `Peak Pune lists ${treks.length} treks and day trips with the distance from Pune and other details as published by the linked source. Peak Pune does not organise treks; groups such as Pune Trekkers and Karawaan do.`, '/outdoors/#treks', 'Treks and day trips'],
-    ['What is on in Pune this weekend?', 'The Events page shows source-listed plans with a This weekend filter, plus races, treks and camps read from organiser pages. Check the date and price on the original listing before you book.', '/events/', 'Events'],
+    ['What is on in Pune this week?', 'The radar board on the home page and the Events page show a short list picked by hand, each pick linked to its source with a status. It is not an automatic feed, so some weeks it is short. Check the date, price and registration on the original listing before you go.', '/events/', 'Events'],
     ['How do I plan a Pune Metro journey?', 'The Pune Metro guide has a journey planner that tells you which line to take, where to change and the ticket fare. It works offline after one visit.', '/PuneMetroguide/', 'Pune Metro guide'],
   ];
 }
@@ -319,10 +319,10 @@ export const faqLd = (faq) => ({ '@type': 'FAQPage', mainEntity: faq.map(([q, a]
 const RADAR_PICKS = JSON.parse(read('scripts/radar-picks.json'));
 const STATUS = { checked: ['SOURCE CHECKED', 'ok'], registration: ['CHECK REGISTRATION', 'warn'], pending: ['DATE BEING CHECKED', 'warn'] };
 const FREQS = [['Crazy nights', 'Underground gigs, techno, DJ sets, house parties, live music, comedy nights.'], ['Adventures', 'Night treks, camping, waterfalls, road trips, offbeat trails, sunrise rides.'], ['Food chaos', 'Pop-ups, hidden food spots, midnight food scenes, food festivals, unusual experiences.'], ['Subcultures', 'Skateboarding, street art, photography walks, underground communities, creative gatherings.'], ['Weird + wonderful', 'Experimental workshops, unusual popups, immersive experiences, quirky competitions.'], ['Spontaneous plans', 'Pickup football, badminton groups, spontaneous meetups, open mics, community hangouts.']];
-export function radarBoard(now = Date.now()) {
+export function radarBoard(now = Date.now(), more = true) {
   const live = RADAR_PICKS.filter((p) => Date.parse(p.expires_at) >= now);
-  const cards = live.map((p) => { const [label, tone] = STATUS[p.status]; return `<article class="radar-card" data-expires="${esc(p.expires_at)}"><p class="meta">${esc(p.territory)}<span class="date">${esc(p.date)}</span></p><h3>${esc(p.name)}</h3><p class="venue">${esc(p.venue)} · ${esc(p.price)}</p><p class="desc">${esc(p.desc)}</p>${p.caveat ? `<p class="caveat">${esc(p.caveat)}</p>` : ''}<div class="foot"><span class="pill ${tone}">${label}</span><a href="${esc(p.url)}" rel="noopener">${esc(p.link)} ↗</a></div></article>`; }).join('');
-  return `<section class="section" id="radar" aria-label="What is on the radar"><div class="section-head"><h2>What is on the radar</h2><p>A short list for the next two weeks, chosen from what we could confirm. Fewer is on purpose. Check dates and prices before you go.</p><a class="more" href="/events/">Events page</a></div><div class="radar-cards">${cards}</div><p class="note radar-empty"${live.length ? ' hidden' : ''}>Nothing has passed the test yet this week. The scan continues.</p></section>`;
+  const cards = live.map((p) => { const [label, tone] = STATUS[p.status]; return `<article class="radar-card" data-expires="${esc(p.expires_at)}"><p class="rmeta">${esc(p.territory)}<span class="rdate">${esc(p.date)}</span></p><h3>${esc(p.name)}</h3><p class="venue">${esc(p.venue)} · ${esc(p.price)}</p><p class="desc">${esc(p.desc)}</p>${p.caveat ? `<p class="caveat">${esc(p.caveat)}</p>` : ''}<div class="foot"><span class="pill ${tone}">${label}</span><a href="${esc(p.url)}" rel="noopener">${esc(p.link)} ↗</a></div></article>`; }).join('');
+  return `<section class="section" id="radar" aria-label="What is on the radar"><div class="section-head"><h2>What is on the radar</h2><p>A short list for the next two weeks, chosen from what we could confirm. Fewer is on purpose. Check dates and prices before you go.</p>${more ? '<a class="more" href="/events/">Events page</a>' : ''}</div><div class="radar-cards">${cards}</div><p class="note radar-empty"${live.length ? ' hidden' : ''}>Nothing has passed the test yet this week. The scan continues.</p><p class="note">Picked and updated by hand from the sources linked on each card. This is not an automatic feed, so the list can be short and can change.</p></section>`;
 }
 function homeMain(places, outdoors) {
   const pick = (ids) => ids.map((id) => places.find((r) => r.id === id)).filter(Boolean);
@@ -445,7 +445,7 @@ export function build({ outDir = join(root, 'public'), log = () => {}, dryRun = 
   const out = (path, html) => { onPage(path, withBase(html)); if (dryRun) return; const f = join(outDir, path.replace(/^\//, ''), path.endsWith('/') ? 'index.html' : ''); mkdirSync(dirname(f), { recursive: true }); writeFileSync(f, withBase(html)); };
   const urls = []; // lastmod omitted on purpose: checked_at is a review date, not a content-change date
   const website = { '@type': 'WebSite', '@id': `${SITE_URL}/#site`, url: `${SITE_URL}/`, name: 'Peak Pune', alternateName: 'PeakPune', inLanguage: 'en-IN', publisher: { '@id': `${SITE_URL}/#org` } };
-  out('/', page({ path: '/', title: 'Peak Pune | Things to do in Pune: places, runs, treks, events and meetups', description: 'Everything Pune, in one scroll. Sourced places to visit, running loops, treks near Pune, events, meetups and the moments only Pune could produce.', main: homeMain(rows, outdoors), ld: [website, faqLd(homeFaq(rows, outdoors.filter((r) => !isTrek(r)), outdoors.filter(isTrek)))], nowStrip: true }));
+  out('/', page({ path: '/', title: 'Peak Pune | Pune\'s unofficial guide to doing interesting shit', description: 'City radar for the interesting side of Pune. A short list of hand-checked picks, each linked to its source, plus sourced places, running loops, treks and the Pune Metro guide.', main: homeMain(rows, outdoors), ld: [website, faqLd(homeFaq(rows, outdoors.filter((r) => !isTrek(r)), outdoors.filter(isTrek)))], nowStrip: true }));
   urls.push(['/', null]);
   for (const p of STATIC) {
     let main = read(`site/pages/${p.file}.html`);
@@ -468,7 +468,7 @@ export function build({ outDir = join(root, 'public'), log = () => {}, dryRun = 
   }
   const buildNow = Date.now();
   const events = publishRows(JSON.parse(read('data/batch-3-events/events.json'))).filter((e) => !e.expires_at || Date.parse(e.expires_at) > buildNow);
-  out('/events/', page({ path: '/events/', plans: true, title: 'Events in Pune this week: gigs, parties, races and treks | Peak Pune', description: 'What is on in Pune: source-listed gigs, club nights and comedy, plus races, treks and camps read from the organisers. Every plan links to its original listing.', crumbs: [['Events', '/events/']], main: read('site/pages/events.html').replace('<!--ORGANISER-EVENTS-->', eventsBlock(events)), ld: [{ '@type': 'CollectionPage', '@id': `${SITE_URL}/events/`, url: `${SITE_URL}/events/`, name: 'Events in Pune', isPartOf: { '@id': `${SITE_URL}/#site` } }, ...events.map(eventLd).filter(Boolean)] }));
+  out('/events/', page({ path: '/events/', title: 'What is on in Pune: a short hand-checked list | Peak Pune', description: 'A short list of things worth leaving the house for in Pune, picked by hand. Every pick links to its source and shows whether the date or registration is confirmed.', crumbs: [['Events', '/events/']], main: read('site/pages/events.html').replace('<!--RADAR-->', radarBoard(buildNow, false)).replace('<!--ORGANISER-EVENTS-->', eventsBlock(events)), ld: [{ '@type': 'CollectionPage', '@id': `${SITE_URL}/events/`, url: `${SITE_URL}/events/`, name: 'Events in Pune', isPartOf: { '@id': `${SITE_URL}/#site` } }, ...events.map(eventLd).filter(Boolean)] }));
   urls.push(['/events/', null]);
   if (!dryRun) {
     const calDir = join(outDir, 'calendar');

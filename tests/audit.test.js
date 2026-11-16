@@ -39,7 +39,7 @@ test('/about/ exists, is linked from the navigation and carries AboutPage markup
 
 test('Organization markup defines the entity and the area served', () => {
   const org = graph(read('public/index.html')).find((n) => n['@type'] === 'Organization');
-  assert.match(org.description, /^Peak Pune is a Pune-based discovery site/);
+  assert.match(org.description, /^Peak Pune is Pune's unofficial guide to doing interesting shit/);
   assert.match(org.description, /do not organise runs or treks/);
   assert.deepEqual([org.areaServed['@type'], org.areaServed.name], ['City', 'Pune']);
 });
