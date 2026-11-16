@@ -433,7 +433,7 @@ export function build({ outDir = join(root, 'public'), log = () => {}, dryRun = 
   const outdoors = publishRows(JSON.parse(read('data/batch-2-outdoors/outdoors.json')));
   const out = (path, html) => { onPage(path, withBase(html)); if (dryRun) return; const f = join(outDir, path.replace(/^\//, ''), path.endsWith('/') ? 'index.html' : ''); mkdirSync(dirname(f), { recursive: true }); writeFileSync(f, withBase(html)); };
   const urls = [];
-  const website = { '@type': 'WebSite', '@id': `${SITE_URL}/#site`, url: `${SITE_URL}/`, name: 'Peak Pune', inLanguage: 'en-IN', publisher: { '@id': `${SITE_URL}/#org` } };
+  const website = { '@type': 'WebSite', '@id': `${SITE_URL}/#site`, url: `${SITE_URL}/`, name: 'Peak Pune', alternateName: 'PeakPune', inLanguage: 'en-IN', publisher: { '@id': `${SITE_URL}/#org` } };
   out('/', page({ path: '/', title: 'Peak Pune | Things to do in Pune: places, runs, treks, events and meetups', description: 'Everything Pune, in one scroll. Sourced places to visit, running loops, treks near Pune, events, meetups and the moments only Pune could produce.', main: homeMain(rows, outdoors), ld: [website, faqLd(homeFaq(rows, outdoors.filter((r) => !isTrek(r)), outdoors.filter(isTrek)))], nowStrip: true, plans: true }));
   urls.push(['/', null]);
   for (const p of STATIC) {
@@ -455,7 +455,8 @@ export function build({ outDir = join(root, 'public'), log = () => {}, dryRun = 
     out(path, page({ path, current: '/places/', title: placeTitle(r), description: placeDescription(r), main: placeMain(r, rows), crumbs: [['Places', '/places/'], [r.name, path]], ld: [placeLd(r)], ogType: 'article' }));
     urls.push([path, r.checked_at]);
   }
-  const events = publishRows(JSON.parse(read('data/batch-3-events/events.json')));
+  const buildNow = Date.now();
+  const events = publishRows(JSON.parse(read('data/batch-3-events/events.json'))).filter((e) => !e.expires_at || Date.parse(e.expires_at) > buildNow);
   out('/events/', page({ path: '/events/', plans: true, title: 'Events in Pune this week: gigs, parties, races and treks | Peak Pune', description: 'What is on in Pune: source-listed gigs, club nights and comedy, plus races, treks and camps read from the organisers. Every plan links to its original listing.', crumbs: [['Events', '/events/']], main: read('site/pages/events.html').replace('<!--ORGANISER-EVENTS-->', eventsBlock(events)), ld: [{ '@type': 'CollectionPage', '@id': `${SITE_URL}/events/`, url: `${SITE_URL}/events/`, name: 'Events in Pune', isPartOf: { '@id': `${SITE_URL}/#site` } }, ...events.map(eventLd).filter(Boolean)] }));
   urls.push(['/events/', events[0]?.checked_at]);
   if (!dryRun) {
