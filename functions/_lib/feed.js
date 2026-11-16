@@ -8,7 +8,8 @@ export const TTL_OK = 4 * 3600, TTL_PARTIAL = 10 * 60;
 const restricted = (e) => /(students|members|alumni|employees)\s+only|invite[-\s]only|closed event|private event/i.test(e.title);
 async function readSource(url, fetcher) {
   if (!FEED_SOURCES.some((s) => s.url === url)) throw new Error('not allowlisted');
-  const r = await fetcher(url, { redirect: 'error', headers: { 'User-Agent': 'PeakPune/0.1 (public event discovery; source links retained)' }, signal: AbortSignal.timeout(8000) });
+  const r = await fetcher(url, { redirect: 'manual', headers: { 'User-Agent': 'PeakPune/0.1 (public event discovery; source links retained)' }, signal: AbortSignal.timeout(8000) });
+  if (r.status >= 300 && r.status < 400) throw new Error('redirect ' + r.status);
   if (!r.ok) throw new Error('HTTP ' + r.status);
   if (!/text\/html/i.test(r.headers.get('content-type') || '')) throw new Error('content type');
   const text = await r.text();
