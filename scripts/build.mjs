@@ -337,6 +337,15 @@ const STATIC = [
   { file: 'powered-by', path: '/powered-by/', title: 'Powered by PuneRunners, Pune Trekkers and Karawaan | Peak Pune', description: 'The three Pune groups behind Peak Pune runs, treks and trips: PuneRunners Club, Pune Trekkers and Karawaan. What each does and where to join.', crumbs: [['Powered by', '/powered-by/']] },
 ];
 
+// AI and answer-engine crawlers are welcome (owner's decision, 16 Nov 2026), and are named so that is explicit.
+// A crawler that matches a named group ignores the "*" group, so the /backend rule is repeated for them.
+export const AI_CRAWLERS = ['GPTBot', 'OAI-SearchBot', 'ChatGPT-User', 'ClaudeBot', 'Claude-User', 'Claude-SearchBot', 'anthropic-ai', 'PerplexityBot', 'Perplexity-User', 'Google-Extended', 'Applebot-Extended', 'Amazonbot', 'Meta-ExternalAgent', 'CCBot', 'Bytespider', 'cohere-ai', 'MistralAI-User', 'DuckAssistBot'];
+export const SEARCH_CRAWLERS = ['DuckDuckBot'];
+export function robotsTxt() {
+  const group = (comment, agents) => `# ${comment}\n${agents.map((a) => `User-agent: ${a}`).join('\n')}\nAllow: /\nDisallow: /backend\n`;
+  return `User-agent: *\nAllow: /\nDisallow: /backend\n\n${group('AI assistants, AI search and AI training crawlers: allowed', AI_CRAWLERS)}\n${group('Search engines named explicitly', SEARCH_CRAWLERS)}${INDEXING ? `\nSitemap: ${SITE_URL}/sitemap.xml\n` : ''}`;
+}
+
 export function build({ outDir = join(root, 'public'), log = () => {}, dryRun = false, onPage = /** @type {(path: string, html: string) => void} */ (() => {}) } = {}) {
   const rows = publishRows(JSON.parse(read('data/batch-1-places/places.json'))).filter((r) => r.scope === 'CORE');
   const outdoors = publishRows(JSON.parse(read('data/batch-2-outdoors/outdoors.json')));
@@ -420,7 +429,7 @@ export function build({ outDir = join(root, 'public'), log = () => {}, dryRun = 
   out('/404.html', page({ path: '/404.html', title: 'Page not found | Peak Pune', description: 'This page is closed 1 to 4, or possibly forever.', main: '<div class="hero hero-single"><div><div class="eyebrow">404</div><h1>Closed. Not just 1 to 4.</h1><p>This page does not exist. The rest of Pune does.</p><p class="actions"><a class="primary" href="/">Back to Explore</a> <a class="chip" href="/places/">Browse places</a></p></div></div>' }).replace(`content="${ROBOTS}"`, 'content="noindex"'));
   if (!dryRun) {
   writeFileSync(join(outDir, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map(([p, d]) => `<url><loc>${esc(SITE_URL + p)}</loc>${d ? `<lastmod>${d}</lastmod>` : ''}</url>`).join('\n')}\n</urlset>\n`);
-  writeFileSync(join(outDir, 'robots.txt'), `User-agent: *\nAllow: /\nDisallow: /backend\n${INDEXING ? `\nSitemap: ${SITE_URL}/sitemap.xml\n` : ''}`);
+  writeFileSync(join(outDir, 'robots.txt'), robotsTxt());
 
   writeFileSync(join(outDir, 'site.webmanifest'), JSON.stringify({ name: 'Peak Pune', short_name: 'Peak Pune', start_url: '.', display: 'standalone', background_color: '#F6EFE2', theme_color: '#F6EFE2', icons: [{ src: 'icon.svg', sizes: 'any', type: 'image/svg+xml' }] }));
   writeFileSync(join(outDir, 'icon.svg'), mark.replace('<svg class="mark"', '<svg xmlns="http://www.w3.org/2000/svg"').replace(' aria-hidden="true"', ''));
