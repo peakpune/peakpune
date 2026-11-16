@@ -34,9 +34,17 @@ const known = (v) => v && v !== 'UNKNOWN';
 export const slugOf = (row) => row.id.replace(/^place-/, '');
 const clip = (s, n) => (s.length <= n ? s : s.slice(0, n - 1).replace(/\s+\S*$/, '') + '…');
 
-const NAV_MAIN = [['/places/', 'Places'], ['/outdoors/', 'Outdoors'], ['/events/', 'Events'], ['/PuneMetroguide/', 'Metro']];
-const NAV_MORE = [['/', 'Home'], ['/interests/', 'Interests'], ['/map/', 'Map'], ['/meetups/', 'Meetups'], ['/history/', 'History'], ['/markets/', 'Markets'], ['/about/', 'About']];
-const NAV = [...NAV_MAIN, ...NAV_MORE];
+const NAV_GROUPS = [
+  ['Explore', [['/places/', 'Places', 'Source-checked places across Pune'], ['/interests/', 'Interests', 'Browse by what you like'], ['/markets/', 'Markets', 'Markets and famous shops'], ['/history/', 'History', 'Sourced history of Pune places']]],
+  ['Outdoors and travel', [['/outdoors/', 'Runs and treks', 'Running loops and treks near Pune'], ['/PuneMetroguide/', 'Metro guide', 'Lines, stations and places nearby']]],
+  ['Community', [['/meetups/', 'Meetups', 'Groups that organise; we link to them'], ['/about/', 'About Peak Pune', 'How listings are checked']]],
+];
+const MENU_GROUPS = [
+  ['Plan', [['/events/', 'Events'], ['/meetups/', 'Meetups']]],
+  ['Explore', [['/places/', 'Places'], ['/interests/', 'Interests'], ['/markets/', 'Markets'], ['/history/', 'History']]],
+  ['Outdoors and travel', [['/outdoors/', 'Runs and treks'], ['/PuneMetroguide/', 'Metro guide']]],
+  ['About', [['/about/', 'About Peak Pune'], ['/', 'Home']]],
+];
 const TYPE_LABEL = { museum: 'Museums', heritage: 'Heritage and history', temple: 'Temples', bookstore: 'Bookstores', gallery: 'Galleries', 'cultural-centre': 'Cultural centres', archive: 'Archives', cafe: 'Cafes', restaurant: 'Restaurants', bar: 'Bars and brewpubs', sweets: 'Sweets and snacks', park: 'Parks and gardens', zoo: 'Zoo' };
 const TYPE_SINGULAR = { museum: 'Museum', heritage: 'Heritage site', temple: 'Temple', bookstore: 'Bookstore', gallery: 'Art gallery', 'cultural-centre': 'Cultural centre', archive: 'Archive', cafe: 'Cafe', restaurant: 'Restaurant', bar: 'Bar and brewpub', sweets: 'Sweet shop', park: 'Park', zoo: 'Zoo' };
 const SCHEMA_TYPE = { museum: 'Museum', heritage: 'LandmarksOrHistoricalBuildings', temple: 'HinduTemple', bookstore: 'BookStore', gallery: 'ArtGallery', 'cultural-centre': 'Place', archive: 'ArchiveOrganization', cafe: 'CafeOrCoffeeShop', restaurant: 'Restaurant', bar: 'BarOrPub', sweets: 'FoodEstablishment', park: 'Park', zoo: 'Zoo' };
@@ -60,7 +68,12 @@ export function page({ path, title, description, main, ld = [], current = path, 
   const graph = [org, ...ld];
   if (crumbs.length) graph.push({ '@type': 'BreadcrumbList', itemListElement: [['Peak Pune', '/'], ...crumbs].map(([name, p], i) => ({ '@type': 'ListItem', position: i + 1, name, item: SITE_URL + p })) });
   const link = ([href, label]) => `<a href="${href}"${href === current ? ' aria-current="page"' : ''}>${label}</a>`;
-  const nav = NAV_MAIN.map(link).join('') + `<details class="more"${NAV_MORE.some(([h]) => h === current) ? ' data-current' : ''}><summary>More</summary><div>${NAV_MORE.map(link).join('')}</div></details>`;
+  const cur = (h) => (h === current ? ' aria-current="page"' : '');
+  const hint = ([href, label, note]) => `<a href="${href}"${cur(href)}>${label}<small>${note}</small></a>`;
+  const grp = ([name, items]) => `<details class="grp"${items.some(([h]) => h === current) ? ' data-current' : ''}><summary>${name}</summary><div>${items.map(hint).join('')}</div></details>`;
+  const nav = link(['/events/', 'Events']) + `<a class="map" href="/map/"${cur('/map/')}>Map</a>` + NAV_GROUPS.map(grp).join('');
+  const mlink = ([href, label]) => `<a href="${href}"${cur(href)}>${label}</a>`;
+  const mnav = `<a class="map" href="/map/"${cur('/map/')}>Map of Pune</a>` + MENU_GROUPS.map(([h, items]) => `<h2>${h}</h2><div class="two">${items.map(mlink).join('')}</div>`).join('');
   const trail = crumbs.length ? `<nav class="crumbs" aria-label="Breadcrumb"><a href="/">Peak Pune</a>${crumbs.map(([n, p], i) => (i === crumbs.length - 1 ? `<span aria-current="page">${esc(n)}</span>` : `<a href="${p}">${esc(n)}</a>`)).join('')}</nav>` : '';
   return `<!doctype html>
 <html lang="en-IN">
@@ -97,7 +110,7 @@ ${jsonLd({ '@context': 'https://schema.org', '@graph': graph })}
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<header class="site-header"><div class="wrap bar"><a class="wordmark" href="/" aria-label="Peak Pune home">${mark}Peak <span>Pune</span></a><nav aria-label="Main navigation">${nav}</nav><details class="join"><summary>Join</summary><div><a href="https://chat.whatsapp.com/BVTlwmhkqGU4WKzCsZFG95?s=cl&amp;p=i&amp;iam=2" target="_blank" rel="noopener noreferrer"><b>WhatsApp group</b><small>Chat with people</small></a><a href="https://whatsapp.com/channel/0029VbE00gNEVccC06aRUK2e" target="_blank" rel="noopener noreferrer"><b>WhatsApp channel</b><small>Updates only, no chatting</small></a><a href="https://www.reddit.com/r/punetonight/" target="_blank" rel="noopener noreferrer"><b>Reddit: r/punetonight</b><small>Discussions and plans</small></a></div></details></div></header>
+<header class="site-header"><div class="wrap bar"><a class="wordmark" href="/" aria-label="Peak Pune home">${mark}Peak <span>Pune</span></a><div class="nav-d"><nav aria-label="Main navigation">${nav}</nav></div><details class="join"><summary>Join</summary><div><a href="https://chat.whatsapp.com/BVTlwmhkqGU4WKzCsZFG95?s=cl&amp;p=i&amp;iam=2" target="_blank" rel="noopener noreferrer"><b>WhatsApp group</b><small>Chat with people</small></a><a href="https://whatsapp.com/channel/0029VbE00gNEVccC06aRUK2e" target="_blank" rel="noopener noreferrer"><b>WhatsApp channel</b><small>Updates only, no chatting</small></a><a href="https://www.reddit.com/r/punetonight/" target="_blank" rel="noopener noreferrer"><b>Reddit: r/punetonight</b><small>Discussions and plans</small></a></div></details><details class="menu"><summary>Menu</summary><nav class="nav-m" aria-label="Menu">${mnav}</nav></details></div></header>
 <main id="main" class="wrap">
 ${trail}${main}
 ${cta}
