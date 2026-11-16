@@ -22,7 +22,7 @@ export async function collectFeed({ fetcher = fetch, now = new Date() } = {}) {
       const parsed = parseDistrictPune(await readSource(s.url, fetcher));
       const rows = normalizePuneEvents(parsed.filter((e) => !restricted(e)), { today }).filter((e) => e.links.every((l) => new URL(l.url).hostname === 'www.district.in'));
       return { rows, status: { source: s.id, url: s.url, state: 'ok', count: rows.length, checkedAt } };
-    } catch { return { rows: [], status: { source: s.id, url: s.url, state: 'unavailable', count: 0, checkedAt } }; }
+    } catch (e) { return { rows: [], status: { source: s.id, url: s.url, state: 'unavailable', reason: String(e?.message || e?.name || 'error').replace(/[^A-Za-z0-9 :._-]/g, '').slice(0, 60), count: 0, checkedAt } }; }
   }));
   const status = results.map((r) => r.status);
   const events = normalizePuneEvents(results.flatMap((r) => r.rows), { today }).map((e) => ({ ...e, checkedAt, verification: 'platform-listed; organiser details not independently confirmed' }));
@@ -36,7 +36,12 @@ export async function feedResponse(request, { cache, fetcher, now } = {}) {
   if (hit) return hit;
   const feed = await collectFeed({ fetcher, now });
   // Nothing readable: never cache and never show an empty list as if it were fresh.
-  if (feed.allDown || !feed.events.length) return new Response(JSON.stringify({ error: 'sources unavailable' }), { status: 503, headers: { ...H, 'cache-control': 'no-store' } });
+  // Remember the failure for 10 minutes so a blocked or down source is not retried on every visit.
+  if (feed.allDown || !feed.events.length) {
+    const fail = new Response(JSON.stringify({ error: 'sources unavailable', status: feed.status.map(({ source, state, reason }) => ({ source, state, reason })) }), { status: 503, headers: { ...H, 'cache-control': `public, max-age=${TTL_PARTIAL}, s-maxage=${TTL_PARTIAL}` } });
+    if (cache) await cache.put(key, fail.clone());
+    return fail;
+  }
   const { allDown, ...body } = feed;
   const ttl = feed.partial ? TTL_PARTIAL : TTL_OK;
   if (feed.partial) body.expiresAt = new Date(+new Date(feed.fetchedAt) + TTL_PARTIAL * 1000).toISOString();
