@@ -87,3 +87,22 @@ test('robots.txt allows AI crawlers and DuckDuckBot by name and still keeps /bac
   for (const g of groups) { assert.match(g, /^Allow: \/$/m); assert.match(g, /^Disallow: \/backend$/m); assert.ok(!/^Disallow: \/$/m.test(g), 'nothing is blocked site-wide'); }
   assert.match(robots, /^Sitemap: https:\/\/peakpune\.com\/sitemap\.xml$/m);
 });
+
+test('places and outdoors hubs: question headings, and every FAQ answer is visible word for word', () => {
+  for (const [file, heading] of [['public/places/index.html', 'Which part of Pune are you in?'], ['public/outdoors/index.html', 'Where can I run in Pune?']]) {
+    const html = read(file);
+    const text = html.replace(/&#39;/g, "'").replace(/&amp;/g, '&');
+    assert.ok(text.includes(`<h2>${heading}</h2>`), heading);
+    const faq = graph(html).find((n) => n['@type'] === 'FAQPage');
+    assert.ok(faq.mainEntity.length >= 5, file);
+    for (const q of faq.mainEntity) {
+      assert.ok(q.name.endsWith('?'));
+      assert.ok(text.includes(`<h3>${q.name}</h3>`), q.name);
+      assert.ok(text.includes(q.acceptedAnswer.text), q.name);
+    }
+    assert.ok(graph(html).some((n) => n['@type'] === 'ItemList'), 'the list markup is still there');
+  }
+  const out = read('public/outdoors/index.html');
+  assert.match(out, /id="runs"/); assert.match(out, /id="treks"/);
+  assert.match(out, /Peak Pune does not organise runs, treks or trips/);
+});

@@ -155,9 +155,10 @@ function placesIndex(rows) {
   return `<div class="hero hero-single"><div><div class="eyebrow">Explore Pune</div><h1>Places in Pune,<br>checked at the source.</h1>
 <p class="lede">${rows.length} museums, bookstores, cafes, restaurants, temples and heritage spots across Pune. Addresses, timings and prices are copied from each venue's own page, with the date we checked.</p></div></div>
 <nav class="chips jump" aria-label="Jump to a category">${groups.map(([t]) => `<a class="chip" href="#${t}">${TYPE_LABEL[t]}</a>`).join('')}</nav>
-<section class="section"><div class="section-head"><h2>Browse by area</h2></div><nav class="chips" aria-label="Areas">${areasOf(rows).map(([a, x]) => `<a class="chip" href="/places/in/${AREA_SLUG(a)}/">${esc(a)} (${x.length})</a>`).join('')}</nav></section>
+<section class="section"><div class="section-head"><h2>Which part of Pune are you in?</h2></div><nav class="chips" aria-label="Areas">${areasOf(rows).map(([a, x]) => `<a class="chip" href="/places/in/${AREA_SLUG(a)}/">${esc(a)} (${x.length})</a>`).join('')}</nav></section>
 ${groups.map(([t, rs]) => `<section class="section" id="${t}"><div class="section-head"><h2>${TYPE_LABEL[t]} in Pune</h2></div><div class="grid">${rs.map(card).join('')}</div></section>`).join('\n')}
-<p class="note">Not a ranking. Listed places are the ones whose details we could confirm on an official page. Missing your favourite? It is probably waiting on a source.</p>`;
+<p class="note">Not a ranking. Listed places are the ones whose details we could confirm on an official page. Missing your favourite? It is probably waiting on a source.</p>
+${faqSection(placesFaq(rows), 'Questions about places in Pune')}`;
 }
 
 
@@ -206,8 +207,9 @@ function outdoorsIndex(rows) {
 <p class="lede">${runs.length} mapped running loops inside the city and ${treks.length} treks and day trips in the Sahyadri, each with its distance from Pune and a link to the people who know the trail.</p></div>
 <div class="sign">5:30 AM.<br>Tekdi.<br>No excuses.<small>ROUTES BY PUNERUNNERS · GUIDES BY PUNE TREKKERS</small></div></div>
 <nav class="chips" aria-label="Collections">${COLLECTIONS.filter((c) => rows.filter(c.test).length >= 2).map((c) => `<a class="chip" href="/outdoors/${c.slug}/">${esc(c.h1)}</a>`).join('')}</nav>
-<section class="section" id="runs"><div class="section-head"><h2>Running loops in Pune</h2><p>Plotted by PuneRunners Club on OpenStreetMap data. Mapped, not run-tested: footpaths, traffic and lighting are unchecked.</p></div><div class="grid">${runs.map(outdoorCard).join('')}</div></section>
-<section class="section" id="treks"><div class="section-head"><h2>Treks and day trips near Pune</h2><p>Nearest first. Distances and drive times are from Pune Trekkers' volunteer-written guides.</p></div><div class="grid">${treks.map(outdoorCard).join('')}</div></section>`;
+<section class="section" id="runs"><div class="section-head"><h2>Where can I run in Pune?</h2><p>Plotted by PuneRunners Club on OpenStreetMap data. Mapped, not run-tested: footpaths, traffic and lighting are unchecked.</p></div><div class="grid">${runs.map(outdoorCard).join('')}</div></section>
+<section class="section" id="treks"><div class="section-head"><h2>Which treks and day trips are near Pune?</h2><p>Nearest first. Distances and drive times are from Pune Trekkers' volunteer-written guides.</p></div><div class="grid">${treks.map(outdoorCard).join('')}</div></section>
+${faqSection(outdoorsFaq(runs, treks), 'Questions about runs and treks')}`;
 }
 // Questions people ask, answered from the data on this site. The same text feeds the visible section and the FAQPage markup.
 export function homeFaq(places, runs, treks) {
@@ -223,7 +225,37 @@ export function homeFaq(places, runs, treks) {
     ['How do I plan a Pune Metro journey?', 'The Pune Metro guide has a journey planner that tells you which line to take, where to change and the ticket fare. It works offline after one visit.', '/PuneMetroguide/', 'Pune Metro guide'],
   ];
 }
-const faqSection = (faq) => `<section class="section faq" id="quick-answers"><div class="section-head"><h2>Quick answers about Pune</h2></div><div class="faq-list">${faq.map(([q, a, href, label]) => `<div class="faq-item"><h3>${esc(q)}</h3><p>${esc(a)} <a href="${href}">${esc(label)}</a></p></div>`).join('')}</div></section>`;
+const faqSection = (faq, heading = 'Quick answers about Pune') => `<section class="section faq" id="quick-answers"><div class="section-head"><h2>${esc(heading)}</h2></div><div class="faq-list">${faq.map(([q, a, href, label]) => `<div class="faq-item"><h3>${esc(q)}</h3><p>${esc(a)}${href ? ` <a href="${href}">${esc(label)}</a>` : ''}</p></div>`).join('')}</div></section>`;
+const list = (xs) => (xs.length > 1 ? `${xs.slice(0, -1).join(', ')} and ${xs.at(-1)}` : xs[0] || '');
+// Places hub: every number and name below is read from the published rows.
+export function placesFaq(rows) {
+  const counts = Object.keys(TYPE_LABEL).map((t) => { const n = rows.filter((r) => r.type === t).length; return [(n === 1 && TYPE_SINGULAR[t] ? TYPE_SINGULAR[t] : TYPE_LABEL[t]).toLowerCase(), n]; }).filter(([, n]) => n).sort((a, b) => b[1] - a[1]);
+  const all = areasOf(rows);
+  const areas = all.filter(([, rs]) => rs.length === all[0][1].length);
+  const date = rows.map((r) => r.checked_at).sort().at(-1);
+  return [
+    ['How many places in Pune does Peak Pune list?', `${rows.length} places: ${list(counts.map(([t, n]) => `${n} ${t}`))}. Each has its own page with the address and, where the venue states them, timings and entry fees.`],
+    ['Which areas of Pune have the most listed places?', `${list(areas.map(([a, rs]) => `${a} (${rs.length})`))} have the most listings so far. Each area has its own page.`],
+    ['Are the timings and entry fees up to date?', `They are copied from each venue's own page, and every listing shows the date it was checked (most recently ${date}). A listing checked more than 30 days ago carries a warning. Confirm with the venue before you visit.`],
+    ['Is entry free when no price is shown?', 'No. A price appears only when the venue states one. When the venue does not state a fee, the page leaves it out and never shows it as free.'],
+    ['Is this a ranking of the best places in Pune?', 'No. It is not a ranking. A place is listed when its details could be confirmed on an official page, so a well-known place may be missing because it is still waiting on a source.'],
+  ];
+}
+// Outdoors hub: answers come from the route and trek rows; nothing here is a recommendation from experience.
+export function outdoorsFaq(runs, treks) {
+  const byKm = runs.filter((r) => typeof r.distance_km === 'number').sort((a, b) => a.distance_km - b.distance_km);
+  const near = treks.filter((t) => t.distance_from_pune_km).sort((a, b) => a.distance_from_pune_km - b.distance_from_pune_km).slice(0, 3);
+  const easy = treks.filter((t) => t.difficulty === 'Easy');
+  const faq = [
+    ['Where can I run in Pune?', `Peak Pune lists ${runs.length} mapped city loops plotted by PuneRunners Club: ${list(runs.map((r) => r.name))}.`],
+  ];
+  if (byKm.length > 1) faq.push(['Which are the shortest and longest running loops?', `The shortest is the ${byKm[0].name} at ${byKm[0].distance_km} km and the longest is the ${byKm.at(-1).name} at ${byKm.at(-1).distance_km} km.`]);
+  if (near.length) faq.push(['Which treks are closest to Pune?', `The nearest listed are ${list(near.map((t) => `${t.name} (${t.distance_from_pune_km} km)`))}. Distances are from the linked source.`]);
+  if (easy.length) faq.push(['Which treks near Pune are rated easy?', `${easy.length} of the ${treks.length} listed treks and day trips are rated Easy by their source: ${list(easy.map((t) => t.name))}. Ratings are the source's, and trails are harder in rain.`]);
+  faq.push(['Does Peak Pune organise runs or treks?', 'No. Peak Pune does not organise runs, treks or trips. Running loops come from PuneRunners Club and trek guides from Pune Trekkers; join through their own sites.', '/powered-by/', 'Who organises what']);
+  faq.push(['Have these routes been checked on the ground?', 'No. Running loops are mapped, not run-tested: footpaths, traffic and lighting are unchecked. Trek details are as published by the source on the date shown. Conditions change, so read the guide and go with company.']);
+  return faq;
+}
 export const faqLd = (faq) => ({ '@type': 'FAQPage', mainEntity: faq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) });
 function homeMain(places, outdoors) {
   const pick = (ids) => ids.map((id) => places.find((r) => r.id === id)).filter(Boolean);
@@ -357,7 +389,7 @@ export function build({ outDir = join(root, 'public'), log = () => {}, dryRun = 
   }
   const placesDir = join(outDir, 'places');
   if (!dryRun && existsSync(placesDir)) rmSync(placesDir, { recursive: true });
-  out('/places/', page({ path: '/places/', title: 'Places to visit in Pune: museums, bookstores, cafes and heritage | Peak Pune', description: `${rows.length} places in Pune with addresses, timings and entry fees checked on the venue's own page: museums, bookstores, cafes, restaurants, temples and heritage sites.`, main: placesIndex(rows), crumbs: [['Places', '/places/']], ld: [{ '@type': 'ItemList', name: 'Places in Pune', numberOfItems: rows.length, itemListElement: rows.map((r, i) => ({ '@type': 'ListItem', position: i + 1, name: r.name, url: `${SITE_URL}/places/${slugOf(r)}/` })) }] }));
+  out('/places/', page({ path: '/places/', title: 'Places to visit in Pune: museums, bookstores, cafes and heritage | Peak Pune', description: `${rows.length} places in Pune with addresses, timings and entry fees checked on the venue's own page: museums, bookstores, cafes, restaurants, temples and heritage sites.`, main: placesIndex(rows), crumbs: [['Places', '/places/']], ld: [faqLd(placesFaq(rows)), { '@type': 'ItemList', name: 'Places in Pune', numberOfItems: rows.length, itemListElement: rows.map((r, i) => ({ '@type': 'ListItem', position: i + 1, name: r.name, url: `${SITE_URL}/places/${slugOf(r)}/` })) }] }));
   urls.push(['/places/', rows[0]?.checked_at]);
   for (const r of rows) {
     const path = `/places/${slugOf(r)}/`;
@@ -382,7 +414,7 @@ export function build({ outDir = join(root, 'public'), log = () => {}, dryRun = 
   }
   const outDir2 = join(outDir, 'outdoors');
   if (!dryRun && existsSync(outDir2)) rmSync(outDir2, { recursive: true });
-  out('/outdoors/', page({ path: '/outdoors/', title: 'Running routes in Pune and treks near Pune, with distances | Peak Pune', description: `${outdoors.filter((r) => !isTrek(r)).length} running loops inside Pune and ${outdoors.filter(isTrek).length} treks and day trips nearby, with distance from Pune, drive time and difficulty from PuneRunners and Pune Trekkers.`, main: outdoorsIndex(outdoors), crumbs: [['Outdoors', '/outdoors/']], ld: [{ '@type': 'ItemList', name: 'Runs and treks in and near Pune', numberOfItems: outdoors.length, itemListElement: outdoors.map((r, i) => ({ '@type': 'ListItem', position: i + 1, name: r.name, url: `${SITE_URL}/outdoors/${slugOut(r)}/` })) }] }));
+  out('/outdoors/', page({ path: '/outdoors/', title: 'Running routes in Pune and treks near Pune, with distances | Peak Pune', description: `${outdoors.filter((r) => !isTrek(r)).length} running loops inside Pune and ${outdoors.filter(isTrek).length} treks and day trips nearby, with distance from Pune, drive time and difficulty from PuneRunners and Pune Trekkers.`, main: outdoorsIndex(outdoors), crumbs: [['Outdoors', '/outdoors/']], ld: [faqLd(outdoorsFaq(outdoors.filter((r) => !isTrek(r)), outdoors.filter(isTrek))), { '@type': 'ItemList', name: 'Runs and treks in and near Pune', numberOfItems: outdoors.length, itemListElement: outdoors.map((r, i) => ({ '@type': 'ListItem', position: i + 1, name: r.name, url: `${SITE_URL}/outdoors/${slugOut(r)}/` })) }] }));
   urls.push(['/outdoors/', outdoors[0]?.checked_at]);
   for (const r of outdoors) {
     const path = `/outdoors/${slugOut(r)}/`;
