@@ -15,7 +15,7 @@ const hash = (buf) => createHash('sha256').update(buf).digest('hex').slice(0, 10
 
 export const longDate = (iso) => new Date(iso + 'T00:00:00+05:30').toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'Asia/Kolkata' });
 
-export function renderGuideMain({ data, model, areas, esc }) {
+export function renderGuideMain({ data, model, areas, esc, nearby = '' }) {
   const verified = data.verified_on;
   const ext = (href, label) => `<a class="ext" href="${esc(href)}" rel="noopener">${esc(label)}<span class="net" title="Needs an internet connection">needs internet</span></a>`;
   const name = Object.fromEntries(model.stations.map((s) => [s.id, s.names[0]]));
@@ -93,7 +93,7 @@ export function renderGuideMain({ data, model, areas, esc }) {
 
   return `<div class="metro">
 <div class="hero hero-single"><div><div class="eyebrow">Pune Metro guide</div><h1>Pune Metro, simply.</h1>
-<p class="lede">Which line, where to change and what it costs. Works offline after one visit.</p>
+<p class="lede">Which line, where to change, what it costs and what is near each station. The journey planner works offline after one visit.</p>
 <p class="verified"><span>Checked on</span> <time datetime="${esc(verified)}">${esc(longDate(verified))}</time></p>
 <div class="status-bar"><div class="banner" id="metro-update" hidden role="status"><p>A new version of this guide is ready.</p><button class="chip" type="button">Tap to refresh</button></div>
 <p class="offline-note" id="metro-offline-ready" hidden>Saved for offline use. Links marked <span class="net">needs internet</span> need a connection.</p>
@@ -103,6 +103,7 @@ export function renderGuideMain({ data, model, areas, esc }) {
 <section class="section" id="planner"><div class="section-head"><h2>Plan a journey</h2></div>
 <div id="metro-planner" class="planner" data-verified-on="${esc(verified)}"></div>
 <div id="metro-planner-fallback" class="fallback"><h3>Use the official fare chart</h3><p>The planner needs JavaScript and has not started. The fare tables below work without it, or use the operators' own charts: ${fallbackLinks}.</p></div></section>
+${nearby}
 
 <div class="guide"><h2 class="sr-only">Guide</h2>
 
@@ -178,7 +179,7 @@ export function buildMetroGuide({ ctx }) {
   files[cssName] = css; files[jsName] = js;
   let plannerName = null;
   if (existsSync(join(root, PLANNER_BUNDLE))) { const b = readFileSync(join(root, PLANNER_BUNDLE)); plannerName = `planner.${hash(b)}.js`; files[plannerName] = b; }
-  const main = renderGuideMain({ data, model, areas, esc });
+  const main = renderGuideMain({ data, model, areas, esc, nearby: ctx.nearby });
   const title = 'Pune Metro guide and journey planner: lines, stations, fares, timings | Peak Pune';
   const description = `Pune Metro lines, stations, tickets, fares and timings with an offline journey planner, last verified ${longDate(data.verified_on)}. Timetable information only, no live trains.`;
   let html = page({ path: GUIDE_PATH, title, description, main, crumbs: [['Pune Metro guide', GUIDE_PATH]], ld: [{ '@type': 'WebPage', '@id': SITE_URL + GUIDE_PATH, url: SITE_URL + GUIDE_PATH, name: title, description, dateModified: data.verified_on, inLanguage: 'en-IN', isPartOf: { '@id': `${SITE_URL}/#site` } }] });

@@ -34,7 +34,7 @@ const known = (v) => v && v !== 'UNKNOWN';
 export const slugOf = (row) => row.id.replace(/^place-/, '');
 const clip = (s, n) => (s.length <= n ? s : s.slice(0, n - 1).replace(/\s+\S*$/, '') + '…');
 
-const NAV = [['/', 'Explore'], ['/places/', 'Places'], ['/history/', 'History'], ['/markets/', 'Markets'], ['/outdoors/', 'Outdoors'], ['/interests/', 'Interests'], ['/events/', 'Events'], ['/meetups/', 'Meetups'], ['/stops/', 'Stops'], ['/PuneMetroguide/', 'Metro'], ['/about/', 'About']];
+const NAV = [['/', 'Explore'], ['/places/', 'Places'], ['/history/', 'History'], ['/markets/', 'Markets'], ['/outdoors/', 'Outdoors'], ['/interests/', 'Interests'], ['/events/', 'Events'], ['/meetups/', 'Meetups'], ['/PuneMetroguide/', 'Metro'], ['/about/', 'About']];
 const TYPE_LABEL = { museum: 'Museums', heritage: 'Heritage and history', temple: 'Temples', bookstore: 'Bookstores', gallery: 'Galleries', 'cultural-centre': 'Cultural centres', archive: 'Archives', cafe: 'Cafes', restaurant: 'Restaurants', bar: 'Bars and brewpubs', sweets: 'Sweets and snacks', park: 'Parks and gardens', zoo: 'Zoo' };
 const TYPE_SINGULAR = { museum: 'Museum', heritage: 'Heritage site', temple: 'Temple', bookstore: 'Bookstore', gallery: 'Art gallery', 'cultural-centre': 'Cultural centre', archive: 'Archive', cafe: 'Cafe', restaurant: 'Restaurant', bar: 'Bar and brewpub', sweets: 'Sweet shop', park: 'Park', zoo: 'Zoo' };
 const SCHEMA_TYPE = { museum: 'Museum', heritage: 'LandmarksOrHistoricalBuildings', temple: 'HinduTemple', bookstore: 'BookStore', gallery: 'ArtGallery', 'cultural-centre': 'Place', archive: 'ArchiveOrganization', cafe: 'CafeOrCoffeeShop', restaurant: 'Restaurant', bar: 'BarOrPub', sweets: 'FoodEstablishment', park: 'Park', zoo: 'Zoo' };
@@ -442,8 +442,7 @@ export function build({ outDir = join(root, 'public'), log = () => {}, dryRun = 
   const hrefOf = (r) => safeUrl(r.url_deep) || safeUrl(r.url_official) || safeUrl(r.join_url) || '/events/';
   const listings = [...events, ...meetupRows].map((r) => ({ name: r.name, neighbourhood: r.neighbourhood, href: hrefOf(r) }));
   const stops = buildStops({ root, esc, places: rows, listings, TYPE_SINGULAR, slugOf });
-  out(STOPS_PATH, page({ path: STOPS_PATH, title: 'Pune Metro stops: checked places near each station | Peak Pune', description: `Pick a Pune Metro station and see the checked places within 1.5 km, nearest first. ${stops.count} stations have one. Straight-line distances, not walking times; check the operators for which stations are open.`, crumbs: [['Metro stops', STOPS_PATH]], main: stops.main, ld: [{ '@type': 'WebPage', '@id': SITE_URL + STOPS_PATH, url: SITE_URL + STOPS_PATH, name: 'Pune Metro stops', isPartOf: { '@id': `${SITE_URL}/#site` } }] }));
-  urls.push([STOPS_PATH, rows[0]?.checked_at]);
+  out(STOPS_PATH, `<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Pune Metro stops moved | Peak Pune</title><meta name="robots" content="noindex"><link rel="canonical" href="${SITE_URL}${GUIDE_PATH}#near-stations"><meta http-equiv="refresh" content="0; url=${GUIDE_PATH}#near-stations"></head><body><p>Places near each Metro station are now part of the <a href="${GUIDE_PATH}#near-stations">Pune Metro guide</a>.</p></body></html>`);
   const interests = buildInterests({ esc, groups: [
     { label: 'Place', rows, href: (r) => `/places/${slugOf(r)}/` },
     { label: 'Run or trek', labelOf: (r) => (isTrek(r) ? 'Trek' : 'Run'), rows: outdoors, href: (r) => `/outdoors/${slugOut(r)}/` },
@@ -454,7 +453,7 @@ export function build({ outDir = join(root, 'public'), log = () => {}, dryRun = 
   urls.push([INTERESTS_PATH, rows[0]?.checked_at]);
   // Pune Metro guide: an Astro route like the rest. Its hashed assets and service worker are written beside it
   // (and reach dist through Astro's publicDir); they are skipped in dryRun, which only enumerates routes.
-  const metro = buildMetroGuide({ ctx: { esc, page, assetUrl, BASE, SITE_URL } });
+  const metro = buildMetroGuide({ ctx: { esc, page, assetUrl, BASE, SITE_URL, nearby: stops.section } });
   if (!dryRun) writeMetroAssets(join(outDir, 'PuneMetroguide'), metro.files);
   out(GUIDE_PATH, metro.html);
   urls.push([GUIDE_PATH, metro.verifiedOn]);
