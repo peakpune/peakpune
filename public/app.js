@@ -25,6 +25,6 @@ document.querySelectorAll('.stale[data-checked]').forEach((el) => {
 // On small screens the main navigation scrolls sideways: bring the current page's link into view.
 document.querySelector('.site-header nav a[aria-current=page]')?.scrollIntoView({ block: 'nearest', inline: 'center' });
 
-// Close the More menu when you tap elsewhere or press Escape.
-document.addEventListener('click', (e) => { const m = document.querySelector('.site-header .more[open]'); if (m && !m.contains(e.target)) m.open = false; });
-document.addEventListener('keydown', (e) => { if (e.key === 'Escape') { const m = document.querySelector('.site-header .more[open]'); if (m) { m.open = false; m.querySelector('summary').focus(); } } });
+// Close the More and Join menus when you tap elsewhere or press Escape.
+document.addEventListener('click', (e) => { document.querySelectorAll('.site-header details[open]').forEach((m) => { if (!m.contains(e.target)) m.open = false; }); });
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') document.querySelectorAll('.site-header details[open]').forEach((m) => { m.open = false; m.querySelector('summary').focus(); }); });

@@ -327,3 +327,19 @@ a.category:nth-child(4n+1){color:#fff}a.category:hover{outline:4px solid var(--r
   .site-header nav a,.site-header .more>summary{font-size:15px;padding:0 var(--s2)}
   .site-footer .wrap{grid-template-columns:1fr 1fr}
 }
+
+/* Join menu: WhatsApp group, channel and Reddit, one tap from every page */
+.site-header .join{position:relative}
+.site-header .join>summary{list-style:none;cursor:pointer;min-height:44px;display:inline-flex;align-items:center;padding:0 var(--s4);font-weight:700;border:2px solid var(--ink);border-radius:var(--r-input);background:var(--haldi)}
+.site-header .join>summary::-webkit-details-marker{display:none}
+.site-header .join>div{position:absolute;right:0;top:calc(100% + 4px);z-index:30;min-width:230px;display:grid;background:var(--white);border:2px solid var(--ink);border-radius:var(--r-card);padding:var(--s2);box-shadow:4px 4px 0 var(--ink)}
+.site-header .join>div a{display:flex;align-items:center;min-height:44px;padding:0 var(--s4);font-weight:600}
+@media(max-width:860px){
+  .site-header .bar{display:grid;grid-template-columns:1fr auto;align-items:center;column-gap:var(--s3)}
+  .site-header .bar>nav{grid-column:1/-1;grid-row:2}
+  .site-header .join{grid-column:2;grid-row:1}
+  .site-header .join>summary{min-height:40px}
+}
+.site-header .join>div a{flex-direction:column;align-items:flex-start;justify-content:center;padding-block:var(--s2)}
+.site-header .join>div small{font-size:13px;line-height:18px;font-weight:500;color:var(--ink-soft)}
+.site-header .join>div a,.site-header .more>div a{text-decoration:none}
