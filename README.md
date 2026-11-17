@@ -21,8 +21,7 @@
 
 # Peak Pune
 
-An open-source website for local events, meetups and moments in Pune, with the Puneri
-attitude. It is a small static site: Astro-generated HTML and CSS, with TypeScript validation and a Svelte island for plans.
+PeakPune is an open-source Pune city guide for places to visit, local events, meetups, running routes, treks and Pune Metro journeys. It is a small static site: Astro-generated HTML and CSS, with TypeScript validation and a Svelte island for plans.
 The pages are static, with no build on deploy. Plan posting and the owner's review page run on a small Cloudflare Pages Functions backend (`functions/`).
 
 > **Status: live.** Listings are source-checked, not a promise of current availability.
