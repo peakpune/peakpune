@@ -7,20 +7,20 @@ import { sanitizeImage } from '../../src/image-sanitize.js';
 
 export const IMAGE_MAX_BYTES = 1024 * 1024; // D1 rows are capped at 2 MB
 const MAX_BODY = IMAGE_MAX_BYTES + 64 * 1024;
-const json = (obj, status = 200, extra = {}) => new Response(JSON.stringify(obj), { status, headers: { 'content-type': 'application/json', 'cache-control': 'no-store', ...extra } });
+export const json = (obj, status = 200, extra = {}) => new Response(JSON.stringify(obj), { status, headers: { 'content-type': 'application/json', 'cache-control': 'no-store', ...extra } });
 const todayIST = (now) => new Date(now.getTime() + 5.5 * 3600e3).toISOString().slice(0, 10);
-const hex = (buf) => [...new Uint8Array(buf)].map((x) => x.toString(16).padStart(2, '0')).join('');
-const newId = () => hex(crypto.getRandomValues(new Uint8Array(9)));
+export const hex = (buf) => [...new Uint8Array(buf)].map((x) => x.toString(16).padStart(2, '0')).join('');
+export const newId = () => hex(crypto.getRandomValues(new Uint8Array(9)));
 
-async function ipHash(request, env) {
+export async function ipHash(request, env) {
   const salt = env.HASH_SALT || (await hmac(env.ADMIN_PASSPHRASE, 'ip-salt'));
   const ip = request.headers.get('cf-connecting-ip') || 'unknown';
   return hex(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(salt + '|' + ip))).slice(0, 32);
 }
-const sameOrigin = (request) => { const o = request.headers.get('origin'); return !o || o === new URL(request.url).origin; };
+export const sameOrigin = (request) => { const o = request.headers.get('origin'); return !o || o === new URL(request.url).origin; };
 
 // Count this request against the hourly limit. Returns the limit decision.
-async function rateLimit(env, hash, now) {
+export async function rateLimit(env, hash, now) {
   const hour = Math.floor(now.getTime() / 3600e3);
   await env.DB.prepare('INSERT INTO rate (ip_hash, hour, n) VALUES (?, ?, 1) ON CONFLICT (ip_hash, hour) DO UPDATE SET n = n + 1').bind(hash, hour).run();
   const row = await env.DB.prepare('SELECT n FROM rate WHERE ip_hash = ? AND hour = ?').bind(hash, hour).first();
@@ -37,7 +37,7 @@ export function goingLabel(n) {
 
 // Cap on the actual bytes read from a JSON body. Content-Length can lie or be absent
 // (chunked bodies), so measure what truly arrives instead of trusting the header.
-async function readJsonCapped(request, max) {
+export async function readJsonCapped(request, max) {
   const reader = request.body?.getReader?.();
   if (!reader) return request.json(); // no stream: fall back (test/mocked requests)
   const parts = []; let size = 0;
