@@ -471,6 +471,8 @@ export function build({ outDir = join(root, 'public'), log = () => {}, dryRun = 
   const events = radarEvents(buildNow);
   out('/events/', page({ path: '/events/', title: 'What is on in Pune: a short hand-checked list | Peak Pune', description: 'A short list of things worth leaving the house for in Pune, picked by hand. Every pick links to its source and shows whether the date or registration is confirmed.', crumbs: [['Events', '/events/']], main: read('site/pages/events.html').replace('<!--RADAR-->', radarBoard(buildNow, false)).replace('<!--ORGANISER-EVENTS-->', ''), ld: [{ '@type': 'CollectionPage', '@id': `${SITE_URL}/events/`, url: `${SITE_URL}/events/`, name: 'Events in Pune', isPartOf: { '@id': `${SITE_URL}/#site` } }] }));
   urls.push(['/events/', null]);
+  out('/birthdays/', page({ path: '/birthdays/', title: 'Birthdays in the Peak Pune community: upcoming birthdays and member plans | Peak Pune', description: 'See who in the Peak Pune community has a birthday coming up and what they would enjoy. Celebrations are member plans, made and hosted by members, not organised by Peak Pune.', crumbs: [['Birthdays', '/birthdays/']], main: read('site/pages/birthdays.html'), ld: [{ '@type': 'CollectionPage', '@id': `${SITE_URL}/birthdays/`, url: `${SITE_URL}/birthdays/`, name: 'Birthdays in the Peak Pune community', isPartOf: { '@id': `${SITE_URL}/#site` } }] }));
+  urls.push(['/birthdays/', null]);
   if (!dryRun) {
     const calDir = join(outDir, 'calendar');
     rmSync(calDir, { recursive: true, force: true });
