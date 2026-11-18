@@ -1,0 +1,33 @@
+<div class="hero hero-single"><div><div class="eyebrow">Community</div><h1>Birthdays,<br>planned by members.</h1><p class="lede">See who in the Peak Pune community has a birthday coming up and what they would enjoy, then make it happen together. Celebrations here are member plans: made and hosted by members, not organised by Peak Pune.</p></div></div>
+<section class="section"><div class="section-head"><h2>How it works</h2><p>Three steps between a birthday and a plan.</p></div>
+<div class="grid">
+<article class="card"><div class="inner"><span class="eyebrow">Step 1</span><h3>Add your birthday</h3><p>Real first and last name, WhatsApp number and Instagram handle are required. The owner uses them to check you are in the community and to reach you about your entry. They stay in the private review panel and are never published.</p></div></article>
+<article class="card"><div class="inner"><span class="eyebrow">Step 2</span><h3>Say what you would enjoy</h3><p>Your day and month, your wish and your likes are what the wall shows. Your birth year is never shown, and your age appears on your card only if you tick the box.</p></div></article>
+<article class="card"><div class="inner"><span class="eyebrow">Step 3</span><h3>Members make the plan</h3><p>Tap Plan something, Host it or Join the party on a card. Your name and number go to the owner privately, and he connects you on WhatsApp. Nothing is published, and no counts are shown.</p></div></article>
+</div></section>
+<section class="section"><div class="section-head"><h2>Upcoming birthdays</h2><p>Only approved birthdays appear. Every entry is read by a person first.</p></div>
+<div class="grid" id="birthday-wall" aria-live="polite"></div>
+<p class="note" id="birthday-wall-status" role="status"></p>
+</section>
+<section class="section post-plan" id="add-birthday"><div class="section-head"><h2>Add your birthday</h2><p>Send yours in. A person reads every entry before it shows here, and sending it in does not mean it is approved.</p></div>
+<form class="plan-form" id="birthday-form" method="post" action="#add-birthday" novalidate>
+<label><span>First name</span><input name="first_name" maxlength="40" required autocomplete="given-name"></label>
+<label><span>Last name</span><input name="last_name" maxlength="40" required autocomplete="family-name"></label>
+<label><span>Your name in the WhatsApp community</span><input name="wa_name" maxlength="60" required></label>
+<label><span>WhatsApp number</span><input name="phone" type="tel" maxlength="20" required autocomplete="tel" placeholder="+91 ..."></label>
+<label><span>Instagram handle</span><input name="instagram" maxlength="31" required placeholder="@you"></label>
+<label><span>Birth day</span><input name="dob_day" type="number" min="1" max="31" required placeholder="15"></label>
+<label><span>Birth month</span><input name="dob_month" type="number" min="1" max="12" required placeholder="6"></label>
+<label><span>Birth year</span><input name="dob_year" type="number" min="1926" max="2021" required placeholder="1995"></label>
+<label class="full"><span>What do you want to do for your birthday?</span><textarea name="wish" maxlength="200" rows="2" required placeholder="A morning trek, a small dinner, a game of something..."></textarea></label>
+<label class="full"><span>What do you like?</span><textarea name="likes" maxlength="200" rows="2" required placeholder="Filter coffee, old Hindi music, board games..."></textarea></label>
+<label class="full"><span>Happy to take a call about your birthday plans? Say why someone should ring you <small>(optional)</small></span><textarea name="call_reason" maxlength="200" rows="2"></textarea></label>
+<label class="full" style="display:flex;flex-direction:row;align-items:center;gap:.5rem"><input type="checkbox" name="show_age" style="width:auto;margin:0"> <span>Show my age on my card</span></label>
+<input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
+<p class="note">Your phone number, Instagram handle, full date of birth and WhatsApp community name go only to the owner's private review panel. He uses them to check community membership and to reach you on WhatsApp about your entry. They are never published. Your birth year is never shown, and your age appears only if you tick the box.</p>
+<p class="note">To limit spam, entries are rate-limited, and the site stores a salted hash of your IP address, not the address itself. It is not published.</p>
+<button class="primary" type="submit">Send for review</button>
+<p class="note" id="birthday-form-status" role="status"></p>
+</form>
+<script type="module" src="/birthdays.js"></script>
+</section>
