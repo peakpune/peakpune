@@ -64,17 +64,26 @@ function card(b) {
   return c;
 }
 
+// When the backend cannot store anything (no database on this deployment), the form is
+// disabled and says so, so nobody types personal details into a form that cannot save them.
+function disableForm() {
+  if (!form) return;
+  for (const f of form.querySelectorAll('input, textarea, button')) f.disabled = true;
+  formStatus.textContent = 'Entries are not being accepted yet. Nothing you enter can be sent or saved.';
+}
 async function load() {
   if (!wall) return;
   try {
     const r = await fetch('/api/birthdays');
     if (!r.ok) throw new Error();
-    const { birthdays } = await r.json();
+    const data = await r.json();
+    if (data.accepting === false) disableForm();
+    const { birthdays } = data;
     wall.replaceChildren(...birthdays.map(card));
     wallStatus.textContent = birthdays.length
       ? 'Approved birthdays only. Every entry is read by a person first.'
       : 'No birthdays on the wall yet. Add yours below.';
-  } catch { wallStatus.textContent = 'The birthday wall is unavailable right now.'; }
+  } catch { wallStatus.textContent = 'The birthday wall is unavailable right now.'; disableForm(); }
 }
 
 if (form) form.addEventListener('submit', async (ev) => {
