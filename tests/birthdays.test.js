@@ -42,6 +42,7 @@ const decide = async (env, id, action) => bapi.adminDecideBirthday(post('/api/ad
 test('submission is stored pending and is NOT public until approved', async () => {
   const env = mkEnv();
   const r = await submit(env); assert.equal(r.status, 200);
+  assert.equal((await r.json()).saved, true);
   assert.deepEqual(await list(env), []);
   const [b] = await adminList(env); assert.equal(b.name, 'Vihaan Deshpande'); assert.equal(b.status, 'pending');
 });
@@ -74,7 +75,8 @@ test('age appears only when the person opted in', async () => {
 
 test('honeypot and too-fast submits get fake success, nothing stored', async () => {
   const env = mkEnv();
-  assert.equal((await submit(env, { ...BDAY, website: 'http://spam' })).status, 200);
+  const bot = await submit(env, { ...BDAY, website: 'http://spam' });
+  assert.equal(bot.status, 200); assert.notEqual((await bot.json()).saved, true);
   assert.equal((await submit(env, { ...BDAY, t: String(NOW.getTime() - 500) })).status, 200);
   assert.deepEqual(await adminList(env), []);
 });
