@@ -70,14 +70,14 @@ export async function submitBirthday(request, env, now = new Date()) {
 }
 
 export async function listBirthdays(request, env, now = new Date()) {
-  if (!env.DB) return json({ birthdays: [] });
+  if (!env.DB) return json({ birthdays: [], accepting: false });
   let rows;
   try {
     rows = (await env.DB.prepare("SELECT id, first_name, last_name, dob_day, dob_month, dob_year, show_age, wish, likes FROM birthdays WHERE status = 'approved' LIMIT 200").all()).results;
   } catch { return json({ error: 'birthdays are not available yet' }, 503); } // table not migrated yet
   const cards = rows.map((r) => publicCard(r, now)).sort((a, b) => a._days - b._days);
   for (const c of cards) delete c._days;
-  return json({ birthdays: cards }, 200, { 'cache-control': 'public, max-age=60' });
+  return json({ birthdays: cards, accepting: true }, 200, { 'cache-control': 'public, max-age=60' });
 }
 
 export async function submitInterest(request, env, now = new Date()) {
