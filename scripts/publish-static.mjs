@@ -23,3 +23,7 @@ function stabilizeIslands(directory) {
   }
 }
 stabilizeIslands('public');
+
+// Keep the generated birthday page stable when edited through GitHub's editor.
+const birthdayPage = 'public/birthdays/index.html';
+writeFileSync(birthdayPage, readFileSync(birthdayPage, 'utf8').trimEnd() + '\n');
