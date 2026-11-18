@@ -66,7 +66,7 @@ export async function submitBirthday(request, env, now = new Date()) {
   const b = r.entry, id = newId();
   await env.DB.prepare('INSERT INTO birthdays (id, first_name, last_name, wa_name, phone, instagram, dob_day, dob_month, dob_year, show_age, wish, likes, call_reason, status, created_at, ip_hash) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)')
     .bind(id, b.first_name, b.last_name, b.wa_name, b.phone, b.instagram, b.dob_day, b.dob_month, b.dob_year, b.show_age, b.wish, b.likes, b.call_reason, 'pending', now.getTime(), hash).run();
-  return json({ ok: true, pending: true });
+  return json({ ok: true, pending: true, saved: true });
 }
 
 export async function listBirthdays(request, env, now = new Date()) {
@@ -103,7 +103,7 @@ export async function submitInterest(request, env, now = new Date()) {
   if (!target) return json({ error: 'not found' }, 404);
   await env.DB.prepare('INSERT OR IGNORE INTO birthday_interest (birthday_id, kind, name, phone, created_at, ip_hash) VALUES (?, ?, ?, ?, ?, ?)')
     .bind(target.id, r.interest.kind, r.interest.name, r.interest.phone, now.getTime(), hash).run();
-  return json({ ok: true });
+  return json({ ok: true, saved: true });
 }
 
 // ---- Owner's private panel. Same signed session cookie as plan review. ----
@@ -138,4 +138,4 @@ export async function adminDecideBirthday(request, env, now = new Date()) {
   if (!status || !id) return json({ error: 'bad request' }, 400);
   const res = await env.DB.prepare('UPDATE birthdays SET status = ? WHERE id = ?').bind(status, String(id)).run();
   return json({ ok: true, changed: res.meta?.changes ?? res.changes ?? 0 });
-}
+                                }
