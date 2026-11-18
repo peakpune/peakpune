@@ -24,7 +24,7 @@ const PASS = 'correct horse battery staple';
 const mkEnv = (extra = {}) => ({ DB: makeDB(), ADMIN_PASSPHRASE: PASS, ...extra });
 const post = (url, body, { ip = '1.1.1.1', headers = {} } = {}) => new Request('https://peakpune.test' + url, { method: 'POST', headers: { 'content-type': 'application/json', 'cf-connecting-ip': ip, ...headers }, body: JSON.stringify(body) });
 const get = (url, headers = {}) => new Request('https://peakpune.test' + url, { headers });
-const BDAY = { first_name: 'Aakash', last_name: 'Kamdi', wa_name: 'Aakash K', phone: '+91 98765 43210', instagram: '@aakash.k', dob_day: 15, dob_month: 6, dob_year: 1995, wish: 'A morning trek and a small dinner', likes: 'Filter coffee and old Hindi music', call_reason: '', show_age: false, t: '0' };
+const BDAY = { first_name: 'Vihaan', last_name: 'Deshpande', wa_name: 'Vihaan D', phone: '+91 90000 00001', instagram: '@vihaan.d', dob_day: 15, dob_month: 6, dob_year: 1995, wish: 'A morning trek and a small dinner', likes: 'Filter coffee and old Hindi music', call_reason: '', show_age: false, t: '0' };
 const submit = (env, body = BDAY, o) => bapi.submitBirthday(post('/api/birthdays', body, o), env, NOW);
 const list = async (env) => (await (await bapi.listBirthdays(get('/api/birthdays'), env, NOW)).json()).birthdays;
 const envC = new WeakMap();
@@ -43,7 +43,7 @@ test('submission is stored pending and is NOT public until approved', async () =
   const env = mkEnv();
   const r = await submit(env); assert.equal(r.status, 200);
   assert.deepEqual(await list(env), []);
-  const [b] = await adminList(env); assert.equal(b.name, 'Aakash Kamdi'); assert.equal(b.status, 'pending');
+  const [b] = await adminList(env); assert.equal(b.name, 'Vihaan Deshpande'); assert.equal(b.status, 'pending');
 });
 
 test('full path: submit, approve, public card, reject hides again', async () => {
@@ -51,7 +51,7 @@ test('full path: submit, approve, public card, reject hides again', async () => 
   const [b] = await adminList(env);
   assert.equal((await decide(env, b.id, 'approve')).status, 200);
   const pub = await list(env); assert.equal(pub.length, 1);
-  assert.equal(pub[0].name, 'Aakash K.');
+  assert.equal(pub[0].name, 'Vihaan D.');
   assert.deepEqual(Object.keys(pub[0]).sort(), ['age', 'day', 'id', 'likes', 'month', 'name', 'note', 'wish']);
   assert.equal(pub[0].age, null); // show_age was false
   await decide(env, b.id, 'reject'); assert.deepEqual(await list(env), []);
@@ -61,7 +61,7 @@ test('public wall never exposes phone, instagram, birth year, ip hash or offers'
   const env = mkEnv(); await submit(env); const [b] = await adminList(env); await decide(env, b.id, 'approve');
   await bapi.submitInterest(post('/api/birthday-interest', { birthday_id: b.id, kind: 'host', name: 'Ria', phone: '+91 90000 00000' }), env, NOW);
   const text = await (await bapi.listBirthdays(get('/api/birthdays'), env, NOW)).text();
-  assert.doesNotMatch(text, /98765|43210|aakash\.k|1995|ip_hash|Ria|90000/);
+  assert.doesNotMatch(text, /90000 00001|vihaan\.d|1995|ip_hash|Ria|90000 00000/);
 });
 
 test('age appears only when the person opted in', async () => {
