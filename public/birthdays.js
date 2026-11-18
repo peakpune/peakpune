@@ -9,6 +9,14 @@ const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 
 const KIND_LABEL = { plan: 'Plan something', host: 'Host it', join: 'Join the party' };
 const post = (url, body) => fetch(url, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(body) });
 
+// Shown only after the server confirms a saved entry. Opens a chat, never sends.
+function manualNotification(container) {
+  const link = el('a', 'Message admin on WhatsApp', 'chip');
+  link.href = 'https://wa.me/919404828072';
+  link.target = '_blank'; link.rel = 'noopener noreferrer';
+  container.append(el('p', 'Your entry is saved for review. You can notify the admin on WhatsApp. Nothing is sent automatically.', 'note'), link);
+}
+
 const istToday = () => { const d = new Date(Date.now() + 330 * 60000); return Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate()); };
 const daysUntil = (month, day) => {
   const today = istToday();
@@ -35,7 +43,7 @@ function offerBox(card, b, kind, actions) {
     send.disabled = true;
     try {
       const r = await post('/api/birthday-interest', { birthday_id: b.id, kind, name: name.value.trim(), phone: phone.value.trim(), t: String(startedAt) });
-      if (r.ok) { actions.replaceChildren(el('p', 'Sent for review. If it fits, the owner connects you on WhatsApp.', 'note')); }
+      if (r.ok) { const j = await r.json().catch(() => ({})); actions.replaceChildren(el('p', 'Sent for review. If it fits, the owner connects you on WhatsApp.', 'note')); if (j.saved === true) manualNotification(actions); }
       else { status.textContent = r.status === 429 ? 'Too many tries. Please try later.' : 'Could not send.'; send.disabled = false; }
     } catch { status.textContent = 'Could not send. Check your connection.'; send.disabled = false; }
   };
@@ -100,7 +108,7 @@ if (form) form.addEventListener('submit', async (ev) => {
   try {
     const r = await post('/api/birthdays', body);
     const j = await r.json().catch(() => ({}));
-    if (r.ok) { form.reset(); formStatus.textContent = 'Thanks. A person will read it before it shows here.'; }
+    if (r.ok) { form.reset(); formStatus.textContent = 'Thanks. A person will read it before it shows here.'; if (j.saved === true) manualNotification(formStatus); }
     else formStatus.textContent = r.status === 429 ? 'Too many submissions. Please try again later.' : (j.error ? 'Could not send: ' + j.error : 'Could not send.');
   } catch { formStatus.textContent = 'Could not send. Check your connection.'; }
   btn.disabled = false;
