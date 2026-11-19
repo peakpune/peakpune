@@ -12,6 +12,10 @@ function card(p) {
   inner.append(el('span', [p.date, p.time].filter(Boolean).join(' · '), 'eyebrow'), el('h3', p.title), el('p', [p.venue, p.area].filter(Boolean).join(', ')), el('p', p.note, 'note'));
   const acts = el('p', '', 'plan-actions');
   const link = safeHttps(p.link); if (link) { const a = el('a', 'Details', 'chip'); a.href = link; a.rel = 'noopener nofollow ugc'; acts.append(a); }
+  const wa = el('a', 'Share to WhatsApp', 'chip');
+  wa.href = 'https://wa.me/?text=' + encodeURIComponent([p.title, [p.date, p.time].filter(Boolean).join(' · '), [p.venue, p.area].filter(Boolean).join(', '), link || 'https://peakpune.com/events/'].filter(Boolean).join('\n'));
+  wa.target = '_blank'; wa.rel = 'noopener'; wa.setAttribute('aria-label', 'Share ' + p.title + ' to WhatsApp');
+  acts.append(wa);
   const label = el('span', p.going || '', 'note');
   const go = el('button', "I'm going", 'chip'); go.type = 'button';
   go.onclick = async () => { go.disabled = true; try { const r = await post('/api/going', { plan_id: p.id }); const j = await r.json(); if (r.ok) label.textContent = j.going || ''; else go.disabled = false; } catch { go.disabled = false; } };
