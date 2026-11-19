@@ -84,6 +84,55 @@
   "stale_over_90_days": false
  },
  {
+  "id": "meetup-morning-pedal-punerunners",
+  "name": "Morning Pedal by PuneRunners",
+  "type": "meetup",
+  "tags": [
+   "cycling",
+   "member-led"
+  ],
+  "scope": "CORE",
+  "neighbourhood": "UNKNOWN",
+  "address": "UNKNOWN",
+  "lat": null,
+  "lon": null,
+  "url_official": "https://punerunners.com/",
+  "url_deep": "https://chat.whatsapp.com/IbEMZAhDXTmCbzXHiZOWOX",
+  "summary": "Morning cycling group from the PuneRunners community; rides are planned in its WhatsApp group.",
+  "status": "partial",
+  "checked_at": "2026-11-19",
+  "freshness_days": null,
+  "schedule_text": "No public schedule. Ride plans are shared in the WhatsApp group.",
+  "join_url": "https://chat.whatsapp.com/IbEMZAhDXTmCbzXHiZOWOX",
+  "last_public_activity": null,
+  "activity_state": "UNKNOWN",
+  "cost_note": null,
+  "linked_id": null,
+  "notes": "Name and PuneRunners link taken from the public WhatsApp invite page on 2026-11-19; group activity not verified without joining.",
+  "stale_over_90_days": false,
+  "sources": [
+   "https://chat.whatsapp.com/IbEMZAhDXTmCbzXHiZOWOX"
+  ],
+  "evidence": [
+   {
+    "field": "name",
+    "value": "Morning Pedal by PuneRunners",
+    "source_url": "https://chat.whatsapp.com/IbEMZAhDXTmCbzXHiZOWOX",
+    "source_type": "primary",
+    "checked_at": "2026-11-19",
+    "corroborated": false
+   },
+   {
+    "field": "join_url",
+    "value": "https://chat.whatsapp.com/IbEMZAhDXTmCbzXHiZOWOX",
+    "source_url": "https://chat.whatsapp.com/IbEMZAhDXTmCbzXHiZOWOX",
+    "source_type": "primary",
+    "checked_at": "2026-11-19",
+    "corroborated": false
+   }
+  ]
+ },
+ {
   "id": "meetup-pune-trekkers",
   "name": "Pune Trekkers",
   "type": "meetup",
