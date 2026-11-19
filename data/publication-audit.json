@@ -1590,6 +1590,11 @@
         "https://indianexpress.com/article/cities/pune/railway-vendor-pune-loved-chiwda-brand-10405889/",
         "https://uppercrustindia.com/oldsite/9crust/nine/pune4.htm"
       ]
+    },
+    "meetup-morning-pedal-punerunners": {
+      "kind": "meetups",
+      "decision": "publish",
+      "reason": "Owner supplied the joining link on 2026-11-19 and approved the branded identity-only card and placement. Name verified against the invite page title; no activity claims."
     }
   }
 }

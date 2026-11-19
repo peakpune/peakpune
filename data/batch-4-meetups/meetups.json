@@ -286,6 +286,42 @@
   "stale_over_90_days": false
  },
  {
+  "id": "meetup-morning-pedal-punerunners",
+  "name": "Morning Pedal by PuneRunners",
+  "type": "meetup",
+  "tags": [
+   "whatsapp community"
+  ],
+  "scope": "CORE",
+  "neighbourhood": "UNKNOWN",
+  "address": "UNKNOWN",
+  "lat": null,
+  "lon": null,
+  "url_official": "https://chat.whatsapp.com/IbEMZAhDXTmCbzXHiZOWOX",
+  "url_deep": "https://chat.whatsapp.com/IbEMZAhDXTmCbzXHiZOWOX",
+  "summary": "",
+  "schedule_text": "",
+  "status": "partial",
+  "activity_state": "UNKNOWN",
+  "identity_only": true,
+  "logo": "/morning-pedal.jpg",
+  "cost_note": "",
+  "join_url": "https://chat.whatsapp.com/IbEMZAhDXTmCbzXHiZOWOX",
+  "sources": [
+   "https://chat.whatsapp.com/IbEMZAhDXTmCbzXHiZOWOX"
+  ],
+  "evidence": [
+   {
+    "field": "name",
+    "value": "Morning Pedal by PuneRunners",
+    "source_url": "https://chat.whatsapp.com/IbEMZAhDXTmCbzXHiZOWOX",
+    "source_type": "primary",
+    "checked_at": "2026-11-19",
+    "note": "Name from the WhatsApp group invite page title. Identity-only listing requested by owner; brand kit from punerunners.com."
+   }
+  ]
+ },
+ {
   "id": "meetup-karawaan-crew",
   "name": "Karawaan crew (volunteers)",
   "type": "meetup",
