@@ -399,8 +399,20 @@ const STATE = { active: ['Active', 'lv-easy'], DORMANT: ['Dormant', 'lv-hard'], 
 function meetupsBlock(rows) {
   if (!rows.length) return '<section class="section"><h2>No current communities listed</h2><p>Joining links and activity need checking before publication.</p></section>';
   const card = (m) => `<article class="card"><div class="inner"><span class="eyebrow">${esc(m.tags.slice(0, 2).join(' · '))}${known(m.neighbourhood) ? ' · ' + esc(m.neighbourhood) : ''}</span><h3>${esc(m.name)}</h3><p>${esc(m.summary)}</p><p class="note">${esc(m.schedule_text)}</p><p class="meta"><span class="level ${STATE[m.activity_state][1]}">${STATE[m.activity_state][0]}</span>${m.cost_note ? `<span>${esc(m.cost_note)}</span>` : ''}</p><p class="plan-actions"><a class="chip" href="${esc(safeUrl(m.join_url))}" rel="noopener">How to join</a>${m.linked_id ? `<a class="chip" href="/places/${m.linked_id.replace(/^place-/, '')}/">About the venue</a>` : ''}</p></div></article>`;
-  const live = rows.filter((m) => m.activity_state === 'active'); const rest = rows.filter((m) => m.activity_state !== 'active');
-  return `<section class="section"><div class="section-head"><h2>Communities with current source evidence</h2><p>${live.length} Pune groups with a public joining page and dated activity, read on ${esc(rows[0].checked_at)}. Rules, costs and group links live on their own sites.</p></div>${staleNote(rows[0].checked_at, 'venue')}<div class="grid">${live.map(card).join('')}</div></section>
+  const ID_STYLE = `<style>
+@font-face{font-family:'Anton';src:url('/fonts/anton.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
+.card-id .inner{background:#FBF4E6}
+.id-row{display:flex;align-items:center;gap:16px}
+.id-logo{width:64px;height:64px;border-radius:50%;border:2px solid var(--rim);flex:none}
+.card-id .id-eyebrow{color:#F28C28}
+.card-id .id-name{font-family:'Anton',var(--display);font-weight:400;color:#7A1F2B;letter-spacing:.01em}
+.card-id .id-join{background:#7A1F2B;color:#FBF4E6}
+</style>`;
+  const idCard = (m) => `<article class="card card-id"><div class="inner"><div class="id-row"><img class="id-logo" src="${esc(m.logo)}" alt="${esc(m.name)} logo" width="64" height="64" loading="lazy"><div><span class="eyebrow id-eyebrow">${esc(m.tags.slice(0, 2).join(' \u00b7 '))}</span><h3 class="id-name">${esc(m.name)}</h3></div></div><p class="plan-actions"><a class="chip id-join" href="${esc(safeUrl(m.join_url))}" rel="noopener">How to join</a></p></div></article>`;
+  const featured = rows.filter((m) => m.activity_state === 'active' || m.identity_only);
+  const render = (m) => (m.identity_only ? idCard(m) : card(m));
+  const rest = rows.filter((m) => m.activity_state !== 'active' && !m.identity_only);
+  return `${featured.some((m) => m.identity_only) ? ID_STYLE : ''}<section class="section"><div class="section-head"><h2>Communities to join</h2><p>${featured.length} Pune groups with a public joining page. Rules, costs and group links live on their own sites.</p></div><div class="grid">${featured.map(render).join('')}</div></section>
 ${rest.length ? `<section class="section"><h2>Other source-checked communities</h2><div class="grid">${rest.map(card).join('')}</div></section>` : ''}`;
 }
 function momentsBlock(rows) {
