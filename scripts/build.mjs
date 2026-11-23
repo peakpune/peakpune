@@ -396,7 +396,9 @@ export function eventLd(e) {
 
 
 const STATE = { active: ['Active', 'lv-easy'], DORMANT: ['Dormant', 'lv-hard'], UNKNOWN: ['Activity not confirmed', ''] };
-function meetupsBlock(rows) {
+const SISTER_IDS = ['meetup-punerunners-club', 'meetup-pune-trekkers', 'meetup-karawaan-community', 'meetup-morning-pedal-punerunners'];
+function meetupsBlock(allRows) {
+  const rows = SISTER_IDS.map((id) => allRows.find((m) => m.id === id)).filter(Boolean);
   if (!rows.length) return '<section class="section"><h2>No current communities listed</h2><p>Joining links and activity need checking before publication.</p></section>';
   const card = (m) => `<article class="card"><div class="inner"><span class="eyebrow">${esc(m.tags.slice(0, 2).join(' · '))}${known(m.neighbourhood) ? ' · ' + esc(m.neighbourhood) : ''}</span><h3>${esc(m.name)}</h3><p>${esc(m.summary)}</p><p class="note">${esc(m.schedule_text)}</p><p class="meta"><span class="level ${STATE[m.activity_state][1]}">${STATE[m.activity_state][0]}</span>${m.cost_note ? `<span>${esc(m.cost_note)}</span>` : ''}</p><p class="plan-actions"><a class="chip" href="${esc(safeUrl(m.join_url))}" rel="noopener">How to join</a>${m.linked_id ? `<a class="chip" href="/places/${m.linked_id.replace(/^place-/, '')}/">About the venue</a>` : ''}</p></div></article>`;
   const ID_STYLE = `<style>
@@ -408,11 +410,12 @@ function meetupsBlock(rows) {
 .card-id .id-name{font-family:'Anton',var(--display);font-weight:400;color:#7A1F2B;letter-spacing:.01em}
 .card-id .id-join{background:#7A1F2B;color:#FBF4E6}
 </style>`;
-  const idCard = (m) => `<article class="card card-id"><div class="inner"><div class="id-row"><img class="id-logo" src="${esc(m.logo)}" alt="${esc(m.name)} logo" width="64" height="64" loading="lazy"><div><span class="eyebrow id-eyebrow">${esc(m.tags.slice(0, 2).join(' \u00b7 '))}</span><h3 class="id-name">${esc(m.name)}</h3></div></div><p class="plan-actions"><a class="chip id-join" href="${esc(safeUrl(m.join_url))}" rel="noopener">How to join</a></p></div></article>`;
+  const idCard = (m) => `<article class="card card-id"><div class="inner"><div class="id-row"><img class="id-logo" src="${esc(m.logo)}" alt="${esc(m.name)} logo" width="64" height="64" loading="lazy"><div><span class="eyebrow id-eyebrow">${esc(m.tags.slice(0, 2).join(' \u00b7 '))}</span><h3 class="id-name">${esc(m.name)}</h3></div></div><p>A free cycling community by PuneRunners.</p><p class="plan-actions"><a class="chip id-join" href="${esc(safeUrl(m.join_url))}" rel="noopener">How to join</a></p></div></article>`;
   const featured = rows.filter((m) => m.activity_state === 'active' || m.identity_only);
   const render = (m) => (m.identity_only ? idCard(m) : card(m));
   const rest = rows.filter((m) => m.activity_state !== 'active' && !m.identity_only);
   return `${featured.some((m) => m.identity_only) ? ID_STYLE : ''}<section class="section"><div class="section-head"><h2>Communities to join</h2><p>${featured.length} Pune groups with a public joining page. Rules, costs and group links live on their own sites.</p></div><div class="grid">${featured.map(render).join('')}</div></section>
+<section class="section"><h2>Add your community</h2><p>Run a Pune community and want it listed here? Reach out to the Peak Pune admins in the <a href="https://chat.whatsapp.com/BVTlwmhkqGU4WKzCsZFG95?s=cl&amp;p=i&amp;iam=2" target="_blank" rel="noopener noreferrer">Peak Pune WhatsApp group</a>.</p></section>
 ${rest.length ? `<section class="section"><h2>Other source-checked communities</h2><div class="grid">${rest.map(card).join('')}</div></section>` : ''}`;
 }
 function momentsBlock(rows) {
@@ -436,7 +439,7 @@ const areaCard = (a) => `<article class="card"><div class="inner"><span class="e
 const STATIC = [
   { file: 'history', path: '/history/', fill: 'history', title: 'History of Pune: a sourced timeline in English and Marathi | Peak Pune', description: 'A starter timeline of Pune, from stone tools on the Mutha to the modern city. Every entry is checked against a named source and written in English and Marathi.', crumbs: [['History', '/history/']] },
   { file: 'markets', path: '/markets/', fill: 'markets', title: 'Where Pune shops: market areas and standout shops | Peak Pune', description: 'Pune shopping areas from Laxmi Road to FC Road, plus standout retail houses and food institutions, each with sources checked on 14 November 2026.', crumbs: [['Markets', '/markets/']] },
-  { file: 'meetups', path: '/meetups/', fill: 'meetups', title: 'Meetups in Pune: run clubs, book clubs, tech and board games | Peak Pune', description: 'Find your people in Pune: runners, readers, coders, board gamers and trekkers, with verified joining links.', crumbs: [['Meetups', '/meetups/']] },
+  { file: 'meetups', path: '/meetups/', fill: 'meetups', title: 'Pune communities: running, trekking, travel and cycling | Peak Pune', description: 'Pune communities to join: PuneRunners, Pune Trekkers, Karawaan and Morning Pedal, each with a public joining page.', crumbs: [['Meetups', '/meetups/']] },
   { file: 'manifesto', path: '/manifesto/', title: 'The Peak Pune manifesto: less scrolling, more living | Peak Pune', description: 'The Peak Pune manifesto: Pune is not boring, you are just looking in the wrong places. Why the radar exists, in our own words.', crumbs: [['Manifesto', '/manifesto/']] },
   { file: 'about', path: '/about/', ldType: 'AboutPage', title: 'About Peak Pune: who it is for and how listings are checked', description: 'Peak Pune is a Pune discovery site for source-checked places, events, runs, treks and meetups. How listings are sourced and checked, who organises what, and how to report a mistake.', crumbs: [['About', '/about/']] },
   { file: 'moments', path: '/moments/', fill: 'moments', noindex: true, title: 'Peak Pune Moments | Peak Pune', description: 'Genuine Pune moments will appear here after review. Reader submissions are not open yet.', crumbs: [['Moments', '/moments/']] },
