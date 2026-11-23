@@ -45,7 +45,7 @@ const boot = () => {
   const base = new URL('.', import.meta.url).pathname;
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const map = new maplibregl.Map({
-    container: 'kp-map',
+    container: 'ep-map',
     style: '/map/style.json',
     center: [73.9225, 18.5495],
     zoom: 12.6,

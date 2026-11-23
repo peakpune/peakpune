@@ -46,7 +46,7 @@ export function epMain(data = epData(), guide = epGuide()) {
   }).join('');
   const main = `<div class="map-head"><h1>East Pune</h1><p class="lede">A map of restaurants, cafes, bars, parks and malls across Kalyani Nagar, Wadgaon Sheri and Mundhwa, most of Viman Nagar, and the main-road parts of Kharadi and Hadapsar, plus the basics for getting there.</p></div>
 <section class="section map-section" aria-label="Map of East Pune">
-<div class="map-frame"><div id="kp-map" class="map-canvas" role="application" aria-label="Interactive map of East Pune. Every pinned place is also listed after this map."></div>
+<div class="map-frame"><div id="ep-map" class="map-canvas" role="application" aria-label="Interactive map of East Pune. Every pinned place is also listed after this map."></div>
 <p class="map-fallback" id="map-fallback">The interactive map needs JavaScript and WebGL. Every place is listed below.</p></div>
 <p class="note map-status" id="map-status" role="status"></p>
 <nav class="chips map-filters" id="map-filters" aria-label="Filter pins by category">${filters}</nav>

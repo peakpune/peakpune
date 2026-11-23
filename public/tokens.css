@@ -331,6 +331,17 @@ a.category:nth-child(4n+1){color:#fff}a.category:hover{outline:4px solid var(--r
 .map-filters{padding-top:var(--s4)}
 .map-pin{width:18px;height:18px;border-radius:50%;background:var(--brick);border:2px solid var(--ink);box-shadow:2px 2px 0 rgba(28,20,16,.35);padding:0;display:block}
 .map-pin:hover,.map-pin:focus-visible{background:var(--haldi)}
+#ep-map .maplibregl-popup-content{box-sizing:border-box}
+#ep-map .map-pop{max-width:none;min-width:0;width:100%;box-sizing:border-box}
+#ep-map .map-pop *{box-sizing:border-box;max-width:100%;overflow-wrap:anywhere}
+#ep-map .map-pop .chip{justify-self:stretch;text-align:center;white-space:normal;height:auto;padding-inline:var(--s3)}
+#ep-map .map-pin[data-type=cafe]{background:var(--haldi)}
+#ep-map .map-pin[data-type=bar]{background:var(--ink)}
+#ep-map .map-pin[data-type=park]{background:var(--sage)}
+#ep-map .map-pin[data-type=landmark]{background:var(--clay)}
+#ep-map .map-pin[data-type=hotel]{background:var(--ink-soft)}
+#ep-map .map-pin[data-type=metro]{background:var(--paper);width:22px;height:22px}
+#ep-map .map-pin:hover,#ep-map .map-pin:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
 .maplibregl-popup-content{font:500 15px/22px var(--body);background:var(--paper);color:var(--ink);border:2px solid var(--ink);border-radius:var(--r-card);box-shadow:4px 4px 0 var(--ink);padding:var(--s4)}
 .maplibregl-popup-anchor-bottom .maplibregl-popup-tip{border-top-color:var(--ink)}
 .maplibregl-popup-anchor-top .maplibregl-popup-tip{border-bottom-color:var(--ink)}
