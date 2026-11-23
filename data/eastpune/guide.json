@@ -1,0 +1,238 @@
+{
+ "accessed": "24 November 2026",
+ "cards": [
+  {
+   "id": "aga-khan-palace",
+   "kind": "Landmark",
+   "name": "Aga Khan Palace",
+   "where": "Nagar Road, Kalyani Nagar",
+   "text": [
+    "Built by Sultan Muhammed Shah Aga Khan III as a famine-relief work project, over five years, according to its Wikipedia article. During the Quit India movement it served as a prison for Mahatma Gandhi, Kasturba Gandhi, Mahadev Desai and Sarojini Naidu. Kasturba Gandhi and Mahadev Desai died here, and their samadhis are on the grounds.",
+    "The Archaeological Survey of India declared it a monument of national importance in 2003. Check current opening times and entry fee with the monument before visiting."
+   ],
+   "sources": [
+    [
+     "Wikipedia, Aga Khan Palace",
+     "https://en.wikipedia.org/wiki/Aga_Khan_Palace"
+    ],
+    [
+     "Gandhi National Memorial Society",
+     "https://gnmsnew.onevoice.co.in/about-agakhan-palace/"
+    ]
+   ]
+  },
+  {
+   "id": "udaan-biodiversity-park",
+   "kind": "Park",
+   "name": "Udaan Biodiversity Park",
+   "where": "Viman Nagar",
+   "text": [
+    "A nature park in Viman Nagar turned from barren rocky land into a green habitat, with a lake, a waterfall and plant name boards in English, Marathi and Braille, according to PuneDiary. OpenStreetMap maps it off the Viman Nagar road grid.",
+    "Check entry rules locally before going."
+   ],
+   "sources": [
+    [
+     "PuneDiary, Udaan Biodiversity Park",
+     "https://punediary.com/gardens/udaan-biodiversity-park/"
+    ],
+    [
+     "OpenStreetMap",
+     "https://www.openstreetmap.org/way/152333025"
+    ]
+   ]
+  },
+  {
+   "id": "kalyani-nagar-eating-out",
+   "kind": "Eating out",
+   "name": "The Kalyani Nagar restaurant belt",
+   "where": "Nagar Road to the riverfront, Kalyani Nagar",
+   "text": [
+    "Bars and cafes cluster around Nagar Road and the lanes behind it, with hotel dining along the river. Names on the map include Cobbler & Crew, Lord of the Drinks, The Flour Works, Cafe Pondi, Yeti and Farzi Cafe.",
+    "The riverfront pocket south of the neighbourhood proper, around the Westin and The KOPA, holds more restaurants and lounges, including High Spirits for live music. Addresses and hours come from OpenStreetMap; check the venue before you go."
+   ],
+   "sources": [
+    [
+     "OpenStreetMap",
+     "https://www.openstreetmap.org/#map=15/18.5480/73.9050"
+    ],
+    [
+     "High Spirits",
+     "https://dahigh.com/"
+    ]
+   ]
+  },
+  {
+   "id": "phoenix-marketcity",
+   "kind": "Mall",
+   "name": "Phoenix Marketcity",
+   "where": "Viman Nagar",
+   "text": [
+    "The big mall on Nagar Road in Viman Nagar, with national and international brands, a food court and multiplex. OpenStreetMap maps the complex as Phoenix Avenue of Stars; the mall's own site lists stores, dining and cinema timings.",
+    "Viman Nagar Metro station (Aqua line) is a short walk away, which makes it the easiest mall in this guide to reach without a car."
+   ],
+   "sources": [
+    [
+     "Phoenix Marketcity Pune",
+     "https://www.phoenixmarketcity.com/pune"
+    ],
+    [
+     "OpenStreetMap",
+     "https://www.openstreetmap.org/way/494577377"
+    ]
+   ]
+  },
+  {
+   "id": "magarpatta-seasons",
+   "kind": "Township and malls",
+   "name": "Magarpatta City, Seasons Mall and Amanora",
+   "where": "Hadapsar",
+   "text": [
+    "Magarpatta City is a 182-hectare gated township in Hadapsar with homes, offices, a hospital, schools, the 10-hectare Aditi Gardens park and Seasons Mall, according to Wikipedia. The developer's own site tells the township story. About 30% of the area is green cover.",
+    "Next door, Amanora is another large township and mall complex. Together they make Hadapsar the southern shopping anchor of East Pune, with restaurants in and around both malls."
+   ],
+   "sources": [
+    [
+     "Wikipedia, Magarpatta",
+     "https://en.wikipedia.org/wiki/Magarpatta"
+    ],
+    [
+     "Magarpatta City",
+     "https://magarpattacity.com/"
+    ],
+    [
+     "Amanora Mall",
+     "https://www.amanoramall.com/about-us"
+    ]
+   ]
+  },
+  {
+   "id": "kharadi-main-road",
+   "kind": "Eating out",
+   "name": "Kharadi's main-road dining",
+   "where": "Kharadi South Main Road and Fountain Road",
+   "text": [
+    "Kharadi is Pune's IT-and-business-park hub on the Mula-Mutha, and its dining follows the office crowd: restaurants, bars and cafes line the main roads, from thali places to brewpubs and burger joints. The names on the map skew local and unpretentious.",
+    "New places open often here, so treat any list, including this one, as a snapshot. OpenStreetMap contributors keep the map current; each name links to its entry."
+   ],
+   "sources": [
+    [
+     "Wikipedia, Kharadi",
+     "https://en.wikipedia.org/wiki/Kharadi"
+    ],
+    [
+     "OpenStreetMap",
+     "https://www.openstreetmap.org/#map=15/18.5515/73.9400"
+    ]
+   ]
+  }
+ ],
+ "mentions": {
+  "intro": "Other East Pune places that public listing sites point to. These are the sources' claims, not Peak Pune's. Hours, prices and slots change, so check the listing before you go.",
+  "items": [
+   {
+    "name": "District: Kalyani Nagar and Koregaon Park restaurants",
+    "url": "https://www.district.in/dining/pune/kp-and-kalyani/koregaon-park-restaurants",
+    "note": "Ticketed dining and event listings for the KP and Kalyani Nagar belt."
+   },
+   {
+    "name": "High Spirits Cafe",
+    "url": "https://dahigh.com/",
+    "note": "Live music venue on the Kalyani Nagar riverfront; gigs listed on its own page."
+   }
+  ]
+ },
+ "areas": [
+  {
+   "id": "kalyani-nagar",
+   "title": "Kalyani Nagar",
+   "paragraphs": [
+    "Wikipedia describes Kalyani Nagar as an affluent, predominantly residential neighbourhood in eastern Pune, administered from the Nagar Road-Wadgaonsheri ward office. For visitors it is two things: the Aga Khan Palace on Nagar Road, and the restaurant and bar belt covered below.",
+    "South of the neighbourhood proper, along the Mula-Mutha around the Westin, High Spirits and The KOPA mall, sits a riverfront pocket of restaurants and lounges. Listings often file it under Kalyani Nagar; on this page it shows as Kalyani Nagar riverfront. Kalyani Nagar Metro station on the Aqua line serves the area."
+   ],
+   "sources": [
+    [
+     "Wikipedia, Kalyani Nagar",
+     "https://en.wikipedia.org/wiki/Kalyani_Nagar"
+    ],
+    [
+     "OpenStreetMap",
+     "https://www.openstreetmap.org/way/1001050826"
+    ]
+   ]
+  },
+  {
+   "id": "viman-nagar",
+   "title": "Viman Nagar",
+   "paragraphs": [
+    "A residential and retail neighbourhood close to the airport, described by Wikipedia as part of the eastern corridor with Koregaon Park and Kalyani Nagar. Phoenix Marketcity is its anchor, and Udaan Biodiversity Park its green space.",
+    "Two Metro stations, Viman Nagar and Somnath Nagar, sit on its side of Nagar Road."
+   ],
+   "sources": [
+    [
+     "Wikipedia, Viman Nagar",
+     "https://en.wikipedia.org/wiki/Viman_Nagar"
+    ]
+   ]
+  },
+  {
+   "id": "wadgaon-sheri",
+   "title": "Wadgaon Sheri",
+   "paragraphs": [
+    "A residential neighbourhood off Nagar Road between Kalyani Nagar and Viman Nagar. Wikipedia notes it was a village outside the city and is now an upmarket residential area bounded by Nagar Road to the north and the Mula-Mutha to the south.",
+    "Ramwadi, the eastern end of the operational Metro line, is on its edge."
+   ],
+   "sources": [
+    [
+     "Wikipedia, Wadgaon Sheri",
+     "https://en.wikipedia.org/wiki/Wadgaon_Sheri"
+    ]
+   ]
+  },
+  {
+   "id": "kharadi",
+   "title": "Kharadi",
+   "paragraphs": [
+    "Wikipedia describes Kharadi as a suburb on the banks of the Mula-Mutha that serves as a hub for information technology and business parks. The office parks brought the restaurants: the main roads through Kharadi have one of the densest dining stretches in this guide.",
+    "Kharadi Bypass Metro station is mapped on the Aqua line extension beyond Ramwadi; check the Pune Metro guide for what is operational before planning around it."
+   ],
+   "sources": [
+    [
+     "Wikipedia, Kharadi",
+     "https://en.wikipedia.org/wiki/Kharadi"
+    ]
+   ]
+  },
+  {
+   "id": "mundhwa",
+   "title": "Mundhwa",
+   "paragraphs": [
+    "South of Kalyani Nagar and Wadgaon Sheri, along the river road towards Kharadi. The KOPA mall and the riverside restaurants around it are the landmarks here, and the area absorbs the overflow of the Koregaon Park night-out crowd.",
+    "OpenStreetMap coverage is thinner here than in Kharadi, so the list for Mundhwa is shorter than the reality."
+   ],
+   "sources": [
+    [
+     "OpenStreetMap",
+     "https://www.openstreetmap.org/node/638665220"
+    ]
+   ]
+  },
+  {
+   "id": "hadapsar",
+   "title": "Hadapsar and Magarpatta",
+   "paragraphs": [
+    "Wikipedia describes Hadapsar as a developed eastern suburb that grew into a major industrial area from the 1990s. Its best-known piece today is Magarpatta City, the 182-hectare township with Aditi Gardens and Seasons Mall, with Amanora's township and mall next door.",
+    "Hadapsar also has a suburban railway station on the Pune to Daund line."
+   ],
+   "sources": [
+    [
+     "Wikipedia, Hadapsar",
+     "https://en.wikipedia.org/wiki/Hadapsar"
+    ],
+    [
+     "Wikipedia, Magarpatta",
+     "https://en.wikipedia.org/wiki/Magarpatta"
+    ]
+   ]
+  }
+ ]
+}
