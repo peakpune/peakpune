@@ -514,3 +514,14 @@ html{scroll-padding-top:88px}
 
 .site-footer nav a.ig-link{gap:var(--s2)}
 .ig-ico{flex:none;color:var(--brick)}
+/* UI batch 6: partner note form */
+.partner-form textarea{padding:var(--s3) var(--s4);border:2px solid var(--rim);border-radius:var(--r-input);background:var(--white);font:500 16px/24px var(--body);resize:vertical;min-height:112px}
+.partner-form .choices{border:0;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:var(--s2)}
+.partner-form .choices legend{font-weight:700;font-size:15px;padding:0;margin-bottom:var(--s2)}
+.partner-form .choice{display:block}
+.partner-form .choice input{position:absolute;opacity:0;width:1px;height:1px}
+.partner-form .choice span{display:inline-flex;align-items:center;min-height:44px;padding:0 var(--s4);border:2px solid var(--ink);border-radius:var(--r-pill);background:var(--paper);font-weight:700;cursor:pointer}
+.partner-form .choice input:checked+span{background:var(--haldi)}
+.partner-form .choice input:focus-visible+span{outline:3px solid var(--brick);outline-offset:2px}
+.partner-form .actions{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:var(--s3);align-items:center}
+.partner-form a.primary{display:inline-flex;align-items:center;min-height:48px;padding:0 var(--s6);text-decoration:none}
