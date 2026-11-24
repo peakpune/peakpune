@@ -506,3 +506,14 @@ html{scroll-padding-top:88px}
   .chips.jump:not(:has(.chip:nth-child(7))){margin-right:0}
   .chips.jump .chip{white-space:nowrap}
 }
+/* UI batch 4: clearer menu panel and Join menu */
+.site-header .nav-m{border-bottom:0;box-shadow:0 6px 0 var(--ink),0 100vh 0 100vh rgba(28,20,16,.45);padding-bottom:var(--s5)}
+.site-header .nav-m .two a{border-bottom:1px solid var(--rim);justify-content:space-between}
+.site-header .nav-m .two a::after{content:"\203A";color:var(--ink-soft);font-weight:700;margin-left:var(--s2)}
+.site-header .nav-m a[aria-current=page]{background:var(--haldi);border-radius:var(--r-input);padding:0 var(--s2);text-decoration:none;color:var(--ink)}
+.site-header .join>summary::after{content:"\25BE";margin-left:6px}
+.site-header .join[open]>summary{background:var(--white)}
+.site-header .join>div{min-width:min(290px,calc(100vw - 2 * var(--gutter)))}
+.site-header .join>div a{white-space:nowrap;position:relative;padding-right:var(--s8)}
+.site-header .join>div a::after{content:"\2197";position:absolute;right:var(--s4);top:var(--s3);font-weight:700;color:var(--brick)}
+.site-header .join>div a:hover,.site-header .join>div a:focus-visible{background:var(--clay);border-radius:var(--r-input)}
