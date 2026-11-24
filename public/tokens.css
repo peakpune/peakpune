@@ -484,3 +484,14 @@ a.freq-card:hover,a.freq-card:focus-visible{transform:translate(-2px,-2px);box-s
   .freq-card{padding:var(--s4)}
   .freq-card h3{font-size:22px;line-height:26px}
 }
+/* UI batch 2: breadcrumbs read as navigation */
+.crumbs{flex-wrap:nowrap;align-items:center;gap:0;overflow-x:auto;white-space:nowrap;scrollbar-width:none;margin-top:var(--s3);padding:0 0 var(--s3);border-bottom:2px solid var(--rim);font-size:15px;font-weight:600}
+.crumbs::-webkit-scrollbar{display:none}
+.crumbs a,.crumbs span{display:inline-flex;align-items:center;min-height:44px}
+.crumbs a{color:var(--brick);text-decoration:none}
+.crumbs a:hover,.crumbs a:focus-visible{text-decoration:underline;text-underline-offset:3px}
+.crumbs a::after{content:"\203A";margin:0 var(--s3);color:var(--ink-soft);font-weight:700}
+.crumbs a:first-child::before{content:"\2302";margin-right:var(--s2);font-size:17px}
+.crumbs span[aria-current]{color:var(--ink);font-weight:800}
+.crumbs+.hero{padding-top:var(--s8)}
+@media(max-width:600px){.crumbs{margin-right:calc(var(--s4)*-1);padding-right:var(--s4)}}
