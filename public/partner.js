@@ -1,6 +1,6 @@
 // Partner inquiry: builds a pre-filled email from the form. Nothing is stored or sent by this site.
 // The user sends the email themselves. All text via textContent.
-const TO = 'privacy@peakpune.com';
+const TO = 'hello@peakpune.com';
 const $ = (s) => document.querySelector(s);
 const form = $('#partner-form'), status = $('#partner-status'), actions = $('#partner-actions'), srcNote = $('#partner-src');
 const clean = (v, max) => String(v || '').replace(/[\u0000-\u001f\u007f]+/g, ' ').replace(/\s+/g, ' ').trim().slice(0, max);
