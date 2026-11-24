@@ -1,0 +1,281 @@
+{
+  "accessed": "23 November 2026",
+  "cards": [
+    {
+      "id": "osho-teerth-park",
+      "kind": "Park",
+      "name": "Osho Teerth Park",
+      "where": "D. H. Dhunjibhoy Road, between Lane 2 and Lane 3",
+      "text": [
+        "A 12-acre garden on what was garbage dumps and eroded land with an open sewer running through it. The Osho International Foundation's Shunyo Foundation ran the restoration from May 1990 to September 1991, according to The Indian Express. It added drainage lines, four ponds in a series, paths and bridges, and a plant nursery.",
+        "Entry is free. The park is open only at set morning and evening times, so check the current hours before you go. The Indian Express puts weekend visits at around 2,500 a day."
+      ],
+      "sources": [
+        [
+          "The Indian Express, 14 Jun 2025",
+          "https://indianexpress.com/article/cities/pune/hidden-stories-pune-nullah-garden-transformed-tranquil-oasis-osho-teerth-park-10066144/"
+        ],
+        [
+          "OpenStreetMap way 28217451",
+          "https://www.openstreetmap.org/way/28217451"
+        ]
+      ],
+      "short": "12-acre public garden restored from dumps and a drain in 1990 to 1991. Free entry, set morning and evening hours."
+    },
+    {
+      "id": "osho-meditation-resort",
+      "kind": "Landmark",
+      "name": "Osho International Meditation Resort",
+      "where": "Koregaon Park (shown on the map as Osho Ashram, the name OpenStreetMap uses)",
+      "text": [
+        "A residential and day-visit meditation campus. Per its own FAQ, there are no tours and you can only enter the campus as a participant, registered at the Welcome Center. Its Osho Multimedia Gallery can be visited from the road near the main gate, 9 am to 1 pm and 2 pm to 4 pm.",
+        "The FAQ lists a one-day entry pass at 1,100 INR for resident Indian nationals and 2,100 INR for international visitors, plus a one-time 100 INR gate pass for first-time visitors. Maroon robes are worn in the daytime and white robes for the evening meeting. It describes itself as an environment for adults, without facilities for children and minors. Prices and rules can change, so confirm on the resort's site."
+      ],
+      "sources": [
+        [
+          "Osho Meditation Resort FAQ",
+          "https://www.osho.com/osho-meditation-resort/about-meditation-resort/faq"
+        ],
+        [
+          "Welcome Center",
+          "https://www.osho.com/osho-meditation-resort/facilities-services/welcome-center"
+        ]
+      ],
+      "short": "Meditation campus entered as a participant, registered at its Welcome Center. No tours."
+    },
+    {
+      "id": "monalisa-kalagram",
+      "kind": "Art gallery",
+      "name": "Monalisa Kalagram",
+      "where": "Pingale Farms, end of South Main Road",
+      "text": [
+        "An art and culture space with rotating exhibitions. Its site lists 11 am to 7 pm, closed Tuesdays, with an exhibition running 17 October to 9 November 2025. That date is old, so check what is on now."
+      ],
+      "sources": [
+        [
+          "Monalisa Kalagram",
+          "https://monalisakalagram.com/"
+        ]
+      ],
+      "short": "Art and culture space with rotating exhibitions."
+    },
+    {
+      "id": "vida-heydari-contemporary",
+      "kind": "Art gallery",
+      "name": "Vida Heydari Contemporary (VHC)",
+      "where": "Marvel Alaina, Lane 8",
+      "text": [
+        "A contemporary art gallery. Its site lists 10:00 am to 6:30 pm, Monday to Saturday, and gives the address as Marvel Alaina, Lane 8, Koregaon Park."
+      ],
+      "sources": [
+        [
+          "VHC",
+          "https://www.vhc.art/"
+        ]
+      ],
+      "short": "Contemporary art gallery on Lane 8."
+    },
+    {
+      "id": "malaka-spice",
+      "kind": "Restaurant",
+      "name": "Malaka Spice",
+      "where": "Lane 5, opposite Oxford Properties",
+      "text": [
+        "A South-East Asian restaurant. The brand says it works farm-to-table through its own Cherish Farm. Its Koregaon Park outlet page lists the opening hours, which you should check before going."
+      ],
+      "sources": [
+        [
+          "Malaka Spice, Koregaon Park outlet",
+          "https://www.malakaspice.com/outlet-koregaon-park.php"
+        ]
+      ],
+      "short": "South-East Asian restaurant on Lane 5. Hours are on its outlet page."
+    },
+    {
+      "id": "arthurs-theme",
+      "kind": "Restaurant",
+      "name": "Arthur's Theme",
+      "where": "Vrindavan Apartment, Lane 6",
+      "text": [
+        "A European-style restaurant that its site says opened in Koregaon Park in 1997. The site lists 11:30 am to 11:30 pm daily and publishes menu prices."
+      ],
+      "sources": [
+        [
+          "Arthur's Theme",
+          "https://www.arthurstheme.com/"
+        ]
+      ],
+      "short": "European-style restaurant on Lane 6, open since 1997 per its site."
+    },
+    {
+      "id": "hidden-place",
+      "kind": "Bar",
+      "name": "Hidden Place",
+      "where": "Ground Floor, Gera Legend, North Main Road",
+      "short": "Bar on North Main Road. Its site lists 12 PM to 12:30 AM.",
+      "text": [
+        "A bar with bites, continental dishes and family-style Indian meals on the menu, according to its own site, which lists opening hours of 12 PM to 12:30 AM. LBB describes it as having a discreet entrance and a compact, cosy space. This is a bar called Hidden Place, which is not the same as an area of hidden spots."
+      ],
+      "sources": [
+        [
+          "Hidden Place",
+          "https://www.hiddenplace.in/"
+        ],
+        [
+          "LBB, bars in Koregaon Park",
+          "https://lbb.in/pune/pubs-in-koregaon-park/"
+        ]
+      ]
+    }
+  ],
+  "mentions": {
+    "intro": "Other places that public guides and listing sites point to in Koregaon Park. These are the sources' claims, not Peak Pune's, and the venues are not all on the map. Entries from District list a Koregaon Park address and were read on 23 November 2026. Hours, prices, offers and booking slots change, so check them on the listing.",
+    "items": [
+      {
+        "name": "Dario's",
+        "note": "Italian, on Lane 5, according to the LBB neighbourhood guide.",
+        "url": "https://lbb.in/pune/koregaon-park-pune-hood-guide/"
+      },
+      {
+        "name": "The French Window Patisserie",
+        "note": "A cafe in a bungalow on Lane 5, according to LBB.",
+        "url": "https://lbb.in/pune/best-koregaon-park-pune-restaurants/"
+      },
+      {
+        "name": "L7 Club & Lounge",
+        "note": "North Indian and Continental; first floor of The World Building, Lane 7. Listed on District.",
+        "url": "https://www.district.in/dining/pune/l7-club-lounge-koregaon-park"
+      },
+      {
+        "name": "Talli",
+        "note": "North Indian and Continental; The World Building, Meera Nagar. Listed on District.",
+        "url": "https://www.district.in/dining/pune/talli-koregaon-park"
+      },
+      {
+        "name": "Effingut",
+        "note": "Continental and North Indian; Lane 6. Listed on District.",
+        "url": "https://www.district.in/dining/pune/effingut-2-koregaon-park"
+      },
+      {
+        "name": "Swig",
+        "note": "Continental and Mexican; North Main Road. Listed on District.",
+        "url": "https://www.district.in/dining/pune/swig-koregaon-park"
+      },
+      {
+        "name": "The Pet Cafe Pune",
+        "note": "Continental and Middle-Eastern; Lane 4, North Main Road. Listed on District.",
+        "url": "https://www.district.in/dining/pune/the-pet-cafe-pune-koregaon-park"
+      },
+      {
+        "name": "Sante Spa Cuisine",
+        "note": "Continental and Asian; Lane 1. Listed on District.",
+        "url": "https://www.district.in/dining/pune/sante-spa-cuisine-1-koregaon-park"
+      },
+      {
+        "name": "Ebony at St Laurn Hotel",
+        "note": "North Indian and Continental; Koregaon Park Road. Listed on District.",
+        "url": "https://www.district.in/dining/pune/ebony-st-laurn-hotel-koregaon-park"
+      },
+      {
+        "name": "The Time Table at Ventive",
+        "note": "Mediterranean and Italian; Lane 1A. Listed on District.",
+        "url": "https://www.district.in/dining/pune/the-time-table-at-ventive-koregaon-park"
+      },
+      {
+        "name": "Cafe Maple",
+        "note": "Tea and coffee; South Main Road. Listed on District.",
+        "url": "https://www.district.in/dining/pune/cafe-maple-koregaon-park"
+      },
+      {
+        "name": "Entisi Chocolatier",
+        "note": "Desserts; North Main Road. Listed on District.",
+        "url": "https://www.district.in/dining/pune/entisi-chocolatier-koregaon-park"
+      }
+    ]
+  },
+  "areas": [
+    {
+      "id": "central",
+      "title": "The busy centre: North Main Road and Lanes 5 to 7",
+      "paragraphs": [
+        "Travel and Leisure Asia describes Koregaon Park as sandwiched between North Main Road and South Main Road, with the lanes joining them. Most lanes are leafy and residential, while Lanes 6 and 7 are where the restaurants, bars and cafes cluster. It also notes street food kiosks on Lane 6, and Lane 1, near the Osho International Meditation Resort, has Sante Spa Cuisine.",
+        "Places that guides place on this strip include Malaka Spice (Lane 5), Arthur's Theme (Lane 6), Effingut and Pimlico. On the map, this is the dense cluster of pins around North Main Road and the lanes south of it. The restaurant, cafe and bar lists below include every listed place."
+      ],
+      "sources": [
+        [
+          "Travel and Leisure Asia, 11 Oct 2024",
+          "https://www.travelandleisureasia.com/in/destinations/india/exploring-the-chic-charms-of-koregaon-park-in-pune/"
+        ],
+        [
+          "Wikipedia, Koregaon Park",
+          "https://en.wikipedia.org/wiki/Koregaon_Park"
+        ]
+      ]
+    },
+    {
+      "id": "quieter",
+      "title": "Quieter corners",
+      "paragraphs": [
+        "Away from the main strip, the same Travel and Leisure Asia guide suggests simply walking the lanes and bylanes to see the older bungalows. Parks and galleries on the page sit mostly off the busiest stretch: Osho Teerth Park between Lane 2 and Lane 3, Monalisa Kalagram at the end of South Main Road, and Vida Heydari Contemporary on Lane 8. LBB describes Lane 8 as quiet and green.",
+        "The map also pins Damodar Wagaskar Garden, Meera Nagar Park and Shahu Modak Udyan, listed in OpenStreetMap as parks."
+      ],
+      "sources": [
+        [
+          "Travel and Leisure Asia, 11 Oct 2024",
+          "https://www.travelandleisureasia.com/in/destinations/india/exploring-the-chic-charms-of-koregaon-park-in-pune/"
+        ],
+        [
+          "LBB on VHC, Lane 8",
+          "https://lbb.in/pune/vhc-art-gallery-restaurant-in-koregaon-park-pune/"
+        ]
+      ]
+    },
+    {
+      "id": "marigold",
+      "title": "Marigold Complex, Kalyani Nagar",
+      "paragraphs": [
+        "The Arbour, in Marigold Complex (Marisoft IT Park), is a cluster of restaurants and bars listed under Kalyani Nagar. It is outside the Koregaon Park boundary used on this page's map, so the places below are not pinned.",
+        "The Nines is a restaurant and bar on the 2nd floor of The Arbour. People & Co is a lounge bar in the same complex, and kai.ros is listed there too. Check each listing for current hours, prices and offers."
+      ],
+      "sources": [
+        [
+          "The Nines on District",
+          "https://www.district.in/dining/pune/the-nines-kalyani-nagar"
+        ],
+        [
+          "People And Co on District",
+          "https://www.district.in/dining/pune/people-and-co-kalyani-nagar"
+        ],
+        [
+          "People and Co. site",
+          "https://people-and-co.grexa.site/contact"
+        ],
+        [
+          "kai.ros on District",
+          "https://www.district.in/dining/pune/kai-ros-kalyani-nagar"
+        ]
+      ]
+    }
+  ],
+  "events": {
+    "intro": "Dated events are listed separately from the venues above. This is a snapshot read on 23 November 2026 and is not updated automatically, so dates may change or pass. Ticket sites list only a venue name for these events, so each venue's own site is the source for where it is.",
+    "items": [
+      {
+        "name": "Road to Lolla India w/ Powerhouse",
+        "when": "Friday 4 December 2026, 8:00 PM, 21+",
+        "venue": "The High Spirits Cafe",
+        "note": "BookMyShow lists it under Club Gigs, from INR 399. The cafe's own site gives its address as 35A/1, near ABC Farm, behind Burger King, Koregaon Park. Some listing sites place the same address in Mundhwa, so the exact boundary is not confirmed here.",
+        "sources": [
+          [
+            "BookMyShow event page",
+            "https://in.bookmyshow.com/events/road-to-lolla-india-w-powerhouse/et73bz54a0"
+          ],
+          [
+            "The High Spirits Cafe",
+            "https://dahigh.com/"
+          ]
+        ]
+      }
+    ]
+  }
+}
