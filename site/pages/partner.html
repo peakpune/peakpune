@@ -1,0 +1,25 @@
+<div class="hero hero-single"><div><div class="eyebrow">Work with Peak Pune</div><h1>Run something in Pune?<br>Tell us about it.</h1><p class="lede">Cafes, venues, organisers and communities: send a short note about what you do or what you would like to try. Peak Pune is a radar, not a directory, so it does not list everything and cannot promise a listing.</p></div></div>
+<section class="section post-plan" id="partner-form-section"><div class="section-head"><h2>Send a short note</h2><p>Keep it general. Never add card details, ID numbers or anything private.</p></div>
+<p class="note" id="partner-src" hidden></p>
+<form class="plan-form partner-form" id="partner-form" novalidate>
+<fieldset class="full choices"><legend>I am a</legend>
+<label class="choice"><input type="radio" name="kind" value="Cafe or venue" checked><span>Cafe or venue</span></label>
+<label class="choice"><input type="radio" name="kind" value="Event organiser"><span>Event organiser</span></label>
+<label class="choice"><input type="radio" name="kind" value="Community or club"><span>Community or club</span></label>
+<label class="choice"><input type="radio" name="kind" value="Brand or other"><span>Brand or other</span></label>
+</fieldset>
+<label><span>Your name</span><input name="name" maxlength="80" required autocomplete="name"></label>
+<label><span>Venue, group or brand</span><input name="org" maxlength="80" required></label>
+<label><span>Area <small>(optional)</small></span><input name="area" maxlength="40" placeholder="Baner, Koregaon Park..."></label>
+<label><span>Public link <small>(optional, https only)</small></span><input name="link" type="url" maxlength="300" placeholder="https://"></label>
+<label class="full"><span>What would you like to do with Peak Pune?</span><textarea name="note" maxlength="500" rows="4" required></textarea></label>
+<label class="full"><span>Where should we reply? <small>(email or WhatsApp number)</small></span><input name="reply" maxlength="80" required autocomplete="off"></label>
+<input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
+<p class="note">This page stores nothing. Submitting opens an email with your note filled in, and you send it yourself. Your reply details go only in that email.</p>
+<button class="primary" type="submit">Prepare my email</button>
+<p class="note" id="partner-status" role="status"></p>
+<p class="actions" id="partner-actions" hidden></p>
+</form>
+<script type="module" src="/partner.js?v=1"></script>
+</section>
+<section class="section"><div class="section-head"><h2>Just want to share a plan?</h2><p>One-off events go through the plan form instead.</p></div><p class="actions"><a class="chip" href="/events/#post-a-plan">Post a plan</a><a class="chip" href="/meetups/">See communities</a></p></section>
