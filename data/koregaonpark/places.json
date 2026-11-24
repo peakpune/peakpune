@@ -1,0 +1,1008 @@
+{
+ "source": "OpenStreetMap contributors (ODbL), read through the Overpass API and Nominatim on 23 November 2026",
+ "places": [
+  {
+   "id": "chandrama-bar",
+   "name": "Chandrama Bar",
+   "type": "bar",
+   "cuisine": [],
+   "lat": 18.541164,
+   "lon": 73.885686,
+   "street": "",
+   "hours": "",
+   "website": "",
+   "osm": "node/10737340195"
+  },
+  {
+   "id": "hidden-place-the-hang-out",
+   "name": "Hidden Place- The Hang out",
+   "type": "bar",
+   "cuisine": [],
+   "lat": 18.539648,
+   "lon": 73.88703,
+   "street": "",
+   "hours": "",
+   "website": "",
+   "osm": "node/11274030991"
+  },
+  {
+   "id": "swig-bar-eatery-koregaon-park",
+   "name": "SWIG - Bar & Eatery - Koregaon Park",
+   "type": "bar",
+   "cuisine": [
+    "international"
+   ],
+   "lat": 18.539764,
+   "lon": 73.893816,
+   "street": "North Main Road",
+   "hours": "Mo-Su 10:00-22:00",
+   "website": "",
+   "osm": "node/11726884485"
+  },
+  {
+   "id": "talli-bar-kitchen",
+   "name": "Talli Bar & Kitchen",
+   "type": "bar",
+   "cuisine": [],
+   "lat": 18.534515,
+   "lon": 73.899734,
+   "street": "",
+   "hours": "",
+   "website": "",
+   "osm": "node/11744767155"
+  },
+  {
+   "id": "7-to-9-grams-coffee",
+   "name": "7 to 9 Grams Coffee",
+   "type": "cafe",
+   "cuisine": [
+    "coffee house",
+    "sandwich"
+   ],
+   "lat": 18.532285,
+   "lon": 73.897273,
+   "street": "",
+   "hours": "Mo-Th 07:30-22:00; Fr-Su 07:30-23:00",
+   "website": "https://729grams.coffee",
+   "osm": "node/14002659922"
+  },
+  {
+   "id": "amato-dessert-cafe",
+   "name": "Amato Dessert Cafe",
+   "type": "cafe",
+   "cuisine": [],
+   "lat": 18.537472,
+   "lon": 73.899912,
+   "street": "",
+   "hours": "",
+   "website": "",
+   "osm": "node/13955727790"
+  },
+  {
+   "id": "blue-tokai-coffee-roasters",
+   "name": "Blue Tokai Coffee Roasters",
+   "type": "cafe",
+   "cuisine": [
+    "coffee shop"
+   ],
+   "lat": 18.538868,
+   "lon": 73.896624,
+   "street": "",
+   "hours": "",
+   "website": "",
+   "osm": "node/14023885797"
+  },
+  {
+   "id": "brew-culture",
+   "name": "Brew Culture",
+   "type": "cafe",
+   "cuisine": [
+    "coffee shop"
+   ],
+   "lat": 18.536593,
+   "lon": 73.89904,
+   "street": "",
+   "hours": "",
+   "website": "",
+   "osm": "node/10117684095"
+  },
+  {
+   "id": "brotein-bistro",
+   "name": "Brotein Bistro",
+   "type": "cafe",
+   "cuisine": [],
+   "lat": 18.534492,
+   "lon": 73.897232,
+   "street": "",
+   "hours": "",
+   "website": "",
+   "osm": "node/14292747418"
+  },
+  {
+   "id": "cafe-coffee-day",
+   "name": "Cafe Coffee Day",
+   "type": "cafe",
+   "cuisine": [
+    "coffee shop"
+   ],
+   "lat": 18.539582,
+   "lon": 73.887042,
+   "street": "",
+   "hours": "",
+   "website": "",
+   "osm": "node/667287796"
+  },
+  {
+   "id": "comics-and-bricks-cafe",
+   "name": "Comics and Bricks Cafe",
+   "type": "cafe",
+   "cuisine": [],
+   "lat": 18.539582,
+   "lon": 73.897544,
+   "street": "North Main Road",
+   "hours": "Mo-Su,PH 11:00+",
+   "website": "",
+   "osm": "way/359811033"
+  },
+  {
+   "id": "easy-boba",
+   "name": "Easy Boba",
+   "type": "cafe",
+   "cuisine": [
+    "bubble tea"
+   ],
+   "lat": 18.537684,
+   "lon": 73.8999,
+   "street": "",
+   "hours": "",
+   "website": "",
+   "osm": "node/13955720854"
+  },
+  {
+   "id": "forennt-patisserie",
+   "name": "Forennté Patisserie",
+   "type": "cafe",
+   "cuisine": [
+    "cake",
+    "pastry",
+    "coffee"
+   ],
+   "lat": 18.536442,
+   "lon": 73.899352,
+   "street": "",
+   "hours": "",
+   "website": "",
+   "osm": "node/10117689099"
+  },
+  {
+   "id": "german-bakery",
+   "name": "German Bakery",
+   "type": "cafe",
+   "cuisine": [],
+   "lat": 18.539623,
+   "lon": 73.887371,
+   "street": "Koregaon Park",
+   "hours": "",
+   "website": "",
+   "osm": "node/313785040"
+  },
+  {
+   "id": "grandmama-s-cafe",
+   "name": "Grandmama's Cafe",
+   "type": "cafe",
+   "cuisine": [],
+   "lat": 18.532968,
+   "lon": 73.897863,
+   "street": "",
+   "hours": "",
+   "website": "",
+   "osm": "node/11726905574"
+  },
+  {
+   "id": "grey-soul",
+   "name": "Grey Soul",
+   "type": "cafe",
+   "cuisine": [],
+   "lat": 18.537488,
+   "lon": 73.89884,
+   "street": "",
+   "hours": "",
+   "website": "",
+   "osm": "node/10158935918"
+  },
+  {
+   "id": "maple",
+   "name": "Maple",
+   "type": "cafe",
+   "cuisine": [],
+   "lat": 18.53289,
+   "lon": 73.898504,
+   "street": "",
+   "hours": "Mo-Su,PH 08:00-22:00",
+   "website": "",
+   "osm": "node/4354672914"
+  },
+  {
+   "id": "matcha",
+   "name": "Matcha",
+   "type": "cafe",
+   "cuisine": [],
+   "lat": 18.533008,
+   "lon": 73.897516,
+   "street": "",
+   "hours": "",
+   "website": "",
+   "osm": "node/13987923235"
+  },
+  {
+   "id": "naughty-angel-cafe",
+   "name": "Naughty Angel Cafe",
+   "type": "cafe",
+   "cuisine": [
+    "italian"
+   ],
+   "lat": 18.536462,
+   "lon": 73.899591,
+   "street": "",
+   "hours": "",
+   "website": "",
+   "osm": "node/10117710443"
+  },
+  {
+   "id": "starbucks",
+   "name": "Starbucks",
+   "type": "cafe",
+   "cuisine": [
+    "coffee shop"
+   ],
+   "lat": 18.539267,
+   "lon": 73.886694,
+   "street": "North Main Road",
+   "hours": "",
+   "website": "",
+   "osm": "node/672675264"
+  },
+  {
+   "id": "stories-cafe",
+   "name": "Stories cafe",
+   "type": "cafe",
+   "cuisine": [
+    "coffee shop"
+   ],
+   "lat": 18.532871,
+   "lon": 73.895533,
+   "street": "",
+   "hours": "",
+   "website": "https://storiespune.in",
+   "osm": "node/10704253285"
+  },
+  {
+   "id": "tea-post",
+   "name": "Tea Post",
+   "type": "cafe",
+   "cuisine": [],
+   "lat": 18.537826,
+   "lon": 73.899917,
+   "street": "",
+   "hours": "",
+   "website": "",
+   "osm": "node/13955727773"
+  },
+  {
+   "id": "the-french-window-patisserie",
+   "name": "The French Window Patisserie",
+   "type": "cafe",
+   "cuisine": [
+    "coffee shop"
+   ],
+   "lat": 18.537613,
+   "lon": 73.89794,
+   "street": "",
+   "hours": "",
+   "website": "",
+   "osm": "node/11681074026"
+  },
+  {
+   "id": "the-voyage-cafe",
+   "name": "The Voyage Cafe",
+   "type": "cafe",
+   "cuisine": [],
+   "lat": 18.539503,
+   "lon": 73.897604,
+   "street": "",
+   "hours": "",
+   "website": "",
+   "osm": "node/14023883938"
+  },
+  {
+   "id": "third-wave-coffee",
+   "name": "Third Wave Coffee",
+   "type": "cafe",
+   "cuisine": [],
+   "lat": 18.539103,
+   "lon": 73.900035,
+   "street": "",
+   "hours": "",
+   "website": "",
+   "osm": "node/10054088273"
+  },
+  {
+   "id": "wildbean-cafe",
+   "name": "Wildbean Cafe",
+   "type": "cafe",
+   "cuisine": [],
+   "lat": 18.539217,
+   "lon": 73.897658,
+   "street": "",
+   "hours": "",
+   "website": "",
+   "osm": "node/14023892170"
+  },
+  {
+   "id": "yogi-tree-cafe",
+   "name": "Yogi Tree Cafe",
+   "type": "cafe",
+   "cuisine": [],
+   "lat": 18.541253,
+   "lon": 73.887653,
+   "street": "",
+   "hours": "",
+   "website": "",
+   "osm": "node/3964005611"
+  },
+  {
+   "id": "boteco-tapas-bar-grill",
+   "name": "Boteco - Tapas Bar & Grill",
+   "type": "restaurant",
+   "cuisine": [],
+   "lat": 18.534346,
+   "lon": 73.899356,
+   "street": "",
+   "hours": "",
+   "website": "",
+   "osm": "node/11733184074"
+  },
+  {
+   "id": "buddha-paradise",
+   "name": "Buddha Paradise",
+   "type": "restaurant",
+   "cuisine": [
+    "indian",
+    "chinese",
+    "coffee shop"
+   ],
+   "lat": 18.540153,
+   "lon": 73.891223,
+   "street": "",
+   "hours": "Mo-Su 10:00-22:00",
+   "website": "",
+   "osm": "node/12434967458"
+  },
+  {
+   "id": "casa-del-queso-cafe-cheese-house",
+   "name": "Casa Del Queso - Cafe & Cheese House",
+   "type": "restaurant",
+   "cuisine": [],
+   "lat": 18.532764,
+   "lon": 73.897535,
+   "street": "",
+   "hours": "",
+   "website": "",
+   "osm": "node/11726884922"
+  },
+  {
+   "id": "chaurahe-ke-paar",
+   "name": "Chaurahe ke Paar",
+   "type": "restaurant",
+   "cuisine": [],
+   "lat": 18.534413,
+   "lon": 73.899744,
+   "street": "",
+   "hours": "",
+   "website": "",
+   "osm": "node/11744803041"
+  },
+  {
+   "id": "china-park",
+   "name": "China Park",
+   "type": "restaurant",
+   "cuisine": [
+    "chinese"
+   ],
+   "lat": 18.536652,
+   "lon": 73.900083,
+   "street": "",
+   "hours": "",
+   "website": "",
+   "osm": "node/11733869945"
+  },
+  {
+   "id": "dhaba-shaba-indian-veg-bistro",
+   "name": "Dhaba Shaba Indian Veg Bistro",
+   "type": "restaurant",
+   "cuisine": [
+    "indian",
+    "italian"
+   ],
+   "lat": 18.53277,
+   "lon": 73.896999,
+   "street": "",
+   "hours": "",
+   "website": "",
+   "osm": "node/11726897049"
+  },
+  {
+   "id": "donatella",
+   "name": "Donatella",
+   "type": "restaurant",
+   "cuisine": [],
+   "lat": 18.537389,
+   "lon": 73.898874,
+   "street": "",
+   "hours": "",
+   "website": "",
+   "osm": "node/11733856611"
+  },
+  {
+   "id": "effingut-koregaon-park",
+   "name": "Effingut Koregaon Park",
+   "type": "restaurant",
+   "cuisine": [
+    "pizza",
+    "regional",
+    "italian",
+    "kebab"
+   ],
+   "lat": 18.534032,
+   "lon": 73.898504,
+   "street": "",
+   "hours": "",
+   "website": "",
+   "osm": "node/11744761288"
+  },
+  {
+   "id": "great-state-dive",
+   "name": "Great State Dive",
+   "type": "restaurant",
+   "cuisine": [],
+   "lat": 18.534312,
+   "lon": 73.899212,
+   "street": "",
+   "hours": "",
+   "website": "",
+   "osm": "node/11733188337"
+  },
+  {
+   "id": "iya-s-korean-kitchen",
+   "name": "Iya's Korean Kitchen",
+   "type": "restaurant",
+   "cuisine": [],
+   "lat": 18.532167,
+   "lon": 73.89583,
+   "street": "",
+   "hours": "",
+   "website": "",
+   "osm": "node/13987920849"
+  },
+  {
+   "id": "joy-foods",
+   "name": "Joy Foods",
+   "type": "restaurant",
+   "cuisine": [],
+   "lat": 18.533274,
+   "lon": 73.887232,
+   "street": "",
+   "hours": "",
+   "website": "",
+   "osm": "node/4583821521"
+  },
+  {
+   "id": "kareem-s",
+   "name": "Kareem's",
+   "type": "restaurant",
+   "cuisine": [],
+   "lat": 18.537647,
+   "lon": 73.899898,
+   "street": "",
+   "hours": "",
+   "website": "",
+   "osm": "node/13955718436"
+  },
+  {
+   "id": "kebab-gunj",
+   "name": "Kebab Gunj",
+   "type": "restaurant",
+   "cuisine": [],
+   "lat": 18.536641,
+   "lon": 73.900086,
+   "street": "",
+   "hours": "",
+   "website": "",
+   "osm": "node/11733856725"
+  },
+  {
+   "id": "kp-veg",
+   "name": "KP Veg",
+   "type": "restaurant",
+   "cuisine": [
+    "indian"
+   ],
+   "lat": 18.54133,
+   "lon": 73.890103,
+   "street": "",
+   "hours": "",
+   "website": "",
+   "osm": "node/12434971449"
+  },
+  {
+   "id": "kuai-kitchen",
+   "name": "Kuai Kitchen",
+   "type": "restaurant",
+   "cuisine": [],
+   "lat": 18.534211,
+   "lon": 73.899332,
+   "street": "",
+   "hours": "",
+   "website": "",
+   "osm": "node/11733094362"
+  },
+  {
+   "id": "mad-house-grill",
+   "name": "Mad House Grill",
+   "type": "restaurant",
+   "cuisine": [
+    "american",
+    "burger",
+    "chicken"
+   ],
+   "lat": 18.536566,
+   "lon": 73.899145,
+   "street": "",
+   "hours": "",
+   "website": "",
+   "osm": "node/3642844986"
+  },
+  {
+   "id": "malaka-spice",
+   "name": "Malaka Spice",
+   "type": "restaurant",
+   "cuisine": [
+    "thai",
+    "asian"
+   ],
+   "lat": 18.537433,
+   "lon": 73.897337,
+   "street": "",
+   "hours": "",
+   "website": "",
+   "osm": "node/1796901377"
+  },
+  {
+   "id": "mia-cuccina",
+   "name": "Mia Cuccina",
+   "type": "restaurant",
+   "cuisine": [
+    "pizza"
+   ],
+   "lat": 18.537722,
+   "lon": 73.898965,
+   "street": "",
+   "hours": "",
+   "website": "",
+   "osm": "node/3937245716"
+  },
+  {
+   "id": "miya-kebabs",
+   "name": "Miya Kebabs",
+   "type": "restaurant",
+   "cuisine": [],
+   "lat": 18.538037,
+   "lon": 73.899935,
+   "street": "",
+   "hours": "Mo-Su,PH 13:00-23:30",
+   "website": "",
+   "osm": "node/13955697365"
+  },
+  {
+   "id": "murphies",
+   "name": "Murphies",
+   "type": "restaurant",
+   "cuisine": [],
+   "lat": 18.536616,
+   "lon": 73.89881,
+   "street": "",
+   "hours": "",
+   "website": "",
+   "osm": "node/10117678237"
+  },
+  {
+   "id": "one-o-eight",
+   "name": "One O Eight",
+   "type": "restaurant",
+   "cuisine": [],
+   "lat": 18.537085,
+   "lon": 73.89876,
+   "street": "",
+   "hours": "",
+   "website": "",
+   "osm": "node/4583528602"
+  },
+  {
+   "id": "pimlico",
+   "name": "Pimlico",
+   "type": "restaurant",
+   "cuisine": [
+    "italian"
+   ],
+   "lat": 18.533978,
+   "lon": 73.898236,
+   "street": "",
+   "hours": "",
+   "website": "",
+   "osm": "node/11744837871"
+  },
+  {
+   "id": "pizza-hut",
+   "name": "Pizza Hut",
+   "type": "restaurant",
+   "cuisine": [
+    "pizza"
+   ],
+   "lat": 18.539135,
+   "lon": 73.898595,
+   "street": "",
+   "hours": "",
+   "website": "",
+   "osm": "node/6184010100"
+  },
+  {
+   "id": "prem-s",
+   "name": "Prem's",
+   "type": "restaurant",
+   "cuisine": [
+    "italian",
+    "chinese",
+    "asian"
+   ],
+   "lat": 18.539767,
+   "lon": 73.893772,
+   "street": "",
+   "hours": "",
+   "website": "",
+   "osm": "node/11274029562"
+  },
+  {
+   "id": "publiq",
+   "name": "PUBLIQ",
+   "type": "restaurant",
+   "cuisine": [],
+   "lat": 18.53304,
+   "lon": 73.899102,
+   "street": "",
+   "hours": "",
+   "website": "",
+   "osm": "node/11733177765"
+  },
+  {
+   "id": "qora-cocktail-bar-kitchen",
+   "name": "QORA-Cocktail Bar & Kitchen",
+   "type": "restaurant",
+   "cuisine": [],
+   "lat": 18.536461,
+   "lon": 73.896531,
+   "street": "",
+   "hours": "",
+   "website": "",
+   "osm": "node/11733825627"
+  },
+  {
+   "id": "rocket-momos",
+   "name": "Rocket Momos",
+   "type": "restaurant",
+   "cuisine": [],
+   "lat": 18.539828,
+   "lon": 73.893055,
+   "street": "",
+   "hours": "",
+   "website": "",
+   "osm": "way/359724881"
+  },
+  {
+   "id": "sante-spa-cuisine",
+   "name": "Sante Spa Cuisine",
+   "type": "restaurant",
+   "cuisine": [],
+   "lat": 18.533305,
+   "lon": 73.88742,
+   "street": "",
+   "hours": "",
+   "website": "",
+   "osm": "node/7194929645"
+  },
+  {
+   "id": "savya-rasa",
+   "name": "Savya Rasa",
+   "type": "restaurant",
+   "cuisine": [
+    "indian"
+   ],
+   "lat": 18.538857,
+   "lon": 73.886673,
+   "street": "",
+   "hours": "",
+   "website": "",
+   "osm": "node/10550777909"
+  },
+  {
+   "id": "speak-low",
+   "name": "Speak Low",
+   "type": "restaurant",
+   "cuisine": [],
+   "lat": 18.533317,
+   "lon": 73.897058,
+   "street": "",
+   "hours": "Mo-Su 12:00-01:00",
+   "website": "",
+   "osm": "node/6531995651"
+  },
+  {
+   "id": "squisito-the-italian-ristorante",
+   "name": "Squisito - The Italian Ristorante",
+   "type": "restaurant",
+   "cuisine": [
+    "italian"
+   ],
+   "lat": 18.536357,
+   "lon": 73.897358,
+   "street": "",
+   "hours": "",
+   "website": "",
+   "osm": "node/11733830067"
+  },
+  {
+   "id": "swig-bar-and-eatery",
+   "name": "Swig-Bar and Eatery",
+   "type": "restaurant",
+   "cuisine": [],
+   "lat": 18.539767,
+   "lon": 73.893855,
+   "street": "",
+   "hours": "",
+   "website": "",
+   "osm": "way/359811162"
+  },
+  {
+   "id": "the-chickster",
+   "name": "The Chickster",
+   "type": "restaurant",
+   "cuisine": [
+    "american"
+   ],
+   "lat": 18.539613,
+   "lon": 73.887191,
+   "street": "",
+   "hours": "",
+   "website": "",
+   "osm": "node/11274030992"
+  },
+  {
+   "id": "the-daily-all-day",
+   "name": "The Daily All Day",
+   "type": "restaurant",
+   "cuisine": [
+    "burger",
+    "american",
+    "regional"
+   ],
+   "lat": 18.533938,
+   "lon": 73.899675,
+   "street": "",
+   "hours": "",
+   "website": "",
+   "osm": "way/281308017"
+  },
+  {
+   "id": "the-doner-company",
+   "name": "The Doner Company",
+   "type": "restaurant",
+   "cuisine": [
+    "lebanese"
+   ],
+   "lat": 18.536573,
+   "lon": 73.900082,
+   "street": "",
+   "hours": "",
+   "website": "",
+   "osm": "node/11733849418"
+  },
+  {
+   "id": "the-great-punjab",
+   "name": "The Great Punjab",
+   "type": "restaurant",
+   "cuisine": [
+    "indian"
+   ],
+   "lat": 18.53651,
+   "lon": 73.897509,
+   "street": "",
+   "hours": "",
+   "website": "",
+   "osm": "node/283166314"
+  },
+  {
+   "id": "the-immortale-barbecue",
+   "name": "THE IMMORTALE BARBECUE",
+   "type": "restaurant",
+   "cuisine": [
+    "barbecue"
+   ],
+   "lat": 18.537744,
+   "lon": 73.898824,
+   "street": "",
+   "hours": "",
+   "website": "",
+   "osm": "node/11733859729"
+  },
+  {
+   "id": "the-sassy-spoon-pune",
+   "name": "The Sassy Spoon Pune",
+   "type": "restaurant",
+   "cuisine": [],
+   "lat": 18.53394,
+   "lon": 73.898729,
+   "street": "",
+   "hours": "",
+   "website": "",
+   "osm": "node/4354672915"
+  },
+  {
+   "id": "the-third-place",
+   "name": "The Third Place",
+   "type": "restaurant",
+   "cuisine": [],
+   "lat": 18.536446,
+   "lon": 73.897327,
+   "street": "",
+   "hours": "",
+   "website": "",
+   "osm": "node/14292907943"
+  },
+  {
+   "id": "tiger-naan",
+   "name": "Tiger Naan",
+   "type": "restaurant",
+   "cuisine": [],
+   "lat": 18.534266,
+   "lon": 73.897234,
+   "street": "",
+   "hours": "",
+   "website": "",
+   "osm": "node/14292773760"
+  },
+  {
+   "id": "toscano-pune-koregaon-park",
+   "name": "Toscano Pune Koregaon Park",
+   "type": "restaurant",
+   "cuisine": [
+    "italian"
+   ],
+   "lat": 18.532986,
+   "lon": 73.896817,
+   "street": "",
+   "hours": "",
+   "website": "",
+   "osm": "node/3961482061"
+  },
+  {
+   "id": "uncle-s-chinese",
+   "name": "Uncle's Chinese",
+   "type": "restaurant",
+   "cuisine": [
+    "chinese"
+   ],
+   "lat": 18.537426,
+   "lon": 73.89991,
+   "street": "",
+   "hours": "",
+   "website": "",
+   "osm": "node/13955728533"
+  },
+  {
+   "id": "osho-teerth-park",
+   "name": "Osho Teerth Park",
+   "type": "park",
+   "cuisine": [],
+   "lat": 18.536424,
+   "lon": 73.891425,
+   "street": "",
+   "hours": "",
+   "website": "",
+   "osm": "way/28217451"
+  },
+  {
+   "id": "vivanta-by-taj-blue-diamond-pune",
+   "name": "Vivanta By Taj - Blue Diamond, Pune",
+   "type": "hotel",
+   "cuisine": [],
+   "lat": 18.538263,
+   "lon": 73.886456,
+   "street": "",
+   "hours": "",
+   "website": "",
+   "osm": "way/108093182"
+  },
+  {
+   "id": "the-o-hotel",
+   "name": "The O Hotel",
+   "type": "hotel",
+   "cuisine": [],
+   "lat": 18.539994,
+   "lon": 73.887751,
+   "street": "",
+   "hours": "",
+   "website": "",
+   "osm": "way/108093183"
+  },
+  {
+   "id": "jewel-square-mall",
+   "name": "Jewel Square Mall",
+   "type": "landmark",
+   "cuisine": [],
+   "lat": 18.538909,
+   "lon": 73.885919,
+   "street": "",
+   "hours": "",
+   "website": "",
+   "osm": "way/121898933"
+  },
+  {
+   "id": "damodar-wagaskar-garden",
+   "name": "Damodar Wagaskar Garden",
+   "type": "park",
+   "cuisine": [],
+   "lat": 18.53818,
+   "lon": 73.897971,
+   "street": "",
+   "hours": "",
+   "website": "",
+   "osm": "way/218691434"
+  },
+  {
+   "id": "osho-ashram",
+   "name": "Osho Ashram",
+   "type": "landmark",
+   "cuisine": [],
+   "lat": 18.537054,
+   "lon": 73.888606,
+   "street": "",
+   "hours": "",
+   "website": "",
+   "osm": "way/264403539"
+  },
+  {
+   "id": "shahu-modak-udyan",
+   "name": "Shahu Modak Udyan",
+   "type": "park",
+   "cuisine": [],
+   "lat": 18.533387,
+   "lon": 73.895977,
+   "street": "",
+   "hours": "",
+   "website": "",
+   "osm": "way/292610072"
+  },
+  {
+   "id": "meera-nagar-park",
+   "name": "Meera Nagar Park",
+   "type": "park",
+   "cuisine": [],
+   "lat": 18.538128,
+   "lon": 73.899623,
+   "street": "",
+   "hours": "",
+   "website": "",
+   "osm": "way/527746888"
+  }
+ ],
+ "area_note": "Only places inside the OpenStreetMap landuse polygon named Koregaon Park (way/1304315209) are kept."
+}
