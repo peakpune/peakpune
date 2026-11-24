@@ -466,3 +466,21 @@ a.category:nth-child(4n+1){color:#fff}a.category:hover{outline:4px solid var(--r
 .tests li::before{content:counter(t);font:700 22px/26px var(--display);color:var(--brick);flex:none}
 .manifesto .eyebrow{margin:0 0 var(--s4)}
 .radar-card .rcal{margin:0;font-size:14px}.radar-card .rcal a{font-weight:600;color:var(--ink);min-height:44px;display:inline-flex;align-items:center}
+
+/* UI batch 1: clickable frequencies, compact live conditions, tidy tiles */
+a.freq-card{display:block;color:var(--ink);text-decoration:none;transition:transform .15s,box-shadow .15s}
+a.freq-card:hover,a.freq-card:focus-visible{transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--ink)}
+.freq-card .go{display:block;margin-top:var(--s3);font:700 14px/20px var(--body);color:var(--brick)}
+.category h3::after{content:" \2192";font-weight:700}
+@media(max-width:600px){
+  .tiles{grid-template-columns:repeat(2,1fr);gap:var(--s3)}
+  .tiles .category:last-child:nth-child(odd){grid-column:1/-1;min-height:96px}
+  .category{min-height:112px;padding:var(--s4)}
+  .now-grid{grid-template-columns:repeat(2,1fr);gap:var(--s3)}
+  .now-cell{padding:var(--s4)}
+  .now-cell .note:empty,.now-cell .note{margin-top:var(--s1)}
+  .now-value{font-size:20px;line-height:26px}
+  .freq-grid{gap:var(--s3)}
+  .freq-card{padding:var(--s4)}
+  .freq-card h3{font-size:22px;line-height:26px}
+}
