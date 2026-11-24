@@ -37,15 +37,15 @@ export const slugOf = (row) => row.id.replace(/^place-/, '');
 const clip = (s, n) => (s.length <= n ? s : s.slice(0, n - 1).replace(/\s+\S*$/, '') + '…');
 
 const NAV_GROUPS = [
-  ['Explore', [['/places/', 'Places', 'Source-checked places across Pune'], ['/interests/', 'Interests', 'Browse by what you like'], ['/markets/', 'Markets', 'Markets and famous shops'], ['/history/', 'History', 'Sourced history of Pune places'], ['/sky/', 'Sky', 'Moon, eclipses, planets and meteor showers']]],
+  ['Explore', [['/places/', 'Places', 'Source-checked places across Pune'], ['/koregaonpark/', 'Koregaon Park', 'Map guide to the KP area'], ['/eastpune/', 'East Pune', 'Guide to East Pune'], ['/interests/', 'Interests', 'Browse by what you like'], ['/markets/', 'Markets', 'Markets and famous shops'], ['/history/', 'History', 'Sourced history of Pune places'], ['/sky/', 'Sky', 'Moon, eclipses, planets and meteor showers']]],
   ['Outdoors and travel', [['/outdoors/', 'Runs and treks', 'Running loops and treks near Pune'], ['/PuneMetroguide/', 'Metro guide', 'Lines, stations and places nearby']]],
   ['Community', [['/meetups/', 'Meetups', 'Groups that organise; we link to them'], ['/about/', 'About Peak Pune', 'How listings are checked']]],
 ];
 const MENU_GROUPS = [
-  ['Plan', [['/events/', 'Events'], ['/meetups/', 'Meetups']]],
-  ['Explore', [['/places/', 'Places'], ['/interests/', 'Interests'], ['/markets/', 'Markets'], ['/history/', 'History'], ['/sky/', 'Sky']]],
+  ['Start', [['/', 'Home'], ['/events/', 'Events']]],
+  ['Explore', [['/places/', 'Places'], ['/koregaonpark/', 'Koregaon Park'], ['/eastpune/', 'East Pune'], ['/interests/', 'Interests'], ['/markets/', 'Markets'], ['/history/', 'History'], ['/sky/', 'Sky']]],
   ['Outdoors and travel', [['/outdoors/', 'Runs and treks'], ['/PuneMetroguide/', 'Metro guide']]],
-  ['About', [['/about/', 'About Peak Pune'], ['/', 'Home']]],
+  ['Community', [['/meetups/', 'Meetups'], ['/about/', 'About Peak Pune']]],
 ];
 const TYPE_LABEL = { museum: 'Museums', heritage: 'Heritage and history', temple: 'Temples', bookstore: 'Bookstores', gallery: 'Galleries', 'cultural-centre': 'Cultural centres', archive: 'Archives', cafe: 'Cafes', restaurant: 'Restaurants', bar: 'Bars and brewpubs', sweets: 'Sweets and snacks', park: 'Parks and gardens', zoo: 'Zoo' };
 const TYPE_SINGULAR = { museum: 'Museum', heritage: 'Heritage site', temple: 'Temple', bookstore: 'Bookstore', gallery: 'Art gallery', 'cultural-centre': 'Cultural centre', archive: 'Archive', cafe: 'Cafe', restaurant: 'Restaurant', bar: 'Bar and brewpub', sweets: 'Sweet shop', park: 'Park', zoo: 'Zoo' };

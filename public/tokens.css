@@ -485,8 +485,7 @@ a.freq-card:hover,a.freq-card:focus-visible{transform:translate(-2px,-2px);box-s
   .freq-card h3{font-size:22px;line-height:26px}
 }
 /* UI batch 2: breadcrumbs read as navigation */
-.crumbs{flex-wrap:nowrap;align-items:center;gap:0;overflow-x:auto;white-space:nowrap;scrollbar-width:none;margin-top:var(--s3);padding:0 0 var(--s3);border-bottom:2px solid var(--rim);font-size:15px;font-weight:600}
-.crumbs::-webkit-scrollbar{display:none}
+.crumbs{flex-wrap:wrap;align-items:center;gap:0;margin-top:var(--s3);padding:0 0 var(--s3);border-bottom:2px solid var(--rim);font-size:15px;font-weight:600}
 .crumbs a,.crumbs span{display:inline-flex;align-items:center;min-height:44px}
 .crumbs a{color:var(--brick);text-decoration:none}
 .crumbs a:hover,.crumbs a:focus-visible{text-decoration:underline;text-underline-offset:3px}
@@ -494,17 +493,11 @@ a.freq-card:hover,a.freq-card:focus-visible{transform:translate(-2px,-2px);box-s
 .crumbs a:first-child::before{content:"\2302";margin-right:var(--s2);font-size:17px}
 .crumbs span[aria-current]{color:var(--ink);font-weight:800}
 .crumbs+.hero{padding-top:var(--s8)}
-@media(max-width:600px){.crumbs{margin-right:calc(var(--s4)*-1);padding-right:var(--s4)}}
 /* UI batch 3: swipeable category chips, card affordance, in-page jump links */
 a.card:not(.link-card) .inner::after{content:"View details \2192";margin-top:var(--s2);font:700 14px/20px var(--body);color:var(--brick)}
 a.card:not(.link-card):hover,a.card:not(.link-card):focus-visible{transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--ink)}
 .chips.jump .chip{scroll-snap-align:start}
 html{scroll-padding-top:88px}
-@media(max-width:600px){
-  .chips.jump:has(.chip:nth-child(7)){display:grid;grid-auto-flow:column;grid-template-rows:repeat(2,auto);grid-auto-columns:max-content;overflow-x:auto;scroll-snap-type:x proximity;scrollbar-width:none;margin-right:calc(var(--s4)*-1);padding-right:var(--s4);padding-bottom:var(--s1)}
-  .chips.jump::-webkit-scrollbar{display:none}
-  .chips.jump:not(:has(.chip:nth-child(7))){margin-right:0}
-  .chips.jump .chip{white-space:nowrap}
 }
 /* UI batch 4: clearer menu panel and Join menu */
 .site-header .nav-m{border-bottom:0;box-shadow:0 6px 0 var(--ink),0 100vh 0 100vh rgba(28,20,16,.45);padding-bottom:var(--s5)}
