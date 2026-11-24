@@ -1,0 +1,71 @@
+{
+ "source": "https://www.imo.net/calendar/",
+ "note": "Month/day are the annual peak night used for every year. checked_years lists the years whose nights were compared with the IMO calendar; add a year here only after checking it.",
+ "checked_years": [
+  2026,
+  2027
+ ],
+ "checked_at": "2026-11-24",
+ "showers": [
+  [
+   "Quadrantids",
+   1,
+   3
+  ],
+  [
+   "Lyrids",
+   4,
+   21
+  ],
+  [
+   "Eta Aquariids",
+   5,
+   5
+  ],
+  [
+   "Perseids",
+   8,
+   12
+  ],
+  [
+   "Orionids",
+   10,
+   21
+  ],
+  [
+   "Leonids",
+   11,
+   17
+  ],
+  [
+   "Geminids",
+   12,
+   13
+  ],
+  [
+   "Ursids",
+   12,
+   21
+  ],
+  [
+   "Southern Delta Aquariids",
+   7,
+   30
+  ],
+  [
+   "Alpha Capricornids",
+   7,
+   30
+  ],
+  [
+   "Southern Taurids",
+   11,
+   4
+  ],
+  [
+   "Northern Taurids",
+   11,
+   11
+  ]
+ ]
+}
