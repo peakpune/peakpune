@@ -510,3 +510,6 @@ html{scroll-padding-top:88px}
 .site-header .join>div a{white-space:nowrap;position:relative;padding-right:var(--s8)}
 .site-header .join>div a::after{content:"\2197";position:absolute;right:var(--s4);top:var(--s3);font-weight:700;color:var(--brick)}
 .site-header .join>div a:hover,.site-header .join>div a:focus-visible{background:var(--clay);border-radius:var(--r-input)}
+
+.site-footer nav a.ig-link{gap:var(--s2)}
+.ig-ico{flex:none;color:var(--brick)}
