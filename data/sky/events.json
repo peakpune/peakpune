@@ -1,0 +1,731 @@
+{
+ "lunar": [
+  {
+   "cat": "All of it above the horizon",
+   "end": "2027-02-21 06:44",
+   "frac_up": 1.0,
+   "max_up": true,
+   "moon_alt_max": 31.4,
+   "start": "2027-02-21 02:40",
+   "t": "2027-02-21 04:42",
+   "total_seen": null,
+   "type": "Penumbral"
+  },
+  {
+   "cat": "All of it above the horizon",
+   "end": "2027-07-18 21:59",
+   "frac_up": 1.0,
+   "max_up": true,
+   "moon_alt_max": 27.4,
+   "start": "2027-07-18 21:05",
+   "t": "2027-07-18 21:32",
+   "total_seen": null,
+   "type": "Penumbral"
+  },
+  {
+   "cat": "Not visible (Moon below horizon)",
+   "end": "2027-08-17 14:35",
+   "frac_up": 0.0,
+   "max_up": false,
+   "moon_alt_max": -83.8,
+   "start": "2027-08-17 10:51",
+   "t": "2027-08-17 12:43",
+   "total_seen": null,
+   "type": "Penumbral"
+  },
+  {
+   "cat": "Not visible (Moon below horizon)",
+   "end": "2028-01-12 10:12",
+   "frac_up": 0.0,
+   "max_up": false,
+   "moon_alt_max": -30.5,
+   "start": "2028-01-12 09:14",
+   "t": "2028-01-12 09:43",
+   "total_seen": null,
+   "type": "Partial"
+  }
+ ],
+ "meteors": [
+  {
+   "dark_h": 10.4,
+   "moon_pct": 19,
+   "moonfree_h": 8.2,
+   "night": "2026-12-13",
+   "shower": "Geminids",
+   "year": 2026
+  },
+  {
+   "dark_h": 10.3,
+   "moon_pct": 92,
+   "moonfree_h": 0.8,
+   "night": "2026-12-21",
+   "shower": "Ursids",
+   "year": 2026
+  },
+  {
+   "dark_h": 10.4,
+   "moon_pct": 14,
+   "moonfree_h": 8.8,
+   "night": "2027-01-03",
+   "shower": "Quadrantids",
+   "year": 2027
+  },
+  {
+   "dark_h": 8.8,
+   "moon_pct": 99,
+   "moonfree_h": 0.0,
+   "night": "2027-04-21",
+   "shower": "Lyrids",
+   "year": 2027
+  },
+  {
+   "dark_h": 8.5,
+   "moon_pct": 1,
+   "moonfree_h": 8.5,
+   "night": "2027-05-05",
+   "shower": "Eta Aquariids",
+   "year": 2027
+  },
+  {
+   "dark_h": 8.6,
+   "moon_pct": 83,
+   "moonfree_h": 2.4,
+   "night": "2027-08-12",
+   "shower": "Perseids",
+   "year": 2027
+  },
+  {
+   "dark_h": 9.9,
+   "moon_pct": 61,
+   "moonfree_h": 3.8,
+   "night": "2027-10-21",
+   "shower": "Orionids",
+   "year": 2027
+  },
+  {
+   "dark_h": 10.2,
+   "moon_pct": 84,
+   "moonfree_h": 1.8,
+   "night": "2027-11-17",
+   "shower": "Leonids",
+   "year": 2027
+  },
+  {
+   "dark_h": 10.4,
+   "moon_pct": 100,
+   "moonfree_h": 0.0,
+   "night": "2027-12-13",
+   "shower": "Geminids",
+   "year": 2027
+  },
+  {
+   "dark_h": 10.3,
+   "moon_pct": 35,
+   "moonfree_h": 6.5,
+   "night": "2027-12-21",
+   "shower": "Ursids",
+   "year": 2027
+  },
+  {
+   "dark_h": 8.4,
+   "moon_pct": 10,
+   "moonfree_h": 7.2,
+   "night": "2027-07-30",
+   "shower": "Southern Delta Aquariids",
+   "year": 2027
+  },
+  {
+   "dark_h": 8.4,
+   "moon_pct": 10,
+   "moonfree_h": 7.2,
+   "night": "2027-07-30",
+   "shower": "Alpha Capricornids",
+   "year": 2027
+  },
+  {
+   "dark_h": 10.1,
+   "moon_pct": 36,
+   "moonfree_h": 6.5,
+   "night": "2027-11-04",
+   "shower": "Southern Taurids",
+   "year": 2027
+  },
+  {
+   "dark_h": 10.2,
+   "moon_pct": 94,
+   "moonfree_h": 0.7,
+   "night": "2027-11-11",
+   "shower": "Northern Taurids",
+   "year": 2027
+  },
+  {
+   "dark_h": 10.3,
+   "moon_pct": 38,
+   "moonfree_h": 6.2,
+   "night": "2028-01-03",
+   "shower": "Quadrantids",
+   "year": 2028
+  }
+ ],
+ "pairs_dropped_low": 1,
+ "phases": [
+  {
+   "km": 360765,
+   "near": true,
+   "phase": "Full Moon",
+   "t": "2026-11-24 20:23"
+  },
+  {
+   "km": 377731,
+   "near": false,
+   "phase": "Last Quarter",
+   "t": "2026-12-01 11:38"
+  },
+  {
+   "km": 404688,
+   "near": false,
+   "phase": "New Moon",
+   "t": "2026-12-09 06:21"
+  },
+  {
+   "km": 390010,
+   "near": false,
+   "phase": "First Quarter",
+   "t": "2026-12-17 11:12"
+  },
+  {
+   "km": 356738,
+   "near": true,
+   "phase": "Full Moon",
+   "t": "2026-12-24 06:58"
+  },
+  {
+   "km": 384935,
+   "near": false,
+   "phase": "Last Quarter",
+   "t": "2026-12-31 00:29"
+  },
+  {
+   "km": 406524,
+   "near": false,
+   "phase": "New Moon",
+   "t": "2027-01-08 01:54"
+  },
+  {
+   "km": 382203,
+   "near": false,
+   "phase": "First Quarter",
+   "t": "2027-01-16 02:04"
+  },
+  {
+   "km": 357644,
+   "near": true,
+   "phase": "Full Moon",
+   "t": "2027-01-22 17:47"
+  },
+  {
+   "km": 392853,
+   "near": false,
+   "phase": "Last Quarter",
+   "t": "2027-01-29 16:25"
+  },
+  {
+   "km": 402711,
+   "near": false,
+   "phase": "New Moon",
+   "t": "2027-02-06 21:26"
+  },
+  {
+   "km": 375767,
+   "near": false,
+   "phase": "First Quarter",
+   "t": "2027-02-14 13:28"
+  },
+  {
+   "km": 363306,
+   "near": false,
+   "phase": "Full Moon",
+   "t": "2027-02-21 04:53"
+  },
+  {
+   "km": 399673,
+   "near": false,
+   "phase": "Last Quarter",
+   "t": "2027-02-28 10:46"
+  },
+  {
+   "km": 394344,
+   "near": false,
+   "phase": "New Moon",
+   "t": "2027-03-08 14:59"
+  },
+  {
+   "km": 371580,
+   "near": false,
+   "phase": "First Quarter",
+   "t": "2027-03-15 21:55"
+  },
+  {
+   "km": 372527,
+   "near": false,
+   "phase": "Full Moon",
+   "t": "2027-03-22 16:13"
+  },
+  {
+   "km": 403603,
+   "near": false,
+   "phase": "Last Quarter",
+   "t": "2027-03-30 06:23"
+  },
+  {
+   "km": 383641,
+   "near": false,
+   "phase": "New Moon",
+   "t": "2027-04-07 05:21"
+  },
+  {
+   "km": 370042,
+   "near": false,
+   "phase": "First Quarter",
+   "t": "2027-04-14 04:26"
+  },
+  {
+   "km": 383429,
+   "near": false,
+   "phase": "Full Moon",
+   "t": "2027-04-21 03:57"
+  },
+  {
+   "km": 403543,
+   "near": false,
+   "phase": "Last Quarter",
+   "t": "2027-04-29 01:47"
+  },
+  {
+   "km": 372976,
+   "near": false,
+   "phase": "New Moon",
+   "t": "2027-05-06 16:28"
+  },
+  {
+   "km": 371284,
+   "near": false,
+   "phase": "First Quarter",
+   "t": "2027-05-13 10:13"
+  },
+  {
+   "km": 393901,
+   "near": false,
+   "phase": "Full Moon",
+   "t": "2027-05-20 16:29"
+  },
+  {
+   "km": 399629,
+   "near": false,
+   "phase": "Last Quarter",
+   "t": "2027-05-28 19:27"
+  },
+  {
+   "km": 364260,
+   "near": false,
+   "phase": "New Moon",
+   "t": "2027-06-05 01:10"
+  },
+  {
+   "km": 375147,
+   "near": false,
+   "phase": "First Quarter",
+   "t": "2027-06-11 16:26"
+  },
+  {
+   "km": 401952,
+   "near": false,
+   "phase": "Full Moon",
+   "t": "2027-06-19 06:14"
+  },
+  {
+   "km": 393120,
+   "near": false,
+   "phase": "Last Quarter",
+   "t": "2027-06-27 10:24"
+  },
+  {
+   "km": 358804,
+   "near": false,
+   "phase": "New Moon",
+   "t": "2027-07-04 08:32"
+  },
+  {
+   "km": 381138,
+   "near": false,
+   "phase": "First Quarter",
+   "t": "2027-07-11 00:09"
+  },
+  {
+   "km": 405979,
+   "near": false,
+   "phase": "Full Moon",
+   "t": "2027-07-18 21:14"
+  },
+  {
+   "km": 385693,
+   "near": false,
+   "phase": "Last Quarter",
+   "t": "2027-07-26 22:24"
+  },
+  {
+   "km": 357384,
+   "near": false,
+   "phase": "New Moon",
+   "t": "2027-08-02 15:35"
+  },
+  {
+   "km": 388431,
+   "near": false,
+   "phase": "First Quarter",
+   "t": "2027-08-09 10:24"
+  },
+  {
+   "km": 405081,
+   "near": false,
+   "phase": "Full Moon",
+   "t": "2027-08-17 12:58"
+  },
+  {
+   "km": 378812,
+   "near": false,
+   "phase": "Last Quarter",
+   "t": "2027-08-25 07:57"
+  },
+  {
+   "km": 360263,
+   "near": false,
+   "phase": "New Moon",
+   "t": "2027-08-31 23:11"
+  },
+  {
+   "km": 395816,
+   "near": false,
+   "phase": "First Quarter",
+   "t": "2027-09-08 00:01"
+  },
+  {
+   "km": 399353,
+   "near": false,
+   "phase": "Full Moon",
+   "t": "2027-09-16 04:33"
+  },
+  {
+   "km": 373548,
+   "near": false,
+   "phase": "Last Quarter",
+   "t": "2027-09-23 15:50"
+  },
+  {
+   "km": 367135,
+   "near": false,
+   "phase": "New Moon",
+   "t": "2027-09-30 08:06"
+  },
+  {
+   "km": 401657,
+   "near": false,
+   "phase": "First Quarter",
+   "t": "2027-10-07 17:17"
+  },
+  {
+   "km": 389939,
+   "near": false,
+   "phase": "Full Moon",
+   "t": "2027-10-15 19:17"
+  },
+  {
+   "km": 370637,
+   "near": false,
+   "phase": "Last Quarter",
+   "t": "2027-10-22 22:59"
+  },
+  {
+   "km": 377030,
+   "near": false,
+   "phase": "New Moon",
+   "t": "2027-10-29 19:06"
+  },
+  {
+   "km": 404207,
+   "near": false,
+   "phase": "First Quarter",
+   "t": "2027-11-06 13:30"
+  },
+  {
+   "km": 378766,
+   "near": false,
+   "phase": "Full Moon",
+   "t": "2027-11-14 08:55"
+  },
+  {
+   "km": 370498,
+   "near": false,
+   "phase": "Last Quarter",
+   "t": "2027-11-21 06:18"
+  },
+  {
+   "km": 388238,
+   "near": false,
+   "phase": "New Moon",
+   "t": "2027-11-28 08:54"
+  },
+  {
+   "km": 402480,
+   "near": false,
+   "phase": "First Quarter",
+   "t": "2027-12-06 10:52"
+  },
+  {
+   "km": 368142,
+   "near": false,
+   "phase": "Full Moon",
+   "t": "2027-12-13 21:38"
+  },
+  {
+   "km": 373186,
+   "near": false,
+   "phase": "Last Quarter",
+   "t": "2027-12-20 14:40"
+  },
+  {
+   "km": 398404,
+   "near": false,
+   "phase": "New Moon",
+   "t": "2027-12-28 01:42"
+  },
+  {
+   "km": 396977,
+   "near": false,
+   "phase": "First Quarter",
+   "t": "2028-01-05 07:10"
+  },
+  {
+   "km": 360268,
+   "near": true,
+   "phase": "Full Moon",
+   "t": "2028-01-12 09:33"
+  },
+  {
+   "km": 378399,
+   "near": false,
+   "phase": "Last Quarter",
+   "t": "2028-01-19 00:55"
+  },
+  {
+   "km": 405025,
+   "near": false,
+   "phase": "New Moon",
+   "t": "2028-01-26 20:42"
+  },
+  {
+   "km": 389375,
+   "near": false,
+   "phase": "First Quarter",
+   "t": "2028-02-04 00:40"
+  },
+  {
+   "km": 356720,
+   "near": true,
+   "phase": "Full Moon",
+   "t": "2028-02-10 20:33"
+  },
+  {
+   "km": 385471,
+   "near": false,
+   "phase": "Last Quarter",
+   "t": "2028-02-17 13:38"
+  },
+  {
+   "km": 406376,
+   "near": false,
+   "phase": "New Moon",
+   "t": "2028-02-25 16:07"
+  }
+ ],
+ "planets": [
+  {
+   "alt": 35,
+   "body": "Venus",
+   "clock": "06:27",
+   "deg": 47,
+   "dir": "SE",
+   "east": false,
+   "kind": "elong",
+   "t": "2027-01-03 23:30"
+  },
+  {
+   "alt": 8,
+   "body": "Mercury",
+   "clock": "19:09",
+   "deg": 18,
+   "dir": "W",
+   "east": true,
+   "kind": "elong",
+   "t": "2027-02-03 11:30"
+  },
+  {
+   "body": "Jupiter",
+   "closest": "2027-02-10",
+   "closest_au": 4.36,
+   "kind": "opposition",
+   "rise": [
+    "18:24"
+   ],
+   "set": [
+    "07:13"
+   ],
+   "t": "2027-02-11 05:58"
+  },
+  {
+   "body": "Mars",
+   "closest": "2027-02-20",
+   "closest_au": 0.68,
+   "kind": "opposition",
+   "rise": [
+    "18:31"
+   ],
+   "set": [
+    "07:21"
+   ],
+   "t": "2027-02-19 21:20"
+  },
+  {
+   "alt": 10,
+   "body": "Mercury",
+   "clock": "06:01",
+   "deg": 28,
+   "dir": "E",
+   "east": false,
+   "kind": "elong",
+   "t": "2027-03-17 11:30"
+  },
+  {
+   "a": "Venus",
+   "alts": [
+    [
+     9,
+     "E"
+    ],
+    [
+     8,
+     "E"
+    ]
+   ],
+   "b": "Saturn",
+   "clock": "05:24",
+   "kind": "pair",
+   "sep": 0.6,
+   "t": "2027-05-07 23:30",
+   "when": "morning, 40 min before sunrise"
+  },
+  {
+   "alt": 13,
+   "body": "Mercury",
+   "clock": "19:45",
+   "deg": 23,
+   "dir": "NW",
+   "east": true,
+   "kind": "elong",
+   "t": "2027-05-28 17:30"
+  },
+  {
+   "alt": 10,
+   "body": "Mercury",
+   "clock": "05:26",
+   "deg": 21,
+   "dir": "E",
+   "east": false,
+   "kind": "elong",
+   "t": "2027-07-15 23:30"
+  },
+  {
+   "alt": 7,
+   "body": "Mercury",
+   "clock": "19:08",
+   "deg": 26,
+   "dir": "W",
+   "east": true,
+   "kind": "elong",
+   "t": "2027-09-25 05:30"
+  },
+  {
+   "body": "Saturn",
+   "closest": "2027-10-18",
+   "closest_au": 8.33,
+   "kind": "opposition",
+   "rise": [
+    "18:10"
+   ],
+   "set": [
+    "06:35"
+   ],
+   "t": "2027-10-18 06:05"
+  },
+  {
+   "alt": 9,
+   "body": "Mercury",
+   "clock": "05:55",
+   "deg": 19,
+   "dir": "E",
+   "east": false,
+   "kind": "elong",
+   "t": "2027-11-04 11:30"
+  },
+  {
+   "a": "Venus",
+   "alts": [
+    [
+     14,
+     "SW"
+    ],
+    [
+     14,
+     "SW"
+    ]
+   ],
+   "b": "Mars",
+   "clock": "18:36",
+   "kind": "pair",
+   "sep": 0.3,
+   "t": "2027-11-25 05:30",
+   "when": "evening, 40 min after sunset"
+  },
+  {
+   "alt": 9,
+   "body": "Mercury",
+   "clock": "18:59",
+   "deg": 19,
+   "dir": "W",
+   "east": true,
+   "kind": "elong",
+   "t": "2028-01-17 23:30"
+  },
+  {
+   "alt": 11,
+   "body": "Mercury",
+   "clock": "06:15",
+   "deg": 27,
+   "dir": "SE",
+   "east": false,
+   "kind": "elong",
+   "t": "2028-02-27 23:30"
+  }
+ ],
+ "solar": [
+  {
+   "cut_by_horizon": false,
+   "end": "2027-08-02 17:32",
+   "obsc": 31.6,
+   "pct": 42,
+   "start": "2027-08-02 15:50",
+   "sun_alt": 32.8,
+   "t": "2027-08-02 16:43"
+  }
+ ]
+}

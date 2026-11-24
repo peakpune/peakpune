@@ -37,13 +37,13 @@ export const slugOf = (row) => row.id.replace(/^place-/, '');
 const clip = (s, n) => (s.length <= n ? s : s.slice(0, n - 1).replace(/\s+\S*$/, '') + '…');
 
 const NAV_GROUPS = [
-  ['Explore', [['/places/', 'Places', 'Source-checked places across Pune'], ['/interests/', 'Interests', 'Browse by what you like'], ['/markets/', 'Markets', 'Markets and famous shops'], ['/history/', 'History', 'Sourced history of Pune places']]],
+  ['Explore', [['/places/', 'Places', 'Source-checked places across Pune'], ['/interests/', 'Interests', 'Browse by what you like'], ['/markets/', 'Markets', 'Markets and famous shops'], ['/history/', 'History', 'Sourced history of Pune places'], ['/sky/', 'Sky', 'Moon, eclipses, planets and meteor showers']]],
   ['Outdoors and travel', [['/outdoors/', 'Runs and treks', 'Running loops and treks near Pune'], ['/PuneMetroguide/', 'Metro guide', 'Lines, stations and places nearby']]],
   ['Community', [['/meetups/', 'Meetups', 'Groups that organise; we link to them'], ['/about/', 'About Peak Pune', 'How listings are checked']]],
 ];
 const MENU_GROUPS = [
   ['Plan', [['/events/', 'Events'], ['/meetups/', 'Meetups']]],
-  ['Explore', [['/places/', 'Places'], ['/interests/', 'Interests'], ['/markets/', 'Markets'], ['/history/', 'History']]],
+  ['Explore', [['/places/', 'Places'], ['/interests/', 'Interests'], ['/markets/', 'Markets'], ['/history/', 'History'], ['/sky/', 'Sky']]],
   ['Outdoors and travel', [['/outdoors/', 'Runs and treks'], ['/PuneMetroguide/', 'Metro guide']]],
   ['About', [['/about/', 'About Peak Pune'], ['/', 'Home']]],
 ];
@@ -121,7 +121,7 @@ ${ctaText}
 </main>
 <footer class="site-footer"><div class="wrap">
 <div class="foot-brand"><a class="wordmark" href="/">${mark}Peak <span>Pune</span></a><p>Pune's unofficial guide to doing interesting shit. Less scrolling. More living.</p><p class="hash">#PeakPune · #OnlyInPune</p></div>
-<nav aria-label="Sections"><h2>Explore</h2><a href="/places/">Places</a><a href="/map/">City map</a><a href="/koregaonpark/">Koregaon Park</a><a href="/eastpune/">East Pune</a><a href="/history/">History</a><a href="/markets/">Markets</a><a href="/outdoors/">Runs and treks</a><a href="/interests/">Interests</a><a href="/events/">Events</a><a href="/meetups/">Meetups</a><a href="/PuneMetroguide/">Pune Metro guide</a><a href="/about/">About Peak Pune</a></nav>
+<nav aria-label="Sections"><h2>Explore</h2><a href="/places/">Places</a><a href="/map/">City map</a><a href="/koregaonpark/">Koregaon Park</a><a href="/eastpune/">East Pune</a><a href="/history/">History</a><a href="/markets/">Markets</a><a href="/sky/">Sky</a><a href="/outdoors/">Runs and treks</a><a href="/interests/">Interests</a><a href="/events/">Events</a><a href="/meetups/">Meetups</a><a href="/PuneMetroguide/">Pune Metro guide</a><a href="/about/">About Peak Pune</a></nav>
 <nav aria-label="Community"><h2>Join</h2><a href="https://chat.whatsapp.com/BVTlwmhkqGU4WKzCsZFG95?s=cl&amp;p=i&amp;iam=2" target="_blank" rel="noopener noreferrer">Join WhatsApp</a><a href="https://whatsapp.com/channel/0029VbE00gNEVccC06aRUK2e" target="_blank" rel="noopener noreferrer">Channel for updates</a><a href="https://www.reddit.com/r/punetonight/" target="_blank" rel="noopener noreferrer">r/punetonight</a></nav>
 <nav aria-label="Powered by"><h2>Powered by</h2><a href="https://punerunners.com/" target="_blank" rel="noopener">PuneRunners.com</a><a href="https://punetrekkers.org/" target="_blank" rel="noopener">PuneTrekkers.org</a><a href="https://karawaan.in/" target="_blank" rel="noopener">karawaan.in</a><a href="/powered-by/">About these links</a></nav>
 <p class="fine">Place and route details are sourced and dated. Event plans are platform listings, not organiser-confirmed. Map data © OpenStreetMap contributors.</p>
@@ -443,6 +443,7 @@ const areaCard = (a) => `<article class="card"><div class="inner"><span class="e
 const STATIC = [
   { file: 'history', path: '/history/', fill: 'history', title: 'History of Pune: a sourced timeline in English and Marathi | Peak Pune', description: 'A starter timeline of Pune, from stone tools on the Mutha to the modern city. Every entry is checked against a named source and written in English and Marathi.', crumbs: [['History', '/history/']] },
   { file: 'markets', path: '/markets/', fill: 'markets', title: 'Where Pune shops: market areas and standout shops | Peak Pune', description: 'Pune shopping areas from Laxmi Road to FC Road, plus standout retail houses and food institutions, each with sources checked on 14 November 2026.', crumbs: [['Markets', '/markets/']] },
+  { file: 'sky', path: '/sky/', title: 'Pune sky calendar: moon, eclipses, planets, meteors | Peak Pune', description: 'What to look up for in Pune over the next 3 months: moon phases, eclipses, planets, meteor showers and bright stars, calculated for Pune with times in IST.', crumbs: [['Sky', '/sky/']] },
   { file: 'meetups', path: '/meetups/', fill: 'meetups', ctaShort: true, title: 'Pune communities: running, trekking, travel and cycling | Peak Pune', description: 'Pune communities to join: PuneRunners, Pune Trekkers, Karawaan and Morning Pedal, each with a public joining page.', crumbs: [['Meetups', '/meetups/']] },
   { file: 'manifesto', path: '/manifesto/', title: 'The Peak Pune manifesto: less scrolling, more living | Peak Pune', description: 'The Peak Pune manifesto: Pune is not boring, you are just looking in the wrong places. Why the radar exists, in our own words.', crumbs: [['Manifesto', '/manifesto/']] },
   { file: 'about', path: '/about/', ldType: 'AboutPage', title: 'About Peak Pune: who it is for and how listings are checked', description: 'Peak Pune is a Pune discovery site for source-checked places, events, runs, treks and meetups. How listings are sourced and checked, who organises what, and how to report a mistake.', crumbs: [['About', '/about/']] },
