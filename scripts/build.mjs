@@ -1,5 +1,6 @@
 // Static site build: turns site/ fragments and data/ rows into crawlable pages in public/.
 // Audited content renderer used by Astro. Run: npm run build. Set SITE_URL to the production origin.
+import { KP_PATH, KP_TITLE, KP_DESCRIPTION, kpMain, kpLd } from './koregaonpark.mjs';
 import { EP_PATH, EP_TITLE, EP_DESCRIPTION, epMain, epLd } from './eastpune.mjs';
 import { readFileSync, writeFileSync, mkdirSync, rmSync, existsSync } from 'node:fs';
 import { dirname, join } from 'node:path';
@@ -120,12 +121,12 @@ ${ctaText}
 </main>
 <footer class="site-footer"><div class="wrap">
 <div class="foot-brand"><a class="wordmark" href="/">${mark}Peak <span>Pune</span></a><p>Pune's unofficial guide to doing interesting shit. Less scrolling. More living.</p><p class="hash">#PeakPune · #OnlyInPune</p></div>
-<nav aria-label="Sections"><h2>Explore</h2><a href="/places/">Places</a><a href="/map/">City map</a><a href="/eastpune/">East Pune</a><a href="/history/">History</a><a href="/markets/">Markets</a><a href="/outdoors/">Runs and treks</a><a href="/interests/">Interests</a><a href="/events/">Events</a><a href="/meetups/">Meetups</a><a href="/PuneMetroguide/">Pune Metro guide</a><a href="/about/">About Peak Pune</a></nav>
+<nav aria-label="Sections"><h2>Explore</h2><a href="/places/">Places</a><a href="/map/">City map</a><a href="/koregaonpark/">Koregaon Park</a><a href="/eastpune/">East Pune</a><a href="/history/">History</a><a href="/markets/">Markets</a><a href="/outdoors/">Runs and treks</a><a href="/interests/">Interests</a><a href="/events/">Events</a><a href="/meetups/">Meetups</a><a href="/PuneMetroguide/">Pune Metro guide</a><a href="/about/">About Peak Pune</a></nav>
 <nav aria-label="Community"><h2>Join</h2><a href="https://chat.whatsapp.com/BVTlwmhkqGU4WKzCsZFG95?s=cl&amp;p=i&amp;iam=2" target="_blank" rel="noopener noreferrer">Join WhatsApp</a><a href="https://whatsapp.com/channel/0029VbE00gNEVccC06aRUK2e" target="_blank" rel="noopener noreferrer">Channel for updates</a><a href="https://www.reddit.com/r/punetonight/" target="_blank" rel="noopener noreferrer">r/punetonight</a></nav>
 <nav aria-label="Powered by"><h2>Powered by</h2><a href="https://punerunners.com/" target="_blank" rel="noopener">PuneRunners.com</a><a href="https://punetrekkers.org/" target="_blank" rel="noopener">PuneTrekkers.org</a><a href="https://karawaan.in/" target="_blank" rel="noopener">karawaan.in</a><a href="/powered-by/">About these links</a></nav>
 <p class="fine">Place and route details are sourced and dated. Event plans are platform listings, not organiser-confirmed. Map data © OpenStreetMap contributors.</p>
 </div></footer>
-<script type="module" src="${assetUrl('/app.js')}"></script>${plans ? `<script type="module" src="${assetUrl('/plans.js')}"></script>` : ''}${nowStrip ? `<script type="module" src="${assetUrl('/lib/pune-now.js')}"></script>` : ''}${map ? `<script defer src="${assetUrl('/map/maplibre-gl.js')}"></script><script type="module" src="${assetUrl(map === 'ep' ? '/eastpune/ep-map.js' : '/map/map.js')}"></script>` : ''}
+<script type="module" src="${assetUrl('/app.js')}"></script>${plans ? `<script type="module" src="${assetUrl('/plans.js')}"></script>` : ''}${nowStrip ? `<script type="module" src="${assetUrl('/lib/pune-now.js')}"></script>` : ''}${map ? `<script defer src="${assetUrl('/map/maplibre-gl.js')}"></script><script type="module" src="${assetUrl(map === 'kp' ? '/koregaonpark/kp-map.js' : map === 'ep' ? '/eastpune/ep-map.js' : '/map/map.js')}"></script>` : ''}
 <script data-goatcounter="https://peakpune.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
@@ -508,6 +509,9 @@ export function build({ outDir = join(root, 'public'), log = () => {}, dryRun = 
   const map = mapPage(rows);
   out(MAP_PATH, page({ path: MAP_PATH, map: true, title: map.title, description: map.description, crumbs: [['Map', MAP_PATH]], main: map.main, ld: [{ '@type': 'Map', '@id': SITE_URL + MAP_PATH, url: SITE_URL + MAP_PATH, name: 'Peak Pune city map', description: map.description, isPartOf: { '@id': `${SITE_URL}/#site` } }] }));
   urls.push([MAP_PATH, null]);
+  const kp = kpMain();
+  out(KP_PATH, page({ path: KP_PATH, map: 'kp', title: KP_TITLE, description: KP_DESCRIPTION, crumbs: [['Koregaon Park', KP_PATH]], main: kp.main, ld: kpLd(SITE_URL, kp.pins) }));
+  urls.push([KP_PATH, null]);
   const ep = epMain();
   out(EP_PATH, page({ path: EP_PATH, map: 'ep', title: EP_TITLE, description: EP_DESCRIPTION, crumbs: [['East Pune', EP_PATH]], main: ep.main, ld: epLd(SITE_URL, ep.pins) }));
   urls.push([EP_PATH, null]);
