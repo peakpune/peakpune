@@ -1,0 +1,28 @@
+<div class="hero hero-single"><div><div class="eyebrow">Community</div><h1>Watch together.</h1><p class="lede">Four people, one show, one city. Pick a film, offer a few shows, and see who else across Pune can make it. The show that fills first is the one. Everyone then books their own tickets on District.</p></div></div>
+<section class="section"><div class="section-head"><h2>How it works</h2><p>Three steps from "anyone up for this?" to the same row.</p></div>
+<div class="grid">
+<article class="card"><div class="inner"><span class="eyebrow">Step 1</span><h3>Start a pool</h3><p>Name the film, the day, how many you want, and up to three shows. Different cinemas are fine. That is how people from Baner and Kharadi find a common show.</p></div></article>
+<article class="card"><div class="inner"><span class="eyebrow">Step 2</span><h3>Join with your part of Pune</h3><p>Tick the shows you can make and where you are coming from. You see the headcount for every show straight away. No name, number or sign-in.</p></div></article>
+<article class="card"><div class="inner"><span class="eyebrow">Step 3</span><h3>The first show to fill wins</h3><p>When one show reaches the group size it says so, with a District link. Book adjacent seats, about two thirds back, in the centre block. Peak Pune holds no seats and takes no payment.</p></div></article>
+</div></section>
+<section class="section"><div class="section-head"><h2>Open pools</h2><p>Live as soon as they are started, and gone after the show time.</p></div>
+<div class="grid" id="pool-wall" aria-live="polite"></div>
+<p class="note" id="pool-wall-status" role="status"></p>
+</section>
+<section class="section post-plan" id="start-pool"><div class="section-head"><h2>Start a pool</h2><p>It goes live straight away. Keep it to a film and shows. Do not add names or numbers.</p></div>
+<form class="plan-form" id="pool-form" method="post" action="#start-pool" novalidate>
+<label class="full"><span>Film</span><input name="film" maxlength="60" required></label>
+<label><span>Day</span><input name="date" type="date" required></label>
+<label><span>How many people</span><input name="target" type="number" min="2" max="12" required placeholder="4"></label>
+<label><span>Where you are coming from</span><select name="area" required><option value="" selected disabled>Choose</option><option>Aundh</option><option>Baner</option><option>Camp</option><option>Deccan</option><option>Hadapsar</option><option>Hinjewadi</option><option>Kalyani Nagar</option><option>Kharadi</option><option>Katraj</option><option>Karve Nagar</option><option>Koregaon Park</option><option>Kothrud</option><option>Magarpatta</option><option>Pimpri-Chinchwad</option><option>Shivajinagar</option><option>Viman Nagar</option><option>Wakad</option><option>Other</option></select></label>
+<div class="pool-row full"><label><span>Show 1: cinema</span><input name="cinema0" maxlength="60" required placeholder="PVR Pavilion, Cinepolis Seasons..."></label><label><span>Time</span><input name="time0" type="time" required></label></div>
+<div class="pool-row full"><label><span>Show 2 <small>(optional)</small>: cinema</span><input name="cinema1" maxlength="60" placeholder="PVR Pavilion, Cinepolis Seasons..."></label><label><span>Time</span><input name="time1" type="time"></label></div>
+<div class="pool-row full"><label><span>Show 3 <small>(optional)</small>: cinema</span><input name="cinema2" maxlength="60" placeholder="PVR Pavilion, Cinepolis Seasons..."></label><label><span>Time</span><input name="time2" type="time"></label></div>
+<label class="full"><span>District link for the film <small>(optional)</small></span><input name="link" type="url" maxlength="300" placeholder="https://www.district.in/movies/..."></label>
+<input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
+<p class="note">Peak Pune is a guide, not a booking service. It holds no seats, takes no payment and is not affiliated with District or any cinema. Check the show and price on District before you pay. To limit spam, the site stores a salted hash of your IP address, not the address itself. Anything that looks wrong can be reported on its card.</p>
+<button class="primary" type="submit">Start the pool</button>
+<p class="note" id="pool-form-status" role="status"></p>
+</form>
+<script type="module" src="/watch-together.js?v=1"></script>
+</section>
