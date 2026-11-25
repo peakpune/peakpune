@@ -6,5 +6,8 @@ const npm = process.platform === 'win32' ? 'npm.cmd' : 'npm';
 if (process.env.GITHUB_ACTIONS === 'true') {
   execFileSync(npm, ['run', 'check'], {stdio: 'inherit'});
   execFileSync(npm, ['run', 'build'], {stdio: 'inherit'});
-  execFileSync('git', ['diff', '--exit-code', '--', 'public/'], {stdio: 'inherit'});
+  // Event pages and calendar files depend on today's date: an event that has ended drops out of the
+// build without any source change. The refresh-events workflow regenerates them, so they are not
+// part of the "committed output matches a fresh build" check.
+execFileSync('git', ['diff', '--exit-code', '--', 'public/', ':(exclude)public/events', ':(exclude)public/calendar'], {stdio: 'inherit'});
 }

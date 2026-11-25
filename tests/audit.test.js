@@ -64,7 +64,9 @@ test('place pages keep their type, address and breadcrumb markup', () => {
 
 test('dated listings carry a freshness marker with the right limit', () => {
   assert.match(read('public/places/raja-dinkar-kelkar-museum/index.html'), /<p class="stale" data-checked="\d{4}-\d{2}-\d{2}" data-max-age="30" hidden><\/p>/);
-  assert.match(read('public/events/index.html'), /<p class="stale" data-checked="\d{4}-\d{2}-\d{2}" data-max-age="7" hidden><\/p>/);
+  const eventsHtml = read('public/events/index.html');
+  // The marker belongs to the dated list; it is absent when every event has ended.
+  if (/href="\/calendar\/event-/.test(eventsHtml)) assert.match(eventsHtml, /<p class="stale" data-checked="\d{4}-\d{2}-\d{2}" data-max-age="7" hidden><\/p>/);
   assert.match(read('public/app.js'), /\.stale\[data-checked\]/);
 });
 
