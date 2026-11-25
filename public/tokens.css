@@ -236,6 +236,7 @@ a.category:nth-child(4n+1){color:#fff}a.category:hover{outline:4px solid var(--r
 .now-cell .note{margin:var(--s2) 0 0}
 .now-cell.tone-good{background:var(--sage)}
 .now-cell.tone-moderate{background:var(--haldi)}
+.now-cell.tone-moderate h3,.now-cell.tone-moderate .note,.now-cell.tone-moderate .note a{color:var(--ink)}
 .now-cell.tone-sensitive{background:var(--clay)}
 .now-cell.tone-unhealthy{background:var(--brick);color:#fff}
 .now-cell.tone-unhealthy h3,.now-cell.tone-unhealthy .note{color:#fff}

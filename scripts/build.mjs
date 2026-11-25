@@ -135,10 +135,13 @@ ${ctaText}
 `;
 }
 
+// Picks the longest wording that fits a search result title (about 60 characters), richest first.
+const fitTitle = (options) => options.find((t) => t.length <= 60) || options[options.length - 1];
 export function placeTitle(r) {
   const bits = [known(r.hours) && 'timings', r.price_note && 'prices', known(r.address) && 'address'].filter(Boolean);
   const where = known(r.neighbourhood) && !r.name.includes(r.neighbourhood) ? `, ${r.neighbourhood}` : '';
-  return `${r.name}${where}, Pune${bits.length ? ': ' + bits.join(', ') : ''} | Peak Pune`;
+  const city = `${r.name}${where}, Pune`;
+  return fitTitle([`${city}${bits.length ? ': ' + bits.join(', ') : ''} | Peak Pune`, `${city}: ${bits.length ? bits.slice(0, 2).join(', ') : 'visit guide'} | Peak Pune`, `${r.name}, Pune: ${bits[0] || 'visit guide'} | Peak Pune`, `${r.name}, Pune | Peak Pune`, `${r.name}, Pune`]);
 }
 export function placeDescription(r) {
   const extra = [known(r.hours) && `Hours: ${r.hours}.`, known(r.address) && `Address: ${r.address}.`].filter(Boolean).join(' ');
@@ -232,9 +235,12 @@ const level = (d) => (d ? `<span class="level ${LEVEL_CLASS[d] || ''}">${esc(d)}
 const slugOut = (r) => r.id.replace(/^run-(trek-)?/, '');
 const isTrek = (r) => r.type !== 'run-route';
 export function outdoorTitle(r) {
-  if (!isTrek(r)) return `${r.name}: ${r.distance_km} km running route in Pune | Peak Pune`;
-  const bits = [r.distance_from_pune_km && `${r.distance_from_pune_km} km from Pune`, r.travel_time_text, r.difficulty].filter(Boolean);
-  return `${r.name}${r.type === 'trek' ? ' trek' : ''} near Pune${bits.length ? ': ' + bits.join(', ') : ''} | Peak Pune`;
+  if (!isTrek(r)) return fitTitle([`${r.name}: ${r.distance_km} km running route in Pune | Peak Pune`, `${r.name}: ${r.distance_km} km run in Pune | Peak Pune`, `${r.name}: ${r.distance_km} km Pune run`, `${r.name} running route, Pune`]);
+  const base = `${r.name}${r.type === 'trek' ? ' trek' : ''} near Pune`;
+  const km = r.distance_from_pune_km && `${r.distance_from_pune_km} km from Pune`;
+  const bits = [km, r.travel_time_text, r.difficulty].filter(Boolean);
+  const join = (b) => `${base}${b.length ? ': ' + b.join(', ') : ''}`;
+  return fitTitle([`${join(bits)} | Peak Pune`, `${join([km, r.difficulty].filter(Boolean))} | Peak Pune`, `${join([km].filter(Boolean))} | Peak Pune`, join([km, r.difficulty].filter(Boolean)), join([km].filter(Boolean)), base]);
 }
 const outdoorCredit = (r) => (r.url_deep.includes('punerunners') ? ['PuneRunners Club', 'Open the route on PuneRunners'] : r.url_deep.includes('punetrekkers') ? ['Pune Trekkers', 'Read the full guide on Pune Trekkers'] : ['Pune district administration', 'Open the district page']);
 function outdoorCard(r) {
@@ -321,6 +327,8 @@ export function outdoorsFaq(runs, treks) {
   faq.push(['Have these routes been checked on the ground?', 'No. Running loops are mapped, not run-tested: footpaths, traffic and lighting are unchecked. Trek details are as published by the source on the date shown. Conditions change, so read the guide and go with company.']);
   return faq;
 }
+// Question and answer pairs read from a page's own FAQ section, so the FAQPage markup always matches the visible text.
+const pageFaq = (main, heading) => { const sec = main.split(`<h2>${heading}</h2>`)[1] || ''; return [...sec.matchAll(/<h3>(.*?)<\/h3><p>(.*?)<\/p>/g)].map(([, q, a]) => [q.replace(/<[^>]+>/g, ''), a.replace(/<[^>]+>/g, '')]); };
 export const faqLd = (faq) => ({ '@type': 'FAQPage', mainEntity: faq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) });
 const RADAR_PICKS = JSON.parse(read('scripts/radar-picks.json'));
 const STATUS = { checked: ['LISTED ON SOURCE', 'ok'], registration: ['CHECK REGISTRATION', 'warn'], pending: ['DATE UNCONFIRMED', 'warn'] };
@@ -443,23 +451,23 @@ const shopCard = (s) => `<article class="card"><div class="inner"><span class="e
 const areaCard = (a) => `<article class="card"><div class="inner"><span class="eyebrow">${esc(a.area)}</span><h3>${esc(a.name)}</h3><p><strong>Best for: ${esc(a.best_for)}</strong></p><p>${esc(a.known_for)}</p><p class="note">${esc(a.notes)}</p>${srcChips(a.sources)}</div></article>`;
 
 const STATIC = [
-  { file: 'history', path: '/history/', fill: 'history', title: 'History of Pune: a sourced timeline in English and Marathi | Peak Pune', description: 'A starter timeline of Pune, from stone tools on the Mutha to the modern city. Every entry cites a named source and written in English and Marathi.', crumbs: [['History', '/history/']] },
+  { file: 'history', path: '/history/', fill: 'history', title: 'History of Pune: a sourced timeline in English and Marathi', description: 'A starter timeline of Pune, from stone tools on the Mutha to the modern city. Every entry cites a named source and is written in English and Marathi.', crumbs: [['History', '/history/']] },
   { file: 'markets', path: '/markets/', fill: 'markets', title: 'Where Pune shops: market areas and standout shops | Peak Pune', description: 'Pune shopping areas from Laxmi Road to FC Road, plus standout retail houses and food institutions, each with a source.', crumbs: [['Markets', '/markets/']] },
-  { file: 'sky', path: '/sky/', title: 'Pune sky calendar: moon, eclipses, planets, meteors | Peak Pune', description: 'What to look up for in Pune over the next 3 months: moon phases, eclipses, planets, meteor showers and bright stars, calculated for Pune with times in IST.', crumbs: [['Sky', '/sky/']] },
-  { file: 'meetups', path: '/meetups/', fill: 'meetups', ctaShort: true, title: 'Pune communities: running, trekking, travel and cycling | Peak Pune', description: 'Pune communities to join: PuneRunners, Pune Trekkers, Karawaan and Morning Pedal, each with a public joining page.', crumbs: [['Meetups', '/meetups/']] },
-  { file: 'manifesto', path: '/manifesto/', title: 'The Peak Pune manifesto: less scrolling, more living | Peak Pune', description: 'The Peak Pune manifesto: Pune is not boring, you are just looking in the wrong places. Why the radar exists, in our own words.', crumbs: [['Manifesto', '/manifesto/']] },
-  { file: 'watch-together', path: '/watch-together/', ctaShort: true, title: 'Watch together: pool up with people across Pune for the same film | Peak Pune', description: 'Start or join a small pool for a film in Pune. See the headcount for each show, and book your own tickets on District. A guide, not a booking service.', crumbs: [['Watch together', '/watch-together/']] },
-  { file: 'partner', path: '/partner/', ctaShort: true, title: 'Work with Peak Pune: cafes, venues, organisers and communities | Peak Pune', description: 'Run a cafe, venue, event or community in Pune? Send Peak Pune a short note. Peak Pune is a radar, not a directory, and cannot promise a listing.', crumbs: [['Work with Peak Pune', '/partner/']] },
+  { file: 'sky', path: '/sky/', title: 'Pune sky calendar: moon, eclipses, meteors | Peak Pune', description: 'What to look up for in Pune over the next 3 months: moon phases, eclipses, planets, meteor showers and bright stars, calculated for Pune with times in IST.', crumbs: [['Sky', '/sky/']] },
+  { file: 'meetups', path: '/meetups/', fill: 'meetups', ctaShort: true, title: 'Pune communities: running, trekking, travel, cycling', description: 'Pune communities to join: PuneRunners, Pune Trekkers, Karawaan and Morning Pedal, each with a public joining page.', crumbs: [['Meetups', '/meetups/']] },
+  { file: 'manifesto', path: '/manifesto/', title: 'The manifesto: less scrolling, more living | Peak Pune', description: 'The Peak Pune manifesto: Pune is not boring, you are just looking in the wrong places. Why the radar exists, in our own words.', crumbs: [['Manifesto', '/manifesto/']] },
+  { file: 'watch-together', path: '/watch-together/', ctaShort: true, title: 'Watch together: pool up for the same film in Pune | Peak Pune', description: 'Start or join a small pool for a film in Pune. See the headcount for each show, and book your own tickets on District. A guide, not a booking service.', crumbs: [['Watch together', '/watch-together/']] },
+  { file: 'partner', path: '/partner/', ctaShort: true, title: 'Work with Peak Pune: cafes, venues, organisers', description: 'Run a cafe, venue, event or community in Pune? Send Peak Pune a short note. Peak Pune is a radar, not a directory, and cannot promise a listing.', crumbs: [['Work with Peak Pune', '/partner/']] },
   { file: 'about', path: '/about/', ldType: 'AboutPage', title: 'About Peak Pune: who it is for and where listings come from', description: 'Peak Pune is a Pune discovery site for places, events, runs, treks and meetups. Where listings come from, who organises what, and how to report a mistake.', crumbs: [['About', '/about/']] },
   { file: 'moments', path: '/moments/', fill: 'moments', noindex: true, title: 'Peak Pune Moments | Peak Pune', description: 'Genuine Pune moments will appear here after review. Reader submissions are not open yet.', crumbs: [['Moments', '/moments/']] },
-  { file: 'links', path: '/links/', bare: true, title: 'Peak Pune links: Instagram, WhatsApp, events, places, communities', description: 'Every Peak Pune link in one place: Instagram, the WhatsApp group and channel, what is on in Pune, places to visit, communities to join and the community list.' },
-  { file: 'baddies', path: '/baddies/', ctaShort: true, title: 'Pune baddies: girls night out, women plans and new friends | Peak Pune', description: 'Peak Pune Baddies is a page for women in Pune, born here or just moved from Mumbai, Hyderabad or anywhere else. Girls night out, women circles, runs, workshops and trips.', crumbs: [['Baddies', '/baddies/']] },
-  { file: 'offline', path: '/offline/', ctaShort: true, title: 'New to Pune? How to find your people and get offline | Peak Pune', description: 'Moved to Pune and your circle is small? How newcomers find friends offline: pick one regular slot, go back, and say two lines on the first visit.', crumbs: [['Get offline', '/offline/']] },
+  { file: 'links', path: '/links/', bare: true, title: 'Peak Pune links: Instagram, WhatsApp, events, places', description: 'Every Peak Pune link in one place: Instagram, the WhatsApp group and channel, what is on in Pune, places to visit, communities to join and the community list.' },
+  { file: 'baddies', path: '/baddies/', faqHeading: 'Questions baddies ask', ctaShort: true, title: 'Pune baddies: girls night out and new friends | Peak Pune', description: 'A page for women in Pune, born here or just moved from Mumbai, Hyderabad or elsewhere. Girls night out, women circles, runs, workshops and trips.', crumbs: [['Baddies', '/baddies/']] },
+  { file: 'offline', path: '/offline/', ctaShort: true, title: 'New to Pune? Find your people and get offline | Peak Pune', description: 'Moved to Pune and your circle is small? How newcomers find friends offline: pick one regular slot, go back, and say two lines on the first visit.', crumbs: [['Get offline', '/offline/']] },
   { file: 'women', path: '/women/', ctaShort: true, title: 'Women in Pune: find your people and get offline | Peak Pune', description: 'A page for women in Pune who want to find their people, try new things and get offline, at their own pace. How Peak Pune helps and what to look for.', crumbs: [['For women', '/women/']] },
-  { file: 'volunteer', path: '/volunteer/', ctaShort: true, title: 'Volunteer and host in Pune: help make the city happen | Peak Pune', description: 'Want to volunteer in Pune, host an event or meetup, or help a community grow? Where to plug in, how to host your first plan, and who to send it to.', crumbs: [['Volunteer and host', '/volunteer/']] },
-  { file: 'communities', path: '/groups/', bare: true, title: 'Pune community WhatsApp channels and groups | Peak Pune', description: 'Pune community directories in one place: PuneRunners, Pune Trekkers and Karawaan WhatsApp channels, plus community group chats for trekking, travel, protein recipes, cycling, corporate running and referrals. Run by their own admins.' },
+  { file: 'volunteer', path: '/volunteer/', ctaShort: true, title: 'Volunteer and host in Pune: help make it happen | Peak Pune', description: 'Want to volunteer in Pune, host an event or meetup, or help a community grow? Where to plug in, how to host your first plan, and who to send it to.', crumbs: [['Volunteer and host', '/volunteer/']] },
+  { file: 'communities', path: '/groups/', bare: true, title: 'Pune community WhatsApp channels and groups | Peak Pune', description: 'Pune WhatsApp channels and group chats: PuneRunners, Pune Trekkers, Karawaan, plus chats for travel, protein recipes, cycling, running and referrals. Run by their own admins.' },
   { file: 'peakpune-events', path: '/peakpune-events/', noindex: true, title: 'Official Peak Pune events | Peak Pune', description: 'Events hosted by Peak Pune itself. None are announced yet.', crumbs: [['Peak Pune events', '/peakpune-events/']] },
-  { file: 'powered-by', path: '/powered-by/', ctaShort: true, title: 'Powered by PuneRunners, Pune Trekkers and Karawaan | Peak Pune', description: 'The three Pune groups behind Peak Pune runs, treks and trips: PuneRunners Club, Pune Trekkers and Karawaan. What each does and where to join.', crumbs: [['Powered by', '/powered-by/']] },
+  { file: 'powered-by', path: '/powered-by/', ctaShort: true, title: 'Powered by PuneRunners, Pune Trekkers, Karawaan | Peak Pune', description: 'The three Pune groups behind Peak Pune runs, treks and trips: PuneRunners Club, Pune Trekkers and Karawaan. What each does and where to join.', crumbs: [['Powered by', '/powered-by/']] },
 ];
 
 // AI and answer-engine crawlers are welcome (owner's decision, 16 Nov 2026), and are named so that is explicit.
@@ -486,7 +494,7 @@ export function build({ outDir = join(root, 'public'), log = () => {}, dryRun = 
     if (p.fill === 'markets') { const m = JSON.parse(read('data/batch-7-shopping/shopping.json')); main = main.replace('<!--AREAS-->', publishRows(m.areas).map(areaCard).join('')).replace('<!--RETAIL-->', publishRows(m.shops).filter((s) => s.category === 'retail').map(shopCard).join('')).replace('<!--FOOD-->', publishRows(m.shops).filter((s) => s.category === 'food').map(shopCard).join('')); }
     if (p.fill === 'moments') main = main.replace('<!--MOMENTS-->', momentsBlock(publishRows(JSON.parse(read('data/batch-5-moments-reference/moments.json')))));
     if (p.bare) main = main.replace('<!--MARK-->', mark);
-    out(p.path, bareStrip(p.bare, page({ ...p, ctaText: p.bare ? '' : p.ctaShort ? ctaShort : cta, main, ld: [{ '@type': p.ldType || 'WebPage', '@id': SITE_URL + p.path, url: SITE_URL + p.path, name: p.title, description: p.description, isPartOf: { '@id': `${SITE_URL}/#site` }, ...(p.ldType === 'AboutPage' ? { about: { '@id': `${SITE_URL}/#org` } } : {}) }] })));
+    out(p.path, bareStrip(p.bare, page({ ...p, ctaText: p.bare ? '' : p.ctaShort ? ctaShort : cta, main, ld: [{ '@type': p.ldType || 'WebPage', '@id': SITE_URL + p.path, url: SITE_URL + p.path, name: p.title, description: p.description, isPartOf: { '@id': `${SITE_URL}/#site` }, ...(p.ldType === 'AboutPage' ? { about: { '@id': `${SITE_URL}/#org` } } : {}) }, ...(p.faqHeading ? [faqLd(pageFaq(main, p.faqHeading))] : [])] })));
     // Pages with nothing published yet stay out of the sitemap.
     if (!p.noindex) urls.push([p.path, null]);
   }
@@ -503,7 +511,7 @@ export function build({ outDir = join(root, 'public'), log = () => {}, dryRun = 
   const events = radarEvents(buildNow);
   out('/events/', page({ path: '/events/', title: 'What is on in Pune: events, gigs and plans | Peak Pune', description: 'Things worth leaving the house for in Pune. Every listing links to its source and shows whether the date or registration is confirmed.', crumbs: [['Events', '/events/']], main: read('site/pages/events.html').replace('<!--RADAR-->', radarBoard(buildNow, false)).replace('<!--ORGANISER-EVENTS-->', ''), ld: [{ '@type': 'CollectionPage', '@id': `${SITE_URL}/events/`, url: `${SITE_URL}/events/`, name: 'Events in Pune', isPartOf: { '@id': `${SITE_URL}/#site` } }] }));
   urls.push(['/events/', null]);
-  out('/birthdays/', page({ path: '/birthdays/', title: 'Birthdays in the Peak Pune community: upcoming birthdays and member plans | Peak Pune', description: 'See who in the Peak Pune community has a birthday coming up and what they would enjoy. Celebrations are member plans, made and hosted by members, not organised by Peak Pune.', crumbs: [['Birthdays', '/birthdays/']], main: read('site/pages/birthdays.html'), ld: [{ '@type': 'CollectionPage', '@id': `${SITE_URL}/birthdays/`, url: `${SITE_URL}/birthdays/`, name: 'Birthdays in the Peak Pune community', isPartOf: { '@id': `${SITE_URL}/#site` } }] }));
+  out('/birthdays/', page({ path: '/birthdays/', title: 'Birthdays in the Peak Pune community | Peak Pune', description: 'See who in the Peak Pune community has a birthday coming up and what they would enjoy. Celebrations are member plans, made and hosted by members, not organised by Peak Pune.', crumbs: [['Birthdays', '/birthdays/']], main: read('site/pages/birthdays.html'), ld: [{ '@type': 'CollectionPage', '@id': `${SITE_URL}/birthdays/`, url: `${SITE_URL}/birthdays/`, name: 'Birthdays in the Peak Pune community', isPartOf: { '@id': `${SITE_URL}/#site` } }] }));
   urls.push(['/birthdays/', null]);
   if (!dryRun) {
     const calDir = join(outDir, 'calendar');
