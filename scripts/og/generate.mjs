@@ -38,6 +38,10 @@ const M = {
 const BG = { pin: CLAY, calendar: SAGE, people: PAPER, bubbles: SAGE, metro: HALDI, mountain: CLAY, fort: SAGE, market: CLAY, sky: '#E7DDCB', cake: SAGE, radar: HALDI, link: SAGE, envelope: CLAY, film: HALDI, compass: SAGE, polaroid: CLAY, map: SAGE, tags: CLAY, history: SAGE, closed: SAGE, sticker: PAPER };
 // slug: [tag, headline, line, motif]
 const HAND = {
+  offline: ['New to Pune', 'Moved to Pune? Your phone is not the plan.', 'How to find your people and get offline.', 'compass'],
+  women: ['For women', 'Go be unbothered. Pune is better with you in it.', 'Find your people, at your own pace.', 'polaroid'],
+  volunteer: ['Contribute', 'Help Peak Pune show you what is on', 'For hosts, volunteers and community builders.', 'people'],
+  baddies: ['Peak Pune Baddies', 'Pune has a night. You have a plan.', 'Girls nights, new friends and plans for every baddie in Pune.', 'pin'],
   home: ['Pune radar', 'Everything Pune, in one scroll.', 'Places, events, meetups and moments.', 'sticker'],
   events: ['Events', 'What is on in Pune', 'Gigs, shows, runs and plans, each linked to its source.', 'calendar'],
   'peakpune-events': ['Events', 'Peak Pune events', 'Events hosted by Peak Pune itself.', 'calendar'],
