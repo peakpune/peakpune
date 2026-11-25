@@ -135,10 +135,13 @@ ${ctaText}
 `;
 }
 
+// Picks the longest wording that fits a search result title (about 60 characters), richest first.
+const fitTitle = (options) => options.find((t) => t.length <= 60) || options[options.length - 1];
 export function placeTitle(r) {
   const bits = [known(r.hours) && 'timings', r.price_note && 'prices', known(r.address) && 'address'].filter(Boolean);
   const where = known(r.neighbourhood) && !r.name.includes(r.neighbourhood) ? `, ${r.neighbourhood}` : '';
-  return `${r.name}${where}, Pune${bits.length ? ': ' + bits.join(', ') : ''} | Peak Pune`;
+  const city = `${r.name}${where}, Pune`;
+  return fitTitle([`${city}${bits.length ? ': ' + bits.join(', ') : ''} | Peak Pune`, `${city}: ${bits.length ? bits.slice(0, 2).join(', ') : 'visit guide'} | Peak Pune`, `${r.name}, Pune: ${bits[0] || 'visit guide'} | Peak Pune`, `${r.name}, Pune | Peak Pune`, `${r.name}, Pune`]);
 }
 export function placeDescription(r) {
   const extra = [known(r.hours) && `Hours: ${r.hours}.`, known(r.address) && `Address: ${r.address}.`].filter(Boolean).join(' ');
@@ -232,9 +235,12 @@ const level = (d) => (d ? `<span class="level ${LEVEL_CLASS[d] || ''}">${esc(d)}
 const slugOut = (r) => r.id.replace(/^run-(trek-)?/, '');
 const isTrek = (r) => r.type !== 'run-route';
 export function outdoorTitle(r) {
-  if (!isTrek(r)) return `${r.name}: ${r.distance_km} km running route in Pune | Peak Pune`;
-  const bits = [r.distance_from_pune_km && `${r.distance_from_pune_km} km from Pune`, r.travel_time_text, r.difficulty].filter(Boolean);
-  return `${r.name}${r.type === 'trek' ? ' trek' : ''} near Pune${bits.length ? ': ' + bits.join(', ') : ''} | Peak Pune`;
+  if (!isTrek(r)) return fitTitle([`${r.name}: ${r.distance_km} km running route in Pune | Peak Pune`, `${r.name}: ${r.distance_km} km run in Pune | Peak Pune`, `${r.name}: ${r.distance_km} km Pune run`, `${r.name} running route, Pune`]);
+  const base = `${r.name}${r.type === 'trek' ? ' trek' : ''} near Pune`;
+  const km = r.distance_from_pune_km && `${r.distance_from_pune_km} km from Pune`;
+  const bits = [km, r.travel_time_text, r.difficulty].filter(Boolean);
+  const join = (b) => `${base}${b.length ? ': ' + b.join(', ') : ''}`;
+  return fitTitle([`${join(bits)} | Peak Pune`, `${join([km, r.difficulty].filter(Boolean))} | Peak Pune`, `${join([km].filter(Boolean))} | Peak Pune`, join([km, r.difficulty].filter(Boolean)), join([km].filter(Boolean)), base]);
 }
 const outdoorCredit = (r) => (r.url_deep.includes('punerunners') ? ['PuneRunners Club', 'Open the route on PuneRunners'] : r.url_deep.includes('punetrekkers') ? ['Pune Trekkers', 'Read the full guide on Pune Trekkers'] : ['Pune district administration', 'Open the district page']);
 function outdoorCard(r) {
