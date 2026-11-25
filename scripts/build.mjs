@@ -58,6 +58,8 @@ export const ogImagePath = (path) => (existsSync(join(root, 'public/og', `${ogSl
 export const ogAlt = (title) => { const t = String(title).split(' | ').filter((x) => x !== 'Peak Pune'); return `Peak Pune: ${t[0] || 'everything Pune, in one scroll'}`; };
 const mark = read('site/mark.svg.html');
 const cta = read('site/cta.html');
+// Link-in-bio pages drop the site header and footer so the page is one column of taps.
+const bareStrip = (bare, html) => (bare ? html.replace(/<header class="site-header">[\s\S]*?<\/header>\n?/, '').replace(/<footer class="site-footer">[\s\S]*?<\/footer>\n?/, '') : html);
 // Meetups uses the short CTA without the review promise.
 const ctaShort = cta.replace(' A person reads every plan before it shows.', '');
 // One quotable sentence that says what the site is. Used in the Organization markup, the home page and /about/.
@@ -450,6 +452,8 @@ const STATIC = [
   { file: 'partner', path: '/partner/', ctaShort: true, title: 'Work with Peak Pune: cafes, venues, organisers and communities | Peak Pune', description: 'Run a cafe, venue, event or community in Pune? Send Peak Pune a short note. Peak Pune is a radar, not a directory, and cannot promise a listing.', crumbs: [['Work with Peak Pune', '/partner/']] },
   { file: 'about', path: '/about/', ldType: 'AboutPage', title: 'About Peak Pune: who it is for and how listings are checked', description: 'Peak Pune is a Pune discovery site for source-checked places, events, runs, treks and meetups. How listings are sourced and checked, who organises what, and how to report a mistake.', crumbs: [['About', '/about/']] },
   { file: 'moments', path: '/moments/', fill: 'moments', noindex: true, title: 'Peak Pune Moments | Peak Pune', description: 'Genuine Pune moments will appear here after review. Reader submissions are not open yet.', crumbs: [['Moments', '/moments/']] },
+  { file: 'links', path: '/links/', bare: true, title: 'Peak Pune links: Instagram, WhatsApp, events, places, communities', description: 'Every Peak Pune link in one place: Instagram, the WhatsApp group and channel, what is on in Pune, places to visit, communities to join and the community list.' },
+  { file: 'peakpune-events', path: '/peakpune-events/', noindex: true, title: 'Official Peak Pune events | Peak Pune', description: 'Events hosted by Peak Pune itself. None are announced yet.', crumbs: [['Peak Pune events', '/peakpune-events/']] },
   { file: 'powered-by', path: '/powered-by/', ctaShort: true, title: 'Powered by PuneRunners, Pune Trekkers and Karawaan | Peak Pune', description: 'The three Pune groups behind Peak Pune runs, treks and trips: PuneRunners Club, Pune Trekkers and Karawaan. What each does and where to join.', crumbs: [['Powered by', '/powered-by/']] },
 ];
 
@@ -476,7 +480,8 @@ export function build({ outDir = join(root, 'public'), log = () => {}, dryRun = 
     if (p.fill === 'history') main = main.replace('<!--HISTORY-->', historyBlock(publishRows(JSON.parse(read('data/batch-6-history/history.json')))));
     if (p.fill === 'markets') { const m = JSON.parse(read('data/batch-7-shopping/shopping.json')); main = main.replace('<!--AREAS-->', publishRows(m.areas).map(areaCard).join('')).replace('<!--RETAIL-->', publishRows(m.shops).filter((s) => s.category === 'retail').map(shopCard).join('')).replace('<!--FOOD-->', publishRows(m.shops).filter((s) => s.category === 'food').map(shopCard).join('')); }
     if (p.fill === 'moments') main = main.replace('<!--MOMENTS-->', momentsBlock(publishRows(JSON.parse(read('data/batch-5-moments-reference/moments.json')))));
-    out(p.path, page({ ...p, ctaText: p.ctaShort ? ctaShort : cta, main, ld: [{ '@type': p.ldType || 'WebPage', '@id': SITE_URL + p.path, url: SITE_URL + p.path, name: p.title, description: p.description, isPartOf: { '@id': `${SITE_URL}/#site` }, ...(p.ldType === 'AboutPage' ? { about: { '@id': `${SITE_URL}/#org` } } : {}) }] }));
+    if (p.bare) main = main.replace('<!--MARK-->', mark);
+    out(p.path, bareStrip(p.bare, page({ ...p, ctaText: p.bare ? '' : p.ctaShort ? ctaShort : cta, main, ld: [{ '@type': p.ldType || 'WebPage', '@id': SITE_URL + p.path, url: SITE_URL + p.path, name: p.title, description: p.description, isPartOf: { '@id': `${SITE_URL}/#site` }, ...(p.ldType === 'AboutPage' ? { about: { '@id': `${SITE_URL}/#org` } } : {}) }] })));
     // Pages with nothing published yet stay out of the sitemap.
     if (!p.noindex) urls.push([p.path, null]);
   }
