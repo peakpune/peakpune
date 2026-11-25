@@ -48,5 +48,5 @@ class AppConfig {
   static const bool fixturesRequested =
       bool.fromEnvironment('PUNEPEDIA_FIXTURES', defaultValue: false);
 
-  static const String privacyContact = 'hello@aakashkamdi.com';
+  static const String privacyContact = 'privacy@peakpune.com';
 }
