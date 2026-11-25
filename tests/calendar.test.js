@@ -49,9 +49,9 @@ test('google link carries title, dates, details and a location, with the time zo
 test('the build writes one .ics per dated card plus the combined file, and the page links them', () => {
   const html = readFileSync('public/events/index.html', 'utf8');
   const cards = [...html.matchAll(/href="(\/calendar\/event-[^"]+\.ics)"/g)].map((m) => m[1]);
-  assert.ok(cards.length >= 1);
+  // Zero cards is valid: every listed event can have ended, and the daily refresh then empties the page.
   for (const c of cards) assert.ok(existsSync('public' + c), c);
-  assert.ok(html.includes('/calendar/peak-pune-events.ics'));
+  if (cards.length) assert.ok(html.includes('/calendar/peak-pune-events.ics'));
   const files = readdirSync('public/calendar');
   assert.equal(files.length, cards.length + 1, 'no stale or withheld events in the calendar folder');
   const all = readFileSync('public/calendar/peak-pune-events.ics', 'utf8');
