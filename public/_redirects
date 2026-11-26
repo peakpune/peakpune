@@ -1,0 +1,4 @@
+# Cloudflare Pages redirects. /stops/ was folded into the Metro guide's "Places near each station"
+# section; the old placeholder page carried a noindex tag, which Search Console flagged.
+/stops /PuneMetroguide/#near-stations 301
+/stops/ /PuneMetroguide/#near-stations 301

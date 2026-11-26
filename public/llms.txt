@@ -1,0 +1,25 @@
+# Peak Pune
+
+> Peak Pune is Pune's unofficial guide to doing interesting shit: a city radar with a short list of things worth leaving the house for, plus places, running loops, treks and meetups. It does not organise runs or treks; it points to the people who do.
+
+## Explore
+
+- [Places](https://peakpune.com/places/): checked places across Pune, by type and neighbourhood
+- [Koregaon Park guide](https://peakpune.com/koregaonpark/): map guide to the KP area
+- [East Pune guide](https://peakpune.com/eastpune/): map guide to East Pune
+- [Interests](https://peakpune.com/interests/): the same places grouped by hobby
+- [Markets](https://peakpune.com/markets/): market areas and famous shops
+- [History](https://peakpune.com/history/): sourced history of Pune places, English and Marathi
+- [Sky](https://peakpune.com/sky/): moon, eclipses, planets and meteor showers visible from Pune
+
+## Outdoors and travel
+
+- [Runs and treks](https://peakpune.com/outdoors/): running loops and treks near Pune
+- [Pune Metro guide](https://peakpune.com/PuneMetroguide/): lines, stations, tickets, fares, timings and an offline journey planner
+
+## Community
+
+- [Meetups](https://peakpune.com/meetups/): groups that organise; Peak Pune links to them
+- [Events](https://peakpune.com/events/): what is on, with source links
+- [Watch together](https://peakpune.com/watch-together/): pool up for the same film
+- [About](https://peakpune.com/about/): where listings come from

@@ -180,7 +180,9 @@ export function buildMetroGuide({ ctx }) {
   files[cssName] = css; files[jsName] = js;
   let plannerName = null;
   if (existsSync(join(root, PLANNER_BUNDLE))) { const b = readFileSync(join(root, PLANNER_BUNDLE)); plannerName = `planner.${hash(b)}.js`; files[plannerName] = b; }
-  const main = renderGuideMain({ data, model, areas, esc, nearby: ctx.nearby });
+  // email_off: keep Cloudflare's email obfuscation off the operator contact addresses. Its rewrite
+  // turns them into /cdn-cgi/l/email-protection links, which crawlers follow into 404s.
+  const main = '<!--email_off-->' + renderGuideMain({ data, model, areas, esc, nearby: ctx.nearby }) + '<!--/email_off-->';
   const title = 'Pune Metro guide and journey planner: lines, stations, fares, timings | Peak Pune';
   const description = `Pune Metro lines, stations, tickets, fares and timings with an offline journey planner, last verified ${longDate(data.verified_on)}. Timetable information only, no live trains.`;
   let html = page({ path: GUIDE_PATH, title, description, main, crumbs: [['Pune Metro guide', GUIDE_PATH]], ld: [{ '@type': 'WebPage', '@id': SITE_URL + GUIDE_PATH, url: SITE_URL + GUIDE_PATH, name: title, description, dateModified: data.verified_on, inLanguage: 'en-IN', isPartOf: { '@id': `${SITE_URL}/#site` } }] });

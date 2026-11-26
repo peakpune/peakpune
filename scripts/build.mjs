@@ -9,7 +9,7 @@ import { fileURLToPath } from 'node:url';
 import { publishAuditedRows } from '../public/lib/publication.js';
 import { googleUrl, ics, icsPath, when, ALL_ICS_PATH } from './calendar.mjs';
 import { buildMetroGuide, writeMetroAssets, GUIDE_PATH } from './metro-guide.mjs';
-import { buildStops, buildInterests, STOPS_PATH, INTERESTS_PATH } from './discover-pages.mjs';
+import { buildStops, buildInterests, INTERESTS_PATH } from './discover-pages.mjs';
 
 // Astro bundles this module; cwd remains the project root in both build paths.
 const root = process.cwd();
@@ -557,7 +557,8 @@ export function build({ outDir = join(root, 'public'), log = () => {}, dryRun = 
   const hrefOf = (r) => safeUrl(r.url_deep) || safeUrl(r.url_official) || safeUrl(r.join_url) || '/events/';
   const listings = [...events, ...meetupRows].map((r) => ({ name: r.name, neighbourhood: r.neighbourhood, href: hrefOf(r) }));
   const stops = buildStops({ root, esc, places: rows, listings, TYPE_SINGULAR, slugOf });
-  out(STOPS_PATH, `<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Pune Metro stops moved | Peak Pune</title><meta name="robots" content="noindex"><link rel="canonical" href="${SITE_URL}${GUIDE_PATH}#near-stations"><meta http-equiv="refresh" content="0; url=${GUIDE_PATH}#near-stations"></head><body><p>Places near each Metro station are now part of the <a href="${GUIDE_PATH}#near-stations">Pune Metro guide</a>.</p></body></html>`);
+  // /stops/ is a 301 in public/_redirects to the guide's near-stations section. No placeholder page:
+  // its noindex tag put the URL in Search Console's not-indexed report.
   const interests = buildInterests({ esc, groups: [
     { label: 'Place', rows, href: (r) => `/places/${slugOf(r)}/` },
     { label: 'Run or trek', labelOf: (r) => (isTrek(r) ? 'Trek' : 'Run'), rows: outdoors, href: (r) => `/outdoors/${slugOut(r)}/` },
