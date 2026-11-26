@@ -2,9 +2,9 @@
 // Interest list: a first name, a WhatsApp number, a preferred day and what they would enjoy. Nothing else.
 import { screenSubmission } from './abuse-guard.js';
 
-export const EVENTS = { 'meet-1': { cap: 30, title: 'Peak Pune Meet 1 interest list (date, place and plan TBC)', closes: '2027-01-01T00:00:00+05:30' } };
+export const EVENTS = { 'meet-1': { cap: 10, title: 'Peak Pune Meet 1 interest list (date, place and plan TBC)', closes: '2027-01-01T00:00:00+05:30' } };
 export const DAYS = ['sat', 'sun', 'weekday', 'any'];
-export const ENJOY = ['picnic', 'games', 'books', 'walk', 'chai'];
+export const ENJOY = ['mall', 'movie', 'laser', 'paintball', 'games', 'picnic', 'walk'];
 export const MIN_FILL_MS = 2000;
 const clean = (v) => String(v ?? '').replace(/[\u0000-\u001f\u007f]/g, ' ').replace(/\s+/g, ' ').trim();
 
@@ -27,7 +27,7 @@ export function validateRsvp(body, { counters, now = new Date() } = {}) {
   const name = clean(body?.name).split(' ')[0];
   const wa = normalizeWhatsApp(body?.wa);
   const day = clean(body?.day) || 'any';
-  const enjoy = clean(body?.enjoy) || 'picnic';
+  const enjoy = clean(body?.enjoy) || 'mall';
   if (!name) errors.push('name required'); else if (name.length > 40) errors.push('name too long'); else if (/\d|@|https?:/i.test(name)) errors.push('first name only');
   if (!wa) errors.push('whatsapp number invalid');
   if (!DAYS.includes(day)) errors.push('day invalid');
