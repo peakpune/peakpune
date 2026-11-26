@@ -1,12 +1,12 @@
-<link rel="stylesheet" href="/meet.css?v=9">
+<link rel="stylesheet" href="/meet.css?v=10">
 <div class="mt-one mt-v8">
 <div class="mt-left1">
 <div class="mt-kick"><span>Meet Nº 1</span> The first official Peak Pune meetup</div>
-<h1 class="mt-big">Less scrolling.<br><em>More picnic.</em></h1>
+<h1 class="mt-big">Peak Pune<br><em>First Meet.</em></h1>
 <div class="mt-date"><small>It happens</small><b>Sat 28 <i>or</i> Sun 29 Nov</b><span>Whichever day gets more interest wins</span></div>
 <div class="mt-pills">
 <div class="mt-pill mt-sg"><small>Where</small><b>Place TBC</b></div>
-<div class="mt-pill mt-cl"><small>Spots</small><b>Only 10</b></div>
+<div class="mt-pill mt-cl"><small>Spots</small><b>Only 12</b></div>
 </div>
 <p class="mt-cost">Rs 99 seriousness token. Not for profit.</p>
 <p class="mt-host">Hosted by <b>Shreya</b>, with co-host <b>Aakash</b>.</p>
@@ -17,40 +17,45 @@
 </div>
 <div id="rsvp" class="mt-right">
 <div>
-<div class="mt-tag">Be one of 10</div>
+<div class="mt-tag">Be one of 12</div>
 <h2>Founding Members.</h2>
 <div class="mt-spots" id="mt-spots" aria-hidden="true"></div>
 <div class="mt-left" id="mt-left" role="status" aria-live="polite"></div>
 <form id="mt-form" method="post" action="#rsvp" novalidate>
 <label><span class="mt-l">First name</span><input name="name" type="text" autocomplete="given-name" maxlength="40" required></label>
-<label><span class="mt-l">WhatsApp number</span><input name="wa" type="tel" inputmode="tel" autocomplete="tel" maxlength="18" placeholder="+91" required></label>
 <fieldset class="mt-chips"><legend class="mt-l">Saturday or Sunday?</legend>
 <input type="radio" name="day" id="mt-d1" value="sat"><label for="mt-d1">Sat 28 Nov</label>
 <input type="radio" name="day" id="mt-d2" value="sun"><label for="mt-d2">Sun 29 Nov</label>
 <input type="radio" name="day" id="mt-d4" value="any" checked><label for="mt-d4">Either works</label>
 </fieldset>
 <fieldset class="mt-chips"><legend class="mt-l">What would you enjoy?</legend>
-<input type="radio" name="enjoy" id="mt-e1" value="mall" checked><label for="mt-e1">Mall meetup</label>
-<input type="radio" name="enjoy" id="mt-e2" value="movie"><label for="mt-e2">Movie plan</label>
-<input type="radio" name="enjoy" id="mt-e3" value="laser"><label for="mt-e3">Laser tag</label>
-<input type="radio" name="enjoy" id="mt-e4" value="paintball"><label for="mt-e4">Paintball</label>
-<input type="radio" name="enjoy" id="mt-e5" value="games"><label for="mt-e5">Board games</label>
-<input type="radio" name="enjoy" id="mt-e6" value="picnic"><label for="mt-e6">Picnic</label>
-<input type="radio" name="enjoy" id="mt-e7" value="walk"><label for="mt-e7">Walk and chai</label>
+<input type="checkbox" name="enjoy" id="mt-e1" value="mall"><label for="mt-e1">Mall meetup</label>
+<input type="checkbox" name="enjoy" id="mt-e2" value="movie"><label for="mt-e2">Movie plan</label>
+<input type="checkbox" name="enjoy" id="mt-e3" value="laser"><label for="mt-e3">Laser tag</label>
+<input type="checkbox" name="enjoy" id="mt-e4" value="paintball"><label for="mt-e4">Paintball</label>
+<input type="checkbox" name="enjoy" id="mt-e5" value="games"><label for="mt-e5">Board games</label>
+<input type="checkbox" name="enjoy" id="mt-e7" value="walk"><label for="mt-e7">Walk and chai</label>
+<input type="checkbox" name="enjoy" id="mt-e8" value="cafe"><label for="mt-e8">Cafe hangout</label>
+<input type="checkbox" name="enjoy" id="mt-e9" value="streetfood"><label for="mt-e9">Street food</label>
+<input type="checkbox" name="enjoy" id="mt-e10" value="bowling"><label for="mt-e10">Bowling</label>
+<input type="checkbox" name="enjoy" id="mt-e11" value="arcade"><label for="mt-e11">Arcade games</label>
 </fieldset>
+<label><span class="mt-l">Anything you want to add? <small>(optional)</small></span><textarea name="note" maxlength="240" rows="2" placeholder="A thought, request or idea"></textarea></label>
 <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
 <button class="mt-go" type="submit">Count me in <span aria-hidden="true">&rarr;</span></button>
-<p class="note">Your number is only used to add you to the meetup WhatsApp group and message you once details are set. It is never shown here. To limit spam we store a salted hash of your IP, not the address.</p>
+<p class="note">Your name and picks go to Aakash on WhatsApp. Your note is optional. We store your interest to count the list, plus a salted IP hash to limit spam.</p>
 <p class="note" id="mt-status" role="status"></p>
 </form>
 <div class="mt-done" id="mt-done" hidden>
 <h2>You're <em>in</em>, <span id="mt-who"></span>.</h2>
 <div class="mt-badge" id="mt-badge"></div>
-<p>The day (Sat or Sun), place and plan are TBC. We will share them on the WhatsApp channel once we see how many are in.</p>
+<p>Copy this text, then paste and send it in WhatsApp to Aakash.</p>
+<textarea id="mt-message" rows="6" readonly aria-label="Your RSVP message"></textarea>
+<div class="mt-social"><button class="mt-social-btn mt-social-wa" id="mt-copy" type="button">Copy RSVP text</button><a class="mt-social-btn mt-social-ig" id="mt-chat" href="https://wa.me/919404828072" target="_blank" rel="noopener noreferrer">Open WhatsApp chat</a></div>
 <a class="mt-btn" href="https://whatsapp.com/channel/0029VbE00gNEVccC06aRUK2e" rel="noopener">Follow the channel for updates</a>
 </div>
 </div>
 </div>
 </div>
 <p class="note mt-foot">Day, place and plan are TBC and go on the WhatsApp channel.</p>
-<script src="/meet.js?v=8" defer></script>
+<script src="/meet.js?v=9" defer></script>
