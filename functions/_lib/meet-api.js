@@ -47,5 +47,5 @@ export async function adminMeetRsvps(request, env, now = new Date()) {
   const event = new URL(request.url).searchParams.get('event') || 'meet-1';
   try { await ensure(env); } catch { return json({ rsvps: [] }); }
   const rows = (await env.DB.prepare('SELECT name, wa, bring, created_at FROM meet_rsvps WHERE event = ? ORDER BY created_at').bind(event).all()).results;
-  return json({ event, count: rows.length, rsvps: rows.map((x, i) => ({ n: i + 1, name: x.name, whatsapp: '+' + x.wa, bring: x.bring, at: new Date(x.created_at).toISOString() })) });
+  return json({ event, count: rows.length, rsvps: rows.map((x, i) => ({ n: i + 1, name: x.name, whatsapp: '+' + x.wa, interest: x.bring, at: new Date(x.created_at).toISOString() })) });
 }
