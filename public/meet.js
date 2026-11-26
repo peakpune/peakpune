@@ -18,8 +18,6 @@ async function load() {
 }
 load();
 
-const mq = $('mt-mq');
-mq.innerHTML = 'Less scrolling<span>&#9679;</span>More living<span>&#9679;</span>Meet Nº 1<span>&#9679;</span>Sat or Sun<span>&#9679;</span>Place TBC<span>&#9679;</span>You decide<span>&#9679;</span>'.repeat(8);
 
 const io = new IntersectionObserver((es) => es.forEach((e) => e.isIntersecting && e.target.classList.add('mt-in')), { threshold: 0.1 });
 document.querySelectorAll('.mt-reveal').forEach((e) => io.observe(e));
