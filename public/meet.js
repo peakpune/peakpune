@@ -35,12 +35,13 @@ form.addEventListener('submit', async (ev) => {
     const j = await r.json().catch(() => ({}));
     if (r.ok) {
       taken = j.count; paint(j.spot); form.hidden = true;
-      if (j.waitlist) $('mt-done').querySelector('p').textContent = 'The first 12 spots are full, but we have your interest. Copy the text and send it to Aakash on WhatsApp.';
+      if (j.waitlist) $('mt-done').querySelector('p').textContent = 'The first 12 spots are full, but we have your interest. WhatsApp will open with your waitlist message ready. Tap Send to deliver it to Aakash. If it does not open, copy the text below.';
       $('mt-who').textContent = name.split(' ')[0]; $('mt-badge').textContent = j.waitlist ? 'Waitlist' : `Founding Member #${j.spot}`;
       const picks = {sat:'Saturday 28 Nov',sun:'Sunday 29 Nov',weekday:'Weekday',any:'Either works'}, things={mall:'Mall meetup',movie:'Movie plan',laser:'Laser tag',paintball:'Paintball',games:'Board games',walk:'Walk and chai',cafe:'Cafe hangout',streetfood:'Street food',bowling:'Bowling',arcade:'Arcade games'};
       const body = [`Hi Aakash, I\'m interested in PeakPune Meet Nº 1.`, `Name: ${name}`, `Day: ${picks[fd.get('day')] || fd.get('day')}`, `Activities: ${enjoy.map(x=>things[x]||x).join(', ')}`, ...(note ? [`Anything to add: ${note}`] : []), ...(j.waitlist ? ['Status: waitlist (first 12 spots are full)'] : [])].join('\n');
-      $('mt-message').textContent=body; $('mt-copy').textContent='Copy RSVP text'; $('mt-chat').href='https://wa.me/919404828072';
-      const done = $('mt-done'); done.hidden = false;
+      $('mt-message').textContent=body; $('mt-copy').textContent='Copy RSVP text'; $('mt-chat').href='https://wa.me/919404828072?text='+encodeURIComponent(body); $('mt-chat').textContent='Open WhatsApp chat';
+      const done = $('mt-done'); done.hidden = false; $('mt-done').querySelector('p').textContent = 'Opening your WhatsApp chat with the RSVP filled in. Tap Send there to send it to Aakash. If it does not open, use Copy RSVP text below.';
+      setTimeout(() => { window.location.assign($('mt-chat').href); }, 250);
       if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
         const card = done.parentElement, cols = ['#E8A317', '#B8381F', '#C9D6B5', '#D9B99B'];
         for (let i = 0; i < 36; i++) { const c = document.createElement('i'); c.className = 'mt-confetti'; c.style.left = Math.random() * 100 + '%'; c.style.background = cols[i % 4]; c.style.animationDelay = Math.random() * 0.5 + 's'; card.appendChild(c); }
