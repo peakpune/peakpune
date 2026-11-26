@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { DatabaseSync } from 'node:sqlite';
 import { readFileSync } from 'node:fs';
 import * as api from '../functions/_lib/meet-api.js';
-import { validateRsvp, normalizeWhatsApp } from '../src/meet-rsvp.js';
+import { validateRsvp } from '../src/meet-rsvp.js';
 
 function makeDB() {
   const db = new DatabaseSync(':memory:');
@@ -19,14 +19,8 @@ function makeDB() {
 const NOW = new Date('2026-11-27T10:00:00Z');
 const mkEnv = () => ({ DB: makeDB(), ADMIN_PASSPHRASE: 'x' });
 const post = (body, ip = '1.1.1.1') => new Request('https://peakpune.test/api/meet-rsvp', { method: 'POST', headers: { 'content-type': 'application/json', 'cf-connecting-ip': ip }, body: JSON.stringify(body) });
-const GOOD = { event: 'meet-1', name: 'Asha', wa: '+91 98765 43210', day: 'sat', enjoy: 'laser' };
+const GOOD = { event: 'meet-1', name: 'Asha', day: 'sat', enjoy: ['laser','cafe'], note: 'Bring a friend' };
 const count = async (env) => (await (await api.meetCount(new Request('https://peakpune.test/api/meet-rsvp'), env)).json()).count;
-
-test('normalizes WhatsApp numbers', () => {
-  assert.equal(normalizeWhatsApp('98765 43210'), '919876543210');
-  assert.equal(normalizeWhatsApp('+91 98765-43210'), '919876543210');
-  assert.equal(normalizeWhatsApp('12'), '');
-});
 
 test('an RSVP is stored, counted and numbered, and the public count exposes nothing else', async () => {
   const env = mkEnv();
@@ -34,34 +28,36 @@ test('an RSVP is stored, counted and numbered, and the public count exposes noth
   assert.equal(res.status, 200);
   const j = await res.json(); assert.equal(j.spot, 1); assert.equal(j.count, 1);
   const pub = JSON.stringify(await (await api.meetCount(new Request('https://peakpune.test/api/meet-rsvp'), env)).json());
-  assert.ok(!pub.includes('Asha') && !pub.includes('9876543210'));
+  assert.ok(!pub.includes('Asha') && !pub.includes('laser'));
 });
 
-test('the same number twice does not take a second spot', async () => {
+test('separate submissions are counted and keep optional choices', async () => {
   const env = mkEnv();
   await api.submitMeetRsvp(post(GOOD, '2.2.2.2'), env, NOW);
-  const again = await (await api.submitMeetRsvp(post({ ...GOOD, name: 'Asha K' }, '3.3.3.3'), env, NOW)).json();
-  assert.equal(again.again, true); assert.equal(await count(env), 1);
+  await api.submitMeetRsvp(post({ ...GOOD, name: 'Mira', note: '' }, '3.3.3.3'), env, NOW);
+  assert.equal(await count(env), 2);
 });
 
 test('honeypot stores nothing and bad input is rejected', async () => {
   const env = mkEnv();
   assert.equal((await api.submitMeetRsvp(post({ ...GOOD, website: 'http://spam' }), env, NOW)).status, 200);
   assert.equal(await count(env), 0);
-  assert.equal((await api.submitMeetRsvp(post({ ...GOOD, wa: '123' }), env, NOW)).status, 400);
+  assert.equal((await api.submitMeetRsvp(post({ ...GOOD, enjoy: [] }), env, NOW)).status, 400);
   assert.equal((await api.submitMeetRsvp(post({ ...GOOD, name: '' }), env, NOW)).status, 400);
   assert.equal((await api.submitMeetRsvp(post({ ...GOOD, day: 'never' }), env, NOW)).status, 400);
   assert.equal((await api.submitMeetRsvp(post({ ...GOOD, event: 'nope' }), env, NOW)).status, 404);
 });
 
-test('stops at 10 and closes at year end', async () => {
+test('caps first 12 spots, accepts later interest as waitlist, and closes at year end', async () => {
   const env = mkEnv();
-  for (let i = 0; i < 10; i++) {
-    const r = await api.submitMeetRsvp(post({ ...GOOD, wa: '98765' + String(10000 + i) }, `9.9.${i}.1`), env, NOW);
+  for (let i = 0; i < 12; i++) {
+    const r = await api.submitMeetRsvp(post({ ...GOOD, name: 'Asha' + String.fromCharCode(65+i) }, `9.9.${i}.1`), env, NOW);
     assert.equal(r.status, 200, 'rsvp ' + i);
   }
-  assert.equal((await api.submitMeetRsvp(post({ ...GOOD, wa: '9000000000' }, '8.8.8.8'), env, NOW)).status, 409);
-  assert.equal(await count(env), 10);
+  const overflow = await api.submitMeetRsvp(post({ ...GOOD, name: 'Extra' }, '8.8.8.8'), env, NOW);
+  assert.equal(overflow.status, 200);
+  assert.equal((await overflow.json()).waitlist, true);
+  assert.equal(await count(env), 13);
   assert.equal(validateRsvp(GOOD, { now: new Date('2027-02-01T10:00:00Z') }).status, 410);
 });
 
