@@ -43,7 +43,7 @@ const HAND = {
   volunteer: ['Contribute', 'Help Peak Pune show you what is on', 'For hosts, volunteers and community builders.', 'people'],
   baddies: ['Peak Pune Baddies', 'Pune has a night. You have a plan.', 'Girls nights, new friends and plans for every baddie in Pune.', 'pin'],
   home: ['Pune radar', 'Everything Pune, in one scroll.', 'Places, events, meetups and moments.', 'sticker'],
-  meet: ['Meet Nº 1', 'Peak Pune First Meet', 'Sat 28 Nov · 3:30 PM IST · Rs 150 · 10 open', 'calendar'],
+  meet: ['Meet Nº 1', 'Peak Pune First Meet', 'Sat 28 Nov · 3:30 PM IST · Rs 150 cover · 10 spots', 'calendar'],
   events: ['Events', 'What is on in Pune', 'Gigs, shows, runs and plans, each linked to its source.', 'calendar'],
   'peakpune-events': ['Events', 'Peak Pune events', 'Events hosted by Peak Pune itself.', 'calendar'],
   places: ['Places', 'Places to visit in Pune', 'Museums, bookstores, cafes and heritage, with addresses and timings.', 'pin'],
