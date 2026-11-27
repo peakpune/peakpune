@@ -11,7 +11,10 @@ test('meet page has a scheduled Event entity and remains indexable in sitemap',(
   const h=readFileSync(join(d,'meet/index.html'),'utf8');
   const graphs=[...h.matchAll(/<script type="application\/ld\+json">(.*?)<\/script>/gs)].map(m=>JSON.parse(m[1]));
   const event=graphs.flatMap(g=>g['@graph']||[]).find(x=>x['@type']==='Event');
-  assert.deepEqual({name:event.name,startDate:event.startDate,eventStatus:event.eventStatus,url:event.url,organizer:event.organizer.name,locality:event.location.address.addressLocality}, {name:"Peak Pune's First Meet",startDate:'2026-11-28',eventStatus:'https://schema.org/EventScheduled',url:'https://peakpune.com/meet/',organizer:'Peak Pune',locality:'Pune'});
+  assert.deepEqual({name:event.name,eventStatus:event.eventStatus,url:event.url,organizer:event.organizer.name,locality:event.location.address.addressLocality}, {name:"Peak Pune's First Meet",eventStatus:'https://schema.org/EventScheduled',url:'https://peakpune.com/meet/',organizer:'Peak Pune',locality:'Pune'});
+  assert.ok(!('startDate' in event), 'No fixed start date while the chosen day is still open');
+  assert.ok(event.description.includes('Sat 28 or Sun 29 Nov'));
+  assert.equal(event.location.name, 'Place TBC');
   assert.match(h,/<meta name="robots" content="index,follow/);
   assert.ok(h.includes('<link rel="canonical" href="https://peakpune.com/meet/">'));
   assert.ok(readFileSync(join(d,'sitemap.xml'),'utf8').includes('<loc>https://peakpune.com/meet/</loc>'));

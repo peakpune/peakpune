@@ -529,3 +529,16 @@ html{scroll-padding-top:88px}
 .pool-row{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:var(--s4) var(--s6)}
 @media(max-width:520px){.pool-row{grid-template-columns:1fr}}
 .plan-actions select{width:100%}
+
+/* Official First Meet poster on the homepage. */
+.meet-poster{position:relative;display:grid;grid-template-columns:1fr auto;align-items:end;gap:var(--s6);margin-top:var(--s8);padding:clamp(24px,5vw,48px);border:3px solid var(--ink);border-radius:var(--r-card);background:var(--haldi);box-shadow:var(--lift);color:var(--ink);text-decoration:none;overflow:hidden}
+.meet-poster:before{content:"";position:absolute;inset:12px;border:1px solid #1C141066;border-radius:8px;pointer-events:none}
+.meet-poster-copy{position:relative;display:grid;gap:var(--s3)}
+.meet-poster .eyebrow{color:var(--brick-dark)}
+.meet-poster h2{font-size:clamp(34px,5vw,58px)}
+.meet-poster h2 em{color:var(--brick-dark)}
+.meet-poster-date{font-size:clamp(20px,2.3vw,28px);font-weight:800}
+.meet-poster-date span{display:block;font-size:15px;font-weight:600;color:var(--ink-soft)}
+.meet-poster-cta{position:relative;display:inline-flex;align-items:center;gap:var(--s3);min-height:48px;padding:0 var(--s6);border:2px solid var(--ink);border-radius:var(--r-pill);background:var(--ink);color:#fff;font-weight:700;white-space:nowrap}
+.meet-poster:hover .meet-poster-cta{background:var(--paper);color:var(--ink)}
+@media(max-width:700px){.meet-poster{grid-template-columns:1fr;gap:var(--s5);margin-top:var(--s6);padding:28px 24px}.meet-poster-cta{justify-self:start}.meet-poster h2{font-size:clamp(34px,10vw,46px)}}
