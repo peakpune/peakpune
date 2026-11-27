@@ -1,6 +1,7 @@
 // Makes one 1200x630 share image per page into public/og/, in the Peak Pune brand (Fraunces, Inter, Peth Paper, Wada Brick, Haldi, Mutha Sage, Misal Clay).
 // Top-level pages are hand-set below (headline, line, tag, colour, motif). Place and trek pages use their own name plus a section motif.
 // Dev-only: needs Google Chrome on PATH as google-chrome. The generated PNGs are committed, so CI and Cloudflare never run this.
+// meet.png is a custom poster: regenerate it from scripts/og/meet-poster.html (see that file), not from this script.
 //   node scripts/og/generate.mjs
 import { build, ogSlug } from '../build.mjs';
 import { execFileSync } from 'node:child_process';
@@ -43,7 +44,6 @@ const HAND = {
   volunteer: ['Contribute', 'Help Peak Pune show you what is on', 'For hosts, volunteers and community builders.', 'people'],
   baddies: ['Peak Pune Baddies', 'Pune has a night. You have a plan.', 'Girls nights, new friends and plans for every baddie in Pune.', 'pin'],
   home: ['Pune radar', 'Everything Pune, in one scroll.', 'Places, events, meetups and moments.', 'sticker'],
-  meet: ['Meet Nº 1', 'Peak Pune First Meet', 'Sat 28 Nov · 3:30 PM IST · Rs 150 cover · 10 spots', 'calendar'],
   events: ['Events', 'What is on in Pune', 'Gigs, shows, runs and plans, each linked to its source.', 'calendar'],
   'peakpune-events': ['Events', 'Peak Pune events', 'Events hosted by Peak Pune itself.', 'calendar'],
   places: ['Places', 'Places to visit in Pune', 'Museums, bookstores, cafes and heritage, with addresses and timings.', 'pin'],
