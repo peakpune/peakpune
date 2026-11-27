@@ -46,5 +46,5 @@ const bx = start + quiet, by = start + quiet;
 parts.push(`<rect x="${bx - 0.35}" y="${by - 0.35}" width="${badge + 0.7}" height="${badge + 0.7}" rx="1.35" fill="${light}" stroke="${ink}" stroke-width="0.35"/>`);
 parts.push(`<rect x="${bx + 0.05}" y="${by + 0.05}" width="${badge - 0.1}" height="${badge - 0.1}" rx="1.05" fill="${haldi}" stroke="${ink}" stroke-width="0.2"/>`);
 parts.push(`<text x="${bx + badge / 2}" y="${by + badge / 2 + 0.68}" text-anchor="middle" font-family="Arial,sans-serif" font-size="2.15" font-weight="900" fill="${ink}">PP</text></svg>`);
-writeFileSync('public/meet-payment.svg', parts.join(''));
+writeFileSync('public/meet-payment.svg', parts.join('') + '\\n');
 console.log(`Generated ${size}x${size} H-correction brick-red QR SVG from the Rs 150 UPI payload.`);
