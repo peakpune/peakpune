@@ -542,3 +542,10 @@ html{scroll-padding-top:88px}
 .meet-poster-cta{position:relative;display:inline-flex;align-items:center;gap:var(--s3);min-height:48px;padding:0 var(--s6);border:2px solid var(--ink);border-radius:var(--r-pill);background:var(--ink);color:#fff;font-weight:700;white-space:nowrap}
 .meet-poster:hover .meet-poster-cta{background:var(--paper);color:var(--ink)}
 @media(max-width:700px){.meet-poster{grid-template-columns:1fr;gap:var(--s5);margin-top:var(--s6);padding:28px 24px}.meet-poster-cta{justify-self:start}.meet-poster h2{font-size:clamp(34px,10vw,46px)}}
+
+/* Official First Meet card in the Events surface. */
+.meet-event-card{display:block;max-width:780px;padding:clamp(22px,4vw,36px);border:3px solid var(--ink);border-radius:var(--r-card);background:var(--haldi);box-shadow:var(--lift);color:var(--ink);text-decoration:none}
+.meet-event-card .eyebrow{color:var(--brick-dark)}
+.meet-event-card h3{font:700 clamp(28px,4vw,42px)/1.1 var(--display);margin:var(--s3) 0}
+.meet-event-date{font-size:clamp(20px,2.5vw,28px);font-weight:800;margin:0}
+.meet-event-cta{display:inline-flex;align-items:center;min-height:44px;margin-top:var(--s2);font-weight:800;text-decoration:underline}

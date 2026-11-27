@@ -20,6 +20,7 @@ test('meet page has a scheduled Event entity and remains indexable in sitemap',(
   assert.ok(readFileSync(join(d,'sitemap.xml'),'utf8').includes('<loc>https://peakpune.com/meet/</loc>'));
   assert.ok(urls.some(([p])=>p==='/meet/'));
 });
+test('official First Meet appears on upcoming events surface and links to /meet',()=>{const d=mkdtempSync(join(tmpdir(),'pp-official-meet-'));build({outDir:d});const h=readFileSync(join(d,'events/index.html'),'utf8');const card=h.match(/<a class="meet-event-card"[\s\S]*?<\/a>/)?.[0]||'';assert.ok(card);assert.match(card,/href="\/meet\/"/);for(const copy of ['Peak Pune First Meet','Sat 28 or Sun 29 Nov','Whichever day gets more interest wins','Place TBC','12 spots + waitlist','Rs 99 seriousness token. Not for profit.','Hosted by Shreya, with co-host Aakash.'])assert.ok(card.includes(copy),copy);assert.ok(!/\b(?:venue|picnic|men|women|gender)\b/i.test(card));});
 test('build writes one canonical page per sitemap url',()=>{const d=mkdtempSync(join(tmpdir(),'pp-'));const urls=build({outDir:d});assert.ok(urls.length>30);
   for(const [p] of urls){const f=join(d,p,'index.html');assert.ok(existsSync(f),p);const h=readFileSync(f,'utf8');assert.ok(h.includes(`<link rel="canonical" href="${SITE_URL}${p}">`),p);assert.equal((h.match(/<h1/g)||[]).length,1,p);JSON.parse(h.match(/ld\+json">(.*?)<\/script>/s)[1]);}
   const sm=readFileSync(join(d,'sitemap.xml'),'utf8');assert.equal((sm.match(/<loc>/g)||[]).length,urls.length);assert.ok(!sm.includes('404'));});
