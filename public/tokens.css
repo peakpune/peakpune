@@ -549,3 +549,7 @@ html{scroll-padding-top:88px}
 .meet-event-card h3{font:700 clamp(28px,4vw,42px)/1.1 var(--display);margin:var(--s3) 0}
 .meet-event-date{font-size:clamp(20px,2.5vw,28px);font-weight:800;margin:0}
 .meet-event-cta{display:inline-flex;align-items:center;min-height:44px;margin-top:var(--s2);font-weight:800;text-decoration:underline}
+.meet-event-card{background:var(--paper);display:grid;gap:var(--s2)}
+.meet-event-poster{display:block;width:100%;height:auto;border:3px solid var(--ink);border-radius:var(--r-card);margin-bottom:var(--s3)}
+.meet-event-card p{margin:0;line-height:1.5}
+.meet-event-card .meet-event-cta{margin-top:var(--s2);font-weight:800}
