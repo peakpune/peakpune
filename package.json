@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "npm run metro:check && npm run build:types && node scripts/prepare-astro.mjs && cross-env ASTRO_TELEMETRY_DISABLED=1 astro build && node scripts/publish-static.mjs",
+    "build": "npm run qr:meet && npm run metro:check && npm run build:types && node scripts/prepare-astro.mjs && cross-env ASTRO_TELEMETRY_DISABLED=1 astro build && node scripts/publish-static.mjs",
     "test": "node --test",
     "dev": "npm run build && python3 -m http.server 4173 --directory public",
     "build:types": "tsc -p tsconfig.client.json",
@@ -15,7 +15,8 @@
     "metro:data": "node scripts/metro-gleam-data.mjs",
     "metro:build": "node scripts/metro-build.mjs",
     "metro:test": "cd metro && gleam test",
-    "metro:offline": "node scripts/metro-offline-check.mjs"
+    "metro:offline": "node scripts/metro-offline-check.mjs",
+    "qr:meet": "node scripts/generate-meet-qr.mjs"
   },
   "devDependencies": {
     "@astrojs/check": "0.9.12",
@@ -24,6 +25,7 @@
     "astro": "7.4.11",
     "cross-env": "7.0.3",
     "maplibre-gl": "^5.13.0",
+    "qrcode": "^1.5.4",
     "svelte": "5.57.3",
     "svelte-check": "4.7.8",
     "typescript": "6.0.3"
