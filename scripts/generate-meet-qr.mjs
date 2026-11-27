@@ -2,7 +2,7 @@ import { writeFileSync } from 'node:fs';
 import QRCode from 'qrcode';
 
 // This matches the exact, verified Pay Rs 150 UPI link on the page.
-const payload = 'upi://pay?pa=aakash.kamdi%40superyes&pn=Aakash%20Kamdi&am=150&cu=INR&tn=PeakPune%20Meet%201st';
+const payload = 'upi://pay?pa=aakash.kamdi@superyes&pn=Aakash%20Kamdi&am=150&cu=INR&tn=PeakPune%20Meet%201st';
 const qr = QRCode.create(payload, { errorCorrectionLevel: 'H' });
 const size = qr.modules.size;
 const quiet = 4;
