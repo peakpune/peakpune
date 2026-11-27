@@ -11,16 +11,17 @@ test('meet page has a scheduled Event entity and remains indexable in sitemap',(
   const h=readFileSync(join(d,'meet/index.html'),'utf8');
   const graphs=[...h.matchAll(/<script type="application\/ld\+json">(.*?)<\/script>/gs)].map(m=>JSON.parse(m[1]));
   const event=graphs.flatMap(g=>g['@graph']||[]).find(x=>x['@type']==='Event');
-  assert.deepEqual({name:event.name,eventStatus:event.eventStatus,url:event.url,organizer:event.organizer.name,locality:event.location.address.addressLocality}, {name:"Peak Pune's First Meet",eventStatus:'https://schema.org/EventScheduled',url:'https://peakpune.com/meet/',organizer:'Peak Pune',locality:'Pune'});
+  assert.deepEqual({name:event.name,eventStatus:event.eventStatus,url:event.url,organizer:event.organizer.name,locality:event.location.address.addressLocality,place:event.location.name,startTime:event.startTime}, {name:"Peak Pune's First Meet",eventStatus:'https://schema.org/EventScheduled',url:'https://peakpune.com/meet/',organizer:'Peak Pune',locality:'Shivajinagar, Pune',place:'Shivajinagar park',startTime:'17:30'});
   assert.ok(!('startDate' in event), 'No fixed start date while the chosen day is still open');
   assert.ok(event.description.includes('Sat 28 or Sun 29 Nov'));
-  assert.equal(event.location.name, 'Place TBC');
+  assert.equal(event.location.name, 'Shivajinagar park');
+  assert.equal(event.startTime, '17:30');
   assert.match(h,/<meta name="robots" content="index,follow/);
   assert.ok(h.includes('<link rel="canonical" href="https://peakpune.com/meet/">'));
   assert.ok(readFileSync(join(d,'sitemap.xml'),'utf8').includes('<loc>https://peakpune.com/meet/</loc>'));
   assert.ok(urls.some(([p])=>p==='/meet/'));
 });
-test('official First Meet appears on upcoming events surface and links to /meet',()=>{const d=mkdtempSync(join(tmpdir(),'pp-official-meet-'));build({outDir:d});const h=readFileSync(join(d,'events/index.html'),'utf8');const card=h.match(/<a class="meet-event-card"[\s\S]*?<\/a>/)?.[0]||'';assert.ok(card);assert.match(card,/href="\/meet\/"/);for(const copy of ['Peak Pune First Meet','Sat 28 or Sun 29 Nov','Whichever day gets more interest wins','Place TBC','12 spots + waitlist','Rs 99 seriousness token. Not for profit.','Hosted by Shreya, with co-host Aakash.'])assert.ok(card.includes(copy),copy);assert.ok(!/\b(?:venue|picnic|men|women|gender)\b/i.test(card));});
+test('official First Meet appears on upcoming events surface and links to /meet',()=>{const d=mkdtempSync(join(tmpdir(),'pp-official-meet-'));build({outDir:d});const h=readFileSync(join(d,'events/index.html'),'utf8');const card=h.match(/<a class="meet-event-card"[\s\S]*?<\/a>/)?.[0]||'';assert.ok(card);assert.match(card,/href="\/meet\/"/);for(const copy of ['Peak Pune First Meet','Sat 28 or Sun 29 Nov','Whichever day gets more interest wins','5:30 PM','Shivajinagar park','10 people max','Rs 99','exact spot is confirmed with you in the group or individually over WhatsApp.','Hosted by Shreya, with co-host Aakash.'])assert.ok(card.includes(copy),copy);assert.ok(!/\b(?:venue|picnic|men|women|gender)\b/i.test(card));});
 test('build writes one canonical page per sitemap url',()=>{const d=mkdtempSync(join(tmpdir(),'pp-'));const urls=build({outDir:d});assert.ok(urls.length>30);
   for(const [p] of urls){const f=join(d,p,'index.html');assert.ok(existsSync(f),p);const h=readFileSync(f,'utf8');assert.ok(h.includes(`<link rel="canonical" href="${SITE_URL}${p}">`),p);assert.equal((h.match(/<h1/g)||[]).length,1,p);JSON.parse(h.match(/ld\+json">(.*?)<\/script>/s)[1]);}
   const sm=readFileSync(join(d,'sitemap.xml'),'utf8');assert.equal((sm.match(/<loc>/g)||[]).length,urls.length);assert.ok(!sm.includes('404'));});
