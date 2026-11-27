@@ -119,6 +119,7 @@
 .mt-pill em{display:block;font-style:normal;font-size:12px;color:var(--ink-soft);margin-top:2px}
 .mt-sg{background:var(--sage)}.mt-cl{background:var(--clay)}.mt-wt{background:var(--white)}
 .mt-host{margin:var(--s5) 0 0;font-size:16px}.mt-host a{margin-left:10px;font-weight:700}
+.mt-host .mt-host-btn{display:inline-block;margin:3px 0 3px 8px;padding:5px 11px;border:2px solid var(--ink);border-radius:var(--r-pill);background:var(--sage);box-shadow:3px 3px 0 var(--ink);color:var(--ink);font:800 13px/1.15 var(--body);text-decoration:none;transition:transform .12s,box-shadow .12s}.mt-host .mt-host-btn:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 var(--ink)}.mt-host .mt-host-btn:focus-visible{outline:3px solid var(--brick);outline-offset:3px}
 .mt-v8 .mt-right{background:var(--white);box-shadow:10px 10px 0 var(--ink);padding:var(--s6);align-self:center}
 .mt-tag{display:inline-block;background:var(--brick);color:var(--paper);font:800 12px var(--body);letter-spacing:.14em;text-transform:uppercase;border-radius:var(--r-pill);padding:4px 12px}
 .mt-v8 .mt-right h2{font-size:clamp(30px,3.4vw,46px);margin:var(--s2) 0 0}
